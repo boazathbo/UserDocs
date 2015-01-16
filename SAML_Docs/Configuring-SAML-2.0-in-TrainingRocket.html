@@ -1,0 +1,103 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for TrainingRocket</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+<ol>
+<li>
+<p dir="ltr">Log into <strong>TrainingRocket</strong> as an administrator.</p>
+</li>
+<li>Navigate to <strong>Admin</strong>:<br /><br />
+<table class="toptable” style="height: 584px; width: 430px;" border="0">
+<tbody>
+<tr valign="top">
+<td valign="top"><img style="border: 0; padding: 0;" src="images/apps/TrainingRocket1.png" alt="TrainingRocket1.png" /></td>
+</tr>
+</tbody>
+</table>
+<p>Select <strong>Setup &gt; SAML 2.0 Configurations</strong>.</p>
+<table class="toptable” style="height: 584px; width: 430px;" border="0">
+<tbody>
+<tr valign="top">
+<td valign="top"><img style="border: 0; padding: 0;" src="images/apps/TrainingRocket2.png" alt="TrainingRocket2.png" /></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p dir="ltr">Select <strong>New</strong>.</p>
+</li>
+<li>Specify the following values, as follows (see screen shot at end of step for details):<br /><br />Note that you can leave most default values for Okta connections.<br />
+<ul>
+<li><strong>Local Alias</strong>: <strong>tr</strong> (this can be any ASCII key, no spaces, no punctuation)</li>
+<li><strong>Entity ID</strong>:&nbsp;<strong>http://trainingrocket.com</strong> (this should be something unique to the server. If on a custom host, use that domain name)</li>
+<li><strong>Base URL</strong>:&nbsp;<strong>http://trainingrocket.com</strong> (this is the root of the training rocket server, as accessible by the public. Do not use a trailing '/')</li>
+<li><strong>Signed Metadata</strong>: <strong>Yes</strong></li>
+<li><strong>Signed Request</strong>: <strong>Yes</strong></li>
+<li><strong>Signed Assertion Wanted</strong>: <strong>No</strong></li>
+<li><strong>Signing Key</strong>: (select the key you wish to use when signing)</li>
+<li><strong>Encryption Key</strong>: (select the key you wish to use when encrypting)</li>
+<li><strong>TLS/SSL Key</strong>: Unselected (select the key you wish to use when using TLS/SSL protocol)</li>
+<li><strong>SSO Bindings</strong>: <strong>SSOArtifact</strong>, <strong>SSO HTTP-POST</strong></li>
+<li><strong>Default SSO Binding</strong>: <strong>SSO Artifact</strong> (must be one of the SSO Bindings enabled above)</li>
+<li><strong>Security Profile</strong>: <strong>MetalOP</strong></li>
+<li><strong>SSL Security Profile</strong>: <strong>PKIX</strong></li>
+<li><strong>Signed Logout Request Required</strong>: <strong>No</strong></li>
+<li><strong>Signed Logout Response Required</strong>: <strong>No</strong></li>
+<li><strong>Signed Artifact Resolve Required</strong>: <strong>No<br /><br /><img style="border: 0; padding: 0;" src="images/apps/TrainingRocket3.png" alt="TrainingRocket3.png" /><br /></strong></li>
+</ul>
+</li>
+<li>
+<p>Click <strong>Save</strong>. Once saved this enables other IDPs to authenticate for <strong>TrainingRocket</strong>.</p>
+</li>
+<li>Set up the link to Okta in <strong>TrainingRocket</strong>.<ol>
+<li>Open a new browser window.</li>
+<li>Sign in to <strong>TrainingRocket</strong> as an Administrator.</li>
+<li>Navigate to&nbsp;<strong>Admin &gt; Setup &gt; SAML 2.0 Configurations</strong>.<br /><br /><img style="border: 0; padding: 0;" src="images/apps/TrainingRocket4.png" alt="TrainingRocket4.png" /></li>
+<li>Select <strong>New</strong>.</li>
+<li>Enter the following values:&nbsp;
+<ul>
+<ul>
+<li><strong>Enabled</strong>: <strong>Yes</strong></li>
+<li><strong>Name</strong>: <strong>Okta</strong> (this can be any value that makes sense; it will be seen by users when signing in via the standard TrainingRocket login page)</li>
+<li><strong>Description</strong>: Optional description</li>
+<li><strong>External Key</strong>: Copy in the following value:<kbd id="issuer">Sign in to the Okta Admin app to have this variable generated for you</kbd></li>
+<li><strong>Login URL</strong>: Copy in the following value:<kbd id="signOnUrl">Sign in to the Okta Admin app to generate this variable</kbd></li>
+<li><strong>IDP Metadata URL</strong>: Copy in the following value:<kbd id="metadataUrl">Sign in to the Okta Admin app to have this variable generated for you</kbd></li>
+</ul>
+</ul>
+<p><img style="border: 0; padding: 0;" src="images/apps/TrainingRocket5.png" alt="TrainingRocket5.png" /></p>
+</li>
+</ol></li>
+<li>Done!</li>
+</ol><strong><br /></strong></div>
+
+
+
+
+
+</body>
+</html>
