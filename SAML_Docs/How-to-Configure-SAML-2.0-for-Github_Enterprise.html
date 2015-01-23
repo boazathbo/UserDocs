@@ -1,0 +1,53 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Github Enterprise</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+<li>
+<p>Sign in to your Github Admin Console at <strong>https://[hostName]/setup</strong> where <em>[hostName]</em> is your Github Enterprise host name.</p>
+</li>
+
+<li><p>Select <strong>Authentication</strong> on the left menu bar. Next, select <strong>SAML</strong>, as shown below.</p><p><img source=“images/apps/Github_Enterprise.png”</img></li>
+
+
+<li><p>Copy following URL in to the <strong>Sign On URL</strong> field:</p>
+<kbd id="signOnUrl">Sign into the Okta Admin dashboard to generate this value.</kbd></li>
+
+<li><p>Select the link below to download a <strong>Verification Certificate</strong>.</p>
+<kbd id=“downloadCert”>Sign in to the Okta Admin dashboard to generate this value.</kbd></li>
+
+<li><p>After the certificated is downloaded, select the <strong>Browse</strong> link and upload it.</li>
+
+<li><p>Scroll down and select <strong>Save</strong>.</li>
+
+<li>In Okta, on the <strong>General</strong> tab for the Github Enterprise app, enter your GitHub Enterprise Domain URL/Hostname. This value is on the Authentication settings page that you just saved in your GitHub Admin Console.</li>
+
+<li><p>Done!</p>
+<p><strong>Note: </strong> IdP-initiated and SP-initiated flows are supported. Just In Time (JIT) provisioning is not supported.</li>
+
+</ol>
+</div>
+</body>
+</html>

@@ -4,7 +4,7 @@ function processData(data) {
   $('#changePasswordUrl').html(data["changePasswordUrl"]);
   $('#downloadCertificate').html('<a href="' + data["idpCertDownload"] + '">' + data["idpCertDownload"] + '</a>');
    $('#downloadCertificatePem').html('<a href="' + data["idpCertDownload"] + '?fileExtension=pem">' + data["idpCertDownload"] + '</a>');
-  $('#idpMetadata').html(data["idpMetadata"]);
+  $('#idpMetadata').text(vkbeautify.xml(data["idpMetadata"]));
   $('#x509CertText').html(data["x509CertText"]);
   $('#x509CertTextPem').html(data["x509CertTextPem"]);
   $('#x509CertTextPem').css("white-space", "pre");
@@ -12,7 +12,7 @@ function processData(data) {
   $('#validFrom').html(data["validFrom"]);
   $('#validTo').html(data["validTo"]);
   $('#issuer').html(data["issuer"]);
-$('#metadataUrl').html(data["signOnUrl"]);
+$('#metadataUrl').html(data["signOnUrl"] + '/metadata');
  $('#errorUrl').html(data["signOutUrl"]);
  $('#timeoutUrl').html(data["signOutUrl"]);
  $('#delAuthUrl').html(data["delAuthUrl"]);
