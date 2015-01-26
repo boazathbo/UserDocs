@@ -1,0 +1,74 @@
+<html>
+<head>
+    <link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        try{Typekit.load();}catch(e){}
+    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="resources/scripts/vkbeautify.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+    <title>Setup SSO</title>
+
+    <script src="resources/scripts/getAppValues.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+    <div class="logo-container">
+        <img src="resources/css/okta-logo-white.png" alt="Okta" />
+    </div>
+</div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for HelpGizmo</h1>
+
+
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
+</div>
+<ol>
+<li>Log into HelpGizmo as an administrator.</li>
+<li>Navigate to <strong>Settings &gt; Security</strong>.</li>
+<li>Select the <strong>Enable SAML</strong> checkbox.</li>
+<li>Enter the following values (see screen capture at end of step for reference):
+<ul>
+<ul>
+<ul>
+<li><strong>iDP EntityID</strong>. Paste the following into this field:<kbd id="issuer">Sign in to the Okta Admin&nbsp;app to generate this variable.</kbd></li>
+<li><strong>Login URL</strong>. Paste the following into this field:<kbd id="signOnUrl"> Sign in to the Okta Admin&nbsp;app to generate this variable.</kbd></li>
+<li><strong>Logout URL</strong>. Paste the following into this field:<kbd id="signOutUrl"> Sign in to the Okta Admin&nbsp;app to generate this variable.</kbd></li>
+<li>Download the x.509 Certificate in .cert format, the click <strong>Browse</strong>&nbsp;and upload the downloaded certificate:<br /><kbd id="downloadCertificate">Sign in to the Okta Admin&nbsp;app to generate this variable.</kbd></li>
+</ul>
+</ul>
+</ul>
+<img style="border: 0; padding: 0;" src="images/apps/helpgizmo.png" alt="helpgizmo.png" /><br /><br /></li>
+<li>Select <strong>Save</strong>.</li>
+<li>Copy your instance ID from the address bar in your browser:<br /><br /><img style="border: 0; padding: 0;" src="images/apps/HelpGizmo2.png" alt="HelpGizmo2.png" /></li>
+<li>In Okta, navigate to the <strong>General</strong> tab for the <strong>HelpGizmo</strong> app, then select <strong>Edit</strong>.</li>
+<li>Select <strong>Entity ID: Reader Mapping</strong>.</li>
+<li>Enter the <strong>ACS URL: https://app.helpgizmo.com/kb/map-saml/id/&lt;yourID&gt;</strong> where <strong>yourID</strong> is the value from step 6, above.</li>
+<li>Select <strong>Save</strong>.</li>
+<li>In <strong>HelpGizmo</strong>, select the <strong>Map Reader Fields</strong> link, then enter the following values (see screen shot at end of step for reference):
+<ul>
+<li><strong>SSO ID</strong>: <strong>userid</strong></li>
+<li><strong>Username/Email</strong>: <strong>userid</strong></li>
+<li><strong>Custom Field 1</strong>: <strong>firstname</strong></li>
+<li><strong>Custom Field 2</strong>: <strong>lastname<br /><br /><img style="border: 0; padding: 0;" src="images/apps/HelpGizmo3.png" alt="HelpGizmo3.png" /><br /></strong></li>
+</ul>
+</li>
+<li>In Okta, navigate to the <strong>General</strong> tab for the <strong>HelpGizmo</strong> app, then select <strong>Edit</strong>.</li>
+<li>Enter the&nbsp;<strong>ACS URL: https://&lt;YourSubDomain&gt;.helpgizmo.com/help/saml-login</strong>&nbsp;where&nbsp;<strong>YourSubDomain</strong>&nbsp;is your HelpGizmos subdomain.</li>
+<li>Select <strong>Save</strong>.</li>
+<li>Done!</li>
+</ol><strong>Notes:</strong>
+<ul>
+<li>IdP-initiated flows,&nbsp;SP-initiated flows, and Just in Time (JIT) provisioning&nbsp;are supported.</li>
+<li>For SP-initiated flows, go to the login page of your account (<strong>https://&lt;YourSubDomain.HelpGizmo.com</strong>) and select the <strong>Login</strong> link.</li>
+</ul>
+
+
+    
+    
+</div>
+</body>
+</html>
