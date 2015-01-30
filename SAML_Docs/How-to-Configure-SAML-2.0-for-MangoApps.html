@@ -1,0 +1,44 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for MangoApps</h1>
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
+</div>
+<ol>
+<li>Login to <strong>MangoApps</strong> as an Administrator.</li>
+<li>Navigate to <strong>Integrate&gt;Single Sign-On&gt;SAML</strong>.</li>
+<li>Enter the following values (see screen capture at end of step for reference):
+<ul>
+<li><strong>Provider</strong>: Select <strong>Okta</strong> from the dropdown list.</li>
+<li><strong>Issuer URL</strong>:&nbsp;Copy and paste the following:<kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></li>
+<li><strong>SAML 2.0 Endpoint</strong>:&nbsp;Copy and paste the following:<kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></li>
+<li><strong>SLO 2.0 Endpoint</strong>: Copy and paste the following:<kbd id="signOutUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></li>
+<li><strong>X.509 Certificate SHA1-Fingerprint</strong>:&nbsp;Enter the x509&nbsp;<strong>Certificate</strong>&nbsp;<strong>Fingerprint</strong>.&nbsp;<br />Use the fingerprint below and convert it to the format <strong>MangoApps</strong> requires. Change all letters in the fingerprint below to upper case and insert colons after every second character. For example, if the fingerprint below were&nbsp;<strong>1x2y3z</strong>,&nbsp;change it to&nbsp;<strong>1X:2Y:3Z</strong>&nbsp;using a text editor, before pasting it into the form<kbd id="certFingerPrint">Sign into the Okta Admin Dashboard to generate this variable.</kbd></li>
+<li><strong>User Identified by</strong>: Select&nbsp;<strong>Email ID</strong>.<br /><br /><img style="border: 0; padding: 0;" src="images/apps/MangoApps1.png" alt="MangoApps1.png" /></li>
+</ul>
+</li>
+<li>Click <strong>Save</strong>.</li>
+<li>Done!</li>
+</ol></div>
+<div class="okta-instructions"><strong>Notes</strong>: IDP-initiated flows, SP-initiated flows, and Just In Time (Just In Time) provisioning are all supported.</div></body>
+</html>
