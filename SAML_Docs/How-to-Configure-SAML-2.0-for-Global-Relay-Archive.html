@@ -1,0 +1,54 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+
+
+
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Global Relay Archive</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+<ol>
+<li>
+<p dir="ltr">Send an email to the <strong>Global Relay</strong>&nbsp;support team at support@globalrelay.net and request that they enable SAML. Attach the following <strong>IDP metadata</strong>:</p>
+<textarea id="idpMetadata" style="margin-top: 0px; margin-bottom: 0px; height: 266px; width: 700px;">Sign into the Okta Admin dashboard to generate this value.</textarea></li>
+<li>
+<p>After receiving a confirmation email from <strong>Global Relay</strong>, you can start assigning people to the application.</p>
+</li>
+<li>
+<p><span style="font-size: 14px; background-color: initial;"><span style="font-size: 14px; background-color: initial;">Done!</span></span></p>
+</li>
+</ol>
+<p><strong>Notes:</strong></p>
+<ul>
+<li><span style="font-size: 14px; background-color: initial;">IdP-initiated and SP-initiated flows are supported.</span></li>
+<li><span style="font-size: 14px; background-color: initial;">Just In Time (JIT) Provision is not supported.</span></li>
+</ul>
+</div>
+
+
+
+
+
+</body>
+</html>
