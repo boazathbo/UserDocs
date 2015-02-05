@@ -20,32 +20,31 @@ try{Typekit.load();}catch(e){}
         </div>
     </div>
 <div class="okta-instructions">
-<h1>How to Configure SAML 2.0 for LearnCore</h1>
+<h1>How to Configure SAML 2.0 for Xendo</h1>
 <div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
 <p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
 </div>
 <div class="instructions clearfix">
 <div class="instructions-text"><ol class="bullets">
 <li>
-<p>Email LearnCore Support and request that they enable SAML 2.0 Single Sign On for your account.</p>
+<p>Email Xendo support and request that they enable SAML 2.0 Single Sign On for your account.</p>
 </li>
+<li>Xendo support will send you a link to a secure page where you can upload settings. Navigate to that page and upload the following three items.
+<ol>
+<li><p>Copy and paste the following <strong>X.509 Certificate</strong>. Be sure to copy the <em>Begin Certificate</em> and <em>End Certificate</em> lines.<p>
+<pre id="x509CertTextPem">Sign into the Okta Admin dashboard to generate this value. </pre></li>
 <li>
-<p>Download the following <strong>Certificate</strong> and attach it to the email.</p><kbd id="downloadCertificate">Sign into the Okta Admin dashboard to generate this value. </kbd>
-</li>
-<li>
-<p>Copy and paste the following text into the message and label it <strong>IDP Issuer ID</strong>.</p>
-<kbd id="issuer”>Sign into the Okta Admin dashboard to generate this value. </kbd></li>
-<li>
-<p>Copy and paste the following text into the message and label it <strong>Sign On URL</strong>.</p>
+<p>Copy and paste the following <strong>Sign On URL</strong>.</p>
 <kbd id="signOnUrl">Sign into the Okta Admin dashboard to generate this value. </kbd></li>
 <li>
-<p>Copy and paste the following text into the message and label it&nbsp;<strong>Sign Out URL</strong>.</p>
-<kbd id="signOutUrl">Sign into the Okta Admin dashboard to generate this value. </kbd></li>
-<li>Include your domain in the mail and label it <strong>Domain</strong>.</li>
+<p>Copy and paste the following <strong>IDP Issuer ID</strong>.</p>
+<kbd id="issuer">Sign into the Okta Admin dashboard to generate this value. </kbd></li>
+</ol>
 </li>
-<li>LearnCore will notify you when SAML is enabled.
+<li>After you enter these values, Xendo will configure SAML 2.0 for your organization and notify you when you can test the integration with the provided single sign-on URL.</li>
+<li>When the customer test is completed successfully, assign the Xendo app to users in Okta.</li>
 <li><p>Done!</p>
-<p><strong>Note: </strong> IdP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported.</li>
+<p><strong>Note: </strong> IdP-initiated flows and Just In Time (JIT) provisioning are supported., SP-initiated flows are not supported.</li>
 </ol></div>
 </div>
 </div>
