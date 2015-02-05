@@ -1,0 +1,57 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Flowdock</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+<li>
+<p>Contact the Flowdock support team and request that they enable SAML for your organization.</p>
+</li>
+<li>
+<p>Copy the following three items into the message to Flowdock support.</p>
+<ol>
+<li><p><strong>Issuer:</strong></p>
+<kbd id="issuer"> Sign into the Okta Admin dashboard to generate this value. </kbd>
+</li>
+<li><p><strong>SAML URL:</strong></p>
+<kbd id="signOnUrl"> Sign into the Okta Admin dashboard to generate this value. </kbd>
+</li>
+<li><p><strong>Certificate Fingerprint:</strong></p>
+<kbd id="certFingerPrint"> Sign into the Okta Admin dashboard to generate this value. </kbd>
+</li>
+</ol>
+</li>
+<li>Flowdock will process your request and will provide you a SAML URL in the format <em>https://www.flowdock.com/auth/saml/callback?uid=aAAAAbbbbb1CdefgHiGklM </em> where <em>aAAAAbbbbb1CdefgHiGklM</em> is the <strong>Customer Identifier</strong>.
+<li>
+<li><p>In Okta, on the <strong>General</strong> tab for the Flowdock app, select <strong>Edit</strong>.</p></li>
+<li>
+<p>Enter the <strong>Customer Identifier</strong>, as shown below.</p>
+<img style="border: 0; padding: 0;" src="images/apps/Flowdock_1.png" alt=“Flowdock_1.png" /><li>
+<li>Select <strong>Save</strong>.</li>
+<li><p>Done!</p>
+<p><strong>Note: </strong>IdP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported. For an SP-initiated flow, go to the sign in page at <a href=“https://www.flowdock.com/login”>https://www.flowdock.com/login</a> and click the <strong>LOG IN</strong> button.</li>
+
+</ol></div>
+</body>
+</html>
