@@ -81,6 +81,9 @@ $(document).ready(function($) {
 
 });
 </script>
+<script>
+$('#signOnUrlSPEC').html(data["signOnUrl"] + '?target={0}');
+</script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
@@ -106,8 +109,9 @@ $(document).ready(function($) {
 <p>Enter the following text for the <strong>Login URL</strong>.</p>
 <kbd id="signOnUrl">Sign in to the Okta Admin app to generate this variable.</kbd></li>
 <li>
-<p>Enter the following duplicate text for the <strong>Login URL</strong>.</p>
-<kbd id="signOnUrl2">Sign in to the Okta Admin app to generate this variable.</kbd></li>
+<p>Copy the following URL into the <strong>SAML Transfer URL</strong> field and add&nbsp;<strong>?target={0}</strong> to the text, as shown above.</p>
+<kbd id="signOnUrlSPEC"> Sign into the Okta Admin dashboard to generate this value.</kbd>
+</li>
 <li>
 <p>Modify the following text for the <strong>Password Change URL</strong>, where &lt;company name&gt; is the name of your company. For example, if your company is named <em>acme</em>, enter <em><a style="text-decoration: none; color: black;" onclick="return false;">https://acme.bluejeans.com</a></em>.</p>
 <kbd>https://&lt;company name&gt;.bluejeans.com</kbd></li>
