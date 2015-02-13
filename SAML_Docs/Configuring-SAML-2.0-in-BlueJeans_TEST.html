@@ -14,7 +14,6 @@ try{Typekit.load();}catch(e){}
 <script>
 function processData(data) {
   $('#signOnUrl').html(data["signOnUrl"]);
- $('#signOnUrl2').html(data["signOnUrl"]);
   $('#signOutUrl').html(data["signOutUrl"]);
   $('#changePasswordUrl').html(data["changePasswordUrl"]);
   $('#downloadCertificate').html('<a href="' + data["idpCertDownload"] + '">' + data["idpCertDownload"] + '</a>');
@@ -28,6 +27,7 @@ function processData(data) {
   $('#validTo').html(data["validTo"]);
   $('#issuer').html(data["issuer"]);
 $('#metadataUrl').html(data["signOnUrl"] + '/metadata');
+$('#signOnUrl2').html(data["signOnUrl"] + ' ');
  $('#errorUrl').html(data["signOutUrl"]);
  $('#timeoutUrl').html(data["signOutUrl"]);
  $('#delAuthUrl').html(data["delAuthUrl"]);
