@@ -17,7 +17,8 @@ function processData(data) {
  $('#errorUrl').html(data["signOutUrl"]);
  $('#timeoutUrl').html(data["signOutUrl"]);
  $('#delAuthUrl').html(data["delAuthUrl"]);
- $('#saml11SignOnUrl').html(data["saml11SignOnUrl"]);    
+ $('#saml11SignOnUrl').html(data["saml11SignOnUrl"]);  
+ $('#signOnUrlReplicon').html(data["signOnUrl"] + '?target={0}');    
 }
 function getURLParameter(name) {
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
