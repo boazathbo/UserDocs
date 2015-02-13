@@ -82,7 +82,9 @@ $(document).ready(function($) {
 });
 </script>
 <script>
-$('#signOnUrlSPEC').html(data["signOnUrl"] + '?target={0}');
+function processData2(data) {
+$('#signOnUrlSPEC').html(data["signOnUrl"] + '?target={0}');f
+}
 </script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -109,7 +111,7 @@ $('#signOnUrlSPEC').html(data["signOnUrl"] + '?target={0}');
 <p>Enter the following text for the <strong>Login URL</strong>.</p>
 <kbd id="signOnUrl">Sign in to the Okta Admin app to generate this variable.</kbd></li>
 <li>
-<p>Copy the following URL into the <strong>SAML Transfer URL</strong> field and add&nbsp;<strong>?target={0}</strong> to the text, as shown above.</p>
+<p>Copy the following URL into the <strong>SAML Transfer URL</strong> field.</p>
 <kbd id="signOnUrlSPEC"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
 <li>
