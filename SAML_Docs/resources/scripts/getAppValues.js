@@ -17,8 +17,10 @@ function processData(data) {
  $('#errorUrl').html(data["signOutUrl"]);
  $('#timeoutUrl').html(data["signOutUrl"]);
  $('#delAuthUrl').html(data["delAuthUrl"]);
- $('#saml11SignOnUrl').html(data["saml11SignOnUrl"]);  
- $('#signOnUrlReplicon').html(data["signOnUrl"] + '?target={0}');    
+ $('#saml11SignOnUrl').html(data["saml11SignOnUrl"]);
+ $('#signOnUrlReplicon').html(data["signOnUrl"] + '?target={0}');
+ window.dataSAML = data;
+ $("body").trigger('dataSAMLUpdated');
 }
 function getURLParameter(name) {
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
@@ -57,11 +59,11 @@ $(document).ready(function($) {
     }
   }
 
-  
+
   $('#mailto').on('click', function() {
       var to = "DedicatedSAMLComplaintLine@okta.com"; // I am assuming this will always be same!
       var body = "Dear Okta,%0D%0A%0D%0AI used your SAML setup instruction. I want you to know…%0D%0AI completed the SAML setup?%0D%0AI found errors in this doc?%0D%0A%0D%0AHere’s what I noticed:";
-      var subject = "Update Doc:" + $('h1').text();       
+      var subject = "Update Doc:" + $('h1').text();
       var mailto = "mailto:" + to + "?subject=" + subject + "&body=" + body;
       window.location.href = mailto;
     });
