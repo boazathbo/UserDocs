@@ -1,0 +1,56 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for SugarCRM</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+<li>
+<p>Sign into your SugarCRM instance as an Administrator.</p>
+</li>
+<li>
+<p>In the upper right corner, select <strong>Administrator &gt; Admin</strong>. Then, select <strong>Users &gt; Password Management</strong>.
+</p>
+</li>
+<li><p>In the <em>SAML Authentication</em> section, check the <strong>Enable SAML Authentication</strong> box, as shown below.</p><img style="border: 0; padding: 0;" src="images/apps/SugarCRM_2.png" alt="SugarCRM_2.png" />
+<li>
+<p>Copy the following information into the <strong>Login URL</strong>&nbsp;field, as shown below.</p>
+<kbd id="signOnUrl"> Sign into the Okta Admin dashboard to generate this value. </kbd></li>
+<li>
+<p>Copy the following information into the <strong>SLO URL</strong>&nbsp;field, as shown below.</p>
+<kbd id="signOutUrl"> Sign into the Okta Admin dashboard to generate this value. </kbd></li>
+<li>
+<p>Copy and paste the following <strong>X.509 Certificate</strong>, as shown below. Be sure to include the <em>Begin Certificate</em> and <em>End Certificate</em> lines.</p>
+<pre id="x509CertTextPem"> Sign into the Okta Admin dashboard to generate this value. </pre>
+</li>
+<li>
+<p>Select the <strong>Save</strong> button, as shown below.</p>
+<img style="border: 0; padding: 0;" src="images/apps/SugarCRM_1.png" alt="SugarCRM_1.png" />
+</li>
+<li><p>Done!</p>
+<p><strong>Note: </strong>IdP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported. For an SP-initiated flow, go to the sign in page. In the pop-up window that appears, enter your Okta credentials and then select the <strong>Sign in</strong> button.</p>
+</li>
+
+</ol></div>
+</body>
+</html>

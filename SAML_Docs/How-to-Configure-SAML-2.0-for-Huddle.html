@@ -21,23 +21,35 @@ try{Typekit.load();}catch(e){}
     </div>
 <div class="okta-instructions">
 <h1>How to Configure SAML 2.0 for Huddle</h1>
-<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
-<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
 </div>
 <h2>Contact Huddle Customer Support</h2>
 <p><a href="https://huddle.zendesk.com/requests/new" target="_blank">CLICK HERE</a> to submit a request to Huddle's Customer Support. Ask them to enable SAML 2.0 Single Sign-On and, if desired, Just In Time (JIT) provisioning for your account and provide the following information in the service request:</p>
 <ol>
 <li>
 <p>Add Issuer Id:</p>
-<kbd id="issuer">Sign in to the Okta Admin app to have this variable generated for you.</kbd></li>
+<kbd id="issuer">Sign in to the Okta Admin app to have this variable generated for you</kbd></li>
 <li>
 <p>Add SSO Service URL:</p>
-<kbd id="signOnUrl">Sign in to the Okta Admin app to have this variable generated for you.</kbd></li>
+<kbd id="signOnUrl">Sign in to the Okta Admin app to have this variable generated for you</kbd></li>
 <li>
 <p>The Encode Certificate (Public Key):&nbsp;</p>
 <kbd id="downloadCertificate"> Sign in to the Okta Admin app to have this variable generated for you </kbd></li>
+<li>In Okta,&nbsp;navigate to the&nbsp;<strong>Sign On</strong>&nbsp;tab for the app. Below where you clicked&nbsp;<strong>View Setup Instructions </strong>to open this document you will see the <strong>Advanced Sign-On Settings</strong>. &nbsp;Select your <strong>Preferred SAML Method </strong>from the dropdown menu:<br /><br /><img src="images/apps/Huddle_SAML.png" alt="Huddle_SAML.png" /></li>
 </ol>
-<h3>Next steps</h3>
+<ul>
+<ul>
+<ul>
+<ul>
+<li>For <strong style="font-size: 14px; background-color: initial;">.com</strong> domains, select either I<strong style="font-size: 14px; background-color: initial;">DP Initiated US</strong> or <strong style="font-size: 14px; background-color: initial;">SP Initiated US&nbsp;</strong></li>
+<li>For <strong style="font-size: 14px; background-color: initial;">.net</strong> domains, select either I<strong style="font-size: 14px; background-color: initial;">DP Initiated UK</strong> or <strong style="font-size: 14px; background-color: initial;">SP Initiated UK</strong></li>
+</ul>
+</ul>
+</ul>
+</ul>
+<h3><span style="font-size: 14px; background-color: initial;">Next steps</span></h3>
+<br />
 <div class="instructions-text instructions-text-wide">
 <p>Wait for Huddle to enable SAML. If you want to allow your users to sign-on to Huddle immediately, you can change the sign-on mode to <strong>Secure Web Authentication</strong>.</p>
 <p>You can assign Huddle access to your users at anytime from their user profile. Go to the <strong>People</strong> page within Okta to view and edit user profiles.</p>
@@ -48,9 +60,7 @@ try{Typekit.load();}catch(e){}
 <li>SAML SSO is supported across all Huddle application end points, including mobile and desktop.</li>
 <li>Both IDP-initiated and SP-initiated flows are supported.</li>
 <li>JIT is now supported. For more information on JIT, see <a href="https://support.okta.com/entries/27715118-Enabling-Just-In-Time-Provisioning" target="_blank">Enabling Just In Time Provisioning</a>.</li>
-<li>If your Huddle domain is acme.huddle.com then Please select the <strong>U.S</strong>&nbsp;flow from the dropdown menu. If your Huddle domain is acme.huddle.net then please select the <strong>U.K</strong>&nbsp;flow from the dropdown menu.</li>
+<li>If your Huddle domain is acme.huddle.com then please select the <strong>U.S</strong>&nbsp;flow from the dropdown menu. If your Huddle domain is acme.huddle.net then please select the <strong>U.K</strong>&nbsp;flow from the dropdown menu.</li>
 &nbsp;</ul>
 </div>
 </div>
-</body>
-</html>

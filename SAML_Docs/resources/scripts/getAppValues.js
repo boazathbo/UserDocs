@@ -12,11 +12,13 @@ function processData(data) {
   $('#validFrom').html(data["validFrom"]);
   $('#validTo').html(data["validTo"]);
   $('#issuer').html(data["issuer"]);
-$('#metadataUrl').html(data["signOnUrl"] + '/metadata');
+  $('#metadataUrl').html(data["signOnUrl"] + '/metadata');
+ $('#signOnUrl2').html(data["signOnUrl"] + ' ');
  $('#errorUrl').html(data["signOutUrl"]);
  $('#timeoutUrl').html(data["signOutUrl"]);
  $('#delAuthUrl').html(data["delAuthUrl"]);
- $('#saml11SignOnUrl').html(data["saml11SignOnUrl"]);    
+ $('#saml11SignOnUrl').html(data["saml11SignOnUrl"]);  
+ $('#signOnUrlReplicon').html(data["signOnUrl"] + '?target={0}');    
 }
 function getURLParameter(name) {
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;

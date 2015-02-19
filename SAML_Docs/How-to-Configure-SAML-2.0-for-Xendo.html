@@ -1,0 +1,52 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Xendo</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<div class="instructions clearfix">
+<div class="instructions-text"><ol class="bullets">
+<li>
+<p>Email Xendo support and request that they enable SAML 2.0 Single Sign On for your account.</p>
+</li>
+<li>Xendo support will send you a link to a secure page where you can upload settings. Navigate to that page and upload the following three items.
+<ol>
+<li><p>Copy and paste the following <strong>X.509 Certificate</strong>. Be sure to copy the <em>Begin Certificate</em> and <em>End Certificate</em> lines.<p>
+<pre id="x509CertTextPem">Sign into the Okta Admin dashboard to generate this value. </pre></li>
+<li>
+<p>Copy and paste the following <strong>Sign On URL</strong>.</p>
+<kbd id="signOnUrl">Sign into the Okta Admin dashboard to generate this value. </kbd></li>
+<li>
+<p>Copy and paste the following <strong>IDP Issuer ID</strong>.</p>
+<kbd id="issuer">Sign into the Okta Admin dashboard to generate this value. </kbd></li>
+</ol>
+</li>
+<li>After you enter these values, Xendo will configure SAML 2.0 for your organization and notify you when you can test the integration with the provided single sign-on URL.</li>
+<li>When the customer test is completed successfully, assign the Xendo app to users in Okta.</li>
+<li><p>Done!</p>
+<p><strong>Note: </strong> IdP-initiated flows and Just In Time (JIT) provisioning are supported., SP-initiated flows are not supported.</li>
+</ol></div>
+</div>
+</div>
+</body>
+</html>
