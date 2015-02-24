@@ -1,0 +1,43 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Reflexion</h1>
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
+</div>
+<ol>
+<li>Log into <strong>Reflexion Total Control</strong> as an Enterprise Administrator.</li>
+<li>Navigate to <strong>Enterprise Options &gt; Enterprise Single Sign On</strong>.<br /><br /><img src="images/apps/Reflexion1.png" alt="Reflexion1.png" /></li>
+<li>Copy and paste the following IDP Metadata into the <strong>Okta's Metadata</strong> field (see screen shot at end of step for reference):<strong><br /><br />&nbsp;<textarea id="idpMetadata" style="margin: 0px; width: 817px; height: 190px;">Sign into the Okta Admin Dashboard to generate this variable.</textarea></strong><br /><br /><img src="images/apps/Reflexion2.png" alt="Reflexion2.png" /></li>
+<li>Select <strong>Save Configuration</strong>.</li>
+<li>Done!</li>
+</ol>
+<br />
+<strong>Notes: </strong>
+<p>IDP-initiated and SP-initiated flows are supported.</p>
+<p>Just In Time (JIT) Provisioning is not supported.</p>
+
+<br />
+<p>For SP-initiated flows, go to the <b>https://asp.reflexion.net/emp/sso?domain=&lt;YOUR_DOMAIN&gt;</b> page, where &lt;YOUR_DOMAIN&gt; is your Reflexion subdomain.</p>
+</div>
+</body>
+</html>
