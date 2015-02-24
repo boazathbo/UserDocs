@@ -1,0 +1,52 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Vistara-IT</h1>
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
+</div>
+<ol>
+<li>Sign in to <strong>Vistara-IT</strong> as an Administrator.</li>
+<li><p>Select <strong>Setup</strong> on the top menu, as shown below.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/Vistara-IT_2.png" alt="Vistara-IT Main Menu" /></p>
+</li>
+<li><p>In the <em>Authentication Mechanism</em> section, select <strong>Click here to configure</strong>, as shown below.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/Vistara-IT_2b.png" alt="Vistara-IT Authentication Mechanism Section" /></p></li>
+<li>Select <strong>Enable Single Sign-On Authentication</strong>, as shown below.</li>
+<li>Select <strong>Okta</strong> for the SAML provider, as shown below.</li>
+
+<li>Enter the following values, in the <em>Upload SSO Provider Information to Vistara</em> section, as shown below:
+<ul>
+<li><strong>Issuer URL</strong>&nbsp;&ndash;&nbsp;Copy and paste the following:<kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></li>
+<li><strong>Redirection URL</strong>&nbsp;&ndash;&nbsp;Copy and paste the following:<kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></li>
+<li><strong>Logout URL</strong>&nbsp;&ndash;&nbsp;Copy and paste the following:<kbd id="signOutUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></li>
+<li><p><strong>X.509 Certificate</strong>&nbsp;&ndash;&nbsp;Copy and paste the following Certificate. Be sure to include the <em>Begin Certificate</em> and <em>End Certificate</em> lines.</p><pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre>
+</p><p>&nbsp;</p><p><img style="border: 0; padding: 0;" src="images/apps/Vistara-IT_3.png" alt="Vistara-IT_3.png" /></p>
+
+</li>
+</ul>
+
+</li>
+<li>Select <strong>Finish</strong>.</li>
+<li>Done!</li>
+</ol><p><strong>Note: </strong>Only SP-initiated flows are supported. To use an SP-initiated flow, navigate to <strong>https://[yourSubdomain].vistarait.com</strong>, where <em>[yourSubdomain]</em> is the Vistara subdomain for your organization. IdP-initiated flows and Just In Time (JIT) provisioning are not supported.</p></div></body>
+</html>
