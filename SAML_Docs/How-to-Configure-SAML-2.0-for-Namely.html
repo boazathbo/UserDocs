@@ -1,0 +1,51 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Namely</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<div class="instructions clearfix">
+<div class="instructions-text"><ol class="bullets">
+<li>
+<p>Sign into Namely as an Administrator.</p>
+</li>
+<li>Select <strong>COMPANY</strong> on the top menu. On the Company screen, select <strong>Settings > SAML</strong>, as shown below.
+<li>Check <strong>Enable SAML</strong>, as shown below.</li>
+<li><p>Copy and paste the following <strong>Identity provider SSO url</strong>.</p>
+<kbd id="signOnUrl">Sign into the Okta Admin dashboard to generate this value. </kbd></li>
+<li>
+<p>Copy and paste the following <strong>Identity provider certificate</strong>, as shown below. Be sure to copy the <em>Begin Certificate</em> and <em>End Certificate</em> lines.</p>
+<pre id="x509CertTextPem">Sign into the Okta Admin dashboard to generate this value. </pre>
+</li>
+<li><p>Click the <strong>Save</strong> button, as shown below.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/Namely_1.png" alt="Namely_1.png" /></li>
+<li><p>Done!</p>
+<p><strong>Note: </strong>IdP-initiated flows and  SP-initiated flows are both
+supported. Just In Time (JIT) provisioning is not supported.</p>
+<p>For an SP-initiated flow, navigate to <strong>https://[yourSubDomain].namely.com/users/login</strong> where <em>[yourSubDomain]</em> is the Namely subdomain for your organization and click the <strong>Single Sign On</strong> button.</p>
+</li>
+</ol></div>
+</div>
+</div>
+</body>
+</html>
