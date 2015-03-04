@@ -1,0 +1,51 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Redbooth</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<div class="instructions clearfix">
+<div class="instructions-text"><ol class="bullets">
+<li><p>Sign into Redbooth. Click on your name in the lower left corner of the screen, as shown below.</p>
+<img src="images/apps/Redbooth_1.png" alt="Redbooth_1.png">
+</li>
+<li><p>When the popup menu appears, select <strong>Organization Settings</strong>, as shown below.</p>
+<img src="images/apps/Redbooth_2.png" alt="Redbooth_2.png">
+</li>
+<li><p>Select <strong>SAML</strong> in the <em>Organization Settings</em> pane, as shown below.</p>
+<img src="images/apps/Redbooth_3.png" alt="Redbooth_3.png">
+</li>
+<li><p>Copy and paste the following <strong>SAML Certificate</strong>, as shown below. Be sure to copy the <em>Begin Certificate</em> and <em>End Certificate</em> lines.</p>
+<p><pre id="x509CertTextPem">Sign into the Okta Admin dashboard to generate this value. </pre></p>
+<p><img src="images/apps/Redbooth_4.png" alt="Redbooth_4.png"></p>
+</li>
+<li>Click the <strong>Save certificate</strong> button.</li>
+<li><p>Done!</p>
+<p><strong>Note: </strong>IdP-initiated flows are supported. SP-initiated flows and Just In Time (JIT) provisioning are not
+supported.</p>
+</li>
+</ol></div>
+</div>
+</div>
+</body>
+</html>
