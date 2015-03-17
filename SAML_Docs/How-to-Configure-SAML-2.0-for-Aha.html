@@ -32,19 +32,20 @@ try{Typekit.load();}catch(e){}
 <li>Log into <strong>Aha!</strong> as an Administrator.</li>
 <li>Navigate to <strong>Account Settings &gt; Security and Single Sign-On &gt; Single Sign-On</strong>.</li>
 <li>Select <strong>SAML 2.0</strong>.<br /><br /><img src="images/apps/ahaSAML.png" alt="ahaSAML.png" /></li>
-<li>Enter the following values (see screen shot at the end of the step for reference):
+<li>Enter the following values:
 <ul>
 <ul><br />
 <li><strong>Name</strong>: <strong>OKTA</strong></li>
-<li>Select the <strong>Metadata File</strong> checkbox.</li>
-<li>Click <strong>Browse</strong> and navigate to the metadata.xml you created in step 1.</li>
+<li><strong>Configure using</strong>:<strong> Metadata File</strong></li>
+<li><strong>Metadata File</strong>: Click <strong>Browse</strong> and navigate to the metadata.xml you created in step 1.</li>
 </ul>
 </ul>
 <br /><img src="images/apps/AhaSAML2.png" alt="AhaSAML2.png" /></li>
+<li><p>Click <strong>Enable</strong>.</p></li>
 <li><p>Done!</p><p><b>Notes:</b></p>
 <p>IDP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported.</p>
 
-<p>For SP-initiated flows, go to https://&lt;yourSubDomain&gt;.aha.io/session/new and select <strong>Log in with Okta</strong>. Where &lt;yourSubDomain&gt; is your Aha! subdomain.</p>
+<p>For SP-initiated flows, go to https://&lt;yourSubDomain&gt;.aha.io/session/new, where &lt;yourSubDomain&gt; is your Aha! subdomain, then select <strong>Log in with Okta</strong>. </p>
 <p><br /><img src="images/apps/AhaSAML3.png" alt="AhaSAML3.png" /></p>
 
 </li>
