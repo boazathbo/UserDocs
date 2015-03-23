@@ -1,0 +1,51 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Vodeclic</h1>
+
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
+</div>
+<ol>
+<li>Send an email to <strong>Vodeclic</strong>&nbsp;Support and request that they enable SAML 2.0 for your account.&nbsp;</li>
+<li>Attach the following:
+<ul>
+<li>The <strong>IDP SSO Target URL</strong>: To obtain this, in Okta, go to the Vodeclic app's <strong>General</strong> tab and copy the <strong>EMBED LINK</strong>, this is the <strong>IDP SSO Target URL</strong>:<br /><br /><img src="images/apps/vodeclic.png" alt="vodeclic.png" /></li>
+<li>The following <strong>x.509 Certificate</strong>:&nbsp;<kbd id="certFingerPrint">Sign into the Okta Admin Dashboard to generate this variable.</kbd></li>
+</ul>
+</li>
+<li>Vodeclic will process your request and after receiving a confirmation email from them, you can start assigning people to the application.</li>
+
+
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+<p>IDP-initiated flows, SP-initiated flows, and Just In Time (JIT) Provisioning are all supported.</p>
+<p>For SP-initiated flows, go to <strong>https://&lt;your_subdomain&gt;.lms.vodeclic.com</strong> (where <em>&lt;your_subdomain&gt;</em> is the name of your Vodeclic subdomain), then select <strong>Sign in with Okta</strong>.</p>
+</li>
+
+</ol>
+</div>
+
+
+
+</body>
+</html>
