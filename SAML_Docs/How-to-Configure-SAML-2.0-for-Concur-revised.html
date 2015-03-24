@@ -1,0 +1,49 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Concur</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol class="bullets">
+<li>
+<p>Concur requires a letter of authorization before implementing SAML 2.0 for your account. Download the following document, sign it, and scan the signed copy into a pdf file.</p>
+<p><kbd><a href="images/apps/Okta - Concur Letter of Authorization.pdf" target="_blank">Letter of Authorization</a></kbd></p>
+<p>If you have any questions or concerns about this letter, please send them to kelly.colman@concur.com.</p>
+</li>
+<li>
+<p>Download the following <strong>x.509 Certificate</strong>.</p>
+<kbd id="downloadCertificate">Sign into the Okta Admin app to generate this variable.</kbd></li>
+<li>
+<p>Click the link below to generate an email to Concur.</p>
+<kbd><a href="mailto:concur_saml_activation@okta.com,partner_client_activation@concur.com,kelly.colman@concur.com?Subject=Enable%20SAML%202.0&Body=Please%20enable%20SAML%202.0%20for%20the%20following%20account.%20The%20signed%20letter%20of%20authorization%20and%20the%20x.509%20certificate%20are%20attached.%0A%0ACompany%20Name%3A%0AUser%20Name%3A%0AEmail%3A%0APhone%20%28optional%29%3A%20%0A%0AThank%20you.%0A%0A">Generate email</a></kbd>
+</li>
+<li>Attach the <strong>Signed Letter of Authorization</strong> you scanned in step 1 and the <strong>x.509 Certificate</strong> you downloaded in step 2 to the email, and send it.</li>
+<li>Concur will process your request and contact you. The process typically takes four weeks. If you need Secondary SSO or Partner SSO, notify Concur when they contact you.</li>
+<li><p>Done!</p>
+<p><strong>Note: </strong>Only IdP-initiated flows are supported. SP-initiated flows and Just In Time (JIT) provisioning are not supported.</p>
+</li>
+
+</ol></div>
+
+</body>
+</html>
