@@ -1,0 +1,54 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Jama Software</h1>
+
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
+</div>
+<ol>
+<li>Send an email to Jama Software Support and request that they enable SAML 2.0 for your account. 
+<li>
+<p class="p1">Attach the following <strong>IDP Metadata</strong>:</p>
+<strong>&nbsp;<textarea id="idpMetadata" style="margin: 0px; width: 817px; height: 190px;">Sign into the Okta Admin Dashboard to generate this variable.</textarea></strong></li>
+<li>Ask Jama Software to use the following attribute mappings:<br />
+
+<ul>
+<li>Map <strong>First name</strong> to <strong>givenname</strong>.</li>
+<li>Map <strong>Last name</strong> to <strong>sn</strong>.</li>
+</ul>
+</li>
+
+<li>Jama Software will process your request. After receiving a confirmation email, you can start assigning people to the application.</li>
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+<p>IDP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported.</p>
+
+<p>For SP-initiated flows, go to the <strong>https://&lt;yourSubDomain&gt;.jamacloud.com/</strong> page, where <strong>&lt;yourSubDomain&gt;</strong> is your Jama Software subdomain. </p>
+
+
+</li>
+
+</ol>
+</div>
+</body>
+</html>
