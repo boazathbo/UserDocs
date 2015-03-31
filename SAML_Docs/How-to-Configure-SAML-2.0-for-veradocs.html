@@ -1,0 +1,99 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+
+
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<h2>Case 1: For groups not using Group Push</h2>
+<ol>
+<li>Copy the following <strong>IDP Metadata</strong> and save as an xml file:<br />&nbsp;<textarea id="idpMetadata" style="margin: 0px; width: 817px; height: 190px;">Sign into the Okta Admin Dashboard to generate this variable.</textarea></li>
+<li>Log in to your Veradocs account.</li>
+<li>Navigate to the <strong>Settings</strong> page:<br /><img src="images/apps/veradocs1.png" alt=“veradocs1.png" /><br /></li>
+<li>
+<p>On the <strong>Settings</strong> page, navigate to the <strong>Internal Authentication</strong> section.</p>
+</li>
+<li>Enter the following values into the corresponding fields (see screen capture at end of step for reference):<br />
+<ul>
+<li><strong>Authentication type</strong>: <strong>SAML</strong></li>
+<li><strong>SAML Metadata</strong>: Click <strong style="font-size: 14px; background-color: initial;">Choose file</strong>, and upload the xml file you saved in step 1.</li>
+<li>Copy the following into the&nbsp;<strong>Login URL</strong> field:<kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></li>
+<li>Copy the following into the<strong>&nbsp;Logout</strong> <strong>URL</strong> field:<kbd id="signOutUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></li>
+<li><strong>Email attribute</strong>: Enter <strong>user.userName</strong></li>
+<li><strong>Groups attribute</strong>: Leave the default values.</li>
+<li><strong>Internal Domains and Users</strong>: Enter the domain name &nbsp;of the username that will be using SAML to access the account. <br />For example, if the username is johnDoe@MyCompany.com, enter MyCompany.com in this field.<br />Or, you can also manually enter the usernames of all the users who will be using SAML under the <strong>Users</strong> section.<br /><br /><img src="images/apps/veradocs2.png" alt=“veradocs2.png" /></li>
+</ul>
+</li>
+<li>Click <strong>Save</strong> in the top right corner.<br /><img src="images/apps/veradocs3.png" alt=“veradocs3.png" /></li>
+<li>Done!</li>
+</ol>
+<h2>Case 2: With groups using Group Push</h2>
+
+<ol>
+<li>Sign into Okta and create a&nbsp;<strong>Template SAML 2.0 App</strong>.&nbsp;</li>
+<li>Enter the following values to the following fields in the <strong>General Settings</strong> for the new T<strong>emplate SAML 2.0 App</strong>. &nbsp;See the screen shots in line for reference.
+<ul>
+<li><strong>Application label</strong>: The name that will appear under the app on the Veradocs home page.</li>
+<li><strong>Post Back URL</strong>:&nbsp;<em>https://&lt;yourSubDomain&gt;.veradocs.com/api/req/verify</em></li>
+<li><strong>Name ID Format</strong>: <strong>EmailAddress</strong></li>
+<li><strong>Recipient</strong>:&nbsp;<em>https://&lt;yourSubDomain&gt;.<em>veradocs.com/api/auth/req/verify</em></em></li>
+<li><strong>Audience Restriction</strong>:&nbsp;https://&lt;yourSubDomain&gt;.veradocs.com/api/auth/req/verify</li>
+<li><strong>authnContextClassRef</strong>:&nbsp;<strong>PasswordProtectedTransport</strong></li>
+<li><strong>Response</strong>: <strong>Signed</strong></li>
+<li><strong>Assertion</strong>: <strong>Signed</strong></li>
+<li><strong>Request</strong>: <strong>Uncompressed</strong></li>
+<li><strong>Destination</strong>:&nbsp;<em>https://&lt;yourSubDomain&gt;.veradocs.com/api/auth/req/verify</em></li>
+<li><strong>Default Relay State</strong>: Leave this field empty.
+<img src="images/apps/veradocs4.png" alt=“veradocs4.png" />
+</li>
+<li><strong>Attribute Statements</strong>:&nbsp;Leave this field empty.<em><br /></em></li>
+<li><strong>Group Name</strong>:&nbsp;Enter the group names that you would like to pass from Okta to Veradocs</li>
+<li><strong>Group filter</strong>: &nbsp;Enter&nbsp;an expression that will be used to filter groups. For example: <strong>app1.*</strong>&nbsp;includes all groups prefixed with the string <strong>app1</strong>. This field accepts regular expression syntax</li>
+<li><strong>Application Visibility</strong>: Leave unchecked
+<img src="images/apps/veradocs5.png" alt=“veradocs5.png" />
+</li>
+</ul>
+</li>
+<li>Select <strong>Save</strong>.</li>
+<li>Assign the application to a user, then click <strong>Done</strong>.</li>
+<li>Select the <strong>Applications > Sign On</strong> tab then select <strong>View Setup Instructions</strong>. Scroll down to the <strong>Configuration Data</strong> section to retrieve the data you'll need for the next step.</li>
+<li>Login to your Veradocs account, and follow the instructions outlined in <strong>Case 1: For groups not using Group Push</strong> above, except use the data in the setup instructions you just opened for the values for Login URL, Logout URL, and so on.
+<li>Done!
+
+
+<br />
+<p><strong>Notes:</strong>
+<p>SP-initiated flows and Just in Time (JIT) provisioning are supported.</p>
+<p>IDP-initiated flows are not supported.</p>
+</li>
+</ol>
+
+
+
+
+
+
+
+</div>
+</body>
+</html>
