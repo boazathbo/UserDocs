@@ -22,7 +22,7 @@ try{Typekit.load();}catch(e){}
 
 <script type="text/javascript">
   function updateValues() {
-    $('#singleLogoutService').html('<md:SingleLogoutService Binding=\"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST\" Location=' + window.dataSAML["signOoutUrl"] + '"/>');
+    $('#singleLogoutService').html('testtext' + window.dataSAML["signOoutUrl"] + 'moretext');
   }
 
   $(document).ready(function($) {
