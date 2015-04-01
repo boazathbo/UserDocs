@@ -23,7 +23,8 @@ try{Typekit.load();}catch(e){}
 
 <script type="text/javascript">
   function updateValues2() {
-    $('#singleLogoutService').html('<md\: ' + window.dataSAML["signOutUrl"] + '"/>'); 
+    val newtext = $('#singleLogoutService').html(window.dataSAML["signOutUrl"] + '"/>'); 
+    print newtext;
   }
 
   $(document).ready(function($) {
