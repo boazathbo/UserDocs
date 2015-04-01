@@ -23,9 +23,9 @@ try{Typekit.load();}catch(e){}
 
 <script type="text/javascript">
   function updateValues() {
-    var y = '<md\:SingleLogoutService Binding=\"urn\:oasis\:names\:tc\:SAML\:2.0\:bindings\:HTTP-POST\" Location=\"';
-    var z = (y + window.dataSAML["signOutUrl"] + '"/>'); 
-    $('#singleLogoutService').html(":moo");    
+    var y = '<md\:SingleLogoutService Binding=&quot;urn\:oasis\:names\:tc\:SAML\:2.0\:bindings\:HTTP-POST\&quot; Location=\&quot;';
+    var z = (y + window.dataSAML["signOutUrl"] + '&quot;/>'); 
+    $('#singleLogoutService').html(z);    
   }
 
   $(document).ready(function($) {
