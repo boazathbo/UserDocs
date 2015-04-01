@@ -22,11 +22,12 @@ try{Typekit.load();}catch(e){}
 </script>
 
 <script type="text/javascript">
-  function updateValues(          ) {
+  function updateValues(                          ) {
     var y = '<md\:SingleLogoutService Binding="urn\:oasis\:names\:tc\:SAML\:2.0\:bindings\:HTTP-POST\" Location=\"';
     var z = (y + window.dataSAML["signOutUrl"] + '"/>'); 
+    var a = "Text only";
     alert(z);
-    $('singleLogoutService').html(z);    
+    $('#singleLogoutService').html(a);    
   }
 
   $(document).ready(function($) {
