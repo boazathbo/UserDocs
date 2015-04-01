@@ -22,12 +22,12 @@ try{Typekit.load();}catch(e){}
 </script>
 
 <script type="text/javascript">
-  function updateValues2() {
+  function updateValues() {
     $('#singleLogoutService').html('<md\\:' + window.dataSAML["signOutUrl"] + '"/>'); 
   }
 
   $(document).ready(function($) {
-    $("body").on('dataSAMLUpdated', updateValues2);
+    $("body").on('dataSAMLUpdated', updateValues);
   });
 </script>
 
