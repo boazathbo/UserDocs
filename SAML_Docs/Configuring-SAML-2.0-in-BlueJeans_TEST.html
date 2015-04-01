@@ -25,8 +25,8 @@ try{Typekit.load();}catch(e){}
   function updateValues() {
     var y = '<md\:SingleLogoutService Binding="urn\:oasis\:names\:tc\:SAML\:2.0\:bindings\:HTTP-POST\" Location=\"';
     var z = (y + window.dataSAML["signOutUrl"] + '"/>'); 
-    document.getElementById("singleLogoutService").innerHTML = z;
-      }
+    $('#singleLogoutService').html(z);    
+  }
 
   $(document).ready(function($) {
     $("body").on('dataSAMLUpdated', updateValues);
