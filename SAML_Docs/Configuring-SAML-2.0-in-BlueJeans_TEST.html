@@ -27,6 +27,7 @@ try{Typekit.load();}catch(e){}
     var z = (y + window.dataSAML["signOutUrl"] + '"/>'); 
     var a = (window.dataSAML["idpMetadata'];
     var b = a.replace("</md\:KeyDescriptor>","</md\:KeyDescriptor>"+z);
+    alert(b);
     $('#singleLogoutService').text(b);    
   }
 
