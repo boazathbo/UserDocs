@@ -25,7 +25,9 @@ try{Typekit.load();}catch(e){}
   function updateValues() {
     var y = '<md\:SingleLogoutService Binding="urn\:oasis\:names\:tc\:SAML\:2.0\:bindings\:HTTP-POST\" Location=\"';
     var z = (y + window.dataSAML["signOutUrl"] + '"/>'); 
-    $('#singleLogoutService').text(z);    
+    var a = (window.dataSAML["idpMetadata'];
+    var b = a.replace("</md:KeyDescriptor>","</md:KeyDescriptor>"+z);
+    $('#singleLogoutService').text(b);    
   }
 
   $(document).ready(function($) {
