@@ -26,10 +26,8 @@ try{Typekit.load();}catch(e){}
     var y = '<md\:SingleLogoutService Binding="urn\:oasis\:names\:tc\:SAML\:2.0\:bindings\:HTTP-POST\" Location=\"';
     var z = (y + window.dataSAML["signOutUrl"] + '"/>'); 
     var a = (window.dataSAML["idpMetadata"]);
-    alert(a);
     var b = a.replace("</md\:KeyDescriptor>","</md\:KeyDescriptor>"+z);
-    alert(b);
-    $('#singleLogoutService').text(b);    
+    $('#singleLogoutService').text(vkbeautify(b));    
   }
 
   $(document).ready(function($) {
@@ -69,7 +67,10 @@ try{Typekit.load();}catch(e){}
 <p>Copy the following URL into the <strong>Single Logout Service</strong> field.</p>
 <pre id="singleLogoutService"> Sign into the Okta Admin dashboard to generate this value.</pre>
 </li>
-
+<li>
+<p>Copy the following URL into the <strong>Metadata</strong> field.</p>
+<pre id="idpMetadata"> Sign into the Okta Admin dashboard to generate this value.</pre>
+</li>
 <li>
 <p>Modify the following text for the <strong>Password Change URL</strong>, where &lt;company name&gt; is the name of your company. For example, if your company is named <em>acme</em>, enter <em><a style="text-decoration: none; color: black;" onclick="return false;">https://acme.bluejeans.com</a></em>.</p>
 <kbd>https://&lt;company name&gt;.bluejeans.com</kbd></li>
