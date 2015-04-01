@@ -23,7 +23,7 @@ try{Typekit.load();}catch(e){}
 
 <script type="text/javascript">
   function updateValues() {
-    var y = '<md\:SingleLogoutService Binding=\"urn\:oasis\:names\:tc\:SAML\:2.0\:bindings\:HTTP-POST\" Location=\"';
+    var y = '<md\';
     var z = (y + window.dataSAML["signOutUrl"] + '"/>'); 
     $('#singleLogoutService').html(z);    
   }
@@ -63,7 +63,7 @@ try{Typekit.load();}catch(e){}
 </li>
 <li>
 <p>Copy the following URL into the <strong>Single Logout Service</strong> field.</p>
-<pre id="singleLogoutService"> Sign into the Okta Admin dashboard to generate this value.</pre>
+<pre id="singleLogoutService"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
 
 <li>
