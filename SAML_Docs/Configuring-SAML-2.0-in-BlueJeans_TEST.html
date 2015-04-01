@@ -23,8 +23,7 @@ try{Typekit.load();}catch(e){}
 
 <script type="text/javascript">
   function updateValues2() {
-    val newtext = $('#singleLogoutService').html(window.dataSAML["signOutUrl"] + '"/>'); 
-    print newtext;
+    $('#singleLogoutService').html('md\\:' + window.dataSAML["signOutUrl"] + '"/>'); 
   }
 
   $(document).ready(function($) {
@@ -62,7 +61,7 @@ try{Typekit.load();}catch(e){}
 </li>
 <li>
 <p>Copy the following URL into the <strong>Single Logout Service</strong> field.</p>
-<kbd id="newtext"> Sign into the Okta Admin dashboard to generate this value.</kbd>
+<kbd id="singleLogoutService"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
 
 <li>
