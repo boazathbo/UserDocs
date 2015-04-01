@@ -23,7 +23,8 @@ try{Typekit.load();}catch(e){}
 
 <script type="text/javascript">
   function updateValues() {
-    $('#singleLogoutService').html('texthere' + window.dataSAML["signOutUrl"] + '"/>'); 
+    var y = 'texthere';
+    $('#singleLogoutService').html(y + window.dataSAML["signOutUrl"] + '"/>'); 
   }
 
   $(document).ready(function($) {
