@@ -1,3 +1,4 @@
+
 <html>
 <head>
 <link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
@@ -50,7 +51,10 @@ try{Typekit.load();}catch(e){}
 <li><p>Select <strong>Authentication</strong>, as shown below.</p>
 <p><img style="border: 0; padding: 0;" src="images/apps/Tableau_Online_2b.png" alt="Tableau_Online_2.png" /></p>
 </li>
-<li><p><p>Copy the following <strong>IDP Metadata</strong> into a text file. Save it with the file name <em>metadata.xml</em></p>
+<li><p>In the <em>1. Export metadata file from Tableau Online</em> section, copy the <strong>Tableau Online entity ID</strong> and the <strong>Assertion Consumer Service URL (ACS)</strong>, shown below, from the Tableau Online screen to the same fields in Okta, on the <strong>General</strong> tab for the Tableau Online app.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/Tableau_Online_5b.png" alt="Tableau_Online_5.png" /></p>
+</li>
+<li><p>Copy the following <strong>IDP Metadata</strong> into a text file. Save it with the file name <em>metadata.xml</em></p>
 <textarea id="singleLogoutService" style="margin: 0px; width: 817px; height: 190px;"> Sign into the Okta Admin dashboard to generate this value.</textarea>
 </li>
 <li><p>In the <em>4. Import metadata file into Tableau Online</em> section on the Tableau Online screen, select <strong>Browse</strong> and upload the <em>metadata.xml</em> file you just downloaded, as shown below.</p>
