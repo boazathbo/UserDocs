@@ -10,6 +10,7 @@ try{Typekit.load();}catch(e){}
 
 <title>Setup SSO</title>
 <script src="resources/scripts/getAppValues.js"></script>
+
 <script type="text/javascript">
   function updateValues() {
     $('#signOnUrlReplicon').html(window.dataSAML["signOnUrl"] + '?target={1}');
@@ -21,12 +22,12 @@ try{Typekit.load();}catch(e){}
 </script>
 
 <script type="text/javascript">
-  function updateValues() {
+  function updateValues2() {
     $('#singleLogoutService').html(window.dataSAML["signOutUrl"] + 'textafter');
   }
 
   $(document).ready(function($) {
-    $("body").on('dataSAMLUpdated', updateValues);
+    $("body").on('dataSAMLUpdated', updateValues2);
   });
 </script>
 
