@@ -10,6 +10,7 @@ try{Typekit.load();}catch(e){}
 
 <title>Setup SSO</title>
 <script src="resources/scripts/getAppValues.js"></script>
+
 <script type="text/javascript">
   function updateValues() {
     $('#signOnUrlReplicon').html(window.dataSAML["signOnUrl"] + '?target={1}');
@@ -19,6 +20,21 @@ try{Typekit.load();}catch(e){}
     $("body").on('dataSAMLUpdated', updateValues);
   });
 </script>
+
+<script type="text/javascript">
+  function updateValues() {
+    var y = '<md\:SingleLogoutService Binding=\"urn\:oasis\:names\:tc\:SAML\:2.0\:bindings\:HTTP-POST\" Location=\"';
+    $('#singleLogoutService').html(y + window.dataSAML["signOutUrl"] + '"/>'); 
+    var z = (y + window.dataSAML["signOutUrl"] + '"/>'); 
+    document.getElementById("SLOService").innerHTML = z;​
+    window.alert(z);
+  }
+
+  $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', updateValues);
+  });
+</script>
+
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
@@ -47,6 +63,11 @@ try{Typekit.load();}catch(e){}
 <p>Copy the following URL into the <strong>SAML Transfer URL</strong> field.</p>
 <kbd id="signOnUrlReplicon"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
+<li>
+<p>Copy the following URL into the <strong>Single Logout Service</strong> field.</p>
+<kbd id="SLOService"> Sign into the Okta Admin dashboard to generate this value.</kbd>
+</li>
+
 <li>
 <p>Modify the following text for the <strong>Password Change URL</strong>, where &lt;company name&gt; is the name of your company. For example, if your company is named <em>acme</em>, enter <em><a style="text-decoration: none; color: black;" onclick="return false;">https://acme.bluejeans.com</a></em>.</p>
 <kbd>https://&lt;company name&gt;.bluejeans.com</kbd></li>
