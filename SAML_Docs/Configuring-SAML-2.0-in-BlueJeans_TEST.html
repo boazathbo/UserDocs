@@ -26,8 +26,9 @@ try{Typekit.load();}catch(e){}
     var y = '<md\:SingleLogoutService Binding="urn\:oasis\:names\:tc\:SAML\:2.0\:bindings\:HTTP-POST\" Location=\"';
     var z = (y + window.dataSAML["signOutUrl"] + '"/>'); 
     var a = (window.dataSAML["idpMetadata'];
+    alert(a);
     var b = a.replace("</md\:KeyDescriptor>","</md\:KeyDescriptor>"+z);
-    alert(a.replace("</md\:KeyDescriptor>","</md\:KeyDescriptor>"+z););
+    alert(b);
     $('#singleLogoutService').text(b);    
   }
 
