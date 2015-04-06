@@ -26,22 +26,17 @@ try{Typekit.load();}catch(e){}
 <p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
 </div>
 <ol>
+<li><p>Sign in to Expensify and navigate to <strong>Admin > Domain Control > [yourDomainName] > SAML</strong> to view the screen shown below.</p><img src="images/apps/Expensify_2_1.png" alt="Expensify_2_1.png" />
+</li>
+<li>Enable <strong>SAML Login</strong>, as shown above.</li>
+<li><p>Enable <strong>Required for login</strong>, as shown above.</p>
+<p><strong>Note: </strong>After choosing this options, users can only sign in with SSO and cannot use an Expensify password.</p>
+</li>
 <li>
-<p>Generate the following <strong>IDP Metadata</strong> and save to a file named <em>metadata.xml</em>.</p>
+<p>Enter the following <strong>Identity Provider MetaData</strong>, as shown above.</p>
 <textarea id="idpMetadata" style="margin: 0px; width: 817px; height: 190px;">Sign into the Okta Admin Dashboard to generate this variable.</textarea></li>
 
-<li>Send an email to Expensify support team and request that they enable SAML 2.0 for your account.</li>
-<li>Attach the file <em>metadata.xml</em> that you created in step 1.</li>
-<li><p>Attach the following <strong>Login URL</strong> to the email.</p>
-<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
-</li>
-<li><p>Attach the following <strong>Logout URL</strong> to the email.</p>
-<p><kbd id="signOutUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
-<li>
-<li><p>Attach the following <strong>Name ID Format</strong> to the email.</p>
-<p><kbd>emailAddress</kbd></p>
-</li>
-<li>Expensify will process your request. After you receive a confirmation email, you can start assigning people to the application.</li>
+
 <li><p>Done!</p><p><b>Notes:</b></p>
 <p>IDP-initiated flows and SP-initiated flows are supported. Just In Time (JIT) provisioning is not supported.</p>
 
