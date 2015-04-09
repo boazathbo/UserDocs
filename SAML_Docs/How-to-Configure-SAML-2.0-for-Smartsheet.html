@@ -28,7 +28,7 @@ try{Typekit.load();}catch(e){}
 <li>Sign in to your Smartsheet enterprise account as the administrator.</li>
 <li>
 <p>Select the <strong>Account</strong> gear located in the top left corner, and then, select <strong>Account Admin...</strong> in the menu that opens, as shown below.</p>
-<img style="border: 0; padding: 0;" src="images/apps/Smartsheet_1.png" alt="Smartsheet_1.png" />/li&gt;</li>
+<img style="border: 0; padding: 0;" src="images/apps/Smartsheet_1.png" alt="Smartsheet_1.png" /></li>
 <li>In the Account Administration window that opens, select <strong>Security Controls</strong>, and then, select <strong>Edit</strong> under <strong>Single Sign-On using SAML</strong>, as shown below.<br /><br /><img style="border: 0; padding: 0;" src="images/apps/Smartsheet_2.png" alt="Smartsheet_2.png" /></li>
 <li>In the SAML Administration window that opens, select <strong>Add IdP</strong>, as shown below.<br /><br /><img style="border: 0; padding: 0;" src="images/apps/Smartsheet_3.png" alt="Smartsheet_3.png" /></li>
 <li>The <strong>Add IdP</strong> window shown below opens.<br /><br /><img style="border: 0; padding: 0;" src="images/apps/Smartsheet_4.png" alt="Smartsheet_4.png" /><br /><br /></li>
@@ -45,6 +45,16 @@ try{Typekit.load();}catch(e){}
 </li>
 <li>
 <p>When done, <strong>activate the domain</strong>, and then <strong>activate the IdP</strong>.</p>
+</li>
+<li>In Okta, on the <strong>General Settings</strong> for the Smartsheet app, enter the following fields, as shown below.
+<ol>
+<li><p>ACS URL</p>
+<kbd>https://sso.smartsheet.com/Shibboleth.sso/SAML2/POST</kbd>
+</li>
+<li><p>Audience Restriction</p>
+<kbd>https://sso.smartsheet.com/saml</kbd>
+</li>
+</ol>
 </li>
 <li>Done!</li>
 </ol></div>
