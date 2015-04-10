@@ -38,23 +38,17 @@ try{Typekit.load();}catch(e){}
 <pre id="idpMetadata">Sign in to the Okta Admin app to generate this variable.</pre></li>
 <li>Select <strong>Add Domain</strong>, as shown below. Follow the instructions in the Smartsheet documentation located at <a href="http://www.smartsheet.com/files/haymaker/SAMLSelfServiceInstructions.pdf" target="_blank">http://www.smartsheet.com/files/haymaker/SAMLSelfServiceInstructions.pdf</a>&nbsp;to add your domain configuration.<br /><br /><img style="border: 0; padding: 0;" src="images/apps/Smartsheet_5.png" alt="Smartsheet_5.png" /></li>
 <li>
-<p>After setting up the domain, copy and paste the following <strong>SSO URL</strong>.</p>
-<kbd id="signOnUrl"> Sign in to the Okta Admin app to generate this variable.</kbd></li>
+<p>Copy the <strong>Domain SSO URL</strong> in Smartsheet. In Okta, on the <strong>General Settings</strong> for the Smartsheet app, paste that information into the <strong>ACS URL</strong> field.</p><p><strong>Note: </strong>
+If the Domain SSO URL is not visible, click the <strong>Activate</strong> button.</p>
 <li>
-<p>&nbsp;Optionally, you can edit the <strong>CNAME</strong>, if desired. For more information on the CNAME, see&nbsp;the Smartsheet documentation located at <a href="http://www.smartsheet.com/files/haymaker/SAMLSelfServiceInstructions.pdf" target="_blank">http://www.smartsheet.com/files/haymaker/SAMLSelfServiceInstructions.pdf</a>.</p>
+<p>Optionally, you can edit the <strong>CNAME</strong>, if desired. For more information on the CNAME, see&nbsp;the Smartsheet documentation located at <a href="http://www.smartsheet.com/files/haymaker/SAMLSelfServiceInstructions.pdf" target="_blank">http://www.smartsheet.com/files/haymaker/SAMLSelfServiceInstructions.pdf</a>.</p>
 </li>
 <li>
 <p>When done, <strong>activate the domain</strong>, and then <strong>activate the IdP</strong>.</p>
 </li>
-<li>In Okta, on the <strong>General Settings</strong> for the Smartsheet app, enter the following fields, as shown below.
-<ol>
-<li><p>ACS URL</p>
-<kbd>https://sso.smartsheet.com/Shibboleth.sso/SAML2/POST</kbd>
-</li>
-<li><p>Audience Restriction</p>
+<li><p>In Okta, on the <strong>General Settings</strong> for the Smartsheet app, enter the following <strong>Audience Restriction</strong>.</p>
 <kbd>https://sso.smartsheet.com/saml</kbd>
-</li>
-</ol>
+
 </li>
 <li>Done!</li>
 </ol></div>
