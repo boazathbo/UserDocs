@@ -34,15 +34,23 @@ try{Typekit.load();}catch(e){}
 <li>Click&nbsp;<strong>Site Certificate Manager</strong>. Save the following certificate in PEM format as cert.pem, and upload it in WebEx.
 <pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre></li>
 </li>
-<li>Click&nbsp;<strong>Federated Web SSO Configuration&nbsp;</strong>to display the&nbsp;<strong>Federated Web SSO Configuration&nbsp;</strong>dialog box.<br /><img src="images/apps/webexconnect.png" alt="webexconnect.png" /><br />From the&nbsp;<strong>Federation Protocol</strong>&nbsp;drop down list, select the federation protocol&nbsp;<strong>SAML 2.0</strong>&nbsp;The fields displayed in the&nbsp;<strong>Federated Web SSO Configuration</strong>&nbsp;dialog box vary based on the selected federation protocol. By default, the configuration fields for SAML 2.0 will be displayed each time the&nbsp;<strong>Federated Web SSO Configuration</strong>&nbsp;dialog box is opened.</li>
-<li>Copy and paste the following to the <strong>Issuer of SAML (IdP ID)</strong> field.
+<li>Click&nbsp;<strong>Federated Web SSO Configuration&nbsp;</strong>to display the&nbsp;<strong>Federated Web SSO Configuration&nbsp;</strong>dialog box.<br /><img src="images/apps/webexconnect.png" alt="webexconnect.png" /><br />
+<li>Enter the following configuration information:
+
+<p><ul>
+<li><strong>Federation Protocol</strong>: Select <strong>SAML 2.0</strong> from the drop down menu. </ br><p>The fields displayed in the&nbsp;<strong>Federated Web SSO Configuration</strong>&nbsp;dialog box vary based on the selected federation protocol. By default, the configuration fields for SAML 2.0 will be displayed each time the&nbsp;<strong>Federated Web SSO Configuration</strong>&nbsp;dialog box is opened.</p></li>
+</li>
+<li><strong>Issuer for SAML (IdP ID)</strong>: Copy and paste the following in this field:
 <kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></li>
-<li>Copy and paste the following to the <strong>Customer SSO Service Login URL</strong> field.
+<li><strong>Customer SSO Service Login URL</strong>: Copy and paste the following in this field:
 <kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></li>
-<li> Select <strong>Unspecified</strong> for <strong>NameID Format</strong>.
-<li> Make sure that the <strong>AuthnContextClassRef</strong> is set to the following:
+<li><strong>NameID Format</strong>: Select <strong>Unspecified</strong></li>
+<li><strong>AuthnContextClassRef</strong>: Make sure this is set to the following:
 <kbd>urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</kbd>
-<li>Click Update</li>
+</ul>
+</p>
+
+<li>Click <strong>Update</strong></li>
 <li>Done!</li>
 <p><strong>Note:</strong> Alternatively, you can also upload the IdP Metadata in WebEx:
 <pre id="idpMetadata">Sign in to Okta Admin app to have this variable generated for you.</pre></strong></p>
