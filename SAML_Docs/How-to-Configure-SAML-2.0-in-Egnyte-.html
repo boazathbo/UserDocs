@@ -26,28 +26,54 @@ try{Typekit.load();}catch(e){}
 <p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
 </div>
 <ol>
-<li>Sign in to Egnyte, and then click the <strong>External Authentication</strong> tab.</li>
+<li>Log in to Egnyte as an Administrator</strong>.</li>
 <li>
-<p>Check <strong>Enable</strong> SAML next to <strong>Single Sign-on authentication</strong>, as shown below.</p>
+<p>Click the cog icon in the upper right, then select <strong>Settings</strong>.</p>
 </li>
 <li>
-<p>Choose <em>Okta</em> from the <strong>Identity Provider</strong> drop down list.</p>
+<p>Select the <strong>Configuration</strong> tab, then select <strong>Security</strong>:</p>
+<img style="border: 0; padding: 0;" src="images/apps/egnyte1.png" alt="egnyte1.png" />
+
 </li>
 <li>
-<p>Copy the following URL into the <strong>Identity Provider login URL</strong> field.</p>
-<kbd id="signOnUrl">Sign into the Okta Admin dashboard to generate this value.</kbd></li>
-<li>
-<p>Copy the following URL into the <strong>Identity Provider Entity ID</strong> field.</p>
-<kbd id="issuer">Sign in to the Okta Admin dashboard to generate this value.</kbd></li>
-<li>
-<p>Copy the following certificate into the <strong>Identity provider certificate</strong> field.</p>
-<kbd id="x509CertText">Sign in to the Okta Admin dashboard to generate this value.</kbd></li>
-<li>Leave&nbsp;<strong>API Key</strong>&nbsp;blank if you are not enabling&nbsp;<strong>Map Drive Access.&nbsp;</strong>To enable Map Drive Access, see the following optional section.</li>
-<li>In the Egnyte window, Choose a&nbsp;<strong style="font-size: 14px;">Default user mapping</strong>.</li>
-<li>Click&nbsp;<strong style="font-size: 14px;">Save</strong>.</li>
+<p>Scroll down to the <strong>Single Sign-On Authentication</strong> section and enter the following values:</p>
+<img style="border: 0; padding: 0;" src="images/apps/egnyte2.png" alt="egnyte2.png" />
+
+<ul>
+<li><p><strong>Single sign-on authentication</strong>: Select <strong>SAML 2.0</strong> from the dropdown menu.</p></li>
+<li><p><strong>Identify provider</strong>: Select <strong>Okta</strong> from the dropdown menu.</p></li>
+<li><p><strong>Identify provider login URL</strong>: Copy and paste the following into this field:</p><kbd id="signOnUrl">Sign into the Okta Admin dashboard to generate this value.</kbd></li>
+<li><p><strong>Identify provider entity ID</strong>: Copy and paste the following into this field:</p><kbd id="issuer">Sign in to the Okta Admin dashboard to generate this value.</kbd></li>
+<li><p><strong>Identify provider certificate</strong>: Copy and paste the following into this field:</p> <kbd id="x509CertText">Sign in to the Okta Admin dashboard to generate this value.</kbd></li>
+<li><p><strong>API key</strong>: Leave API Key blank if you are not enabling Map Drive Access. To enable Map Drive Access, see the following optional section.</p></li>
+<li><p><strong>Default user mapping</strong>: Select one from the dropdown menu.</p></li>
+
+</ul>
+
+
+
+</li>
+<li>Select <strong>Save</strong>.</li>
+<li><p>Then, for each user, do the following:</p>
+<ol type=“alpha”>
+
+<li><p>From the <strong>Settings</strong> page, select <strong>Users and Groups</strong>.</p>
+</li>
+<li><p>Select a user, then select <strong>Details</strong>.</p>
+<img style="border: 0; padding: 0;" src="images/apps/egnyte3.png" alt="egnyte3.png" /></li>
+<li><p>On the user’s <strong>Profile</strong> page, select <strong>SSO</strong> from the <strong>Authentication</strong> dropdown menu.</p>
+<img style="border: 0; padding: 0;" src="images/apps/egnyte4.png" alt="egnyte4.png" /></li>
+<li><p>Select <strong>Save</strong>.</p></li>
+</li>
+
+
 </ol>
-<h2><img style="border: 0; padding: 0;" src="images/apps/egnyte_1.png" alt="egnyte_1.png" /></h2>
-<hr />
+</li>
+</ol>
+
+<br />
+<br />
+
 <h2>Enabling Map Drive Access in Egnyte (optional)</h2>
 <div class="okta-callout okta-info">
     <span class="icon-24 icon-info"></span>
