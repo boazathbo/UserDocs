@@ -1,0 +1,86 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for OpenDNS</h1>
+
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
+</div>
+
+
+
+
+<ol>
+<li>Generate the following IDP Metadata and save it to a file named metadata.xml:<br /><br />&nbsp;<textarea id="idpMetadata" style="margin: 0px; width: 817px; height: 190px;">Sign into the Okta Admin Dashboard to generate this variable.</textarea></li>
+
+
+<li>Log into OpenDNS as an administrator.</li>
+<li>Select the <strong>Configuration</strong> tab.</li>
+<li>Select <strong>System Settings > Login Security</strong> on the left navigational panel.</li>
+<li>Select <strong>Okta</strong>.</li>
+<li>Click <strong>next >></strong>.
+<img src="images/apps/OpenDNS1.png" alt="OpenDNS1.png" />
+</li>
+
+<li>The <strong>Instructions</strong> page opens, click <strong>next >></strong>.
+<img src="images/apps/OpenDNS2.png" alt="OpenDNS2.png" />
+</li>
+
+<li>The <strong>Upload Metadata</strong> page opens, select <strong>Browse</strong>, then select the metadata.xml file you saved in step 1.
+<img src="images/apps/OpenDNS3.png" alt="OpenDNS3.png" />
+</li>
+
+<li>The <strong>Validate</strong> page opens, select <strong>Test your SAML configuration</strong>.
+<img src="images/apps/OpenDNS4.png" alt="OpenDNS4.png" />
+</li>
+
+<li>Enter your OpenDNS email into the corresponding field, then click <strong>Login via SAML</strong>.
+<img src="images/apps/OpenDNS5.png" alt="OpenDNS5.png" />
+</li>
+
+<li>Enter your Okta <strong>Username</strong> and <strong>Password</strong>, then click <strong>Sign In</strong>.
+<img src="images/apps/OpenDNS6.png" alt="OpenDNS6.png" />
+</li>
+
+
+<li>Wait until a <strong>Your SAML settings have been properly configured!</strong> message appears, then click <strong>Save Configuration and notify others</strong>.
+<img src="images/apps/OpenDNS7.png" alt="OpenDNS7.png" />
+</li>
+
+
+<li>Done!
+
+
+<br />
+<p><strong>Notes:</strong>
+<p>SP-initiated flows and IDP-initiated flows are supported.</p>
+<p>Just in Time (JIT) provisioning is not supported.</p>
+<p>For SP-initiated flows, go to <font color=“Blue”>https://login.opendns.com/sso/okta</font>. Enter your OpenDNS email, then click <strong>SIGN IN</strong>.
+<img src="images/apps/OpenDNS8.png" alt="OpenDNS8.png" />
+</P>
+</li>
+
+</ol></div>
+
+
+</body>
+</html>
