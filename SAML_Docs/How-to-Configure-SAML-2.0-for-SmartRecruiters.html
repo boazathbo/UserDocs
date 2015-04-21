@@ -43,9 +43,11 @@ try{Typekit.load();}catch(e){}
 </li>
 
 <li></p><strong>Identity Provider Certificate</strong>: Copy and paste the following into this field:
-<kbd id="x509CertText">Sign into the Okta Admin Dashboard to generate this variable.</kbd>
-</p></li>
-<li></p><strong>SmartRecruiters MetaData</strong>: Click on this link, and copy your Company ID</p></li>
+<pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre>
+</li>
+<li></p><strong>SmartRecruiters MetaData</strong>: Click on this link then locate the value for <strong>EntityDescriptor</strong>, which should be: <font color=“Blue”>https://www.smartrecruiters.com/web-sso/saml/[yourCompanyID]</font>. Copy your <strong>Company ID</strong>, as shown below:</p>
+<p><img src="images/apps/SmartRecruiters4.png" alt=“SmartRecruiters4.png" /></p>
+</li>
 
 
 </li>
@@ -54,7 +56,7 @@ try{Typekit.load();}catch(e){}
 <li></p>Click <strong>Save</strong>.</p></li>
 
 
-<li><p>In Okta, open the <strong>General</strong> tab for SmartRecruiters, and paste your <strong>Company ID</strong> into the corresponding field.
+<li><p>In Okta, open the <strong>General</strong> tab for the SmartRecruiters app, and paste your <strong>Company ID</strong> (retrieved earlier) into the corresponding field.
 <p><img src="images/apps/SmartRecruiters2.png" alt=“SmartRecruiters2.png" /></p>
 </li>
 
