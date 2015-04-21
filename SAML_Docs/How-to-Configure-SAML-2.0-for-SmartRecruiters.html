@@ -1,0 +1,75 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for SmartRecruiters</h1>
+
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
+</div>
+
+<ol>
+
+<li>Log into SmartRecruiters as an administrator.</li>
+<li>Select <strong>Settings / Admin</strong> from the dropdown menu next to your profile icon.
+<img src="images/apps/SmartRecruiters3.png" alt=“SmartRecruiters3.png" />
+</li>
+<li>On the <strong>Settings</strong> page, select <strong>Web SSO</strong> from the <strong>Configuration</strong> section.</li>
+<li><p>On the <strong>Web SSO</strong> configuration page:
+<p><img src="images/apps/SmartRecruiters1.png" alt=“SmartRecruiters1.png" />
+<p>Enter the following values:
+
+<ul>
+<li><p><strong>Identity Provider URL</strong>: Copy and paste the following into this field:
+<kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+<li></p><strong>Identity Provider Certificate</strong>: Copy and paste the following into this field:
+<kbd id="x509CertText">Sign into the Okta Admin Dashboard to generate this variable.</kbd>
+</p></li>
+<li></p><strong>SmartRecruiters MetaData</strong>: Click on this link, and copy your Company ID</p></li>
+
+
+</li>
+
+</ul>
+<li></p>Click <strong>Save</strong>.</p></li>
+
+
+<li><p>In Okta, open the <strong>General</strong> tab for SmartRecruiters, and paste your <strong>Company ID</strong> into the corresponding field.
+<p><img src="images/apps/SmartRecruiters2.png" alt=“SmartRecruiters2.png" /></p>
+</li>
+
+
+<li>Done!
+
+
+<br />
+<p><strong>Notes:</strong>
+<p>SP-initiated flows and IDP-initiated flows are supported.</p>
+<p>Just in Time (JIT) provisioning is not supported.</p>
+<p>For SP-initiated flows, go to <font color=“Blue”>https://lwww.smartresruiters.com/web-ss0/saml/[yourCompanyID]/login</font>. </li>
+
+</ol></div>
+
+
+</body>
+</html>
