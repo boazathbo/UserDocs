@@ -1,0 +1,61 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Newton Software</h1>
+
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
+</div>
+
+<ol>
+<li>Email Newton Software at <a href="mailto:Support@newtonsoftware.com" target="_blank">Support@newtonsoftware.com</a> and request the postback URL of your account in order to setup SAML with Okta.<br />
+The postback URL will look like this: <kbd>https://newton.newtonsoftware.com/saml/acs/{clientId}</kbd>
+</li>
+<li>Once you receive the postback URL, in Okta, open the <strong>General</strong> tab for the Newton Software app, and paste your Client ID (identified from the postback URL) into the corresponding field:<br />
+<img src="images/apps/NewtonSoftware1.png" alt=“NewtonSoftware1.png" />
+
+</li>
+<li>Send an email to Newton Software at <a href="mailto:Support@newtonsoftware.com" target="_blank">Support@newtonsoftware.com</a> and request that they enable SAML. Provide the following information:
+
+<ul>
+<li><strong>Identity Provider SSO URL</strong>: <kbd id="signOnUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd></li>
+<li><strong>Identity Provider Issuer</strong>:</li> <kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd>
+<li><strong>x.509 Certificate</strong>: Copy and paste this x.509 Certificate in PEM format, then save as a text file: <pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre></li>
+</ul>
+
+</li>
+<li>Done!</li>
+
+<br />
+<p><strong>Notes:</strong>
+<p>SP-initiated flows and IDP-initiated flows are supported.</p>
+<p>Just in Time (JIT) provisioning is not supported.</p>
+<p>For SP-initiated flows, go to the Newton Software login page <a href="http://newton.newtonsoftware.com/login.html">http://newton.newtonsoftware.com/login.html</a> and enter your <strong>Email</strong>, then click the <strong>Sign In</strong> button: <br />
+<img src="images/apps/NewtonSoftware2.png" alt=“NewtonSoftware2.png" /></li>
+
+</ol></div>
+
+
+</body>
+</html>
+
