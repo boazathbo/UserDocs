@@ -1,0 +1,71 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for EmployeeReferrals.com</h1>
+
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
+</div>
+
+
+
+
+<ol>
+<li>Generate the following IDP Metadata:<br /><br />&nbsp;<textarea id="idpMetadata" style="margin: 0px; width: 817px; height: 190px;">Sign into the Okta Admin Dashboard to generate this variable.</textarea></li>
+
+
+<li>Log into EmployeeReferrals.com as an administrator.</li>
+<li>Switch to the <strong>Admin View</strong>:<br />
+<img src="images/apps/EmployeeReferrals2.png" alt=“EmployeeReferrals2” />
+
+</li>
+
+<li>Navigate to <strong>Settings > Single Sign-On</strong> and enter the following information (see screenshot at end of step for reference):
+
+<ul>
+<li><strong>SAML Metadata URL</strong>: Enter the information you copied in Step 1.</li>
+<li><strong>SSO URL</strong>: Copy and paste the following: <br /><kbd id="signOnUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd></li>
+<li>Check the <strong>Register SSO Users</strong> box.</li>
+<li>Select <strong>Update Company Info</strong>.</li>
+
+</ul>
+<br />
+<img src="images/apps/EmployeeReferrals3.png" alt=“EmployeeReferrals3” />
+
+</li>
+<li>Done!
+
+
+<br />
+<p><strong>Notes:</strong>
+<p>SP-initiated flows, IDP-initiated flows, and Just in Time (JIT) provisioning are all supported.</p>
+
+<p>For SP-initiated flows, go to <font color=“Blue”>https://[YourSubDomain].employeereferrals.com</font>, then click on <strong>LOG IN</strong>:</p>
+<img src="images/apps/EmployeeReferrals4.png" alt=“EmployeeReferrals4.png" />
+</P>
+</li>
+
+</ol></div>
+
+
+</body>
+</html>
