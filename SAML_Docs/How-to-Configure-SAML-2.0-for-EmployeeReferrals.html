@@ -30,7 +30,9 @@ try{Typekit.load();}catch(e){}
 
 
 <ol>
-<li>Generate the following IDP Metadata:<br /><br />&nbsp;<textarea id="idpMetadata" style="margin: 0px; width: 817px; height: 190px;">Sign into the Okta Admin Dashboard to generate this variable.</textarea></li>
+<li>In Okta, open the <strong>Sign On</strong> tab for the EmployeeReferrals.com app, then copy the <strong>Identity Provider Metadata</strong> link, as shown below:<br />
+<img src="images/apps/EmployeeReferrals1.png" alt=“EmployeeReferrals1” />
+</li>
 
 
 <li>Log into EmployeeReferrals.com as an administrator.</li>
@@ -42,7 +44,7 @@ try{Typekit.load();}catch(e){}
 <li>Navigate to <strong>Settings > Single Sign-On</strong> and enter the following information (see screenshot at end of step for reference):
 
 <ul>
-<li><strong>SAML Metadata URL</strong>: Enter the information you copied in Step 1.</li>
+<li><strong>SAML Metadata URL</strong>: Enter the <strong>Identity Provider Metadata</strong> link you copied in step 1.</li>
 <li><strong>SSO URL</strong>: Copy and paste the following: <br /><kbd id="signOnUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd></li>
 <li>Check the <strong>Register SSO Users</strong> box.</li>
 <li>Select <strong>Update Company Info</strong>.</li>
