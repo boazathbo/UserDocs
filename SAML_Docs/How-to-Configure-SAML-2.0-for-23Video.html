@@ -1,0 +1,45 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for 23 Video</h1>
+
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
+</div>
+<ol>
+<li>
+<p>Generate the following <strong>IDP Metadata</strong> and save to a file named metadata.xml:</p>
+<strong>&nbsp;<textarea id="idpMetadata" style="margin: 0px; width: 817px; height: 190px;">Sign into the Okta Admin Dashboard to generate this variable.</textarea></strong></li>
+<li>Send an email to 23 Video Support and request that they enable SAML 2.0 for your organization.</li>
+<li>Attach the <em>metadata.xml</em> file you created in step 1 to the email message.</li>
+<li>23 Video will process your application. After receiving a confirmation email, you can assign people to the application.</li>
+<li><p>Done!</p><p><b>Notes:</b></p>
+<p>IdP-initiated flows and SP-initiated flows are supported. Just In Time (JIT) provisioning is not supported.</p>
+
+<p>For an SP-initiated flow, go to <strong>https://&lt;yourBaseURL&gt;/saml/redirect</strong>, where &lt;yourBaseURL&gt; is your 23 Video custom domain. </p>
+
+</li>
+
+</ol>
+</div>
+</body>
+</html>
