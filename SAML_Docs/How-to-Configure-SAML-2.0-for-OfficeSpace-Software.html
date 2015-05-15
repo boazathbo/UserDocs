@@ -27,18 +27,36 @@ try{Typekit.load();}catch(e){}
 <div class="instructions clearfix">
 <div class="instructions-text"><ol class="bullets">
 <li>
-<p>Email OfficeSpace Software at <a href="mailto:support@officespacesoftware.com">support@officespacesoftware.com</a>&nbsp;to enable SAML for your account.</p>
+<p>Login to OfficeSpace Software as an administrator.</p>
 </li>
-<li>Copy the following text into the email and label it <strong>IDP Metadata</strong>.&nbsp;<br /><br /><pre id="idpMetadata">Sign into the Okta Admin dashboard to generate this value.</pre></li>
-<li>
-<p>Copy and paste the following text into the message and label it <strong>Certificate Fingerprint</strong>.</p>
-<kbd id="certFingerPrint">Sign into the Okta Admin dashboard to generate this value. </kbd></li>
-<li>
-<p>Copy and paste the following text into the message and label it&nbsp;<strong>Login URL/Sign on URL</strong>.</p>
+<li><p>Select the <strong>Connectors</strong> tab:<p>
+<img src="images/apps/OfficeSpace1.png" alt=“OfficeSpace1.png" />
+
+</li>
+<li><p>Enter the following values into the corresponding fields (see screen shot at end of step for reference):</p>
+
+<ul>
+<li><p><strong>Enabled</Strong>: true</p></li>
+<li><strong>Is primary provider</Strong>: true</li>
+<li><strong>Logout provider url</Strong>: Copy and paste the following into this field:
+<kbd id="signOutUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></li>
+<li><strong>Client idp target url</Strong>: Copy and paste the following into this field:
 <kbd id="signOnUrl">Sign into the Okta Admin dashboard to generate this value. </kbd></li>
-<li>
-<p>After receiving confirmation from OfficeSpace Software that SAML is enabled, in the Okta Dashboard for the OfficeSpace Software application, select <em>Okta username</em> for the <strong>Default username format</strong>, as shown below.&nbsp;<br /><br /><img style="border: 0; padding: 0;" src="images/apps/LearnUpon_1.png" alt="Username Format" /></p>
+<li><strong>Client idp certificate fingerprint</Strong>: Copy and paste the following into this field: <kbd id="certFingerPrint">Sign into the Okta Admin dashboard to generate this value. </kbd>
 </li>
+
+
+</ul>
+
+<img src="images/apps/OfficeSpace2.png" alt=“OfficeSpace2.png" />
+
+</li>
+<li>Click <strong>Save</strong></li>
+<li>
+<p>In the Okta Dashboard for the OfficeSpace Software application, select <em>Okta username</em> for the <strong>Default username format</strong>, as shown below.&nbsp;<br /><br /><img style="border: 0; padding: 0;" src="images/apps/LearnUpon_1.png" alt="Username Format" /></p>
+</li>
+
+
 <li>Done!
 <p>&nbsp;</p>
 </li>
