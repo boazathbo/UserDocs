@@ -27,8 +27,7 @@ try{Typekit.load();}catch(e){}
 <h2>Before you begin</h2>
 <div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
 <h3><strong>Read this before you enable SAML</strong></h3>
-<p>If you are on <strong>Okta Enterprise Edition</strong> or above, you can configure app to support multiple roles per chiclet by enabling user management.</p> 
-<p>If you are on <strong>Okta SSO Edition</strong> or <strong>Okta SSO Plus Edition</strong>, you can pass only one Role per chiclet. Please refer to Step 10 for instructions on how to pass one Role. </p>
+<p>You need to enable User Management in order to configure SAML for  the app, and to support multiple roles per chiclet. The User Management functionality has also been extended to <strong>Okta SSO Edition</strong> and <strong>Okta SSO Plus Edition</strong> for the Amazon Web Services Application. </p>
 </div>
 <ol>
 <li>Sign into AWS and go to <strong>Security Credentials</strong> and click on <strong>Identity Providers</strong>.
@@ -77,7 +76,6 @@ try{Typekit.load();}catch(e){}
 </tbody>
 </table>
 </li>
-<li><span>If you are using the Okta SSO Edition or do not want to turn on User Management, copy the <strong>Role ARN</strong> from Amazon and paste it after the <strong>Identity provider ARN</strong> as comma separated value (For example, &lt;identityProviderARN&gt;,&lt;RoleARN&gt;) as shown below.&nbsp;<br /><br /><img style="border: 0; padding: 0;" src="images/apps/AWS_1.png" alt="AWS_1.png" /><br /><img style="border: 0; padding: 0;" src="images/apps/AWS_2.png" alt="AWS_2.png" /><br /><br /><span>Remember to add the Identity Provider to the <strong>Trusted Entities</strong> of the Role you are using, as shown below.<br /><br /><img style="border: 0; padding: 0;" src="images/apps/AWS_3.png" alt="AWS_3.png" /></span><br /></span></li>
 <li>Done</li>
 </ol></div>
 </body>
