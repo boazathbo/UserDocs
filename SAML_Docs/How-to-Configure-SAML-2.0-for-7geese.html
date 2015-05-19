@@ -1,0 +1,119 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for 7Geese</h1>
+
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
+</div>
+<ol>
+
+<li>In Okta, select the <strong>Sign On</strong> tab for the 7Geese app:
+<br />
+<p><img src="images/apps/7geese1.png" alt=“7geese1.png" /></p>
+
+
+</li>
+
+<li>Copy the <strong>Identity Provider URL</strong>.</li>
+<li>Login to 7Geese as an administrator and navigate to <strong>Organization Settings</strong>.</li>
+<li>In section 1, <strong>Provider Settings</strong>, enter the following information (screen shot at end of step for reference).<br />
+
+<ul>
+<li><strong>Issuer</strong>: Copy and paste the following into this field:
+<p><kbd id="issuer"> Sign in to the Okta Admin app to generate this variable.</kbd></p></li>
+
+<li><strong>Metadata URL</strong>: Copy and paste the following into this field:
+<p><kbd id="metadataUrl">Sign in to the Okta Admin app to have this variable generated for you</kbd></p>
+</li>
+<li><strong>SSO URL</strong>: Copy and paste the following into this field:
+<p><kbd id="signOnUrl">Sign in to the Okta Admin app to generate this variable</kbd></p>
+</li>
+<li><strong>X.509 Certificate</strong>: Copy and paste the following into this field:
+<p><pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre></p>
+</li>
+
+</ul>
+
+<p><img src="images/apps/7geese2.png" alt=“7geese2.png" /></p>
+
+</li>
+<li>Click <strong>Save</strong>.</li>
+
+<li>Scroll down to Section 2, <strong>SAML Config</strong> on the <strong>Organization Settings</strong> page and copy and save the following values (screen shot at end of step for reference).
+
+<ul>
+<li><strong>Audience</strong>.</li>
+<li><strong>SSO Service URL (Assertion Consumer Service)</strong>.</li>
+
+</ul>
+
+
+<p><img src="images/apps/7geese3.png" alt=“7geese3.png" /></p>
+
+</li>
+
+
+
+<li>In Okta, select the <strong>General</strong> tab for the 7Geese app, and enter the following information:
+
+
+<ul>
+<li>For <strong>ACS URL</strong>, enter the value you copied from the <strong>SSO Service URL (Assertion Consumer Service)</strong> field in step 6.</li>
+<li>For <strong>Audience Restriction</strong>, enter the value you copied from the <strong>Audience</strong> field in step 6.</li>
+
+
+<br />
+<p><img src="images/apps/7geese4.png" alt=“7geese4.png" /></p>
+
+</ul>
+
+</li>
+<li>In Okta, select the <strong>Sign On</strong> tab for the 7Geese app.</li>
+<li>for <strong>Default Relay State</strong>, enter "<strong>/</strong>":
+
+<br />
+<p><img src="images/apps/7geese5.png" alt=“7geese5.png" /></p>
+
+</li>
+
+
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+<p>IdP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported. </p>
+
+
+<p>For an SP-initiated flow:</p>
+<ol>
+<li><p>Go to <a href="https://app.7geese.com/samllogin/" target="_blank">https://app.7geese.com/samllogin/</a>. </p>
+<li>Enter your <strong>EMAIL</strong> address.</li>
+<li>Click <strong>Next >></strong>.</li>
+
+<p><img border="1" src="images/apps/7geese6.png" alt=“7geese6.png" /></p>
+</ol>
+
+</li>
+
+</ol>
+</div>
+</body>
+</html>
