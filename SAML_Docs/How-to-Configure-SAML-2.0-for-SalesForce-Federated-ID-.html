@@ -61,9 +61,9 @@ try{Typekit.load();}catch(e){}
 <li>
 <p>Click<strong> Save</strong>.<strong>&nbsp;</strong></p>
 </li>
-<li>Look for the<strong> Salesforce Login URL&nbsp;</strong>which will appear after clicking <strong>Save</strong>.<br /><img src="images/apps/Screen+Shot+2013-11-08+at+5.09.08+PM.png" alt="Screen_Shot_2013-11-08_at_5.09.08_PM.png" /></li>
-<li>In Okta, go to the <strong>Sign On</strong> Tab of app configuration shown in the image below. For the&nbsp;<strong>Federated ID SAML Parameter&nbsp;</strong>enter the ID after "?so=" or "?saml=" specified in your Salesforce Login URL.<br /><br /><img src="images/apps/Screen+Shot+2013-11-08+at+5.25.05+PM.png" alt="Screen_Shot_2013-11-08_at_5.25.05_PM.png" /></li>
-<li>In Okta, for <strong>Multiple SAML Config</strong>: If your Salesforce Login URL contains "<strong>?so=</strong>" then set Multiple Configuration as <strong>Yes</strong>. If your Salesforce Login URL contains "<strong>?saml=</strong>" then set Multiple Configuration as <strong>No</strong>.<strong><br /></strong><img src="images/apps/Screen+Shot+2013-11-08+at+5.49.12+PM.png" alt="Screen_Shot_2013-11-08_at_5.49.12_PM.png" /></li>
+<li>Copy the<strong> Salesforce Login URL&nbsp;</strong>which will appear after clicking <strong>Save</strong>. <br /><img src="images/apps/Screen+Shot+2013-11-08+at+5.09.08+PM.png" alt="Screen_Shot_2013-11-08_at_5.09.08_PM.png" /></li>
+<li>In Okta, go to the <strong>Sign On</strong> Tab of app configuration shown in the image below. Select <strong>YES</strong> for the&nbsp;<strong>Use Fed ID for SAML&nbsp;</strong><br /><br /><img src="images/apps/sfdc_new.png" alt="sfdc_new.png" /></li>
+<li>In Okta, paste the <strong>Salesforce Login Url</strong> you copied in Step 15 to the <strong>Login Url</strong> field.</strong></strong></li>
 <li>In Okta, for <strong>Custom Salesforce domain:&nbsp;</strong>If you have a Custom Salesforce Domain, such as site-name.my.salesforce.com, enter site-name, otherwise leave blank. (Hint: If your Salesforce login URL starts with <a style="text-decoration: none; color: black;" onclick="return false;">https://login.salesforce.com</a>, then leave this field blank.)</li>
 <li>Click <strong>Save</strong>.</li>
 <li>Done!</li>
