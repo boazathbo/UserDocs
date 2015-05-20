@@ -1,0 +1,77 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for TeamToq</h1>
+
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
+</div>
+<ol>
+<li>Log into TeamToq as an administrator.</li>
+<li>Navigate to <strong>Admin page > SSO Administration</strong>:
+<br />
+<p><img src="images/apps/TeamToq1.png" alt=“TeamToq1.png" /></p>
+</li>
+<li>Scroll down and copy the value for <strong>Unique Company SSO URL</strong>: Save this value, then in Okta, select the <strong>General</strong> tab for the TeamToq app and enter that value in the <strong>Company SSO URL</strong> field:
+<p><img src="images/apps/TeamToq2.png" alt=“TeamToq2.png" /></p>
+</li>
+<li>On the <strong>Admin page > SSO Administration > Edit SSO Settings</strong> page, enter the following information (see screen capture at end of step for reference):
+
+<ul>
+<li><strong>Identity Provider Company Specific Account URL</strong>:</li>
+<li><strong>Identity Provider Account Token</strong>: Enter your OKTA API token, as follows:
+
+<ul>
+<li>In OKTA, from the Admin Dashboard, navigate to the <strong>Security > API</strong>.</li>
+<li>Click <strong>Create Token</strong>.</li>
+<li>Enter a token name.</li>
+<li>Click <strong>Create Token</strong>.</li>
+<li>Take note of your token value, then click <strong>OK, got it</strong>.</li>
+</ul>
+
+</li>
+
+<li><strong>Identity Provider Single Sign-On URL</strong>:</li>
+<li><strong>Identity Provider Issuer</strong>:</li>
+<li><strong>IDP Metadata</strong>: Copy the following into this field:
+<p><textarea id="idpMetadata" style="margin: 0px; width: 817px; height: 190px;">Sign into the Okta Admin Dashboard to generate this variable.</textarea></p>
+<br />
+<p><img src="images/apps/TeamToq3.png" alt=“TeamToq3.png" /></p>
+
+</li>
+
+</ul>
+
+</li>
+<li>Click <strong>Save</strong>.</li>
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+<p>IdP-initiated flows and Just In Time (JIT) provisioning are supported.</p>
+
+<p>SP-initiated flows are not supported.</p>
+
+</li>
+
+</ol>
+</div>
+</body>
+</html>
