@@ -31,13 +31,20 @@ try{Typekit.load();}catch(e){}
 <br />
 <p><img src="images/apps/TeamToq1.png" alt=“TeamToq1.png" /></p>
 </li>
-<li>Scroll down and copy the value for <strong>Unique Company SSO URL</strong>: Save this value, then in Okta, select the <strong>General</strong> tab for the TeamToq app and enter that value in the <strong>Company SSO URL</strong> field:
+<li>Scroll down and copy and save the value for <strong>Unique Company SSO URL</strong>. </li>
+
+
+<li>In Okta, select the <strong>General</strong> tab for the TeamToq app and enter the value just just saved in the <strong>Company SSO URL</strong> field:
 <p><img src="images/apps/TeamToq2.png" alt=“TeamToq2.png" /></p>
 </li>
-<li>On the <strong>Admin page > SSO Administration > Edit SSO Settings</strong> page, enter the following information (see screen capture at end of step for reference):
+<li>Click <strong>Save</strong>.
 
+<li>On the <strong>Admin page > SSO Administration > Edit SSO Settings</strong> page, enter the following information (see screen capture at end of step for reference):
 <ul>
-<li><strong>Identity Provider Company Specific Account URL</strong>:</li>
+
+<li><strong>Identity Provider Company Specific Account URL</strong>: Copy and paste the following into this field:
+<p><kbd id="signOutUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
 <li><strong>Identity Provider Account Token</strong>: Enter your OKTA API token, as follows:
 
 <ul>
@@ -50,19 +57,23 @@ try{Typekit.load();}catch(e){}
 
 </li>
 
-<li><strong>Identity Provider Single Sign-On URL</strong>:</li>
-<li><strong>Identity Provider Issuer</strong>:</li>
+<li><strong>Identity Provider Single Sign-On URL</strong>:
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p></li>
+<li><strong>Identity Provider Issuer</strong>:
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
 <li><strong>IDP Metadata</strong>: Copy the following into this field:
 <p><textarea id="idpMetadata" style="margin: 0px; width: 817px; height: 190px;">Sign into the Okta Admin Dashboard to generate this variable.</textarea></p>
 <br />
 <p><img src="images/apps/TeamToq3.png" alt=“TeamToq3.png" /></p>
 
 </li>
-
+<li>Click <strong>Save</strong>.</li>
 </ul>
 
 </li>
-<li>Click <strong>Save</strong>.</li>
+
+</ul>
 
 <li><p>Done!</p><p><b>Notes:</b></p>
 <p>IdP-initiated flows and Just In Time (JIT) provisioning are supported.</p>

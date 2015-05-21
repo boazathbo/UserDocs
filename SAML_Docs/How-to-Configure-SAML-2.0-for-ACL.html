@@ -1,0 +1,94 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for ACL Governance Risk Compliance</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<div class="instructions clearfix">
+<div class="instructions-text"><ol class="bullets">
+
+
+<li>
+<p>Login to your ACL account as an administrator.</p>
+</li>
+
+<li>Select <strong>Settings</strong>:
+
+
+<p><img src="images/apps/ACL1.png" alt=“ACL1.png" /></p>
+
+</li>
+
+
+<li><p>In the <strong>Settings</strong> pane, under the <strong>Single Sign-On (SSO) Provider</strong> section, click on <strong>Manage SSO Settings</strong>:</p>
+<p><img src="images/apps/ACL2.png" alt=“ACL2.png" /></p>
+
+<li>In the <strong>Single Sign-On (SSO) Provider</strong> page, enter the following (see screen shot at end of step for reference):
+
+<ul>
+<li><strong>Custom domain</strong>: Make sure this value is the same as displayed in the <strong>Custom Domain</strong> field under the <strong>ADVANCED SIGN-ON SETTINGS</strong> from the <strong>Sign On</strong> tab of the ACL app in Okta (shown here):
+<p><img src="images/apps/ACL4.png" alt=“ACL4.png" /></p>
+
+</li>
+<li><strong>Entity ID</strong>: Copy and paste the following into this field:
+<p><kbd id="issuer">Sign in to the Okta Admin&nbsp;app to generate this variable.</kbd></p>
+
+</li>
+<li><strong>Redirect Login URL</strong>: Copy and paste the following into this field:
+<p><kbd id="signOnUrl"> Sign in to the Okta Admin&nbsp;app to generate this variable.</kbd></p>
+</li>
+<li><strong>Security Certificate Fingerprint</strong>:</li>
+<li><strong>Enable Single Sign-On (SSO)</strong>: Check this box.</li>
+<li>Click <strong>Save changes</strong>.</li>
+
+</ul>
+
+<p><img src="images/apps/ACL3.png" alt=“ACL3.png" /></p>
+</li>
+
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+<p>IdP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported. </p>
+
+
+<p>For SP-initiated flows:</p>
+<ul>
+<li>Go to your login URL.</li>
+<li>Select <strong>Sign in to a custom domain</strong>:
+<p><img src="images/apps/ACL5.png" alt=“ACL3.png" /></p>
+</li>
+<li>Enter your domain name, then click <strong>CONTINUE</strong>:
+<p><img src="images/apps/ACL6.png" alt=“ACL3.png" /></p>
+</li>
+</ul>
+
+
+
+
+
+</li>
+
+</ol>
+</div>
+</body>
+</html>
