@@ -24,28 +24,46 @@ try{Typekit.load();}catch(e){}
 <div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
 <p><strong>Please sign-in to the Okta Admin app to have your organization specific variables generated for you. You might not be able to complete the setup without these generated variables.</strong></p>
 </div>
-<h2>Sign in to Zoom.us</h2>
-<p>Sign in to Zoom.us as a user with rights to edit SAML configuration.</p>
-<p>Find the Single Sign On on Account settings section, and enter the following information:</p>
+
 <ol>
-<li>
-<p><strong>Sign-in Page URL:</strong></p>
+<li><p>Sign in to Zoom.us as a user with rights to edit SAML configuration.</p></li>
+<li><p>Navigate to the <strong>Single Sign On on Account Settings</strong> section, and enter the following information:</p>
+
+<ul>
+
+<li><p><strong>Sign-in Page URL:</strong></p>
 <kbd id="signOnUrl">Sign in to the Okta Admin app to have this variable generated for you.</kbd></li>
 <li>
 <p><strong>Sign-out Page URL:</strong></p>
 <kbd id="signOutUrl">Sign in to the Okta Admin app to have this variable generated for you.</kbd></li>
 <li>
 <p><strong>Identity provider certificate:</strong></p>
-<kbd id="downloadCertificate">Sign in to the Okta Admin app to have this variable generated for you.</kbd></li>
+<kbd id="x509CertText">Sign into the Okta Admin Dashboard to generate this variable.</kbd></li>
 <li>
 <p><strong>Issuer:</strong></p>
 <kbd id="issuer">Sign in to the Okta Admin app to have this variable generated for you.</kbd></li>
 <li>
-<p><strong>Binding:</strong></p>
-<p>HTTP-Redirect</p>
+<p><strong>Binding:</strong> HTTP-Redirect.</p> 
 </li>
+
+</ul>
+
+
 <li>
-<p>Test Your SAML Configuration and if successfull, Enable your SAML login.</p>
+
+<p>Done!</p><p><b>Notes:</b></p>
+<p>IdP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported. </p>
+
+
+<p>For SP-initiated flows go to the <strong>https://<em>YourSubdomain</em>.zoom.us</strong> and click on the <strong>SIGN IN</strong> link.</p>
+</li>
+</ul>
+
+
+
+
+
+</li>
 </li>
 </ol></div>
 </body>
