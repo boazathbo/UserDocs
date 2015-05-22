@@ -26,10 +26,10 @@ try{Typekit.load();}catch(e){}
 </div>
 <ol>
 <li>
-<p>The root folder of the Voyager application that is installed on the Voyager web server is shown below.&nbsp;<br /><br /><img style="border: 0; padding: 0;" src="images/apps/Yardi_1.png" alt="Yardi_1.png" /></p>
+<p>The root folder of the Voyager application that is installed on the Voyager web server is shown below:&nbsp;<br /><br /><img style="border: 0; padding: 0;" src="images/apps/Yardi_1.png" alt="Yardi_1.png" /></p>
 </li>
-<li>In that folder, there is an application called&nbsp;<strong>VoyagerConfig.exe</strong>. Open that application to configure Single Sign-On (SSO). The screen shown below opens.<br /><br /><img style="border: 0; padding: 0;" src="images/apps/Yardi_2.png" alt="Yardi_2.png" /></li>
-<li>Enter all the following field settings.<ol>
+<li>In that folder there is an application called&nbsp;<strong>VoyagerConfig.exe</strong>. Open that application to configure Single Sign-On (SSO). The screen shown below opens:<br /><br /><img style="border: 0; padding: 0;" src="images/apps/Yardi_2.png" alt="Yardi_2.png" /></li>
+<li>Enter the following information:<ol>
 <li>
 <p><strong>Login Version</strong></p>
 <kbd>SSO</kbd></li>
@@ -55,7 +55,7 @@ try{Typekit.load();}catch(e){}
 </li>
 <li>
 <p><strong>SP Assertion Url</strong></p>
-<kbd>&lt;yourBaseURL&gt;/pages/LoginSSO.aspx </kbd>
+<kbd>&lt;yourBaseURL&gt;/pages/LoginAdvanced.aspx </kbd>
 <p>Substitute your base Voyager URL for <em>&lt;yourBaseURL&gt;</em>.</p>
 </li>
 <li>
@@ -72,7 +72,10 @@ try{Typekit.load();}catch(e){}
 <p>Verify that the <strong>Username</strong> values in Yardi Voyager, shown below, match the usernames in Okta on the <strong>People</strong> tab for the Yardi Voyager application.<br /><br /><img style="border: 0; padding: 0;" src="images/apps/Yardi_3.png" alt="Yardi_3.png" /></p>
 </li>
 <li>
-<p>Done!<br /><br /><strong>Note:</strong> SP-initiated SSO is support. IdP-initiated SSO and Just In Time (JIT) provisioning are not supported.</p>
+<p>Done!<br /><br />
+<p><strong>Notes:</strong></p>
+<p>SP-initiated flows are supported.</p> 
+<p>IdP-initiated flows and Just In Time (JIT) provisioning are not supported.</p>
 </li>
 </ol></div>
 </body>
