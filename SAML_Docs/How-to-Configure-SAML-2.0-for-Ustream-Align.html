@@ -1,0 +1,141 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Ustream Align</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<div class="instructions clearfix">
+<div class="instructions-text"><ol class="bullets">
+<li>
+<p>Sign into Ustream Align as an Administrator.</p>
+</li>
+
+<li>
+<p>Navigate to <strong>ACCOUNT > SSO Settings</strong>.</p>
+</li>
+
+<li>
+<p>Enter the following information (screen shot at end of step for reference):</p>
+
+<ul>
+
+<li>
+<p>Select <strong>Identity Provider Initiated SSO</strong>.</p>
+</li>
+
+<li>
+<p><strong>Entity ID</strong>: Copy and paste the following into this field:</p>
+<kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd>
+</li>
+<li>
+<p><strong>Certificate</strong>: Copy and paste the following into this field:</p>
+<pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre>
+</li>
+
+<li>
+<p><strong>Login URL</strong>: Copy and paste the following into this field:</p>
+<kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd>
+</li>
+
+<li>
+<p><strong>Logout URL</strong>: Copy and paste the following into this field:</p>
+<kbd id="signOutUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd>
+</li>
+
+<li>
+<p>Click <strong>Save changes</strong>.</p>
+</li>
+
+</ul>
+<p><img style="border: 0; padding: 0;" src="images/apps/UstreamAlign1.png" alt="UstreamAlign1.png" /></li>
+</li>
+
+<li>
+<p>Select <strong>CHANNELS</strong>, then select the following (screen shot at end of step for reference):</p>
+<ul>
+
+<li>
+<p>Select the channel for which you want SAML to be activated.</p>
+</li>
+
+<li>
+<p>Click <strong>Security</strong>.</p>
+</li>
+
+<li>
+<p>Locate the <strong>Content is secured with single sign-on (SSO)</strong> and click <strong>Change settings</strong>.</p>
+</li>
+
+</ul>
+
+<p><img style="border: 0; padding: 0;" src="images/apps/UstreamAlign2.png" alt="UstreamAlign2.png" /></li>
+
+</li>
+
+<li>
+<p>For <strong>How do you want to secure your content?</strong>, select <strong>With single sign-on (SSO)</strong>, then click <strong>Save</strong>:</p>
+
+<p><img style="border: 0; padding: 0;" src="images/apps/UstreamAlign3.png" alt="UstreamAlign3.png" /></li>
+</li>
+
+<li>
+<p>From the Security page, make note of your <strong>Channel ID</strong>. This is the last part (the digits) of your channel URL, as shown below:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/UstreamAlign4.png" alt="UstreamAlign4.png" /></li>
+</li>
+
+<li>
+<p>In Okta, select the <strong>Sign On</strong> tab for the Ustream Align app. </p>
+
+<ul>
+<li>
+<p>For <strong>Default Relay State</strong>, enter the <strong>Channel ID</strong> you saved in step 6.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/UstreamAlign5.png" alt="UstreamAlign5.png" /></li>
+</li>
+
+<li>
+<p>Click <strong>Save</strong>.</p>
+</li>
+</ul>
+
+
+</li>
+
+
+
+
+<li><p>Done!</p>
+<p><strong>Notes:</strong>
+<p>IdP-initiated flows and  SP-initiated flows are supported.</p>
+<p>Just In Time (JIT) provisioning is not supported.</p>
+<p>For an SP-initiated flow, use the Channel URL, for example:<strong>http://www.ustream.tv/internal/123456789</strong>:
+<p><img style="border: 0; padding: 0;" src="images/apps/UstreamAlign6.png" alt="UstreamAlign6.png" /></li>
+
+</li>
+</ol></div>
+</div>
+</div>
+</body>
+</html>
+
+
+
