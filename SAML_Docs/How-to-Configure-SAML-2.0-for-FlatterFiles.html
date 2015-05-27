@@ -1,0 +1,64 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Flatter Files</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+
+<li><p>Login to Flatter Files as a user with rights to edit SAML configuration.</p></li>
+<li><p>Navigate to <strong>DASHBOARD > Settings > Company</strong> and enter the following:</p>
+
+<ul>
+<li><p>Select <strong>Use SAML 2.0 for Authentication</strong>.</p></li>
+<li><p>Click <strong>Configure SAML</strong>.</p></li>
+</ul>
+<p><img style="border: 0; padding: 0;" src="images/apps/FlatterFiles1.png" alt=“FlatterFiles1.png" />
+
+</li>
+
+
+<li><p>In the <strong>SAML Configuration</strong> screen, enter the following (see screen capture at end of step for reference):</p>
+
+<ul>
+<li><p><strong>Domain</strong>: Enter your domain (for example: acme.com).</p></li>
+<li><p><strong>Identity Provider URL</strong>: Copy and paste the following into this field:</p>
+<kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></li>
+<li><p><strong>Identity Provider Certificate</strong>: Copy and paste the following into this field:</p><kbd id="x509CertText">Sign into the Okta Admin Dashboard to generate this variable.</kbd></li>
+<li><p>Click <strong>Update</strong></p></li>
+</ul>
+
+<p><img style="border: 0; padding: 0;" src="images/apps/FlatterFiles2.png" alt=“FlatterFiles2.png" />
+</li>
+
+<li>
+<p>Done!<br /><br />
+<p><strong>Notes:</strong></p>
+<p>SP-initiated flows, IdP-initiated flows, and Just In Time (JIT) provisioning are all supported.</p> 
+<p>For SP-initiated flows, go to <a href="https://www.flatterfiles.com/site/login/sso" target="_blank">https://www.flatterfiles.com/site/login/sso</a>, enter your email address then click the <strong>Submit</strong> button:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/FlatterFiles3.png" alt=“FlatterFiles3.png" />
+</li>
+</ol></div>
+</body>
+</html>
