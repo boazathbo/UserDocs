@@ -26,15 +26,8 @@ try{Typekit.load();}catch(e){}
     var a = (window.dataSAML["certFingerPrint"]).toUpperCase();
     var b = a;
     
-    StringBuilder builder = new StringBuilder(b.length() * 3 / 2 - 1);
-    for (int i = 0; i < b.length(); i += 2) {
-      if (i != 0) {
-          builder.append(":");
-      }
-      builder.append(b.substring(i, i + 2));
-    }
-    String text = builder.toString();
-    var m = confirm(text);
+    String output = b.replaceAll("..(?!$)", "$0:")    
+    var m = confirm(output);
 
 
     $('#formattedFingerprint').text(b);    
