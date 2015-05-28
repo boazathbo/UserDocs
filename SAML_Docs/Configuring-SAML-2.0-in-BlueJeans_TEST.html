@@ -24,6 +24,7 @@ try{Typekit.load();}catch(e){}
 <script type="text/javascript">
   function updateFingerprint() {
     var a = (window.dataSAML["certFingerPrint"]) + "xxx";
+    var m = confirm(a);
     $('#formattedFingerprint').text(a);    
    }
    
