@@ -23,6 +23,19 @@ try{Typekit.load();}catch(e){}
 
 <script type="text/javascript">
   function updateValues() {
+    var a = (window.dataSAML["certFingerPrint"];
+    var b = a.replace("(.{2})", "$1"+divisionChar).substring(0,17);
+    $('#formattedFingerprint').text(b); 
+   
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', updateValues);
+  });
+</script>
+
+
+
+<script type="text/javascript">
+  function updateValues() {
     var y = '<md\:SingleLogoutService Binding="urn\:oasis\:names\:tc\:SAML\:2.0\:bindings\:HTTP-POST\" Location=\"';
     var z = (y + window.dataSAML["signOutUrl"] + '"/>'); 
     var a = (window.dataSAML["idpMetadata"]);
@@ -64,6 +77,13 @@ try{Typekit.load();}catch(e){}
 <p>Copy the following URL into the <strong>SAML Transfer URL</strong> field.</p>
 <kbd id="signOnUrlReplicon"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
+
+<li>
+<p>Copy the following <strong>Certificate Fingerprint</strong> field.</p>
+<kbd id="formattedFingerprint"> Sign into the Okta Admin dashboard to generate this value.</kbd>
+</li>
+
+
 <li>
 <p>Copy the following URL into the <strong>Single Logout Service</strong> field.</p>
 <textarea id="singleLogoutService" style="margin: 0px; width: 817px; height: 190px;"> Sign into the Okta Admin dashboard to generate this value.</textarea>
