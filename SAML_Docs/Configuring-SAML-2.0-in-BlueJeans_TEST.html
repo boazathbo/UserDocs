@@ -24,8 +24,13 @@ try{Typekit.load();}catch(e){}
 <script type="text/javascript">
   function updateFingerprint() {
     var a = (window.dataSAML["certFingerPrint"]).toUpperCase();
-    var b = a.replaceAll("(.{2})", "$1"+':').substring(0,17);
-    $('#formattedFingerprint').text(b);    
+
+    StringBuilder sb = new StringBuilder(a);
+
+    for(int i = 2; i < a.length()+(i/3); i+=3){
+      sb.insert(i, ':');
+    }
+    $('#formattedFingerprint').text(sb);    
    }
    
  $(document).ready(function($) {
