@@ -24,7 +24,9 @@ try{Typekit.load();}catch(e){}
 <script type="text/javascript">
   function updateValues() {
     var a = (window.dataSAML["certFingerPrint"]);
+/*
     var b = a.replace("(.{2})", "$1"+divisionChar).substring(0,17);
+*/
     $('#formattedFingerprint').text(a); 
    
  $(document).ready(function($) {
