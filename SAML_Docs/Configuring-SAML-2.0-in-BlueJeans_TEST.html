@@ -27,8 +27,8 @@ try{Typekit.load();}catch(e){}
     var b = a;
     
 
-    for (i = 0; i < a.length; i+= 2) {
-      b += '!';
+    for (i = 2; i < a.length; i+= 2) {
+      b += b.insert(i, ':');
     }    
 
  
