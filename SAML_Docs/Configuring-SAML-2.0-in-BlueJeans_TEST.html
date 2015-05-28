@@ -30,6 +30,7 @@ try{Typekit.load();}catch(e){}
     for(int i = 2; i < a.length()+(i/3); i+=3){
       sb.insert(i, ':');
     }
+    var m = confirm(sb);
     $('#formattedFingerprint').text(sb);    
    }
    
