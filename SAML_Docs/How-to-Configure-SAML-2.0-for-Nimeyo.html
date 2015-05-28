@@ -1,0 +1,76 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Nimeyo qPod</h1>
+
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
+</div>
+<ol>
+<li>Log into Nimeyo qPod as an administrator.</li>
+<li>Navigate to the Administration Center, then select the <strong>Admin</strong> tab:
+<br />
+<p><img src="images/apps/Nimeyo1.png" alt=“Nimeyo1.png" /></p>
+</li>
+
+<li>Select the <strong>Plugins</strong> tab, then scroll down and select <strong>options</strong>:
+<p><img src="images/apps/Nimeyo2.png" alt=“Nimeyo2.png" /></p>
+</li>
+
+<li>Scroll down to the Okta Settings, and do the following (screen shot at end of step for reference):<br />
+
+<ul>
+<li>Check the <strong>Enable Okta</strong> box.</li>
+<li><strong>Okta App ID</strong>: Copy and paste the following into this field:
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><strong>Okta App Secret</strong>: Copy and paste the following IDP Metadata into this field:
+<p><textarea id="idpMetadata" style="margin: 0px; width: 817px; height: 190px;">Sign into the Okta Admin Dashboard to generate this variable.</textarea></p>
+</li>
+</li>
+<li>Scroll down and click <strong>Save Changes</strong>.
+</li>
+</ul>
+
+<p><img src="images/apps/Nimeyo3.png" alt=“Nimeyo3.png" /></p><br />
+<p><img src="images/apps/Nimeyo4.png" alt=“Nimeyo4.png" /></p>
+</li>
+
+
+<li>In Okta, select the <strong>General</strong> tab for the Nimeyo qPod app and enter your <strong>Base Url</strong>:
+<p><img src="images/apps/Nimeyo5.png" alt=“Nimeyo5.png" /></p>
+</li>
+<li>Click <strong>Save</strong>.
+
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+<p>IdP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported.</p>
+
+<p>For SP-initiated flows, go to <a href="https://qpod.nimeyo.com/okta/login?to=" target="_blank">https://qpod.nimeyo.com/okta/login?to=</a>, scroll down to the <strong>Login through an external provider</strong> section, then select <strong>Login using Okta</strong>:</p>
+
+<p><img src="images/apps/Nimeyo6.png" alt=“Nimeyo6.png" /></p>
+</li>
+
+</ol>
+</div>
+</body>
+</html>
