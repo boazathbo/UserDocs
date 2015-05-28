@@ -11,6 +11,23 @@ try{Typekit.load();}catch(e){}
 
 <script src="resources/scripts/getAppValues.js"></script>
 
+<script type="text/javascript">
+  function updateFingerprint() {
+    var a = (window.dataSAML["certFingerPrint"]).toUpperCase();
+     
+    a = a.replace(/(\S{2})/g,"$1\:");
+    a = a.replace(/\:$/,"");    
+
+    $('#formattedFingerprint').text(a);    
+
+   }
+   
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', updateFingerprint);
+  });
+</script>
+
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
@@ -58,6 +75,7 @@ try{Typekit.load();}catch(e){}
 <p><kbd id="signOnUrl"> Sign in to the Okta Admin&nbsp;app to generate this variable.</kbd></p>
 </li>
 <li><strong>Security Certificate Fingerprint</strong>:</li>
+<p><kbd id="formattedFingerprint"> Sign in to the Okta Admin&nbsp;app to generate this variable.</kbd></p>
 <li><strong>Enable Single Sign-On (SSO)</strong>: Check this box.</li>
 <li>Click <strong>Save changes</strong>.</li>
 
