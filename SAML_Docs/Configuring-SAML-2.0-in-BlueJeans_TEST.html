@@ -25,10 +25,10 @@ try{Typekit.load();}catch(e){}
   function updateFingerprint() {
     var a = (window.dataSAML["certFingerPrint"]).toUpperCase();
     var b = a;
-    var m = confirm(b);
+    var m = confirm(a);
     
 
-    String d = b.replaceAll("..(?!$)", "$0:") ;   
+    String d = a.replaceAll("..(?!$)", "$0:") ;   
     var p = confirm(d);
 
 
