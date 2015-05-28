@@ -26,13 +26,17 @@ try{Typekit.load();}catch(e){}
     var a = (window.dataSAML["certFingerPrint"]).toUpperCase();
     var b = a;
     
-
-    for (i = 2; i < a.length; i+= 2) {
-      b += b.insert(i, ':');
-    }    
-
- 
-    $('#formattedFingerprint').text(b);    
+    char[] output = new char[a.length() * 3 / 2 - 1];
+    int outputIndex = 0;
+    for (int i = 0; i < a.length(); i += 2) {
+    if (i != 0) {
+        output[outputIndex++] = ':';
+    }
+    output[outputIndex++] = a.charAt(i);
+    output[outputIndex++] = a.charAt(i + 1);
+   }
+   String d = new String(output); 
+    $('#formattedFingerprint').text(d);    
    }
    
  $(document).ready(function($) {
