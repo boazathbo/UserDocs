@@ -22,7 +22,7 @@ try{Typekit.load();}catch(e){}
 </script>
 
 <script type="text/javascript">
-  function updateValues() {
+  function updateFingerprint() {
     var a = (window.dataSAML["certFingerPrint"]);
     $('#formattedFingerprint').text(a); 
    }
@@ -31,6 +31,7 @@ try{Typekit.load();}catch(e){}
     $("body").on('dataSAMLUpdated', updateValues);
   });
 </script>
+
 
 
 
@@ -78,7 +79,7 @@ try{Typekit.load();}catch(e){}
 <kbd id="signOnUrlReplicon"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
 <p>Copy the following <strong>Certificate Fingerprint</strong> field.</p>
-<kbd id="certFingerPrint"> Sign into the Okta Admin dashboard to generate this value.</kbd>
+<kbd id="formattedFingerprint"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
 
 
