@@ -24,9 +24,6 @@ try{Typekit.load();}catch(e){}
 <script type="text/javascript">
   function updateValues() {
     var a = (window.dataSAML["certFingerPrint"]);
-/*
-    var b = a.replace("(.{2})", "$1"+divisionChar).substring(0,17);
-*/
     $('#formattedFingerprint').text(a); 
    }
    
@@ -81,7 +78,7 @@ try{Typekit.load();}catch(e){}
 <kbd id="signOnUrlReplicon"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
 <p>Copy the following <strong>Certificate Fingerprint</strong> field.</p>
-<kbd id="formattedFingerprint"> Sign into the Okta Admin dashboard to generate this value.</kbd>
+<kbd id="certFingerPrint"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
 
 
