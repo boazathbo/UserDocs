@@ -25,7 +25,7 @@ try{Typekit.load();}catch(e){}
   function updateValues() {
     var a = (window.dataSAML["certFingerPrint"];
     var b = a.replace("(.{2})", "$1"+divisionChar).substring(0,17);
-    $('#formattedFingerprint').text(b); 
+    $('#formattedFingerprint').text(a); 
    
  $(document).ready(function($) {
     $("body").on('dataSAMLUpdated', updateValues);
@@ -77,8 +77,6 @@ try{Typekit.load();}catch(e){}
 <p>Copy the following URL into the <strong>SAML Transfer URL</strong> field.</p>
 <kbd id="signOnUrlReplicon"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
-<li>Begin Cert Fingerprint test</li>
-<li>
 <p>Copy the following <strong>Certificate Fingerprint</strong> field.</p>
 <kbd id="formattedFingerprint"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
