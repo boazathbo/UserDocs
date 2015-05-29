@@ -39,6 +39,25 @@ try{Typekit.load();}catch(e){}
 
 
 <script type="text/javascript">
+  function separateIssuer() {
+    var a = (window.dataSAML["issuer"]);
+    var m = (a.length - a.lastIndexOf("\/"))*-1;
+    var o = confirm(m);
+
+    a = a.substr(m); 
+ 
+    $('#externalKey').text(a);    
+
+   }
+   
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', separateIssuer);
+  });
+</script>
+
+
+
+<script type="text/javascript">
   function updateValues() {
     var y = '<md\:SingleLogoutService Binding="urn\:oasis\:names\:tc\:SAML\:2.0\:bindings\:HTTP-POST\" Location=\"';
     var z = (y + window.dataSAML["signOutUrl"] + '"/>'); 
@@ -91,6 +110,12 @@ try{Typekit.load();}catch(e){}
 <kbd id="formattedFingerprint"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
 
+<li><p>Issuer:</p>
+<p><kbd id="issuer">Sign into the Okta Admin dashboard to generate this value.</kbd></p>
+</li>
+<li><p>External Key:</p>
+<p><kbd id="externalKey">Sign into the Okta Admin dashboard to generate this value.</kbd></p>
+</li>
 
 <li>
 <p>Copy the following URL into the <strong>Single Logout Service</strong> field.</p>
