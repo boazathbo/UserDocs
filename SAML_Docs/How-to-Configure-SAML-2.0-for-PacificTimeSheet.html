@@ -1,0 +1,73 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Pacific Timesheet</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+
+<li><p>Login to Pacific Timesheet as an administrator.</p></li>
+<li><p>Navigate to <strong>System > Security</strong>, then click the <strong>Edit</strong> button.</p>
+<li><p>Enter the following information (screen shot at end of step for reference), click <strong>OK</strong> when done:</p>
+<ul>
+<li><p><strong>Identity Provider SSO URL</strong>: Copy and paste the following into this field:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+<li><p><strong>Identity Provider Issuer</strong>: Copy and paste the following into this field:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+<li><p><strong>Certificate</strong>: Copy and paste the following into this field (note that this is in PEM Text Format):</p>
+<p><pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre></p>
+</li>
+</ul>
+<p><img style="border: 0; padding: 0;" src="images/apps/PacificTimeSheet1.png" alt=“PacificTimeSheet1.png" />
+
+</li>
+
+
+<li><p>Set up the Pacific Timesheet account to match the Okta account by doing the following:</p>
+
+<ul>
+<li><p>In Pacific Timesheet, select the <strong>Employees</strong> tab.</p></li>
+<li>Edit one of the users you want to map to your Okta login by clicking on the employee name of one of the employees (any employee, or even create a new employee account).<p></li>
+
+<li><p>Specify either the employee ID, Login name, or email address to match that of the Okta user account. </p></li>
+</ul>
+
+<p><img style="border: 0; padding: 0;" src="images/apps/PacificTimeSheet2.png" alt=“PacificTimeSheet2.png" />
+</li>
+
+<li>
+<p>Done!<br /><br />
+<p><strong>Notes:</strong></p>
+<p>SP-initiated flows and IdP-initiated flows are supported.</p> 
+<p>Just In Time (JIT) provisioning is not supported.</p> 
+<p>For SP-initiated flows, at login, click the <strong>Login via Okta</strong> button:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/PacificTimeSheet3.png" alt=“PacificTimeSheet3.png" />
+</li>
+</ol></div>
+</body>
+</html>
