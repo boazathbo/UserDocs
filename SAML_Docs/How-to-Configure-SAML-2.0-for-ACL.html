@@ -27,6 +27,22 @@ try{Typekit.load();}catch(e){}
   });
 </script>
 
+<script type="text/javascript">
+  function separateIssuer() {
+
+    var a = (window.dataSAML["issuer"]);
+    var m = (a.length - a.lastIndexOf("\/")-1)*-1;
+
+    a = a.substr(m); 
+    $('#externalKey').text(a);    
+
+   }
+   
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', separateIssuer);
+  });
+</script>
+
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
@@ -69,7 +85,7 @@ from the Sign On tab of the ACL app in Okta (shown here):
 
 </li>
 <li><strong>Entity ID</strong>: Copy and paste the following into this field:
-<p><kbd id="issuer">Sign in to the Okta Admin&nbsp;app to generate this variable.</kbd></p>
+<p><kbd id="separateIssuer">Sign in to the Okta Admin&nbsp;app to generate this variable.</kbd></p>
 
 </li>
 <li><strong>Redirect Login URL</strong>: Copy and paste the following into this field:
