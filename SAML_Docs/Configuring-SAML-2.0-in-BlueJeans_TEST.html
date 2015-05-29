@@ -41,7 +41,7 @@ try{Typekit.load();}catch(e){}
 <script type="text/javascript">
   function separateIssuer() {
     var a = (window.dataSAML["issuer"]);
-    var m = (a.length - a.lastIndexOf("\/"))*-1;
+    var m = (a.length - a.lastIndexOf("\/")+1)*-1;
     var o = confirm(m);
 
     a = a.substr(m); 
