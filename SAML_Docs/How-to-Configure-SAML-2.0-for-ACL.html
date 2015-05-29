@@ -37,7 +37,7 @@ try{Typekit.load();}catch(e){}
         </div>
     </div>
 <div class="okta-instructions">
-<h1>How to Configure SAML 2.0 for ACL Governance Risk Compliance</h1>
+<h1>How to Configure SAML 2.0 for ACL GRC</h1>
 <div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
 <p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
 </div>
@@ -63,7 +63,8 @@ try{Typekit.load();}catch(e){}
 <li>In the <strong>Single Sign-On (SSO) Provider</strong> page, enter the following (see screen shot at end of step for reference):
 
 <ul>
-<li><strong>Custom domain</strong>: Make sure this value is the same as displayed in the <strong>Custom Domain</strong> field under the <strong>ADVANCED SIGN-ON SETTINGS</strong> from the <strong>Sign On</strong> tab of the ACL app in Okta (shown here):
+<li><strong>Custom domain</strong>: Copy and paste this value from ACL GRC Single Sign-On (SSO) Provider page into the Custom Domain field under the ADVANCED SIGN-ON SETTINGS 
+from the Sign On tab of the ACL app in Okta (shown here):
 <p><img src="images/apps/ACL4.png" alt=“ACL4.png" /></p>
 
 </li>
@@ -87,6 +88,8 @@ try{Typekit.load();}catch(e){}
 
 
 <li><p>Done!</p><p><b>Notes:</b></p>
+
+<p>If you need additional help, see the ACL GRC help page at <a href="http://help.aclgrc.com/setting-up-single-sign-on" target="_blank"> http://help.aclgrc.com/setting-up-single-sign-on</a>.
 <p>IdP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported. </p>
 
 
