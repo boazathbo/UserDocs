@@ -1,0 +1,100 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for 8x8, Inc.</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+
+<li><p>Login to 8x8, Inc. as a user with administrative rights.</p></li>
+<li><p>Navigate to <strong>ACCOUNTS > Single Sign On</strong>.</p></li>
+<li><p>Select the <strong>Single Sign On</strong> checkbox.</p></li>
+<li><p>Select the <strong>SAML</strong> radio button.</p></li>
+<li><p>Click <strong>Save</strong>.</p>
+<p><img src="images/apps/8x8_1.png" alt=“8x8_1.png" /></p>
+</li>
+
+<li><p>When the <strong>Success</strong> message appears, click <strong>OK</strong> to acknowledge.</p>
+<p><img src="images/apps/8x8_2.png" alt=“8x8_2.png" /></p>
+
+</li>
+
+
+<li><p>The <strong>SAML Single Sign on</strong> configuration page appears. Enter the following information (screen shot at end of step for reference):</p>
+
+<ul>
+<li><p><strong>Sign In URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+
+</li>
+<li><p><strong>Issuer URL</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p><strong>Identity Provider Certificate</strong>: Download and save the following certificate, then click <strong>Browse</strong> to upload it to 8x8:</p>
+<p><kbd id="downloadCertificate">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p>Click <strong>Save</strong>.</p>
+
+<p><img src="images/apps/8x8_3.png" alt=“8x8_3.png" /></p>
+</ul>
+
+</li>
+
+
+
+<li>
+<p>Done!<br /><br />
+<p><strong>Notes:</strong></p>
+<p>SP-initiated flows and IdP-initiated flows are supported.
+<p>Just In Time (JIT) provisioning is not supported.</p> 
+</ol>
+<br />
+
+<p><strong>For SP-initiated Flows</strong>:</p>
+<ol>
+<li><p>Go to <strong>8x8, Inc.</strong></p></li>
+<li><p>Click on the <strong>Use Single Sign On</strong> link:</p>
+<p><img src="images/apps/8x8_4.png" alt=“8x8_4.png" /></p>
+</li> 
+<li><p>Enter your <strong>8x8 Username or Email</strong>, then click <strong>Continue</strong>:</p></li>
+
+<p><img src="images/apps/8x8_5.png" alt=“8x8_5.png" /></p>
+</li>
+<li><p>A <strong>Log in using SSO</strong> link will appear, click on this link for SP-initiated flows.</p>
+<p><img src="images/apps/8x8_6.png" alt=“8x8_6.png" /></p>
+</li>
+
+
+
+</ol>
+
+
+
+
+
+
+
+</div>
+</body>
+</html>
