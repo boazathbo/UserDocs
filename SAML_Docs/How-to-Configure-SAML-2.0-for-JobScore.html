@@ -1,0 +1,89 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for JobScore</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+<h2>Before you begin</h2>
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+<h3>Read JobScore’s FAQ: </h3>
+<p><a href="https://support.jobscore.com/hc/en-us/articles/204158279-How-can-my-company-integrate-using-SAML">https://support.jobscore.com/hc/en-us/articles/204158279-How-can-my-company-integrate-using-SAML</a></p>
+</div>
+
+
+
+
+<ol>
+
+
+<li><p>Email <strong><a href="mailto:support@jobscore.com">support@jobscore.com</a></strong> and request that they enable SAML 2.0 for your account.</p></li>
+<li><p>Provide the following information:</p>
+
+<ul>
+<li><p>Your Company Name.</p></li>
+<li><p>Identity Provider = OKTA</p></li>
+<li><p><strong>IDP Metadata</strong>: Copy and paste the following information:</p>
+
+<p><textarea id="idpMetadata" style="margin: 0px; width: 817px; height: 190px;">Sign into the Okta Admin Dashboard to generate this variable.</textarea></p>
+</li>
+</ul>
+</li>
+
+<li><p>The JobScore Support team will process your request and provide you with a <strong>Company Code</strong>.</p></li> 
+<li><p>In Okta, open the <strong>General</strong> tab for the JobScore app, then enter the <strong>Company Code</strong> provided to you by JobScore:</p><br />
+<p><img src="images/apps/JobScore1.png" alt=“JobScore1.png" /></p>
+
+</li> 
+<li><p>Click <strong>Save</strong>.</p></li>
+
+
+
+
+<li><p>Done!<br /><br />
+<p><strong>Notes:</strong></p>
+<p>SP-initiated flows, IdP-initiated flows, and Just In Time (JIT) provisioning are all supported.
+<p></p> 
+</ol>
+<br />
+
+<p><strong>For SP-initiated Flows</strong>:</p>
+<ol>
+<li><p>Open the <strong>SSO Login</strong> page, here: <a href="https://www.jobscore.com/login/sso">https://www.jobscore.com/login/sso</a>.</p></li>
+
+
+
+<li><p>Enter your <strong>Email Address</strong>, then click <strong>LOG IN</strong>:</p>
+<p><img src="images/apps/JobScore2.png" alt=“JobScore2.png" /></p>
+</li> 
+</ol>
+
+
+
+
+
+
+
+</div>
+</body>
+</html>
