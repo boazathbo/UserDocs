@@ -7,6 +7,21 @@ try{Typekit.load();}catch(e){}
 </script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
 
+<script type="text/javascript">
+  function uppercaseFingerprint() {
+    var a = (window.dataSAML["certFingerPrint"]).toUpperCase();
+
+
+    $('#toUppercaseFingerprint').text(a);    
+
+   }
+   
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', uppercaseFingerprint);
+  });
+</script>
+
+
 <title>Setup SSO</title>
 
 <script src="resources/scripts/getAppValues.js"></script>
@@ -38,7 +53,7 @@ try{Typekit.load();}catch(e){}
 <p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
 </li>
 <li><p><strong>Signing Certificate</strong>: Copy and paste the following:</p>
-<p><pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre></p>
+<p><pre id="toUppercaseFingerprint">Sign into the Okta Admin Dashboard to generate this variable.</pre></p>
 </li>
 <li><p><strong>IDP Metadata</strong>: Copy and paste the following:</p>
 <p><textarea id="idpMetadata" style="margin: 0px; width: 817px; height: 190px;">Sign into the Okta Admin Dashboard to generate this variable.</textarea></p>

@@ -37,15 +37,28 @@ try{Typekit.load();}catch(e){}
   });
 </script>
 
+<script type="text/javascript">
+  function uppercaseFingerprint() {
+    var a = (window.dataSAML["certFingerPrint"]).toUpperCase();
+
+
+    $('#toUppercaseFingerprint').text(a);    
+
+   }
+   
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', uppercaseFingerprint);
+  });
+</script>
+
+
 
 <script type="text/javascript">
   function separateIssuer() {
     var a = (window.dataSAML["issuer"]);
     var m = (a.length - a.lastIndexOf("\/")-1)*-1;
-    var o = confirm(m);
 
-    a = a.substr(m); 
- 
+    a = a.substr(m);  
     $('#externalKey').text(a);    
 
    }
@@ -109,34 +122,9 @@ try{Typekit.load();}catch(e){}
 <p>Copy the following <strong>Formatted Certificate Fingerprint</strong> field.</p>
 <kbd id="formattedFingerprint"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
-
-<li><p>Issuer:</p>
-<p><kbd id="issuer">Sign into the Okta Admin dashboard to generate this value.</kbd></p>
 </li>
-<li><p>External Key:</p>
-<p><kbd id="externalKey">Sign into the Okta Admin dashboard to generate this value.</kbd></p>
+<p>Copy the following <strong>Upper Case Certificate Fingerprint</strong> field.</p>
+<kbd id="toUppercaseFingerprint"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
 
-<li>
-<p>Copy the following URL into the <strong>Single Logout Service</strong> field.</p>
-<textarea id="singleLogoutService" style="margin: 0px; width: 817px; height: 190px;"> Sign into the Okta Admin dashboard to generate this value.</textarea>
-</li>
-<li>
-<p>Copy the following URL into the <strong>Metadata</strong> field.</p>
-<textarea id="idpMetadata"  style="margin: 0px; width: 817px; height: 190px;"> Sign into the Okta Admin dashboard to generate this value.</textarea>
-</li>
-<li>
-<p>Modify the following text for the <strong>Password Change URL</strong>, where &lt;company name&gt; is the name of your company. For example, if your company is named <em>acme</em>, enter <em><a style="text-decoration: none; color: black;" onclick="return false;">https://acme.bluejeans.com</a></em>.</p>
-<kbd>https://&lt;company name&gt;.bluejeans.com</kbd></li>
-<li>
-<p>Modify the following text for the <strong>Logout URL</strong>, where &lt;company name&gt; is the name of your company.</p>
-<kbd><span>https://&lt;company name&gt;.bluejeans.com</span></kbd></li>
-<li>Fill in the <strong>User ID</strong> and<strong> Email</strong>&nbsp;fields with the correct information for your organization.<br /><br /><strong>Note:</strong> If the User ID field is not visible, <strong>uncheck</strong> <em>Pick User ID from &lt;saml2:NameID&gt; element</em>. This box is checked in the screenshot below.</li>
-<li>Copy the information in the <strong>RelayState</strong> field in BlueJeans. In Okta, paste this information into the <strong>Default Relay State</strong> field, as shown below.<br /><img style="border: 0; padding: 0;" src="images/apps/bluejeans3.jpg" alt="bluejeans3.jpg" /></li>
-<li>
-<p>Click <strong>Save Changes</strong>.</p>
-</li>
-<li>Done!</li>
-</ol><img style="border: 0; padding: 0;" src="images/apps/bluejeans8.png" alt="BlueJeans Admin Console" /></div>
-</body>
-</html>
+
