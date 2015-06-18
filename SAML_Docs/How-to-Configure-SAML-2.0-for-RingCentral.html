@@ -25,6 +25,16 @@ try{Typekit.load();}catch(e){}
 <div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
 <p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
 </div>
+<h2>Before you begin</h2>
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+<h3><strong>Read this before you enable SAML</strong></h3>
+<p>The RingCentral application is pre-configured to pass a required custom attribute "Phone Number" (which is mapped to primaryPhone in Okta Base User Profile) as part of the SAML assertion. In order to be able to send custom attributes, your Okta organization needs to have the following feature flags turned on to work as expected:
+<li>AD_CUSTOM_ATTRIBUTES</li>
+<li>CLOUD_DIRECTORY (Universal Directory)</li>
+<li>OKTA_EL_SAML_ATTRIBUTE_UPGRADE</li>
+With the above feature flags turned on, please ensure that the primayPhone attribute is populated in the Okta Base User Profile, and has the correct attribute mapping set with AD/LDAP. If this value is empty, Okta will pass a null value to RingCentral for the Phone Number attribute.</li>
+ </p>
+</div>
 <ol>
 <li>
 <p>Generate the following <strong>IDP Metadata</strong> and save to a file named metadata.xml:</p>
