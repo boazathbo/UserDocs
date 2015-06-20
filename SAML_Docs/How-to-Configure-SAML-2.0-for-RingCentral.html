@@ -28,11 +28,11 @@ try{Typekit.load();}catch(e){}
 <h2>Before you begin</h2>
 <div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
 <h3><strong>Read this before you enable SAML</strong></h3>
-<p>The RingCentral application is pre-configured to pass a required custom attribute "Phone Number" (which is mapped to primaryPhone in Okta User Base Profile) as part of the SAML assertion - this attribute will be required if you choose to use Phone Number as the SSO Unique ID for user mapping in RingCentral. In order to be able to send custom attributes, your Okta organization needs to have the following feature flags turned on to work as expected:
-<li>CLOUD_DIRECTORY (Universal Directory)</li>
-<li>OKTA_EL_SAML_ATTRIBUTE_UPGRADE</li>
-With the above feature flags turned on, please ensure that the primayPhone attribute is populated in the Okta User Base Profile, and has the correct attribute mapping set with AD/LDAP. If this value is empty, Okta will pass a null value to RingCentral for the Phone Number attribute.
-Visit your RingCentral Admin console > Tools > Single Sign-on > Enable SSO Integration to set your Unique SSO ID to Phone Number. You can alternatively use Email as the Unique SSO ID for user mapping.</li>
+<p>The RingCentral application is pre-configured to pass a required custom attribute <strong>Phone Number</strong> (which is mapped to <strong>primaryPhone</strong> in Okta User Base Profile) as part of the SAML assertion. This attribute is required if you choose to use <strong>Phone Number</strong> as the <strong>SSO Unique ID</strong> for user mapping in RingCentral. In order to be able to send custom attributes, your Okta organization needs to have the following feature flags turned on:</p><br />
+<li><p>CLOUD_DIRECTORY (Universal Directory)</p></li>
+<li><p>OKTA_EL_SAML_ATTRIBUTE_UPGRADE</p></li><br />
+<p>Once these feature flags are turned on, ensure that the <strong>primaryPhone</strong> attribute is populated in the Okta User Base Profile and has the correct attribute mapping set with AD/LDAP. If this value is empty, Okta will pass a null value to RingCentral for the <strong>Phone Number</strong> attribute.</p>
+<p>Visit your <strong>RingCentral Admin console > Tools > Single Sign-on > Enable SSO Integration</strong> to set your <strong>Unique SSO ID</strong> to <strong>Phone Number</strong>. You can alternatively use <strong>Email</strong> as the <strong>Unique SSO ID</strong> for user mapping.</li>
  </p>
 </div>
 <ol>
