@@ -1,0 +1,85 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for FM:Systems</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+
+<ol>
+
+
+
+<li><p>Contact FM:Systems Consultants or Support team and request that they enable SAML for your app.</p></li>
+<li><p>Provide the following:</p>
+
+<ul>
+
+<li><p><strong>Certificate Password</strong> (if one exists).</p></li>
+
+<li><p><strong>Identify Provider URL</strong>:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+
+<li><p><strong>x.509 Cerficate</strong>:</p>
+<p><kbd id="certFingerPrint">Sign into the Okta Admin dashboard to generate this value. </kbd></p>
+</li>
+
+</ul>
+
+<li><p>FM:Systems will process your request and send you a confirmation email letting you know when SAML is available. They will also provide you with the following:</p>
+
+<ul>
+<li><p><strong>Single Sign On URL</strong>.</p></li>
+<li><p><strong>Audience Restriction</strong>.</p></li>
+</ul>
+
+</li> 
+
+<li><p>In Okta, select the <strong>General</strong> tab for the FM:Systems app, and enter the values you just received, as shown below:</p>
+
+<p><img src="images/apps/FMSystems1.png" alt=“FMSystems1.png" /></p>
+</li>
+
+<li><p>Click <strong>Save</strong>.</p></li>
+
+
+
+<li><p>Done!<br /><br />
+<p><strong>Notes:</strong></p>
+<p>IdP-initiated flows are supported.</p>
+<p>SP-initiated flows are still in testing.</p>
+<p>Just In Time (JIT) provisioning is not supported.</p>
+<p></p> 
+</ol>
+<br />
+
+
+
+
+
+
+</div>
+</body>
+</html>

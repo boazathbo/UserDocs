@@ -1,0 +1,81 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Evident.io</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+
+<ol>
+
+
+<li><p>Contact Evident.io Sales and request they add your app to their services.</p></li>
+<li><p>Contact <strong><a href="mailto:support@evident.io">support@evident.io</a></strong> and request that they enable SAML for your app.</p></li>
+<li><p>Provide the following:</p>
+
+<ul>
+
+<li><p>The date and time you would like Evident.io to switch to SSO.</p></li>
+<li><p>The following IDP Metadata:</p>
+
+<p><textarea id="idpMetadata" style="margin: 0px; width: 817px; height: 190px;">Sign into the Okta Admin Dashboard to generate this variable.</textarea></p>
+</li>
+</ul>
+
+<li><p>Evident.io will process your request and send you a confirmation email letting you know it is available for testing. They will also provide you with a value for the <strong>Default Relay State</strong>.</p></li> 
+
+<li><p>In Okta, select the <strong>Sign On</strong> tab for the Evident.io app, and enter the <strong>Default Relay State</strong> you received from Evident.io, as shown below:</p>
+
+<p><img src="images/apps/EvidentIO1.png" alt=“EvidentIO1.png" /></p>
+</li>
+
+<li><p>Click <strong>Save</strong>.</p></li>
+
+
+
+<li><p>Done!<br /><br />
+<p><strong>Notes:</strong></p>
+<p>IdP-initiated flows and SP-initiated flows are supported.</p>
+<p>Just In Time (JIT) provisioning is not supported.</p>
+<p></p> 
+</ol>
+<br />
+
+<p><strong>For SP-initiated Flows</strong>:</p>
+<ol>
+<li><p>Go to <a href="https://esp.evident.io/users/sign_in">https://esp.evident.io/users/sign_in</a>.</p></li>
+
+<li><p>Click <strong>Enterprise SSO</strong>, then enter your login credentials.</p>
+<p><img src="images/apps/EvidentIO2.png" alt=“EvidentIO2.png" /></p>
+</li> 
+</ol>
+
+
+
+
+
+
+
+</div>
+</body>
+</html>

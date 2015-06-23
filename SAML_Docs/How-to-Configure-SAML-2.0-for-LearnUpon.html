@@ -26,25 +26,45 @@ try{Typekit.load();}catch(e){}
 </div>
 <div class="instructions clearfix">
 <div class="instructions-text"><ol class="bullets">
-<li>
-<p>Email LearnUpon support to enable SAML for your account..</p>
+
+
+<li><p>Login to your LearnUpon account.</p></li>
+<li><p>Navigate to the <strong>settings</strong> tab, then select <strong>Single Sign On - SAML</strong>:</p>
+
+<p><img style="border: 0; padding: 0;" src="images/apps/LearnUpon1New.png" alt=“LearnUpon1New” /></p>
+
 </li>
-<li>
-<p>Copy the following text into the email and label it <strong>IDP Metadata</strong>:</p>
-<pre id="idpMetadata">Sign into the Okta Admin dashboard to generate this value.</pre></li>
-<li>
-<p>Copy and paste the following text into the message and label it <strong>Certificate Fingerprint</strong>.</p>
-<kbd id="certFingerPrint">Sign into the Okta Admin dashboard to generate this value. </kbd></li>
-<li>
-<p>Copy and paste the following text into the message and label it&nbsp;<strong>Login URL/Sign on URL</strong>.</p>
-<kbd id="signOnUrl">Sign into the Okta Admin dashboard to generate this value. </kbd></li>
-<li>
-<p>After receiving confirmation from LearnUpon that SAML is enabled, in the Okta Dashboard for the LearnUpon application, select <em>Okta username</em> for the <strong>Default username format</strong>, as shown below.&nbsp;<br /><br /><img style="border: 0; padding: 0;" src="images/apps/LearnUpon_1.png" alt="Username Format" /></p>
+
+<li><p>On the <strong>Single Sign On - SAML</strong> page:</p>
+
+<ul>
+<li><p>Make sure <strong>Enabled</strong> is checked.</p></li>
+
+
+<li><p><strong>Identity Provider Location</strong>. Copy and paste the following Login URL/Sign On URL in this field:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin dashboard to generate this value. </kbd></p></li>
+
+
+<li><p><strong>Certificate Finger Prints</strong>. Click <strong>Manage Finger Prints</strong> and follow the instructions to upload the following certificate:</p>
+<p><kbd id="certFingerPrint">Sign into the Okta Admin dashboard to generate this value. </kbd></p></li>
+<p><img style="border: 0; padding: 0;" src="images/apps/LearnUpon2New.png" alt=“LearnUpon2New” /></p>
+<li><p>Click <strong>Save</strong>.</p></li>
+
+</ul>
+
+
 </li>
-<li>Done!
-<p>&nbsp;</p>
+
+<li><p>After receiving confirmation from LearnUpon that SAML is enabled, in the Okta Dashboard for the LearnUpon application, select <em>Okta username</em> for the <strong>Default username format</strong>, as shown below.&nbsp;<br /><br /><img style="border: 0; padding: 0;" src="images/apps/LearnUpon_1.png" alt="Username Format" /></p>
 </li>
-</ol></div>
+<li><p>Click <strong>Save</strong>.</p></li>
+<li><p>Done!<br /><br />
+<p><strong>Notes:</strong></p>
+<p>IdP-initiated flows are supported.</p>
+<p>SP-initiated flows and Just In Time (JIT) provisioning are not supported.</p>
+
+
+</div>
 </div>
 </div>
 </body>
