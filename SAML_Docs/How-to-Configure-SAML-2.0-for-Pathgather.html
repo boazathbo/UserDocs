@@ -22,16 +22,17 @@ try{Typekit.load();}catch(e){}
 <div class="okta-instructions">
 <h1>How to Configure SAML 2.0 for Pathgather</h1>
 
-<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
-<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
 </div>
 <h2>Before you begin</h2>
 <div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
 <h3><strong>Read this before you enable SAML</strong></h3>
-<p>The Pathgather application is pre-configured to pass a required custom attributes 'Job Title' and 'Department' (which are mapped to title and department in Okta User Base Profile) as part of the SAML assertion - these attribute will be required to use SAML and perform Just in time provisioning for Pathgather. In order to be able to send custom attributes, your Okta organization needs to have the following feature flags turned on to enable the application to work as expected:
+
+<p>The Pathgather application is pre-configured to pass the required custom attributes <strong>Job Title</strong> and <strong>Department</strong> (which are mapped to <em>title</em> and <em>department</em> in Okta User Base Profile) as part of the SAML assertion. These attributes are required to use SAML and perform Just in Time (JIT) provisioning for Pathgather. In order to be able to send custom attributes your Okta organization needs to have the following feature flags turned on:</p><br />
 <li>CLOUD_DIRECTORY (Universal Directory)</li>
-<li>OKTA_EL_SAML_ATTRIBUTE_UPGRADE</li>
-With the above feature flags turned on, please ensure that the 'title' and 'department' attributes are populated in the Okta User Base Profile, and have the correct attribute mapping set with AD/LDAP. If this value is empty, Okta will pass a null values to Pathgather.
+<li>OKTA_EL_SAML_ATTRIBUTE_UPGRADE</li><br />
+<p>Once these feature flags are turned on, make sure that the <em>title</em> and <em>department</em> attributes are populated in the Okta User Base Profile, and also have the correct attribute mappings set with AD/LDAP. If this value is empty, Okta will pass a null values to Pathgather.</p>
 </li>
  </p>
 </div>
@@ -39,14 +40,28 @@ With the above feature flags turned on, please ensure that the 'title' and 'depa
 <li>
 <p>Generate the following <strong>IDP Metadata</strong> and save to a file named metadata.xml:</p>
 <strong>&nbsp;<textarea id="idpMetadata" style="margin: 0px; width: 817px; height: 190px;">Sign into the Okta Admin Dashboard to generate this variable.</textarea></strong></li>
-<li>Send an email to Pathgather support and request that they enable SAML 2.0 for your organization.</li>
-<li>Attach the <em>metadata.xml</em> file you created in step 1 to the email message.</li>
-<li>In the email, provide them with the following list of attribute keys:
-<pre> first_name, last_name, email, job_title, department </pre>
+<li>Send an email to Pathgather Support and request that they enable SAML 2.0 for your organization. Include the following with your email:</p>
+
+<ul>
+
+<li><p>Attach the <em>metadata.xml</em> file you created in step 1.</p></li>
+<li><p>Provide the following list of attribute keys:
+<pre> first_name, last_name, email, job_title, department </pre></p>
+
+</ul>
+
+</li>
 <li>Pathgather will process your request and enable SAML for your account.</li>
-<li><p>Done!</p><p><b>Notes:</b></p>
-<p>IdP-initiated flows and SP-initiated flows are supported. For SP initiated flow, go to your Pathgather URL - For example: https://subdomain.pathgather.com </p>
-<p>Just In Time (JIT) provisioning is supported.</p>
+
+
+<li><p>Done!</p>
+<br />
+<p><b>Notes:</b></p>
+<p>IdP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported.</p>
+
+<p><strong>For SP initiated flows</strong>:<p>
+<p>Go to your Pathgather URL - For example: <strong>https://[subdomain].pathgather.com</strong> </p>
+
 
 
 </li>
