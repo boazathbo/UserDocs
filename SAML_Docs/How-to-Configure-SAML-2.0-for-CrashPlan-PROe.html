@@ -31,46 +31,98 @@ try{Typekit.load();}catch(e){}
 </div>
 <ol>
 <li>
-<p>Sign in to CrashPlan PROe with administrator privileges. Go to <strong>Settings &gt; Security</strong>, and then, select the <strong>Single Sign-On</strong> tab, as shown below. Check <strong>Enable</strong> next to <em>Single Sign-On</em>, if it is not checked.&nbsp;<br /><br /><img style="border: 0; padding: 0;" src="images/apps/CrashPlan_ProE_1.png" alt="CrashPlan_ProE_1.png" /></p>
+<p>Sign in to CrashPlan PROe with administrator privileges. Go to <strong>Settings &gt; Security</strong>, select the <strong>Single Sign-On</strong> tab, then select <strong>Add Identity Provider or Federation</strong> as shown below:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/CrashPlanProeNew1.png" alt="CrashPlanProeNew1.png" /></p>
 </li>
-<li>
-<p>The Single Sign-On screen appears, as shown below.<br /><br /><img style="border: 0; padding: 0;" src="images/apps/CrashPlan_ProE_2.png" alt="CrashPlan_ProE_2.png" /><br /><strong><br /></strong></p>
+
+
+<li><p>The Identity Provider screen appears.</p></li>
+<li><p>Enter the following <strong>Identity Provider metadata URL</strong>, then click <strong>Continue</strong>.</p>
+<p><kbd id="metadataUrl">Sign in to the Okta Admin app to have this variable generated for you</kbd></p>
+<p><img style="border: 0; padding: 0;" src="images/apps/CrashPlanProeNew2.png" alt="CrashPlanProeNew2.png" /></p>
+
 </li>
-<li>
-<p>Enter the following <strong>Entity Provider Name</strong>, as shown above.</p>
-<kbd>\ Okta</kbd></li>
-<li>
-<p>Enter the following <strong>Identity Provider metadata (URL)</strong>, as shown above.</p>
-<kbd id="metadataUrl">Sign in to the Okta Admin app to generate this variable.</kbd></li>
-<li>Select <strong>Save</strong>, as shown above.</li>
-<li>In the left menu, select <strong>Settings</strong>, and then select <strong>Server</strong>, as shown below. In the window that opens, copy the <strong>Website protocol, host and port</strong> field.<br /><br /><img style="border: 0; padding: 0;" src="images/apps/CrashPlan_6.jpg" alt="CrashPlan_6.jpg" width="581" height="333" /></li>
+
+<li><p>The Identity Provider additional settings screen appears (see screen below). Enter the following:</p>
+<ul>
+<li><p><strong>Display Name</strong>: Okta.</p></li>
+
+<li><p>Make sure the <strong>Use default mapping</strong> checkbox is selected.</p></li>
+<li><p>Click <strong>Save</strong>.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/CrashPlanProeNew3.png" alt="CrashPlanProeNew3.png" /></p>
+
+</li>
+</ul>
+</li>
+
+<li><p>In the left navigational menu, select <strong>Settings > Server</strong>. Then in the <strong>Server Settings</strong> pane that subsequently opens, copy the value from the <strong>Website protocol, host and port</strong> field:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/CrashPlanProeNew4.png" alt="CrashPlanProeNew4.png" /></p>
+</li>
+
+
 <li>In Okta, go to the <strong>General</strong> tab for the CrashPlan PROe app, as shown below. Paste the information you copied in the last step into the <strong>Server URL</strong> field.<br /><br /><strong>Important:</strong> <br />
 <ul>
 <li>If the port number is <em>not</em> 4285, you must paste in the value and, if necessary, change the last four digits to <strong>4285</strong>.</li>
 <li>You must change your protocol to <strong>https</strong>. If this is not the current protocol, change it within the <strong>Server Url</strong> field.</li>
 </ul>
-<br /><img style="border: 0; padding: 0;" src="images/apps/CrashPlan_ProE_4.png" alt="CrashPlan_ProE_4.png" /></li>
+<br /><img style="border: 0; padding: 0;" src="images/apps/CrashPlanProeNew5.png" alt="CrashPlanProeNew5.png" /></li>
 <li>
 <p>You can enable Okta SAML SSO in CrashPlan PROe globally, or for a particular organization.</p>
 <ul>
-<li>To enable globally, follow step 10, and then, continue to step 12.</li>
-<li>To enable for a particular organization, follow step 11, and then, continue to step 12.</li>
+<li>To enable globally, follow step 8 below then continue to step 10.</li>
+<li>To enable for a particular organization, follow step 9 then continue to step 10.</li>
 </ul>
 </li>
-<li>To set SAML authentication globally for all organizations in CrashPlan PROe, select <strong>Settings &gt; Organization</strong> in CrashPlan PROe, and then, select the <strong>Security</strong> tab.&nbsp;Check <strong>Use Okta for authentication</strong> and then select <strong>Save</strong>, as shown below.<br /><br /><img style="border: 0; padding: 0;" src="images/apps/Crash_Plan_ProE_7.png" alt="Crash_Plan_ProE_7.png" /></li>
-<li>
-<p>To set SAML authentication for a particular organization in CrashPlan PROe, select <strong>Organizations</strong> in CrashPlan PROe and follow steps 11a-11d, below.</p>
+
+
+
+
+<li>To set SAML authentication globally for all organizations:
 <ol>
-<li>
-<p>Next, click an organization name, as shown below. In this example, the organization name is <em>Default</em>.<br /><br /><img style="border: 0; padding: 0;" src="images/apps/Crash_Plan_ProE_8.png" alt="Crash_Plan_ProE_8.png" /></p>
+<li><p>Select the <strong>Settings > Organization > Security</strong> tab.</p></li>
+<li><p>For <strong>Select an authentication method</strong>: Select <strong>SSO</strong>.</p></li>
+<li><p>For <strong>Choose provider(s)</strong>: Select <strong>Okta</strong>.</p></li>
+<li><p>Select <strong>Save</strong>.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/CrashPlanProeNew6.png" alt="CrashPlanProeNew6.png" /></p>
 </li>
-<li>In the screen that opens for the organization, select the gear icon at the top right, as shown below, and then select <strong>Edit</strong> on the menu that appears.<br /><br /><img style="border: 0; padding: 0;" src="images/apps/Crash_Plan_ProE_9.png" alt="Crash_Plan_ProE_9.png" /></li>
-<li>Check <strong>Use Okta for authentication</strong>, as shown below.<br /><br /><img style="border: 0; padding: 0;" src="images/apps/Crash_Plan_ProE_10.png" alt="Crash_Plan_ProE_10.png" /></li>
-<li>Click <strong>Save</strong>, as shown above.</li>
-</ol></li>
-<li>Done!&nbsp;To sign in to CrashPlan PROe using SAML SSO, go to your CrashPlan PROe server URL, and select the&nbsp;<strong>Sign in using Okta</strong>&nbsp;button on the sign in screen, as shown below.<br /><br /><img style="border: 0; padding: 0;" src="images/apps/Crash_Plan_ProE_11.png" alt="Crash_Plan_ProE_11.png" /><br />
-<p>&nbsp;</p>
+</ol>
 </li>
-</ol></div>
+
+<li>To set SAML authentication for a particular organization:
+<ol>
+<li><p>Select <strong>Organizations</strong>.</p></li>
+<li><p>Click an organization name. In the example below, the organization name is <strong>OktaTest</strong>.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/CrashPlanProeNew7.png" alt="CrashPlanProeNew7.png" /></p>
+
+</li>
+<li><p>In the screen that opens for your selected organization, select the gear icon at the top right, as shown below; then select <strong>Edit</strong> on the menu that appears:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/CrashPlanProeNew8.png" alt="CrashPlanProeNew8.png" /></p>
+
+
+</li>
+<li><p>For <strong>Select an authentication method</strong>: Select <strong>SSO</strong>.</p></li>
+<li><p>For <strong>Choose provider(s)</strong>: Select <strong>Okta</strong>.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/CrashPlanProeNew9.png" alt="CrashPlanProeNew9.png" /></p>
+
+
+</li>
+
+</ol>
+</li>
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+<pSP-initiated flows are supported. </p>
+<p>IdP-initiated flows and Just In Time (JIT) provisioning are not supported. </p>
+
+<p>For SP-initiated flows:</p>
+<p>Go to your server URL and select the <strong>Sign in using Single Sign-On</strong> hyperlink on the sign in screen, as shown below:
+
+<p><img border="1" src="images/apps/CrashPlanProeNew10.png" alt=“CrashPlanProeNew10.png" /></p>
+</ol>
+
+</li>
+
+</ol>
+</div>
 </body>
 </html>

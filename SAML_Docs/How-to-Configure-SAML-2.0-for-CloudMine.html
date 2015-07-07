@@ -20,23 +20,42 @@ try{Typekit.load();}catch(e){}
         </div>
     </div>
 <div class="okta-instructions">
-<h1>How to Configure SAML 2.0 for Certify</h1>
+<h1>How to Configure SAML 2.0 for CloudMine</h1>
 <div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
 <p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
 </div>
 <ol>
-
-<li><p>Send an email to Certify Support and request that they enable SAML 2.0 for your account.</p></li>
-
-<li><p>Download and attach the following <strong>x.509 Certificate</strong> to the email:</p>
+<li>
+<p>Contact CloudMine Support and request that they enable SAML 2.0 for your account.</p>
+</li>
+<li><p>Include the following information:</p>
+<ul>
+<li><p><strong>x.509 Certificate</strong> to download, and then upload:</p>
 <p><kbd id="downloadCertificate">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
 </li>
+<li><p><strong>IdP Entity ID</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
 
-<li><p>Certify will process your request. After receiving a confirmation email, you can start assigning people to the application.</p></li>
+<li><p><strong>IdP Target URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+</ul>
+<li><p>CloudMine will process your request. After receiving a confirmation email, you can start assigning people to the application.</p></li>
+
 
 <li><p>Done!</p><p><b>Notes:</b></p>
-<p>IdP-initiated flows are supported.</p>
-<p>SP-initiated flows and Just In Time (JIT) provisioning are not supported. </p>
+<p>IdP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported. </p>
+
+<p>For SP-initiated flows:</p>
+<ol>
+<li><p>Go to <a href="https://cloudmine.me/users/sign_in" target="_blank">https://cloudmine.me/users/sign_in</a>.</p>
+<li>Enter your username.</li>
+<li>Click <strong>Continue</strong>:</li>
+
+<p><img border="1" src="images/apps/CloudMine1.png" alt=“CloudMine1.png" /></p>
+</ol>
+
 </li>
 
 </ol>
