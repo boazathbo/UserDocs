@@ -1,0 +1,115 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Airwatch Admin Portal</h1>
+
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+
+<ol>
+<li><p>Login to your Airwatch Admin Portal Account.</p></li>
+<li><p>Select <strong>Groups and Settings</strong>:</p>
+<p><img src="images/apps/Airwatch1.png" alt=“Airwatch1.png" /></p>
+</li>
+<li><p>Select <strong>All Settings</strong>:</p>
+<p><img src="images/apps/Airwatch2.png" alt=“Airwatch2.png" /></p>
+</li>
+<li><p>Select <strong>Enterprise Integration</strong>:</p>
+<p><img src="images/apps/Airwatch3.png" alt=“Airwatch3.png" /></p>
+</li>
+<li><p>Select <strong>Directory Services</strong>:</p>
+<p><img src="images/apps/Airwatch4.png" alt=“Airwatch4.png" /></p>
+</li>
+
+<li><p>Enter the following settings (see screen shot at end of step for reference):</p>
+
+<ul>
+<li><p>Check the <strong>Use SAML for Authentication</strong> box.</p></li>
+<li><p>In the <strong>SAML</strong> Section:</p>
+<ul>
+<li><p><strong>Service Provider ID</strong>: Make sure this is <Strong>Airwatch</strong>.</p></li>
+<li><p><strong>Identity Provider ID</strong>: Copy and paste the following into this field.</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p></li>
+</ul>
+</li>
+
+
+<li><p>In the <strong>REQUEST</strong> section:</p>
+<ul>
+<li><p><strong>Request Binding Type</strong>: Select <strong>POST</strong>.</p></li>
+
+<li><p><strong>Identity Provider Single Sign On URL</strong>: Copy and paste the following into this field:</p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></li>
+<li><p><strong>NameID Format</strong>: Select <strong>Unspecified</strong>.</p></li>
+</ul>
+</li>
+</ul>
+
+<p><img src="images/apps/Airwatch5.png" alt=“Airwatch5.png" /></p>
+</li>
+
+
+<li><p>Continue with the following settings (see screen shot at end of step for reference):</p>
+
+<ul>
+
+<li><p>In the <strong>RESPONSE</strong> Section:</p>
+<ul>
+<li><p><strong>Response Binding Type</strong>: Select <Strong>POST</strong>.</p></li>
+<li><p>Leave the other values as-is.</p></li>
+
+</ul>
+</li>
+
+
+<li><p>In the <strong>CERTIFICATE</strong> section, first download then <strong>Upload</strong> the following certificate:</p>
+<p><kbd id="downloadCertificate">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p>Select <strong>Save</strong></p></li>
+</ul>
+
+<p><img src="images/apps/Airwatch6.png" alt=“Airwatch6.png" /></p>
+</li>
+
+
+
+
+
+<li><p>Done!</p>
+<br />
+<p><b>Notes:</b></p>
+<p>SP-initiated flows and Just In Time (JIT) provisioning are supported.</p>
+<p>IdP-initiated flows are not supported.</p>
+
+<p>If you see either of the following messages, your SAML settings have not been configured correctly:<p>
+<p><img src="images/apps/Airwatch8.png" alt=“Airwatch8.png" /></p>
+<p><img src="images/apps/Airwatch7.png" alt=“Airwatch7.png" /></p>
+
+
+
+</li>
+
+</ol>
+</div>
+</body>
+</html>
