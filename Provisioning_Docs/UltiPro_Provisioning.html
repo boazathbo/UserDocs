@@ -21,12 +21,89 @@ try{Typekit.load();}catch(e){}
         </div>
     </div>
 <div class="okta-instructions">
-<h1>Okta Provisioning</h1>
+<h1>UltiPro User Import and Provisioning</h1>
+<p>After selecting <strong>Enable provisioning features</strong> in Okta, the <strong>API Credentials</strong> section 
+shown below opens. There is a section in these instructions for each required field.</p>
+<p><img src="images/apps/UltiPro_1.png" alt="Okta Provisioning tab.png" /></p>
+<h2>Web Services Base URL</h2>
 <ol>
-<li>When you provision this app, you can start using the complete range of Okta functionality.</li>
-<li><p>Click the link below to download the Okta Template in xml format.</p>
-<kbd><a href="downloads/Okta_Template.xml" download>Okta_Template.xml</a></kbd></li>
+<li><p>Sign in to your UltiPro administrator account and navigate to <strong>System Configuration > Web Services</strong>, 
+as shown below.</p>
+<p><img src="images/apps/UltiPro_2.png" alt="UltiPro Main Screen.png" /></p></li>
+<li><p>Select the <strong>Security</strong> tab. A list of endpoints appears, as shown below. The Base URL is the portion
+of the URL before <em>/services...</em> Copy the base URL for any of the endpoints. In the example shown below, 
+the base URL is <em>https://rental4.ultipro.com.</em></p>
+<p><img src="images/apps/UltiPro_3.png" alt="UltiPro Security Tab.png" /></p></li>
+<li>Paste this URL into the <strong>Web Services Base URL</strong> field on the Okta Provisioning Settings screen.</li>
 </ol>
+<h2>User and Customer API Keys</h2>
+<ol>
+<li><p>Remain on the <strong>System Configuration > Web Services</strong> screen on the <strong>Security</strong> tab. 
+The <strong>User API Key</strong> and <strong>Customer API Key</strong> are at the top of the list, as shown below.</p>
+<p><img src="images/apps/UltiPro_4.png" alt="UltiPro API Keys.png" /></p></li>
+<li>Paste the two API keys into the <strong>User API Key</strong> and <strong>Customer API Key</strong> fields on the Okta 
+Provisioning Settings screen.</li>
+</ol>
+<h2>Okta Report Path</h2>
+<ol>
+<li><p>Click the link below to download the Okta Template in xml format. Select everything in the file and copy it to the clipboard.</p>
+<kbd><a href="downloads/Okta_Template.xml" download>Okta_Template.xml</a></kbd></li>
+<li><p>On the UltiPro administrator screen, hover on the <strong>Business Intelligence</strong> on the main menu and click on 
+<strong>Business Intelligence</strong> that appears on the submenu, and then, select the <em>BI UltiPro Reports</em> link, as shown below.</p>
+<p>Note: If you have a popup blocker enabled on your browser, you might have to disable it to view this link.</p>
+<p><img src="images/apps/UltiPro_5.png" alt="UltiPro BI Link.png" /></p></li>
+</li>
+<li><p>On the screen that opens, select <strong>Launch</strong> in the upper right, and then select 
+<strong>Report Studio</strong>, as shown below.<p>
+<p><img src="images/apps/UltiPro_6.png" alt="UltiPro Launch Link.png" /></p></li>
+</li>
+<li><p>In the <em>Select a package</em> popup window that opens, select <strong>Administrator Package</strong>, as shown below.</p>
+<p><img src="images/apps/UltiPro_7.png" alt="Select a Package Window.png" /></p></li>
+</li>
+<li><p>The <em>Report Studio</em> opens in a new window. Select <strong>Create New</strong>, as shown below.</p>
+<p><img src="images/apps/UltiPro_8.png" alt="UltiPro Create Report Window.png" /></p></li>
+</li>	
+<li><p>Select <strong>blank</strong> in the window that opens, as shown below.</p>
+<p><img src="images/apps/UltiPro_9.png" alt="New Report Window.png" /></p></li>
+</li>	
+<li><p>The <em>Report Studio</em> opens. Select <strong>Tools > Open Report from Clipboard</strong>, as shown below.</p>
+<p><img src="images/apps/UltiPro_10.png" alt="Report Studio Window.png" /></p></li>
+</li>
+<li><p>The <em>Open Report from Clipboard</em> windows opens. Paste all the material you copied from the xml template in step 1, above. 
+Then, select <strong>OK</strong>, as shown below.</p> 
+<p><img src="images/apps/UltiPro_11.png" alt="Open Report from Clipboard Window.png" /></p></li>
+<p>The report populates with the information from the Okta Template file, as shown below.</p>
+<p><img src="images/apps/UltiPro_12.png" alt="Report Populated with Template Information.png" /></p>
+</li>
+<li>Select <strong>File > Save</strong> on the main menu. Enter a file name and select <strong>Save</strong>.</li>
+<li>In the first UltiPro window, select the <strong>My Folders</strong> tab. If you have timed out, sign in again and navigate to
+<strong>Business Intelligence > BI UltiPro Reports</strong>, as described in step 2, above.
+</li>	
+<li><p>Select the <strong>Set properties</strong> icon for the report you just created, as shown below.</p>
+<p><img src="images/apps/UltiPro_13.png" alt="Select Set Report Properties.png" /></p></li>
+</li>
+<li><p>In the <em>Set Properties</em> window that opens, select the <strong>View the search path, ID and URL</strong> link, as shown below.</p>
+<p><img src="images/apps/UltiPro_14.png" alt="Select Set Report Properties.png" /></p></li>
+</li>
+<li><p>In the <em>View the search path, ID and URL</em> window that opens, copy the <strong>Search Path</strong> link, as shown below.</p>
+<p><img src="images/apps/UltiPro_15.png" alt="Select Set Report Properties.png" /></p></li>
+</li>
+<li>Paste the Search Path into the <strong>Okta Report Path</strong> field on the Okta Provisioning Settings screen.</li>
+</ol>
+<h2>Create Groups Based on User Attributes</h2>
+<p>If you create group, the following operations are performed.
+<ul><li>A group is created for every value of the specified user attribute.</li>
+<li>Imported users with a matching value are added to that group.</li>
+</ul>
+<p>The following restrictions apply to all groups.
+<ul>
+<li>The specified user attribute must be included in the UltiPro Report. The default Okta_Template.xml includes Org Level 1,2,3, and 4 Attributes.</li> 
+<li>Custom attributes must be added to the UltiPro BI report and specified in Okta by selecting <strong>Custom</strong> from the <em>Create Groups Based on User Attribute</em> dropdown and specifying the attribute name as the <strong>Custom User Attribute For Group</strong>. </li>
+</ul>
+</p>To set up groups, choose one of the options on the Create Groups dropdown menu on the Okta Provisioning Settings screen, 
+as shown below.</p>
+<p><img src="images/apps/UltiPro_16.png" alt="Create Groups Dropdown" /></p>
+
 </div>
 </body>
 </html>
