@@ -1,0 +1,100 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Brightidea</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+
+<li><p>In your Brightidea system, navigate to <strong>Enterprise Setup > Authentication</strong>.</p>
+
+<p><img style="border: 0; padding: 0;" src="images/apps/BrightIdea1.png" alt="BrightIdea1.png" /></p>
+</li>
+
+<li><p>Select the <strong>SAML Profiles</strong> tab on the left.</p></li>
+
+<li><p>Make a copy of the values from the <strong>Assertion Consumer Service</strong> and <strong>Entity ID of this System</strong> fields.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/BrightIdea2.png" alt="BrightIdea2.png" /></p>
+</li>
+
+<li><p>In Okta, select the <strong>General</strong> tab for the Brightidea app and enter the values you just saved into the <strong>Assertion Customer Service</strong> and <strong>Entity ID of this System</strong>fields.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/BrightIdea3.png" alt="BrightIdea3.png" /></p>
+</li>
+<li><p>Click <strong>Save</strong>.</p></li>
+
+<li><p>In the <strong>Identity Provider Setting</strong> section, enter the following (see screen shot at end of step for reference):</p>
+
+<ul>
+<li><p><strong>SAML Profile Name</strong>: Enter a name.</p></li>
+<li><p><strong>Upload Metadata</strong>: Save the following to file, then use <strong>Choose File</strong> to select and upload here.</p>
+<p><textarea id="idpMetadata" style="margin: 0px; width: 817px; height: 190px;">Sign into the Okta Admin Dashboard to generate this variable.</textarea></p>
+<p>Uploading the metadata file will autopopulate the following fields:</p>
+<ul>
+<li><p><strong>Single Sign-on Service</strong></p></li>
+<li><p><strong>Identify Provider Issuer</strong></p></li>
+<li><p><strong>Public Key</strong></p></li>
+
+
+</ul>
+</li>
+
+</ul>
+<p><img style="border: 0; padding: 0;" src="images/apps/BrightIdea4.png" alt="BrightIdea4.png" /></p>
+
+</li>
+
+<li><p>For the following fields, enter the name of the attributes used in your SAML response:</p>
+<ul>
+<li><p><strong>Email</strong></p></li>
+<li><p><strong>Screen Name</strong></p></li>
+
+<p><img style="border: 0; padding: 0;" src="images/apps/BrightIdea5.png" alt="BrightIdea5.png" /></p>
+
+</ul>
+</li>
+
+
+
+<li><p>Click <strong>Save Changes</strong>.</p></li>
+
+
+<li><p>In your Brightidea system, navigate to <strong>Enterprise Setup > Authentication</strong> then select the strong>Auth Selection</strong> tab. </p>
+<p>You will see a SSO profile listed under the regular Brightidea login method. Check the method, then click <strong>Save Changes</strong>. This will disable the regular Brightidea login method, and allow user access through SSO only.
+<p><img style="border: 0; padding: 0;" src="images/apps/BrightIdea6.png" alt="BrightIdea6.png" /></p>
+
+
+</li>
+
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+<p>IdP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported.</p>
+<p></p>
+<p>For SP-initiated flows, use the Entity ID of this System link</p>
+</li>
+
+
+</ol>
+</div>
+</body>
+</html>
