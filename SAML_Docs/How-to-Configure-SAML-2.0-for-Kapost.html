@@ -1,0 +1,82 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Kapost</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+
+<li><p>Login to Kapost as an administrator, then navigate to <strong>Settings > Single Sign On</strong>.</p></li>
+
+<li><p>Check the <strong>Enable Sign Sign-On</strong> box.</p></li>
+
+<li><p>Make a copy of the values from the <strong>SAML Consumer URL</strong> and <strong>SAML Metadata URL</strong> fields.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/Kapost1.png" alt=“Kapost1.png" /></p>
+</li>
+
+<li><p>In Okta, select the <strong>General</strong> tab for the Kapost app and enter the values you just saved into the corresponding fields, as shown below:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/Kapost2.png" alt=“Kapost2.png" /></p>
+</li>
+<li><p>Click <strong>Save</strong>.</p></li>
+
+
+
+<li><p>In Kapost <strong>SSO Settings</strong> section, enter the following (see screen shot at end of step for reference):</p>
+
+<ul>
+<li><p><strong>SAML 2.0 Endpoint (HTTP)</strong>: Copy and paste the following Login URL/SignOn URL:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+
+</li>
+
+<li><p><strong>X.509 Certificate</strong>: Use the dropdown menu and select <strong>X.509 Certificate</strong>, then copy and paste the following:</p>
+<p><pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre></p>
+</li>
+
+<li><p><strong>First/Last Name Attribute</strong>: Enter First Name and Last Name attributes:</p>
+</li>
+
+<li><p><strong>Logout URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOutUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+</ul>
+<p><img style="border: 0; padding: 0;" src="images/apps/Kapost3.png" alt=“Kapost3.png" /></p>
+
+</li>
+
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+<p>IdP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported.</p>
+<p></p>
+<p>For SP-initiated flows, use SAML Consumer URL and then select <strong>Sign in with SSO</strong>.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/Kapost4.png" alt=“Kapost4.png" /></p>
+
+</li>
+
+
+</ol>
+</div>
+</body>
+</html>

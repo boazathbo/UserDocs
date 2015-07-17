@@ -38,12 +38,12 @@ try{Typekit.load();}catch(e){}
 <p><img style="border: 0; padding: 0;" src="images/apps/Brightidea2.png" alt="BrightIdea2.png" /></p>
 </li>
 
-<li><p>In Okta, select the <strong>General</strong> tab for the Brightidea app and enter the values you just saved into the <strong>Assertion Customer Service</strong> and <strong>Entity ID of this System</strong>fields.</p>
+<li><p>In Okta, select the <strong>General</strong> tab for the Brightidea app and enter the values you just saved into the <strong>Assertion Customer Service</strong> and <strong>Entity ID of this System</strong> fields.</p>
 <p><img style="border: 0; padding: 0;" src="images/apps/Brightidea3.png" alt="BrightIdea3.png" /></p>
 </li>
 <li><p>Click <strong>Save</strong>.</p></li>
 
-<li><p>In the <strong>Identity Provider Setting</strong> section, enter the following (see screen shot at end of step for reference):</p>
+<li><p>In the Brightidea <strong>Identity Provider Setting</strong> section, enter the following (see screen shot at end of step for reference):</p>
 
 <ul>
 <li><p><strong>SAML Profile Name</strong>: Enter a name.</p></li>
@@ -79,8 +79,7 @@ try{Typekit.load();}catch(e){}
 <li><p>Click <strong>Save Changes</strong>.</p></li>
 
 
-<li><p>In your Brightidea system, navigate to <strong>Enterprise Setup > Authentication</strong> then select the strong>Auth Selection</strong> tab. </p>
-<p>You will see a SSO profile listed under the regular Brightidea login method. Check the method, then click <strong>Save Changes</strong>. This will disable the regular Brightidea login method, and allow user access through SSO only.
+<li><p>In your Brightidea system, navigate to <strong>Enterprise Setup > Authentication</strong> then select the <strong>Auth Selection</strong> tab. Make sure the SSO login option is selected, then click <strong>Save Changes</strong>. This will disable the regular Brightidea login method, and allow user access through SSO only.
 <p><img style="border: 0; padding: 0;" src="images/apps/Brightidea6.png" alt="BrightIdea6.png" /></p>
 
 
@@ -90,7 +89,7 @@ try{Typekit.load();}catch(e){}
 <li><p>Done!</p><p><b>Notes:</b></p>
 <p>IdP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported.</p>
 <p></p>
-<p>For SP-initiated flows, use the Entity ID of this System link</p>
+<p>For SP-initiated flows, use your regular login URL.</p>
 </li>
 
 
