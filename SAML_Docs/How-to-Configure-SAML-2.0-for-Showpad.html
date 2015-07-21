@@ -1,0 +1,96 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix"> 
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Showpad</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
+</div>
+<h2>Before you begin</h2>
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+
+
+
+<p>Showpad supports SP-initiated SAML flows. We recommend that you hide the Showpad app and set up a Bookmark app with the Showpad logo after you complete this SAML setup. For instructions on setting up a Bookmark app and hiding the original app, see <a href="https://support.okta.com/articles/Knowledge_Article/27685638-Simulating-an-IDP-initiated-Flow-with-the-Bookmark-App" target="_blank">Simulating an IDP-initiated Flow with the Bookmark App</a></p>
+
+
+<p>Use the link for the <strong>Okta account</strong> button for the Bookmark App URL - see the instructions for SP-intiated flows at the end of this document.  The URL should look something like this: <font color="blue">https://[YourSubdomain].showpad.biz/sso/login?service-id=[yourServiceId</font></p>
+<p><img style="border: 0; padding: 0;" src="images/apps/Showpad1.png" alt=“Showpad1.png" /></p>
+
+
+
+
+</div>
+
+
+<li><p>Login to Showpad as an administrator, then navigate to <strong>SETTINGS > Single Sign-On</strong>, then click <strong>Enable</strong>:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/Showpad2.png" alt=“Showpad2.png" /></p>
+</li>
+
+<li>An <strong>Add a SAML 2.0 Service</strong> dialog appears. Enter the following (see screen shot at end of step for reference):</p>
+
+<ul>
+<li><p><Strong>Name</strong>: Okta</p></li>
+<li><p><Strong>Metadata Source</strong>: Check the <strong>URL</strong> button.</p></li>
+<li><p><Strong>Metadata URL</strong>: Copy and paste the following:</p>
+<p><kbd id="metadataUrl">Sign in to the Okta Admin app to have this variable generated for you</kbd></p></li>
+<li><p><Strong>User Identity</strong>: Check the <strong>Identity resides in the NameID element of the subject</strong> button.</p></li>
+</ul>
+<p><img style="border: 0; padding: 0;" src="images/apps/Showpad3.png" alt=“Showpad3.png" /></p>
+
+</li>
+
+
+
+<li><p>In the <strong>Auto-Provisioning</strong> section, check <strong>Auto-provision accounts for new users when they log in</strong> for Just In Time (JIT) provisioning, then click <strong>Submit</strong>:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/Showpad4.png" alt=“Showpad4.png" /></p>
+</li>
+
+<li><p>On the next page, make a copy of the values in the <strong>Showpad Entity ID</strong> and <strong>Assertion Consumer Service Endpoint</strong> fields:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/Showpad5.png" alt=“Showpad5.png" /></p>
+</li>
+
+<li><p>In Okta, select the <strong>General</strong> tab for the Showpad app and enter the values you just saved into the corresponding fields, as shown below:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/Showpad6.png" alt=“Showpad6.png" /></p>
+</li>
+<li><p>Click <strong>Save</strong>.</p></li>
+
+
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+<p>SP-initiated flows and Just In Time (JIT) provisioning are supported.</p>
+<p>IdP-initiated flows are not supported.</p>
+<p><strong>For SP-initiated flows</strong>:</p>
+<p>Go to the <font color="blue">https://[YourSubdomain].showpad.biz/login</font> page, then click <strong>LOGIN WITH - Okta account</strong> button:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/Showpad7.png" alt=“Showpad7.png" /></p>
+
+</li>
+
+
+</ol>
+</div>
+</body>
+</html>
