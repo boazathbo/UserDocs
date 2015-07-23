@@ -20,7 +20,7 @@ try{Typekit.load();}catch(e){}
         </div>
     </div>
 <div class="okta-instructions">
-<h1>How to Configure SAML 2.0 for Attendees</h1>
+<h1>How to Configure SAML 2.0 for Attendease</h1>
 
 <div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
 <p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
@@ -31,24 +31,24 @@ try{Typekit.load();}catch(e){}
 <p>Send an email to Attendease Support and request that they enable SAML 2.0 for your account.</p></li>
 
 <li><p>Attach the following IDP Metadata:</p>
-
+<p><textarea id="idpMetadata" style="margin: 0px; width: 817px; height: 190px;">Sign into the Okta Admin Dashboard to generate this variable.</textarea></p>
 </li>
-<li><p>Provide the following list of attribute keys:
-<pre> first_name, last_name, email, job_title, department </pre></p>
 
-</ul>
-
-</li>
-<li>Pathgather will process your request and enable SAML for your account.</li>
-
+<li><p>Attendease will process your request. After receiving a confirmation email, you can start assigning people to the application.</p></li>
 
 <li><p>Done!</p>
 <br />
 <p><b>Notes:</b></p>
-<p>IdP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported.</p>
+<p>IdP-initiated flows and SP-initiated flows are supported.</p>
+<p>Just In Time (JIT) provisioning is not supported.</p>
 
-<p><strong>For SP initiated flows</strong>:<p>
-<p>Go to your Pathgather URL - For example: <strong>https://[subdomain].pathgather.com</strong> </p>
+<p>For SP-initiated flows:</p>
+<ol>
+<li><p>Go to the <a href="https://attendease.com/login/" target="_blank">https://attendease.com/login/</a> page.</p>
+<li>Enter your username.</li>
+<li>Click the <strong>Sign in with Okta</strong>:
+<p><img style="border: 0; padding: 0;" src="images/apps/attendease1.png" alt=“attendease.png" /></p>
+</li>
 
 
 
