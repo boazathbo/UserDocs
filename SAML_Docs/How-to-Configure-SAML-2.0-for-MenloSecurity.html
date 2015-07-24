@@ -1,0 +1,91 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Menlo Security</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+<li><p>Login to the Menlo Security Admin Portal here: <a href="https://admin.menlosecurity.com" target="_blank">https://admin.menlosecurity.com</a>.</p></li>
+
+<li>Navigate to <strong>Settings > Authentication</strong>.</li>
+
+<li><p>Enter the following information (see screen shot at end of step for reference):</p>
+
+
+
+<ul>
+<li><p><strong>Gateways IP Addresses</strong>: Enter the corporate gateway IP address(es) where user traffic will originate. SAML authentication will be automatically used for users coming from this IP address.</p></li>
+
+
+<li><p>Select <strong>Enable user authentication using SAML</strong>.</p></li>
+
+<li><p><strong>Allow External Access</strong>: Choose whether external access is allowed, or whether SAML authentication is limited to requests from the specified Gateway IP address(es).</p></li>
+
+<li><p><strong>SAML 2.0 Endpoint (HTTP)</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+<li><p><strong>Service Identifier (Issuer URL)</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+
+<li><p><strong>X.509 Certificate</strong>: Copy and paste the following:</p>
+<p><pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre></p>
+</li>
+
+<li><p>Click <strong>Save Changes</strong>.</p></li>
+
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+<p></p>
+<p><img border="1" src="images/apps/menlosecurity1.png" alt=“menlosecurity1.png" /></p>
+
+</li>
+
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+<p>SP-initiated flows are supported. </p>
+<p>IdP-initiated flows and Just In Time (JIT) provisioning are not supported
+
+
+</li>
+
+</ol>
+</div>
+</body>
+</html>
