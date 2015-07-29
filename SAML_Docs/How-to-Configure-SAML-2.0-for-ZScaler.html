@@ -29,42 +29,46 @@ try{Typekit.load();}catch(e){}
 <p>Log into the ZScaler application.</p>
 </li>
 <li>
-<p>Go to the <strong>ADMINISTRATION</strong> top tab.</p>
+<p>Select the <strong>Administration</strong> tab along the top.</p>
 </li>
 <li>
-<p>Click on the <strong>Manage Users &amp; Authentication</strong> on the side tabs.</p>
+<p>Select <strong>Authentication Settings</strong> from the left navigation panel.</p>
 </li>
 <li>
-<p>Click on the <strong>Edit</strong> button.</p>
+<p>For <strong>Authentication Type</strong>, click the <strong>SAML</strong> button.</p>
 </li>
 <li>
-<p>Click on the <strong>Configure SAML Single Sign-On Parameters</strong> to open the the pop up.</p>
+<p>Click <strong>Configure SAML</strong>.</p>
 </li>
-<li>
-<p>Enter the following values in the <strong>Identity Provider (IDP) Options</strong> section.</p>
-<ol>
-<li>
-<p>Copy and paste the following into <br /> <strong>URL of the SAML Portal to which users are sent for authentication</strong>: <br /> on the <strong>Configure single sign-on using SAML</strong> pop up.</p>
-<kbd id="signOnUrl">Sign in to the Okta Admin app to have this variable generated for you.</kbd></li>
-<li>
-<p>Copy and paste the following into <br /> <strong>Attribute containing Login Name</strong>.<kbd class="dashed-kbd">NameID</kbd></p>
+
+<p><img src="images/apps/zscaler1.png" alt=“zscaler1.jpg" /></p>
+
+
+<li><p>In the <strong>Identity Provider (IDP) Options</strong> section of the SAML Congifuration screen, enter the following (see screen shot at end of step for reference):</p>
+<ul>
+
+<li><p><strong>SAML Portal URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign in to the Okta Admin app to have this variable generated for you.</kbd></p>
 </li>
-<li>
-<p>Download the Identity Provider Certificate by clicking here:</p>
-<kbd id="downloadCertificatePem">Sign in to the Okta Admin app to have this variable generated for you.</kbd>
-<p>You will need to import this into ZScaler through their configuration UI. <strong>Upload SSL Public Certificate</strong>.Press <strong>Done</strong></p>
+<li><p><strong>Login Name Attribute</strong>: Enter <strong>NameID</strong>.</p></li>
+<li><p><strong>Public SSL Certificate</strong>: First click here to download the certificate for upload:</p>
+<p><kbd id="downloadCertificatePem">Sign in to the Okta Admin app to have this variable generated for you.</kbd></p>
+<p>Then click <strong>Upload</strong> to upload it to ZScaler.
 </li>
-</ol></li>
-<li>
-<p>Press <strong>Save</strong> on the <strong>Configure User Authentication</strong>.</p>
+<li><p>Click <strong>Save</strong>.</p></li>
+
+<p><img src="images/apps/zscaler2.png" alt=“zscaler2.jpg" /></p>
+</ul>
 </li>
+
+
+
+
+<li><p>Done!</p>
+
+
 </ol></div>
-<div class="okta-instructions"><img src="images/apps/zscaler-1.png" alt="zscaler-1.png" width="805" height="585" /></div>
-<div class="okta-instructions"></div>
-<div class="okta-instructions"></div>
-<div class="okta-instructions"><img src="images/apps/z-scaler-+2.jpg" alt="z-scaler-_2.jpg" /></div>
-<div class="okta-instructions"></div>
-<div class="okta-instructions"></div>
+
 <div class="okta-instructions"><a class="normal" style="display: none;" href="#">View smaller screenshot</a>
 <h1 id="zscaler-setup-instructions">Setup Active Directory integration with ZScaler for Auto-Provisioning</h1>
 <h2>To setup a Auto-Provisioning on ZScaler, first setup Okta application integration</h2>
