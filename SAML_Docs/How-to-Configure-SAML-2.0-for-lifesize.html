@@ -30,13 +30,22 @@ try{Typekit.load();}catch(e){}
 
 <pre>-----BEGIN CERTIFICATE-----MIIEHzCCAwegAwIBAgIJAOeNkbnxVVV/MA0GCSqGSIb3DQEBBQUAMIGlMQswCQYDVQQGEwJJTjELMAkGA1UECAwCS0ExEjAQBgNVBAcMCUJhbmdhbG9yZTERMA8GA1UECgwITGlmZXNpemUxFzAVBgNVBAsMDkNvbW11bmljYXRpb25zMRowGAYDVQQDDBFsaWZlc2l6ZWNsb3VkLmNvbTEtMCsGCSqGSIb3DQEJARYecHJvZHVjdG1hbmFnZW1lbnRAbGlmZXNpemUuY29tMB4XDTE1MDcwNjEwMTIxNloXDTI1MDcwMzEwMTIxNlowgaUxCzAJBgNVBAYTAklOMQswCQYDVQQIDAJLQTESMBAGA1UEBwwJQmFuZ2Fsb3JlMREwDwYDVQQKDAhMaWZlc2l6ZTEXMBUGA1UECwwOQ29tbXVuaWNhdGlvbnMxGjAYBgNVBAMMEWxpZmVzaXplY2xvdWQuY29tMS0wKwYJKoZIhvcNAQkBFh5wcm9kdWN0bWFuYWdlbWVudEBsaWZlc2l6ZS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDN6r/qWOveMypCpRBksGEVkLAeDcC08lQ0yxB3s3hEmAU6I7ZCr6JUsS1ldHXRR7ZJhKk148LOa0p5/3kbyD5p4rpG03LEVPNi43P8SA6Uct7OEu3to/aVjQlkLyXw9f2bX5BhdqGV7ftr8n1O9GMZAUwjd7LfrEvGrOM8R/IH60/L1SMpCyx2yIJ4vQ80gSonPYXvc7AnmnFjGLkYSOzBfETpxzGkgr9jqotADRjF6oEerxBhKcjQVHIjQvW1Dt4jEQT1ndOzLt0Kw/MzrbxkokQ2JhGuGUWX1o/OPDrQ5nflYN9rhJgOSiTsB1e4T9loeZTUjDPi3y2dVWDZXM8tAgMBAAGjUDBOMB0GA1UdDgQWBBSe51Gqi8w/xJp/QMlTiHlY/hqwXzAfBgNVHSMEGDAWgBSe51Gqi8w/xJp/QMlTiHlY/hqwXzAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4IBAQB6O0X7VS9dFaDQI30NMgabvc3RRkn0QiIC42uX3NB9Lt75k/KWK5keOlTci339qZHatEii6ZkGp9eLrW/97sCitBrM7RXRpYf7IVGTRLb6NYrKitM5wAxpFwj18/2DZi4ugg3DaFCAUz7jMi1LUMeu/X59ilFn5sx7wz+J/VJAHF2W17vdpBY6qXXAdv9BwO5ii4g5W0gWAcVQKL8k7kz7ZEx+Fpn3HT3vB09ZWrtIZlFttc/+B7C9kAvR69H73Exg1wHAuFfXeIwC3zTssV7JXD2YJOCmC9Tp8mpXEAN9nEMFKBBmVVUCHQIn0tkt+LzJjFq0AkCNg542kTWgvWjt-----END CERTIFICATE-----</pre>
 </li>
-<li><p>In Okta, select the <strong>Sign On</strong> tab for the Lifesize app, then click <strong>Browse</strong> to navigate to the <strong>lifesize.crt</strong> file you just saved, then <strong>Upload</strong> it to Okta, as shown here:</p>
+<li><p>In Okta, select the <strong>Sign On</strong> tab for the Lifesize app.
+<ul>
+<li><p>Click <strong>Edit</strong> to make the fields editable.</p></li>
+<li><p>For the <strong>Encryption Certificate</strong>, click <strong>Browse</strong> to navigate to the <strong>lifesize.crt</strong> file you just saved, then click <strong>Upload</strong> to upload it to Okta.</p></li>
+<li><p>Click <strong>Save</strong> when complete.</p></li>
+
+</ul>
 <p><img border="1" src="images/apps/lifesize1.png" alt=“lifesize1.png" /></p>
+</li>  
+
 </li>
 
 
-<li><p>Sign in to <strong>Lifesize Cloud</strong> with administrative privileges.</p></li>
-<li><p>Navigate to <strong>Advanced Settings > SSO Integration</strong> and enter the following information (see screen shot at end of step for reference):</p>
+<li><p>Sign in to <strong>Lifesize Cloud</strong> with administrative privileges here: <a href="https://manage.lifesizecloud.com" target="_blank">https://manage.lifesizecloud.com</a>.</p></li>
+
+<li><p>Access Lifesize Cloud <strong>Advanced Settings</strong> by clicking the drop down button next to your name in the upper right corner of the page, then navigate to <strong>SSO Integration</strong> (see screen shot at end of step for reference):</p>
 
 <ul>
 
@@ -81,10 +90,16 @@ try{Typekit.load();}catch(e){}
 <p><img border="1" src="images/apps/lifesize4.png" alt=“lifesize4.png" /></p>
 </li>
 
-<li><p>Back in Okta, on the <strong>Sign On</strong> tab of the Lifesize app, enter the <Strong>Relay State</strong> you just copied into the <strong>Default Relay State</strong> field:</p>
-<p><img border="1" src="images/apps/lifesize5.png" alt=“lifesize5.png" /></p>
-</li>
+<li><p>Back in Okta, select the <strong>Sign On</strong> tab for the Lifesize app.</p></li>
+<ul>
+<li><p>Click <strong>Edit</strong> to make the fields editable.</p></li>
+
+<li><p>Enter the <Strong>Relay State</strong> you just copied into the <strong>Default Relay State</strong> field.</p>
 <li><p>Click <strong>Save</strong>.</p></li>
+<p><img border="1" src="images/apps/lifesize5.png" alt=“lifesize5.png" /></p>
+</ul>
+</li>
+
 
 
 <li><p>Done!</p><p><b>Notes:</b></p>
