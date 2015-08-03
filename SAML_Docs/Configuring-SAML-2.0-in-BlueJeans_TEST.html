@@ -71,7 +71,7 @@ try{Typekit.load();}catch(e){}
 
 <script type="text/javascript">
   function separateMetadata() {
-    var a = (window.dataSAML["signOnUrl"]);
+    var a = (window.dataSAML["metadataUrl"]);
     var m = (a.firstIndexOf("\/app") + 4;
     var n = a.substr(m);
     var o = n.firstIndexOf("\/")+ 1;
@@ -80,12 +80,12 @@ try{Typekit.load();}catch(e){}
     var b = a.substr(0,m);  
     var d = b.concat(f);
 
-    $('#metadataUrl2').text(a);    
+    $('#metadataUrl2').text(d);    
 
     }
    
  $(document).ready(function($) {
-    $("body").on('dataSAMLUpdated', separateIssuer);
+    $("body").on('dataSAMLUpdated', separateMetadata);
   });
 </script>
 
