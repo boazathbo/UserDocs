@@ -69,6 +69,26 @@ try{Typekit.load();}catch(e){}
 </script>
 
 
+<script type="text/javascript">
+  function separateMetadata() {
+    var a = (window.dataSAML["metadataUrl"]);
+    var m = (a.firstIndexOf("\/app") + 4;
+    var n = a.substr(m);
+    var o = n.firstIndexOf("\/")+ 1;
+   
+    var f = n.substr(o);
+    var b = a.substr(0,m);  
+    var d = b.concat(f);
+
+    $('#metadataUrl2').text(d);    
+
+   }
+   
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', separateIssuer);
+  });
+</script>
+
 
 <script type="text/javascript">
   function updateValues() {
@@ -126,5 +146,17 @@ try{Typekit.load();}catch(e){}
 <p>Copy the following <strong>Upper Case Certificate Fingerprint</strong> field.</p>
 <kbd id="toUppercaseFingerprint"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
+
+
+</li>
+<p>Copy the following <strong>Metadata URL</strong> field.</p>
+<kbd id="metadataUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd>
+</li>
+</li>
+<p>Copy the following <strong>Metadata URL (modified)</strong> field.</p>
+<kbd id="metadataUrl2"> Sign into the Okta Admin dashboard to generate this value.</kbd>
+</li>
+
+
 
 
