@@ -89,9 +89,9 @@ try{Typekit.load();}catch(e){}
 <script type="text/javascript">
   function updateMetadataUrl() {
     var a = (window.dataSAML["signOnUrl"]);
-    var m = (a.indexOf("\/app") + 4;
+    var m = a.indexOf("\/app") + 4;
     var n = a.substr(m);
-    var o = n.firstIndexOf("\/")+ 1;
+    var o = n.indexOf("\/")+ 1;
    
     var f = n.substr(o);
     var b = a.substr(0,m);  
