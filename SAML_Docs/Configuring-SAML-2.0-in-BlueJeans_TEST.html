@@ -72,9 +72,17 @@ try{Typekit.load();}catch(e){}
 <script type="text/javascript">
   function separateMetadata() {
     var a = (window.dataSAML["metadataUrl"]);
+    var m = (a.firstIndexOf("\/app") + 4;
+    var n = a.substr(m);
+    var o = n.firstIndexOf("\/")+ 1;
+   
+    var f = n.substr(o);
+    var b = a.substr(0,m);  
+    var d = b.concat(f);
 
+   var w = vkbeautify.xml(a);
 
-    $('#metadataUrl2').text(a);    
+    $('#metadataUrl2').text(w);    
 
     }
    
