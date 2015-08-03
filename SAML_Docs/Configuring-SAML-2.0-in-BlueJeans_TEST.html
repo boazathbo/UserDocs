@@ -69,28 +69,6 @@ try{Typekit.load();}catch(e){}
 </script>
 
 
-<script type="text/javascript">
-  function separateMetadata() {
-    var a = (window.dataSAML["metadataUrl"]);
-    var m = (a.firstIndexOf("\/app") + 4;
-    var n = a.substr(m);
-    var o = n.firstIndexOf("\/")+ 1;
-   
-    var f = n.substr(o);
-    var b = a.substr(0,m);  
-    var d = b.concat(f);
-
-   var w = vkbeautify.xml(a);
-
-    $('#metadataUrl2').text(w);    
-
-    }
-   
- $(document).ready(function($) {
-    $("body").on('dataSAMLUpdated', separateMetadata);
-  });
-</script>
-
 
 <script type="text/javascript">
   function updateValues() {
@@ -106,6 +84,23 @@ try{Typekit.load();}catch(e){}
     $("body").on('dataSAMLUpdated', updateValues);
   });
 </script>
+
+
+<script type="text/javascript">
+  function updateMetadataUrl() {
+    var a = (window.dataSAML["certFingerPrint"]).toUpperCase();
+
+
+    $('#metadataUrl2').text(a);    
+
+   }
+   
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', updateMetadataUrl);
+  });
+</script>
+
+
 
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
