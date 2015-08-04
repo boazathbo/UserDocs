@@ -60,6 +60,31 @@ $(document).ready(function($) {
   }
 
 
+  function updateMetadataUrl() {
+    var a = (window.dataSAML["signOnUrl"]);
+    var m = a.indexOf("\/app") + 5;
+    var n = a.substr(m);
+    var o = n.indexOf("\/")+ 1;
+   
+    var f = n.substr(o);
+    var b = a.substr(0,m);  
+    var d = b.concat(f)+"\/metadata";
+
+
+    $('#metadataUrl').text(d);    
+
+
+   }
+   
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', updateMetadataUrl);
+  });
+
+
+
+
+
+
   $('#mailto').on('click', function() {
       var to = "DedicatedSAMLComplaintLine@okta.com"; // I am assuming this will always be same!
       var body = "Dear Okta,%0D%0A%0D%0AI used your SAML setup instruction. I want you to know…%0D%0AI completed the SAML setup?%0D%0AI found errors in this doc?%0D%0A%0D%0AHere’s what I noticed:";
