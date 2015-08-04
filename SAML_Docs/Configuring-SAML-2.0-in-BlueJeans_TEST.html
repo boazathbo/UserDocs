@@ -86,28 +86,6 @@ try{Typekit.load();}catch(e){}
 </script>
 
 
-<script type="text/javascript">
-  function updateMetadataUrl() {
-    var a = (window.dataSAML["signOnUrl"]);
-    var m = a.indexOf("\/app") + 5;
-    var n = a.substr(m);
-    var o = n.indexOf("\/")+ 1;
-   
-    var f = n.substr(o);
-    var b = a.substr(0,m);  
-    var d = b.concat(f)+"\/metadata";
-
-
-    $('#metadataUrl3').text(d);    
-
-
-   }
-   
- $(document).ready(function($) {
-    $("body").on('dataSAMLUpdated', updateMetadataUrl);
-  });
-</script>
-
 
 
 
@@ -158,7 +136,7 @@ try{Typekit.load();}catch(e){}
 <kbd id="metadataUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
 </li>
-<p>Copy the following <strong>Metadata URL (modified)</strong> field.</p>
+<p>Copy the following <strong>Metadata URL 2</strong> field.</p>
 <kbd id="metadataUrl2"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
 
