@@ -12,7 +12,6 @@ function processData(data) {
   $('#validFrom').html(data["validFrom"]);
   $('#validTo').html(data["validTo"]);
   $('#issuer').html(data["issuer"]);
-  $('#metadataUrl').html(data["signOnUrl"] + '/metadata');
   $('#metadataUrl2').html(data["signOnUrl"] + '/metadata');
  $('#signOnUrl2').html(data["signOnUrl"] + ' ');
  $('#errorUrl').html(data["signOutUrl"]);
