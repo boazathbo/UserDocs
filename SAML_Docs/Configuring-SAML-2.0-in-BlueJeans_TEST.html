@@ -86,6 +86,27 @@ try{Typekit.load();}catch(e){}
 </script>
 
 
+<script type="text/javascript">
+  function updateMetadataUrl() {
+    var a = (window.dataSAML["signOnUrl"]);
+    var m = a.indexOf("\/app") + 5;
+    var n = a.substr(m);
+    var o = n.indexOf("\/")+ 1;
+   
+    var f = n.substr(o);
+    var b = a.substr(0,m);  
+    var d = b.concat(f)+"\/metadata";
+
+
+    $('#metadataUrl2').text(d);    
+
+
+   }
+   
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', updateMetadataUrl);
+  });
+</script>
 
 
 
