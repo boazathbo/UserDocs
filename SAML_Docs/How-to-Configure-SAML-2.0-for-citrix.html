@@ -20,7 +20,7 @@ try{Typekit.load();}catch(e){}
         </div>
     </div>
 <div class="okta-instructions">
-<h1>How to Configure SAML 2.0 for GoToMeeting, GoToWebinar, GoToTraining, OpenVoice, and GoToAssist</h1>
+<h1>How to Configure SAML 2.0 for Citrix</h1>
 <div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
 <p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
 </div>
@@ -28,16 +28,23 @@ try{Typekit.load();}catch(e){}
 
 <li><p>Log into the Organization Center, here: <a href="https://account.citrixonline.com/organization/administration/" target="_blank">https://account.citrixonline.com/organization/administration/</a>.</p></li>
 
-<li><p>Navigate to the <strong>Identity provider</strong> tab and enter the following:</p>
+<li><p>Navigate to the <strong>Identity provider</strong> tab and enter the following (see screen shot at end of step for reference):</p>
 
 <ul>
-<li><p>Select <strong>Automatic</strong> from the dropdown menu.</p></li>
-<li><p>For the <strong>Metadata url</strong>, copy and paste the following:</p>
-<p><kbd id="metadataUrl">Sign in to the Okta Admin app to have this variable generated for you</kbd></p></li>
+<li><p>Select <strong>Manual</strong> from the dropdown menu.</p></li>
+<li><p>For the <strong>Sign-in page url</strong>, copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p></li>
+
+<li><p>For the <strong>Identity Provider Entity ID</strong>, copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p></li>
+
+<li><p>For the <strong>Verification certificate</strong>, copy and paste the following:</p>
+<p><pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre></p></li>
+
 <li><p>Click <strong>Save</strong>.</p></li>
 
 </ul>
-<p><img border="1" src="images/apps/goto1.png" alt=“goto1.png" /></p>
+<p><img border="1" src="images/apps/citrix1.png" alt=“citrix1.png" /></p>
 </li>  
 
 </li>
@@ -46,14 +53,16 @@ try{Typekit.load();}catch(e){}
 <li><p>Done!</p><p><b>Notes:</b></p>
 <p>IdP-initiated flows and SP-initiated flows are supported. </p>
 <p>Just In Time (JIT) provisioning is not supported.</p>
-<p>For SP-initiated flows:</p>
+<p><strong>For SP-initiated flows:</strong></p>
 <ol>
 <li><p>Go to the appropriate Citrix product login page:</p>
 <p>For GoToMeeting: <a href="https://global.gotomeeting.com/" target="_blank">https://global.gotomeeting.com/</a>.</p>
 <p>For GoToWebinar: <a href="https://global.gotowebinar.com/" target="_blank">https://global.gotowebinar.com/</a>.</p>
 <p>For GoToTraining: <a href="https://global.gototraining.com/" target="_blank">https://global.gototraining.com/</a>.</p>
 <p>For OpenVoice: <a href="https://global.openvoice.com/" target="_blank">https://global.openvoice.com/</a>.</p>
-<p>For GoToAssist: <a href="https://app.gotoassist.com/" target="_blank">https://app.gotoassist.com/</a>.</p>
+<p>For GoToAssist (Remote Support/Service Desk/Monitoring): <a href="https://app.gotoassist.com/" target="_blank">https://app.gotoassist.com/</a>.</p>
+<p>For GoToAssist (SeeIt): <a href="https://seeit.gotoassist.com/" target="_blank">https://seeit.gotoassist.com/</a>.</p>
+
 </li>
 
 
