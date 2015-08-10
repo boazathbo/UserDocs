@@ -1,0 +1,57 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){} 
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for KnowBe4</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+<li><p>Contact KnowBe4 Support (<a href="https://knowbe4.zendesk.com/hc/en-us/requests/new" target="_blank">https://knowbe4.zendesk.com/hc/en-us/requests/new</a>) and request that they enable SAML 2.0 for your account.</p></li>
+
+<li><p>Attach the following:</p>
+
+<ul>
+<li><p><strong>IDP SSO Target Url</strong>:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p></li>
+<li><p><strong>IDP Cert Fingerprint</strong>:</p>
+
+<kbd id="toUppercaseFingerprint">Sign into the Okta Admin Dashboard to generate this variable.</kbd>
+</li>
+</ul>
+</li>  
+
+<li><p>KnowBe4 Support will process your request. After receiving a confirmation email, you can start assigning people to the application.</p></li>
+
+
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+<p>IdP-initiated flows, SP-initiated flows, and Just In Time (JIT) Provisioning are all supported. </p>
+<p><strong>For SP-initiated flows:</strong></p>
+<p>Go to the <a href="https://training.knowbe4.com/auth/saml/yourCompanyDomain" target="_blank">https://training.knowbe4.com/auth/saml/yourCompanyDomain</a> page:</p>
+
+</li>
+
+</ol>
+</div>
+</body>
+</html>
