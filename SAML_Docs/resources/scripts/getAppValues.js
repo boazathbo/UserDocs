@@ -80,6 +80,34 @@ $(document).ready(function($) {
     $("body").on('dataSAMLUpdated', updateMetadataUrl);
   });
 
+  function updateFingerprint() {
+    var a = (window.dataSAML["certFingerPrint"]).toUpperCase();
+     
+    a = a.replace(/(\S{2})/g,"$1\:");
+    a = a.replace(/\:$/,"");    
+
+    $('#formattedFingerprint').text(a);    
+
+   }
+   
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', updateFingerprint);
+  });
+
+
+
+  function uppercaseFingerprint() {
+    var a = (window.dataSAML["certFingerPrint"]).toUpperCase();
+
+
+    $('#toUppercaseFingerprint').text(a);    
+
+   }
+   
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', uppercaseFingerprint);
+  });
+
 
 
 
