@@ -22,6 +22,18 @@ try{Typekit.load();}catch(e){}
 </script>
 
 
+<script type="text/javascript">
+  function googleAppsChangePasswordUrl() {
+    var m = window.dataSAML["signOutUrl"] + "/enduser/settings"
+
+    $('#googleChangePassword').text(m);    
+
+   }
+   
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', googleAppsChangePasswordUrl);
+  });
+</script>
 
 
 <script type="text/javascript">
@@ -111,6 +123,9 @@ try{Typekit.load();}catch(e){}
 <kbd id="metadataUrl2"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
 
+<p>Copy the following <strong>Change Password URL (Google Apps)</strong> field.</p>
+<kbd id="googleChangePassword"> Sign into the Okta Admin dashboard to generate this value.</kbd>
+</li>
 
 
 
