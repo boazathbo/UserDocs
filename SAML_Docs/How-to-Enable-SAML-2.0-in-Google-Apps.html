@@ -11,6 +11,20 @@ try{Typekit.load();}catch(e){}
 
 <script src="resources/scripts/getAppValues.js"></script>
 
+<script type="text/javascript">
+  function googleAppsChangePasswordUrl() {
+    var m = window.dataSAML["signOutUrl"] + "/enduser/settings"
+
+    $('#googleChangePassword').text(m);    
+
+   }
+   
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', googleAppsChangePasswordUrl);
+  });
+</script>
+
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
@@ -53,8 +67,8 @@ try{Typekit.load();}catch(e){}
 <p>Copy and paste the following into&nbsp;<strong>Sign-out page URL</strong>:</p>
 <kbd id="signOutUrl">Sign into the Okta Admin dashboard to generate this value.</kbd></li>
 <li>
-<p>Substitute the name of your okta domain for <em>&lt;your_okta_domain&gt;</em> and, paste the following into&nbsp;<strong>Change password URL</strong>:</p>
-<kbd><span>https:// &lt;your_okta_domain&gt;.okta.com/enduser/settings</span></kbd></li>
+<p>Copy and paste the following into&nbsp;<strong>Change password URL</strong>:</p>
+<kbd id="googleChangePassword">Sign into the Okta Admin dashboard to generate this value.</kbd></li>
 <li>
 <p>Check&nbsp;<strong>Use a domain-specific issuer</strong>.</p>
 </li>
