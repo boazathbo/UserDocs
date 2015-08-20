@@ -1,0 +1,81 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Unify</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+
+
+
+
+
+<ol>
+
+
+<li><p>Create an account in <a href="https://discoverunifi.com">Unifi.</a></p></li>
+
+
+
+<li><p>Login to your Unifi account as an administrator.</p></li>
+<li><p>Select <strong>Identity Providers</strong>:
+<p><img src="images/apps/unifi1.png" alt=“unifi1.png" /></p>
+</li>
+
+<li><p>Select <strong>Add New Identity Provider</strong>:
+<p><img src="images/apps/unifi2.png" alt=“unifi2.png" /></p>
+</li>
+
+<li><p>Enter the following information (see screenshot at end of text for reference):</p>
+<ul>
+<li><p><strong>Provider Namer</strong>: Enter <Strong>Okta</strong>.</p> </li>
+<li><p>Provider URL: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p><strong>Certificate</strong>: Copy and paste the following certificate:</p>
+<p><pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre></p></li>
+<li><p>Click <strong>Add Identity Provider</strong>.</p></li>
+
+<p><img src="images/apps/unifi3.png" alt=“unifi3.png" /></p>
+</ul>
+
+
+
+</li>
+
+
+
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+<p>Only SP-initiated flows are supported with the UniFi app. (The UniFi website supports other flows.)</p>
+</li>
+
+
+
+
+
+
+
+</div>
+</body>
+</html>
