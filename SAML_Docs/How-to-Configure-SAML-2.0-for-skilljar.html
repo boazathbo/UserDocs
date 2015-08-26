@@ -1,0 +1,86 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Skilljar</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+
+
+
+
+
+<ol>
+
+
+<li><p>Send an email to Skilljar and request that they enable SAML 2.0 for your account. Include the following information:</p>
+<ul>
+<li><p><strong>IDP Metadata</strong>: Copy this to a file and then attach:</p>
+<p><textarea id="idpMetadata" style="margin: 0px; width: 817px; height: 190px;">Sign into the Okta Admin Dashboard to generate this variable.</textarea></p>
+</li>
+<li><p><strong>IDP Issuer/Entity ID</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+
+<li><p><strong>x509 Certificate</strong>: Copy and paste the following certificate in PEM text format:</p>
+<p><pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre></p></li>
+
+<li><p><strong>Login URL/SignOn URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+</ul>
+</li>
+
+
+<li><p>Skilljar will provide you with the SP Metadata xml, take note of the values for <strong>ACS URL</strong> and <strong>SP Entity ID</strong>. An example SP Metadata xml is show below with those values highlighted:
+<p><img src="images/apps/skilljar1.png" alt=“skilljar1ß.png" /></p>
+</li>
+
+<li><p>In Okta, select the <strong>General</strong> tab for the Skilljar app.</p>
+
+<ul>
+<li><p>Enter the values you noted from the SP metadata xml file into the corresponding <strong>AssertionConsumerService URL</strong> and <strong>SP Entity ID</strong> fields.</p></li>
+<li><p>Click <strong>Save</strong>.</p>
+
+<p><img src="images/apps/skilljar2.png" alt=“skilljar2.png" /></p>
+</li>
+
+</ul>
+</li>
+
+
+
+
+<li><p>Done!</p>
+</li>
+
+
+
+
+
+
+
+</div>
+</body>
+</html>
