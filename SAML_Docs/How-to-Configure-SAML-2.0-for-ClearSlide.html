@@ -27,7 +27,7 @@ try{Typekit.load();}catch(e){}
 <ol>
 
 <li>
-<p>Contact Clearslide and request that they enable SAML for your account.</p>
+<p>Contact ClearSlide and request that they enable SAML for your account.</p>
 </li>
 
 
@@ -48,12 +48,20 @@ try{Typekit.load();}catch(e){}
 <p>Under&nbsp;<strong style="background-color: initial;">Your SAML Provider Configurations,&nbsp;</strong>copy and paste the following to the<strong style="background-color: initial;">&nbsp;X.509 Certificate&nbsp;</strong>field:</p>
 <pre id="x509CertTextPem">Sign in to the Okta Admin app to generate this variable.</pre>
 </li>
-<li>To Enable Just In Time (JIT) provisioning, select the checkbox next to <strong>Single Sign-on Configuration</strong> labeled as "Automatically create user accounts" as shown below. <br /><br /><strong>Note</strong>:&nbsp;Clearslide JIT allows users to select their own role type. Only enable it if you want to permit users in your organization to select their own roles. Administration is <strong>not </strong>a role type the users can select.</li>
+<li>To Enable Just In Time (JIT) provisioning, select the checkbox next to <strong>Single Sign-on Configuration</strong> labeled as "Automatically create user accounts" as shown below. <br /><br /><strong>Note</strong>:&nbsp;ClearSlide JIT allows users to select their own role type. Only enable it if you want to permit users in your organization to select their own roles. Administration is <strong>not </strong>a role type the users can select.</li>
 <li>If you want users to <strong>Log on with SAML only</strong>, check the box <strong>Require Single Sign-On for all users.</strong></li>
 <li>Next, copy the<strong> SAML Consumer URL:<br /><br /><img style="border: 0; padding: 0;" src="images/apps/Screen+Shot+2014-09-15+at+5.23.22+PM.png" alt="Screen_Shot_2014-09-15_at_5.23.22_PM.png" /><br /></strong></li>
 <li>In Okta, on the <strong>Sign On</strong> tab for the ClearSlide app, paste the URL you copied in Step 9 into the <strong>SAML Consumer URL</strong>, as shown below.<br /><br /><img style="border: 0; padding: 0;" src="images/apps/Screen+Shot+2014-09-15+at+5.25.09+PM.png" alt="Screen_Shot_2014-09-15_at_5.25.09_PM.png" /></li>
 <li>Select&nbsp;<strong>Save</strong> in both ClearSlide and Okta.</li>
-<li>Done!<br /><br /><strong>Note:</strong> ClearSlide supports &nbsp;IDP-initiated flow, SP-initiated flow, and Just In Time (JIT) Provisioning. To use the SP-initiated flow, use the <strong>Custom Login URL</strong> provided on the <strong>ClearSlide Single Sign On settings</strong> page. &nbsp;</li>
+
+
+
+<li><p>Done!</p>
+<p><strong>Notes:</strong></p>
+<p>IDP-initiated flows, SP-initiated flows, and Just In Time (JIT) Provisioning are all supported.</p> 
+
+<p><strong>For SP-initiated flows</strong>:</p>
+<p>Use the <strong>Custom Login URL</strong> provided on the <strong>ClearSlide Single Sign On settings</strong> page.</p></li>
 </ol></div>
 </body>
 </html>
