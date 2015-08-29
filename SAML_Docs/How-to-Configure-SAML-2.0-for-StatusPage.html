@@ -26,48 +26,57 @@ try{Typekit.load();}catch(e){}
 </div>
 <ol>
 <li>
-<p>Log into you StatusPage.io account.</p>
+<p>Log into your StatusPage.io account.</p>
 </li>
 <li>
-<p>In the top right corner, first select your email, then select <strong>Manage Account</strong> from the dropdown menu.</p>
-<p><img src="images/apps/statuspage1.png" alt=“statuspage1.jpg" /></p>
+<p>In the top right corner, first select your email, select <strong>Manage Account</strong> from the dropdown menu, then select the <strong>Single Sign-on</strong> tab:</p>
+<p><img src="images/apps/statuspagenew1.png" alt=“statuspagenew1.jpg" /></p>
 </li>
-<li>
-<p>Select the <strong>Single Sign-on</strong> tab, then in the <strong>Require for Admin</strong> section, enter the following (see screen shot at end of step for reference):</p>
+
+<li><p>At the top of the <Strong>Enable SSO for Viewing The Status Page</strong> form, make a copy of the values for <strong>ACS URL/Consumer URL</strong> and the <Strong>EntityID/Audience URI</strong>.</p>
+<p><img src="images/apps/statuspagenew2.png" alt=“statuspagenew2.jpg" /></p>
+<p>Alternatively you can click the <strong>service provider metadata XML file for this page</strong> link to see the raw SAML metadata and get the values from there, as shown below:
+<p><img src="images/apps/statuspagenew3.png" alt=“statuspagenew3.jpg" /></p>
+</li>
+
+
+<li><p>In the <Strong>Enable SSO for Viewing The Status Page</strong> form, enter the following information: </p>
+
 
 <ul>
-<li><p>Click on <strong>Service Provider Metadata for this Organization</strong> to view StatusPage.io metadata. Make note of StatusPage.io’s <strong>entityID</strong> and <strong>ACS url</strong>, which are both in the metadata file, for example see below:</p>
 
-<p><img src="images/apps/statuspage3.png" alt=“statuspage3.jpg" /></p>
-</li>
 
 <li>
-<p><strong>SSO Target URL</strong>: Copy and paste the following:</p>
+<p><strong>SSO Target URL</strong>: Copy and paste the following (see screen shot at end of step for reference):</p>
 <p><kbd id="signOnUrl">Sign in to the Okta Admin app to have this variable generated for you.</kbd></p>
 </li>
 
 
 <li>
-<p><strong>Certificate</strong>: Copy and paste the following:</p>
+<p><strong>Certificate</strong>: Copy and paste the following (be sure to include the BEGIN header and END footer):</p>
 <p><pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre></p>
 </li>
-<li><p>Click <strong>UPDATE ADMIN CONFIGURATION</strong>.</p></li>
-<p><img src="images/apps/statuspage4.png" alt=“statuspage4.jpg" /></p>
+<li><p>Click <strong>SAVE CONFIGURATION</strong>.</p></li>
+
+
+<p><img src="images/apps/statuspagenew5.png" alt=“statuspagenew5.jpg" /></p>
 
 </ul>
 </li>
+
 
 
 
 <li><p>In Okta, select the <strong>General</strong> tab for the StatusPage app:</p>
 <ul>
 
-<li><p>Enter the StatusPage.io’s <strong>UCS Url</strong> and <strong>entityID</strong> you made note of in step 3.</p></li>
+<li><p>Enter the StatusPage.io’s <strong>ACS Url</strong> and <strong>entityID</strong> you made note of in step 3.</p></li>
 
 <li><p>Click <strong>Save</strong>.</p></li>
 
-<p><img src="images/apps/statuspage2.png" alt=“statuspage2.jpg" /></p>
+<p><img src="images/apps/statuspagenew4.png" alt=“statuspagenew4.jpg" /></p>
 </ul>
+
 
 
 <li><p>Done!</p><p><b>Notes:</b></p>
