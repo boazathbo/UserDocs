@@ -1,0 +1,74 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for MobileManager</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+
+
+
+
+
+<ol>
+
+
+<li><p>Send an email to MobileManager and request that they enable SAML 2.0 for your account.</p></li>
+<li><p>Provide the following information:</p>
+
+<ul>
+<li><p><strong>Login URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+<li><p><strong>Logout URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOutUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+<li><p><strong>IDP Issuer/Entity ID</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+<li><p><strong>x.509 Certificate</strong> (in cert format): Download, then attach the following certificate:</p>
+<p><kbd id="downloadCertificate">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+</ul>
+</li>
+<li><p>MobileManager support will process your request. After receiving a confirmation email, you can start assigning people to the app.</p></li>
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+<p>IdP-initiated flows and SP-initiated flows are supported. </p>
+<p>Just In Time (JIT) Provisioning is not supported.</p><br />
+<p>For SP-initiated flows: </p>
+<p>Go to <font color=”blue">https://[yourSubDomain].mobilemanager.net/default.aspx</li></font>
+
+
+
+
+<p></p>
+
+
+</div>
+</body>
+</html>
