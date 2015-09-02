@@ -1,0 +1,99 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){} 
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Fairsail</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+<li><p>Log in to your Fairsail administrator account using the same administrator username and password that you use for Provisioning in Okta.</p></li>
+
+<li><p>In the upper right, select your login, then select <strong>Setup</strong> from the dropdown menu.</p>
+<p><img border="1" src="images/apps/fairsail1.png" alt=“fairsail1.png" /></p>
+</li>
+
+<li><p>On the Setup page, select <strong>Security Controls > Single Sign-On Settings</strong> from the left navigation pane:</p>
+<p><img border="1" src="images/apps/fairsail2.png" alt=“fairsail2.png" /></p>
+</li>
+
+<li><p>On the Single Sign-On Settings page, make sure the <strong>SAML enabled</strong> box is checked, then click <strong>New</strong>:</p>
+<p><img border="1" src="images/apps/fairsail3.png" alt=“fairsail3.png" /></p>
+</li>
+
+<li><p>On the SAML Single Sign-On Settings page, enter the following (see screenshot at end of step for reference):</p>
+<ul>
+<li><p>If you have multiple end-points enabled, you may need to setup a <strong>Name</strong> and <strong>API Name</strong>. Set these values accordingly.</p></li>
+<li><p>Set the <strong>SAML Version</strong> to <strong>2.0</strong>.</p></li>
+<li><p>For <strong>Issuer</strong>, copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p>For <strong>Entity ID</strong>:</p>
+<ul>
+<li><p>If you have a custom domain setup, use <font color=“blue”>https://[customDomain].my.salesforce.com</font></p></li>
+<li><p>If you do not have a custom domain setup, use <font color=“blue”>https://saml.salesforce.com</font></p></li>
+</ul>
+</li>
+<li><p>For <strong>Identity Provider Certificate</strong>, download, then upload the following certificate:</p>
+<p><kbd id="downloadCertificate">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p>Set the <strong>SAML Identity Type</strong> to <strong>Assertion contains User's salesforce.com username</strong>.</p></li>
+<li><p>Set the <strong>SAML Identity Location</strong> to <strong>User ID/identity is in the NameIdentifier element of the Subject statement</strong>.</p></li>
+<li><p>For <strong>Service Identity Provider Initiated Request Binding</strong>, select <strong>HTTP POST</strong></p> 
+<p>Note that depending upon the Salesforce environment you are in, you may not be asked for this value.</p></li>
+<li><p>For <strong>Identity Provider Login URL</strong>, copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p>For <strong>Identity Provider Logout URL</strong>, copy and paste the following:</p>
+<p><kbd id="signOutUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+<p>This URL sends your users to their Okta home page when they log out of Fairsail.</p>
+</li>
+<li><p>Click <strong>Save</strong>.</p></li>
+
+</ul>
+<p><img border="1" src="images/apps/fairsail4.png" alt=“fairsail4.png" /></p>
+</li>
+
+
+<li><p>Once you click <strong>Save</strong> the following page will appear, make note of the <strong>Salesforce Login URL</strong>:</p>
+<p><img border="1" src="images/apps/fairsail5.png" alt=“fairsail5.png" /></p>
+</li>
+
+<li><p>In Okta, select the <strong>Sign On</strong> tab for the Fairsail app, click <strong>Edit</strong> then enter the following:</p>
+<ul>
+<li><p>Enter the <strong>Salesforce Login URL</strong> in the <strong>Login URL</strong> field.</p></li>
+<li><p>If you are using a custom domain, enter that value in the <strong>Custom Domain</strong> field, otherwise, leave it blank.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+
+</ul>
+
+<p><img border="1" src="images/apps/fairsail6.png" alt=“fairsail6.png" /></p>
+</li>
+
+
+
+<li><p>Done!</p>
+
+</ol>
+</div>
+</body>
+</html>
