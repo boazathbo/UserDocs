@@ -73,6 +73,7 @@ try{Typekit.load();}catch(e){}
   function citrixSsoUrl() {
     var m = window.dataSAML["signOnUrl"];
     var n = m.replace("/sso/saml","/slo/saml");
+    $('#citrixSsoUrl').text(n);    
 
    }
    
