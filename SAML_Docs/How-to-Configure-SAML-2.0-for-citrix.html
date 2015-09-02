@@ -12,6 +12,21 @@ try{Typekit.load();}catch(e){}
 <script src="resources/scripts/getAppValues.js"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript">
+  function generateCitrixSsoUrl() {
+    var m = window.dataSAML["signOnUrl"];
+    var n = m.replace("/sso/saml","/slo/saml");
+    $('#citrixSsoUrl').text(n);    
+
+   }
+   
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', generateCitrixSsoUrl);
+  });
+</script>
+
+
 </head>
 <body>
 <div class="header clearfix">
@@ -34,6 +49,8 @@ try{Typekit.load();}catch(e){}
 <li><p>Select <strong>Manual</strong> from the dropdown menu.</p></li>
 <li><p>For the <strong>Sign-in page url</strong>, copy and paste the following:</p>
 <p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p></li>
+<li><p>The <strong>Sign-out page url</strong> is optional. Copy and paste the following URL if you need to configure single logout.</p>
+<p><kbd id="citrixSsoUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p></li>
 
 <li><p>For the <strong>Identity Provider Entity ID</strong>, copy and paste the following:</p>
 <p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p></li>
