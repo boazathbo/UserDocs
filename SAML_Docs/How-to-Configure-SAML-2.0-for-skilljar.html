@@ -53,15 +53,13 @@ try{Typekit.load();}catch(e){}
 </li>
 
 
-<li><p>Skilljar will provide you with the SP Metadata xml. An example SP Metadata xml is show below with necessary values highlighted.</p>
+<li><p>Skilljar will provide you with the SP Metadata xml. An example SP Metadata xml is shown below with necessary values highlighted.</p>
 <ul>
-<li><p>Take note of the values for <strong>AssertionConsumerService</strong> and <strong>SP Entity ID</strong>. 
-<p><img src="images/apps/skilljar3.png" alt=“skilljar3.png" /></p>
+<li><p>Take note of the values for <strong>UID</strong> and <strong>SP Entity ID</strong>. 
+<p><img src="images/apps/skilljarnew1.png" alt=“skilljarnew1.png" /></p>
 </li>
 
-<li>Copy the <strong>x509Certificate</strong> value, with <strong>BEGIN</strong> and <Strong>END</strong> and as skilljar.cert, an example is shown below:</p>
-<pre>-----BEGIN CERTIFICATE-----MIICQjCCAaugAwIBAgIBAjANBgkqh-kiG9w0BAQ0FADBnMQswCQYDVQQGEwJ1czELMAkGA1UECBMCV0ExETAPBgNVBAoTCFNraWxsamFyMR0wGwYDVQQDExRva3RhaXN2LnNraWxsamFyLmNvbTEZMBcGA1UECxMQU2tpbGxqYXIgU0FNTCBTUDAeFw0xNTA4MjExNjAxMzdaFw0zNzAxMTkwMzE0MDdaMGcxCzAJBgNVBAYTAnVzMQswCQYDVQQIEwJXQTERMA8GA1UEChMIU2tpbGxqYXIxHT-AbBgNVBAMTFG9rdGFpc3Yuc2tpbGxqYXIuY29tMRkwFwYDVQQLExBTa2lsbGphciBTQU1MIFNQMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCpGvFoR9r7eobfv76PTnsZbK-miER33dqUGtKDlMAw7834S9FEjedfjO91gxWc0j0K4cbmHiU62qsdj4GpY7YJip1+Q8L2CJlDWSiJTNJBNZlsDkYYw5C6rexNBnWEl+ee3jQXCL8UON/+JDvtvEiOqec+hdub4EI2xXaC7JB1ZDwIDAQABMA0GCSqGSIb3DQEBDQUAA4GBABjYwRbgv97nbV8u4VYrOXm3ezzsahQ3fe/YPlxsf+C/vSeRYjlWhUp4x9VcI89OEjMrSmZRdPc+xwpBb/eWOTuNCy+UimxPykhcxPrl15YeCXja4cTezsUDHSFaKsn3KM22BzkSmcCemrRhCZL2ZfHlVM+BED+LYpWDX/yxYKWV-----END CERTIFICATE-----</pre>
-</li>
+
 </ul>
 </li>
 
@@ -78,18 +76,7 @@ try{Typekit.load();}catch(e){}
 </li>
 
 
-<li><p>In Okta, select the <strong>Sign On</strong> tab for the Skilljar app.</p>
 
-<ul>
-<li><p>Check the <strong>Enable Single Logout</strong> box.</p></li>
-<li><p>For <strong>Signature Certificate</strong>, click <strong>Browse..</strong> and locate, then <strong>Upload</strong> the skilljar.cert file you saved earlier.</p></li>
-<li><p>Click <strong>Save</strong>.</p>
-
-<p><img src="images/apps/skilljar4.png" alt=“skilljar4.png" /></p>
-</li>
-
-</ul>
-</li>
 
 
 
