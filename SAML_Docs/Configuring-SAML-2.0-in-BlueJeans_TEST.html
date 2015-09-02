@@ -69,6 +69,18 @@ try{Typekit.load();}catch(e){}
 </script>
 
 
+<script type="text/javascript">
+  function citrixSsoUrll() {
+    var m = window.dataSAML["signOnUrl"];
+    var n = m.replace("/sso/saml","/slo/saml");
+
+   }
+   
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', citrixSsoUrl);
+  });
+</script>
+
 
 
 
@@ -127,5 +139,9 @@ try{Typekit.load();}catch(e){}
 <kbd id="googleChangePassword"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
 
+<p>Copy the following <strong>Citrix SSO URL</strong> field.</p>
+<kbd id="citrixSsoUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd>
+</li>
 
-
+</body>
+</html>
