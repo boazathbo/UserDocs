@@ -70,7 +70,7 @@ try{Typekit.load();}catch(e){}
 
 
 <script type="text/javascript">
-  function citrixSsoUrl() {
+  function generateCitrixSsoUrl() {
     var m = window.dataSAML["signOnUrl"];
     var n = m.replace("/sso/saml","/slo/saml");
     $('#citrixSsoUrl').text(n);    
@@ -78,7 +78,7 @@ try{Typekit.load();}catch(e){}
    }
    
  $(document).ready(function($) {
-    $("body").on('dataSAMLUpdated', citrixSsoUrl);
+    $("body").on('dataSAMLUpdated', generateCitrixSsoUrl);
   });
 </script>
 
