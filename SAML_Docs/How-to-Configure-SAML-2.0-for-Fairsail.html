@@ -59,7 +59,7 @@ try{Typekit.load();}catch(e){}
 <li><p>Set the <strong>SAML Identity Type</strong> to <strong>Assertion contains User's salesforce.com username</strong>.</p></li>
 <li><p>Set the <strong>SAML Identity Location</strong> to <strong>User ID/identity is in the NameIdentifier element of the Subject statement</strong>.</p></li>
 <li><p>For <strong>Service Identity Provider Initiated Request Binding</strong>, select <strong>HTTP POST</strong></p> 
-<p>Note that depending upon the Salesforce environment you are in, you may not be asked for this value.</p></li>
+</li>
 <li><p>For <strong>Identity Provider Login URL</strong>, copy and paste the following:</p>
 <p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
 </li>
@@ -89,9 +89,11 @@ try{Typekit.load();}catch(e){}
 <p><img border="1" src="images/apps/fairsail6.png" alt=“fairsail6.png" /></p>
 </li>
 
-
-
 <li><p>Done!</p>
+
+<p><b>Notes</b>:</p>
+<p>IdP-initiated flows and SP-initiated flows are supported.</p>
+</li>
 
 </ol>
 </div>

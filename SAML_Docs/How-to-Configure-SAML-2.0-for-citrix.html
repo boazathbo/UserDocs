@@ -50,26 +50,114 @@ try{Typekit.load();}catch(e){}
 <li><p>For the <strong>Sign-in page url</strong>, copy and paste the following:</p>
 <p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p></li>
 <li><p>The <strong>Sign-out page url</strong> is optional. Copy and paste the following URL if you need to configure single logout.</p>
-<p><kbd id="citrixSsoUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p></li>
+<p><kbd id="citrixSsoUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+<p>Note that if you are configuring single logout, you also need to enable single logout in Okta, see step 3, below.</p>
+</li>
 
 <li><p>For the <strong>Identity Provider Entity ID</strong>, copy and paste the following:</p>
 <p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p></li>
 
 <li><p>For the <strong>Verification certificate</strong>, copy and paste the following:</p>
-<p><pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre></p></li>
+
+<p><pre>-----BEGIN CERTIFICATE-----
+MIIGkjCCBXqgAwIBAgIQR9a7ev1iPafwDCfR62ZJFzANBgkqhkiG9w0BAQsFADB3MQswCQYDVQQG
+EwJVUzEdMBsGA1UEChMUU3ltYW50ZWMgQ29ycG9yYXRpb24xHzAdBgNVBAsTFlN5bWFudGVjIFRy
+dXN0IE5ldHdvcmsxKDAmBgNVBAMTH1N5bWFudGVjIENsYXNzIDMgRVYgU1NMIENBIC0gRzMwHhcN
+MTUwNTIxMDAwMDAwWhcNMTYwNTI2MjM1OTU5WjCCARYxEzARBgsrBgEEAYI3PAIBAxMCVVMxGTAX
+BgsrBgEEAYI3PAIBAgwIRGVsYXdhcmUxHTAbBgNVBA8TFFByaXZhdGUgT3JnYW5pemF0aW9uMRAw
+DgYDVQQFEwczNzQwMDgwMQswCQYDVQQGEwJVUzEOMAwGA1UEEQwFOTMxMTcxEzARBgNVBAgMCkNh
+bGlmb3JuaWExDzANBgNVBAcMBkdvbGV0YTEeMBwGA1UECQwVNzQxNCBIb2xsaXN0ZXIgQXZlbnVl
+MRowGAYDVQQKDBFDaXRyaXggT25saW5lIExMQzETMBEGA1UECwwKT3BlcmF0aW9uczEfMB0GA1UE
+AwwWbG9naW4uY2l0cml4b25saW5lLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+AJkJYeVQ8/Xdue4xYIC1yYpiSx56A6AelM+ZPYXvmBtdqQQba9NfVwTbrsjyM7dSqQsGE1TGwrzy
+8qoJsV9nZ0UAh4SSLcaNCCqDpX7HgPnwl0EZ6JdgjhvFjZj+ZQqEkpYFfE+SX9awhQLHA+vny6Mv
+k+Xh7t/myO5m/tiKeA+3escTmEoCjQxPwKD4wScAqCDJG+a4kCb/kIzuRN2iyakRPpYoO2bmiu9n
+TbkA4ZAl9Dgw6SxDWXX+rw8C9KmFqsfB2lGNBkMUTOXAfsNVjMOzTN1Bhm6la/mjYcou5NlyBCwk
+YbMmbjBOPK/boDwxaHL+bJTepGTlVWHHEAuozR0CAwEAAaOCAncwggJzMCEGA1UdEQQaMBiCFmxv
+Z2luLmNpdHJpeG9ubGluZS5jb20wCQYDVR0TBAIwADAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYw
+FAYIKwYBBQUHAwEGCCsGAQUFBwMCMGYGA1UdIARfMF0wWwYLYIZIAYb4RQEHFwYwTDAjBggrBgEF
+BQcCARYXaHR0cHM6Ly9kLnN5bWNiLmNvbS9jcHMwJQYIKwYBBQUHAgIwGRoXaHR0cHM6Ly9kLnN5
+bWNiLmNvbS9ycGEwHwYDVR0jBBgwFoAUAVmr5906C1mmZGPWzyAHV9WR52owKwYDVR0fBCQwIjAg
+oB6gHIYaaHR0cDovL3NyLnN5bWNiLmNvbS9zci5jcmwwVwYIKwYBBQUHAQEESzBJMB8GCCsGAQUF
+BzABhhNodHRwOi8vc3Iuc3ltY2QuY29tMCYGCCsGAQUFBzAChhpodHRwOi8vc3Iuc3ltY2IuY29t
+L3NyLmNydDCCAQMGCisGAQQB1nkCBAIEgfQEgfEA7wB2AKS5CZC0GFgUh7sTosxncAo8NZgE+Rvf
+uON3zQ7IDdwQAAABTXaGNUYAAAQDAEcwRQIhALV1UQuevDa2R6kljKyc+0L8we+duH+xmwSaslRk
+ngz+AiBvBEkAWCyG8HIW5gy6NXpkoBAnEOxXQxsioZ5ahFWD5QB1AFYUBpov18Ls0/XhvUSyPsdG
+drm8mRFcwO+UmFXWidDdAAABTXaGNiUAAAQDAEYwRAIgRWbCvZsC7Q2KR1pQ9TTkG6U6ddAQq6la
+fXjDDTm+l1wCIEX1vDWwado+3xrjNeIS/hFXPSyfJw+E3hG38pW1a+akMA0GCSqGSIb3DQEBCwUA
+A4IBAQCoPX1KzVtsd/0LEZNcP9G4ZC8C6RXmYZpxpz/906pRIt0+/qA1oyh8kpi5WIlaGF4QpV7s
+KaHeTc7vnRnlz2tIuB7MVLNf8ikoy5zkWqf164v1jciZkCW7BE3DXUxoEOT5Y/rm/9+yyTtqm+yc
+V30AbE02AKnhHE02uiZYD4y6rrvdf1E8ogFJhtAp51p6m/zYgWC4w+w7kbZ+/XoFIjZ8XPPRRtp4
+VZktM9rNPshZY54O6iuRt0BgFmU/kC8qtw3/UIYYsdZlQWc9Shho5X79yXN1HKB8OHRz084Vqdx8
+pRWzAYY5vdU3m8Erv8KUTa0DPyibFRzmnnOyoRgjU7Oa
+-----END CERTIFICATE-----</pre></p></li>
 
 <li><p>Click <strong>Save</strong>.</p></li>
 
 </ul>
-<p><img border="1" src="images/apps/citrix1.png" alt=“citrix1.png" /></p>
+<p><img border="1" src="images/apps/citrix_new2.png" alt=“citrix_new2.png" /></p>
 </li>  
+</li>
+
+
+<li><p>If you are configuring Single Logout, you also need to enable single logout in Okta, as follows:</p>
+<ul>
+<li><p>Save the following certificate as citrix.cert.</p>
+<p><pre>-----BEGIN CERTIFICATE-----
+MIIGkjCCBXqgAwIBAgIQR9a7ev1iPafwDCfR62ZJFzANBgkqhkiG9w0BAQsFADB3MQswCQYDVQQG
+EwJVUzEdMBsGA1UEChMUU3ltYW50ZWMgQ29ycG9yYXRpb24xHzAdBgNVBAsTFlN5bWFudGVjIFRy
+dXN0IE5ldHdvcmsxKDAmBgNVBAMTH1N5bWFudGVjIENsYXNzIDMgRVYgU1NMIENBIC0gRzMwHhcN
+MTUwNTIxMDAwMDAwWhcNMTYwNTI2MjM1OTU5WjCCARYxEzARBgsrBgEEAYI3PAIBAxMCVVMxGTAX
+BgsrBgEEAYI3PAIBAgwIRGVsYXdhcmUxHTAbBgNVBA8TFFByaXZhdGUgT3JnYW5pemF0aW9uMRAw
+DgYDVQQFEwczNzQwMDgwMQswCQYDVQQGEwJVUzEOMAwGA1UEEQwFOTMxMTcxEzARBgNVBAgMCkNh
+bGlmb3JuaWExDzANBgNVBAcMBkdvbGV0YTEeMBwGA1UECQwVNzQxNCBIb2xsaXN0ZXIgQXZlbnVl
+MRowGAYDVQQKDBFDaXRyaXggT25saW5lIExMQzETMBEGA1UECwwKT3BlcmF0aW9uczEfMB0GA1UE
+AwwWbG9naW4uY2l0cml4b25saW5lLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+AJkJYeVQ8/Xdue4xYIC1yYpiSx56A6AelM+ZPYXvmBtdqQQba9NfVwTbrsjyM7dSqQsGE1TGwrzy
+8qoJsV9nZ0UAh4SSLcaNCCqDpX7HgPnwl0EZ6JdgjhvFjZj+ZQqEkpYFfE+SX9awhQLHA+vny6Mv
+k+Xh7t/myO5m/tiKeA+3escTmEoCjQxPwKD4wScAqCDJG+a4kCb/kIzuRN2iyakRPpYoO2bmiu9n
+TbkA4ZAl9Dgw6SxDWXX+rw8C9KmFqsfB2lGNBkMUTOXAfsNVjMOzTN1Bhm6la/mjYcou5NlyBCwk
+YbMmbjBOPK/boDwxaHL+bJTepGTlVWHHEAuozR0CAwEAAaOCAncwggJzMCEGA1UdEQQaMBiCFmxv
+Z2luLmNpdHJpeG9ubGluZS5jb20wCQYDVR0TBAIwADAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYw
+FAYIKwYBBQUHAwEGCCsGAQUFBwMCMGYGA1UdIARfMF0wWwYLYIZIAYb4RQEHFwYwTDAjBggrBgEF
+BQcCARYXaHR0cHM6Ly9kLnN5bWNiLmNvbS9jcHMwJQYIKwYBBQUHAgIwGRoXaHR0cHM6Ly9kLnN5
+bWNiLmNvbS9ycGEwHwYDVR0jBBgwFoAUAVmr5906C1mmZGPWzyAHV9WR52owKwYDVR0fBCQwIjAg
+oB6gHIYaaHR0cDovL3NyLnN5bWNiLmNvbS9zci5jcmwwVwYIKwYBBQUHAQEESzBJMB8GCCsGAQUF
+BzABhhNodHRwOi8vc3Iuc3ltY2QuY29tMCYGCCsGAQUFBzAChhpodHRwOi8vc3Iuc3ltY2IuY29t
+L3NyLmNydDCCAQMGCisGAQQB1nkCBAIEgfQEgfEA7wB2AKS5CZC0GFgUh7sTosxncAo8NZgE+Rvf
+uON3zQ7IDdwQAAABTXaGNUYAAAQDAEcwRQIhALV1UQuevDa2R6kljKyc+0L8we+duH+xmwSaslRk
+ngz+AiBvBEkAWCyG8HIW5gy6NXpkoBAnEOxXQxsioZ5ahFWD5QB1AFYUBpov18Ls0/XhvUSyPsdG
+drm8mRFcwO+UmFXWidDdAAABTXaGNiUAAAQDAEYwRAIgRWbCvZsC7Q2KR1pQ9TTkG6U6ddAQq6la
+fXjDDTm+l1wCIEX1vDWwado+3xrjNeIS/hFXPSyfJw+E3hG38pW1a+akMA0GCSqGSIb3DQEBCwUA
+A4IBAQCoPX1KzVtsd/0LEZNcP9G4ZC8C6RXmYZpxpz/906pRIt0+/qA1oyh8kpi5WIlaGF4QpV7s
+KaHeTc7vnRnlz2tIuB7MVLNf8ikoy5zkWqf164v1jciZkCW7BE3DXUxoEOT5Y/rm/9+yyTtqm+yc
+V30AbE02AKnhHE02uiZYD4y6rrvdf1E8ogFJhtAp51p6m/zYgWC4w+w7kbZ+/XoFIjZ8XPPRRtp4
+VZktM9rNPshZY54O6iuRt0BgFmU/kC8qtw3/UIYYsdZlQWc9Shho5X79yXN1HKB8OHRz084Vqdx8
+pRWzAYY5vdU3m8Erv8KUTa0DPyibFRzmnnOyoRgjU7Oa
+-----END CERTIFICATE-----</pre></p>
+</li>
+
+<li><p>In Okta, select the <strong>Sign On</strong> tab for the Citrix app, then:</p>
+<ul>
+<li><p>Check the <strong>Enable Single Logout</strong> box.</p></li>
+<li><p>Click <strong>Browse</strong> to locate the citrix.cert certificate you saved, then <strong>Upload</strong> as shown below.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+</ul>
+<p><img border="1" src="images/apps/citrix_new3.png" alt=“citrix_new3.png" /></p>
 
 </li>
 
 
+
+
+
+
+</ul>
+</li>
+
 <li><p>Done!</p><p><b>Notes:</b></p>
-<p>IdP-initiated flows and SP-initiated flows are supported. </p>
-<p>Just In Time (JIT) provisioning is not supported.</p>
+<p>IdP-initiated flows, SP-initiated flows and SP-initiated SLO are supported.</p>
+<p>Just In Time (JIT) provisioning and IdP-initiated SLO are not supported.</p>
 <p><strong>For SP-initiated flows:</strong></p>
 <ol>
 <li><p>Go to the appropriate Citrix product login page:</p>
