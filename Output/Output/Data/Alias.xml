@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <CatapultAliasFile conditions="">
     <!-- saved from url=(0016)http://localhost -->
-    <Map Name="Admin_Dashboard" Link="Okta/Exploring Okta/Administrator Dashboard.htm" ResolvedId="2005" />
+    <Map Name="Admin_Dashboard" Link="Okta/Exploring Okta/Administrator Dashboard.htm" ResolvedId="2000" />
     <Map Name="Password_Policy" Link="Okta/Exploring Okta/Configuring Password Policy.htm" ResolvedId="2030" />
     <Map Name="Okta_Admin" Link="Okta/Exploring Okta/Okta Admin.htm" ResolvedId="2025" />
     <Map Name="Security_Page" Link="Okta/Exploring Okta/Security Page.htm" ResolvedId="2035" />
     <Map Name="User_Admin_Role" Link="Okta/Exploring Okta/The User Admin Role.htm" ResolvedId="2040" />
-    <Map Name="AD_LDAP" Link="Okta/Getting Started/Active Directory and LDAP Integration.htm" ResolvedId="2000" />
+    <Map Name="AD_LDAP" Link="Okta/Getting Started/Active Directory and LDAP Integration.htm" ResolvedId="2005" />
     <Map Name="Free_Trial" Link="Okta/Getting Started/Free Trial Accounts.htm" ResolvedId="2015" />
     <Map Name="What_Is_Okta" Link="Okta/Getting Started/What Is Okta.htm" ResolvedId="2020" />
 </CatapultAliasFile>
