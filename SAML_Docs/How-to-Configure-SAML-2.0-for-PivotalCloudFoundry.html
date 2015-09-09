@@ -1,0 +1,75 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Pivotal Cloud Foundry</h1>
+
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+<ol>
+<li><p>Log in to Pivotal Cloud Foundry as an administrator.</p></li>
+<li><p>Click <strong>User Stores</strong>.</p>
+<p><img border="1" src="images/apps/pivotal1.png" alt=“pivotal1.png" /></p>
+</li>
+
+<li><p>Click <strong>New User Store</strong>.</p>
+<p><img border="1" src="images/apps/pivotal2.png" alt=“pivotal3.png" /></p>
+</li>
+
+<li><p>On the <strong>New User Store</strong> page, enter the following:</p>
+<ul>
+<li><p>Enter a <strong>User Store Name</strong>.</p></li>
+<li><p>Select <strong>SAML</strong> from the <strong>User Store Type</strong> dropdown menu.</p></li>
+<li><p>Copy then save the following file as an .xml file then upload it to Pivotal Cloud Foundry by selecting <strong>Upload Identity Provider Metadata</strong>. </p>
+<p><textarea id="idpMetadata" style="margin: 0px; width: 817px; height: 190px;">Sign into the Okta Admin Dashboard to generate this variable.</textarea>
+</li>
+<li><p>Click <strong>Create User Store</strong>.</p></li>
+
+</ul>
+<p><img border="1" src="images/apps/pivotal3.png" alt=“pivotal3.png" /></p>
+</li>
+
+
+
+
+
+<li><p>In Okta, select the <strong>General</strong> tab for the Pivotal Cloud Foundry app and enter the following:</p>
+<ul>
+<li><strong>Application Label</strong>.</p></li>
+<li><strong>ACS URL</strong>.</p></li>
+<li><strong>Audience Restriction</strong>.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+</ul>
+<p><img border="1" src="images/apps/pivotal4.png" alt=“pivotal4.png" /></p>
+</li>
+
+
+<li><p>Done!</p>
+<br />
+<p><b>Notes:</b></p>
+IdP-initiated flows and SP-initiated flows are supported.</p>
+
+</ol>
+</div>
+</body>
+</html>
