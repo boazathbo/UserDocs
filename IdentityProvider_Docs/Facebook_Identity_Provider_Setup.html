@@ -23,87 +23,51 @@ try{Typekit.load();}catch(e){}
 <div class="okta-instructions">
 <h1>Identity Provider Set Up for Facebook</h1>
 
-<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
-<p>When you set up this identity provider, users can sign in with it and start using the complete range of Okta functionality.</p>
-</div>
 
-<h2>Configuring CORS</h2>
 
-<p>Before adding a new facebook app, CORS must be enabled for relying party URL as follows:</p>
 
-<ol>
-<li><p>In Okta, select <strong>Security > API</strong> from the Admin dashboard.</p></li>
-<li><p>Select the <strong>CORS</strong> tab.</p></li>
-<li><p>Click the <strong>Edit</strong> button:</p>
-<p><img src="images/FacebookIDP.png" alt=“FacebookIDP.png" /></p>
 
-</li>
-<li><p>Ensure that the <strong>Enable CORS for the following base URLs</strong> box is checked and enter the following into the text box into the text area:</p>
-<pre>http://localhost:3000/{{baseURL}}</pre></p></li>
-<li><p>Click <strong>Save</strong> button.</p></li>
-</ol>
 
-<H2>Adding a New Facebook App</h2>
+
+<h2>Internal note: Begin in Facebook</h2>
+
+<p>D R A F T</p>
+
+<p>Register your application with Facebook and obtain a client ID and client secret.</p>
 
 <ol>
-<li><p>Navigate to [Facebook Developers] (<a href="http://developers.facebook.com" target="_blank">http://developers.facebook.com</a>). Note that you may be prompted to register if you have not previously used the Facebook Developer site.</p></li>
-<li><p>Select <strong>Add a New App</strong>from the <strong>My Apps</strong> menu.</p></li>
+<li><p>Go to (<a href="http://developers.facebook.com" target="_blank">http://developers.facebook.com</a>). Note that you may be prompted to register if you have not previously used the Facebook Developer site.</p></li>
+<li><p>Select <strong>Add a New App</strong> from the <strong>My Apps</strong> menu.</p></li>
 <li><p>In the <strong>Platform Selection</strong> screen, select <strong>Website</strong>.</p></li>
 <li><p>When prompted, enter a descriptive name and select <strong>Create New Facebook App ID</strong>.</p></li>
 <li><p>In the confirmation dialog, select a category, then click the <strong>Create New Facebook App ID</strong> button.</p></li>
+<li><p>Copy the following values from your Facebook Developer App Settings page:</p>
+
+<ul>
+
+<li><p>The Facebook <strong>App ID</strong>. You will paste this value in the <strong>Client ID</strong> field in the Okta Identity Provider configuration page.</p></li>
+<li><p>The Facebook <strong>App Secret</strong>. You will paste this value to the <strong>Client Secret</strong> field In the Okta Identity Provider configuration page. Note that you need to click  <strong>Show</strong> on the Facebook page to obtain the Client Secret.</p></li>
+
+</li>
+</ul>
+
 </ol>
 
-<h2>Setup the Facebook SDK for JavaScript</h2>
+<h2>Internal note: Configure settings in the Okta Admin Dashboard</h2>
 
-<p>Once you have completed the <strong>Add New App</strong> wizard, Facebook generates a JavaScript snipit with instructions to add the code directly after the opening &lt;body&gt; tag.</p>
 
-<pre>
-&lt;script&gt;
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '842870062470869',
-      xfbml      : true,
-      version    : 'v2.3'
-    });
-  };
+<ol><li><p>In a separate browser or tab, go to the Okta Admin dashboard. [For what to do in Okta, we'll provide a link to the Service Cloud doc.]</p></li></ol>
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-&lt;/script&gt;
-</pre>
 
-<h2>Configuring Okta</h2>
+<h2>Internal note: Return to Facebook</h2>
 
 <ol>
-<li><p>In a separate browser or window, in Okta, select <strong>Security > Identity Providers</strong> from the Admin dashboard.</p></li>
-
-
-<li><p>Select <strong>Add Facebook</strong> from the drop down.</p></li>
-<li><p>In the <strong>Name</strong> field, enter <strong>Log in with Facebook</strong>.</p></li>
-<li><p>Using the drop-down menu, set the value of the <strong>Transform username</strong> field to <strong>email</strong>.</p>
-
-<p>Now you will need to copy two values from your Facebook Developer App Settings page:</p></li>
-
-<li><p>Copy the value of the Facebook <strong>App ID</strong> to the <strong>Client ID</strong> field on the Okta Identity Provider configuration page.</p></li>
-<li><p>Copy the value of the Facebook <strong>App Secret</strong> to the <strong>Client Secret</strong> field on the Okta Identity Provider configuration page. Note that you need to click the <strong>Show</strong> button on the Facebook page to obtain the Client Secret.</p></li>
-<li><p>Click the <strong>Add Identity Provider</strong> button.</p>
-<p>You will be returned to the Okta "Identity Providers" page.</p></li>
-<li><p>Copy the <strong>Login URL</strong> from the Okta <strong>Identity Providers</strong> page onto your clipboard.</p></li>
 <li><p>On the Facebook Developer App Settings page, click the <strong>Add Platform</strong> button, then select <strong>Website</strong> from the pop-up.</p></li>
-<li><p>Paste the Okta Identity Provider Login URL from your clipboard into the field labeled <strong>URL of your site</strong>. </p>
-<p>The Okta URL you paste into the "URL for your site" field should look something like this: "https://example.okta.com/sso/authorize/0ab1c2de3fGHIjKLM4n5"</p></li>
+<li><p>Paste the Okta Identity Provider Login URL that you copied from the Okta Idenity Provider page into the field labeled <strong>URL of your site</strong>. </p>
+<p>The Okta URL you paste into the field should look similar to this: "https://example.okta.com/sso/authorize/0ab1c2de3fGHIjKLM4n5"</p></li>
+<li><p>Click <strong>Save Changes</strong> .</p></li>
 
-
-<li><p>Click the <strong>Save Changes</strong> button.</p></li>
-<li><p>In Okta, select <strong>Security > Identity Providers</strong> from the Admin dashboard.</p></li>
-<li><p>Click the <strong>Add Identity Provider</strong> button, then select <strong>Facebook</strong>.</p></li>
-
-</o>
+</ol>
 
 
 
