@@ -1,0 +1,66 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Talkdesk</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+<li>In Okta, select the <strong>Sign On</strong> tab for the Talkdesk app, then make a copy of the Metadata Url, as shown below:</p>
+<p><img src="images/apps/talkdesk2.png" alt=“talkdesk2.png" /></p></li>
+<p><img src="images/apps/talkdesk3.png" alt=“talkdesk3.png" /></p></li>
+
+
+
+
+<li><p>Log in to Talkdesk as an administrator.</p></li>
+<li><p>Navigate to the <strong>Admin > Integrations</strong> section, then select the Okta integration:</p>
+
+<p><img src="images/apps/talkdesk1.png" alt=“talkdesk1.png" /></p></li>
+
+<li><p>Select the <strong>Configuration</strong> button, then enter the <strong>Metadata URL</strong> you copied from Okta in step 1.</p></li>
+
+
+<li><p>Talkdesk will automatically fetch your SSO credentials and save it for your account:</p>
+<p><img src="images/apps/talkdesk4.png" alt=“talkdesk4.png" /></p></li>
+
+</li>
+
+<li>In Okta, select the <strong>General</strong> tab for the Talkdesk app, then copy and paste the following <strong>Entity ID</strong> value into the <strong>Audience Restriction</strong> field:</p>
+
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+
+<p><img src="images/apps/talkdesk5.png" alt=“talkdesk5.png" /></p></li>
+<p><img src="images/apps/talkdesk6.png" alt=“talkdesk6.png" /></p></li>
+
+
+
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+<p>IdP-initiated flows and SP-initiated flows are supported.</p>
+<p>Just In Time (JIT) provisioning is not supported.</p>
+
+</ol></div>
+</body>
+</html>
