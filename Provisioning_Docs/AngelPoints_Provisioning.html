@@ -26,13 +26,24 @@ try{Typekit.load();}catch(e){}
 <h1>How to pass User Groups in Angel Points Provisioning Integration</h1>
 
 
-<p>In Angel Points, each Group belongs to a Group Category. In order to pass user groups to Angel Points, Okta needs to pass the Group Category name along with the Group name, as defined in your Angel Points instance. This can be achieved by creating custom attributes specifying the GroupCategory, and mapping it to an attribute in your source System (such as Active Directory or LDAP), which contains the Group value. For example, you can create a custom attribute 'groupCategory_Department' & map it to 'Department' attribute in Active Directory. Group to be passed will be the value stored in Active Directory for the user, for example 'Engineering'. The group Category Name passed will be 'Department'. Follow the instructions below to configure AngelPoints to pass user groups: </p> 
+<p>In Angel Points, each Group belongs to a Group Category. In order to pass user groups to Angel Points, Okta needs to pass the Group Category name along with the Group name, as defined in your Angel Points instance. This can be achieved by creating custom attributes specifying the Group Category Name, and mapping it to an attribute in your source System (such as Active Directory or LDAP), which contains the Group value. For example, you can create a custom attribute 'groupCategory_Department' & map it to 'Department' attribute in Active Directory. Group to be passed will be the value stored in Active Directory for the user, for example 'Engineering'. The group Category Name passed will be 'Department'.</p>
+<p>Please note that you cannot create a new Group Category through the API. For this reason, the Group Category Name you pass from Okta should match an <strong>existing</strong> Group Category Name in Angel Points.</p>
+
+
+<p>Follow the instructions below to configure AngelPoints to pass user groups: </p> 
 
 <ol>
 <li><p>In Okta to go the Profile Editor > Apps > AngelPoints User > Add Attribute</p>
 <p><img src="images/apps/AngelPoints0.png" alt="Select AngelPoints User.png" /></p></li>
-<li><p>Type in a Display Name for the Attribute. The <strong>variable name</strong> should have a prefix <strong>groupCategory</strong> followed by an underscore, and the Group Category Name to which the user's group belongs in Angel Points. For example, if the Group Category name is Department, you would enter groupCategory_Department as shown below. Fill in additional details as desired.</p>
+<li><p>Type in a Display Name for the Attribute. The <strong>variable name</strong> should have a prefix <strong>groupCategory</strong> followed by an underscore, and the Group Category Name to which the user's group belongs in Angel Points. For example, if the Group Category name is Department, you would enter groupCategory_Department as shown below.</p>
+<p><strong>Note:</strong> When setting the variable name, Okta will not accept any spaces. For this reason, the Group Category Name cannot contain any spaces.</p>
+<p> Fill in additional details as desired.</p>
 <p><img src="images/apps/AngelPoints1.png" alt="Add Attribute Details.png" /></p></li>
 <li><p>Next, go to Angel Points User Mappings by clicking on <strong>Map Attributes</strong>. Click on the tab <strong>Okta to Angel Points</strong>. Set mappings for the attribute you created. For example, map Department to groupCategory_Department.</p>
 <p><img src="images/apps/AngelPoints2.png" alt="Map Attributes.png" /></p>
 By setting the mapping, you will be sending the User's Department value stored in source system (Engineering/Sales/Marketing) as a Group Name. For example, the user will be added as a member in Group "Engineering" in Group Category "Department" in Angel Points. </li>
+</ol>
+
+<h2> Note to the Administrator:</h2>
+<p>The Angel Points External ID does not have a default mapping in Okta. Before assigning the Angel Points application to groups in Okta, make sure you have the External ID mappings in place. You can edit the attribute mappings using the Profile Editor.
+<p><img src="images/apps/AngelPoints3.png" alt="AngelPoints Mappings.png" /></p></li>
