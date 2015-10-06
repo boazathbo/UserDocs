@@ -1,0 +1,144 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div> 
+
+<div class="okta-instructions"> 
+<h1>How to Configure SAML 2.0 for RightScale</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p> 
+</div>
+
+
+<ol>
+
+<li><p>Sign in to your RightScale account as an administrator.</p></li>
+<li><p>Navigate to <strong>Settings > Single Sign-On</strong>.</p>
+<p><img src="images/apps/rightscale1.png" alt=“rightscale1.png" /></p>
+</li>
+<li><p>Click the <strong>New</strong> button.</p>
+<p><img src="images/apps/rightscale1a.png" alt=“rightscale1a.png" /></p>
+</li>
+
+<li><p>Enter the following information (see screen shot at end of step for reference):</p>
+<ul>
+<li><p>Enter a <strong>Display Name</strong>.</p></li>
+<li><p>If you need to enable SP-initiated SSO, under <strong>Login Method</strong>, check the <strong>Allow RightScale-initiated SSO using a discovery hint</strong> box. Then enter <strong>[YourSubDomain].okta.com</strong> as the discovery hint.</p></li>
+
+<li><p><strong>SAML SSO Endpoint</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p><strong>SAML IdentityID</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p><strong>SAML Signing Certificate</strong>: Save the following, click <strong>Browse</strong> to locate, then upload it to RightScale.</p>
+<p><kbd id="downloadCertificate">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p>Click <strong>Save</strong> and you will be returned to the Identity Provider list page.</p></li>
+</ul>
+
+<p><img src="images/apps/rightscale2.png" alt=“rightscale2.png" /></p>
+
+</li>
+
+<li><p>Click the arrow icon under the <strong>Actions</strong> label to test your IdP configuration:</p>
+<p><img src="images/apps/rightscale3.png" alt=“rightscale3.png" /></p>
+</li>
+
+<li><p>The <strong>SAML Consume Test</strong> page will appear:</p>
+<p><img src="images/apps/rightscale4.png" alt=“rightscale4.png" /></p>
+</li>
+
+<li><p><strong>Just In Time (JIT) Provisioning</strong>: If you need to have users provisioned via SSO then you will need to <strong>Enable authority for your new IdP over the SAML-asserted email domains</strong> (see <a href="http://docs.rightscale.com/platform/saml/registering_idp_authority.html" target="_blank">http://docs.rightscale.com/platform/saml/registering_idp_authority.html</a>
+
+
+<li><p><strong>RightScale SAML RelayStates</strong>: The value of the RelayState tells the Service Provider (RightScale) what application within the SP the user should be redirected to.</p><p>Below is a table of the RelayState values supported by RightScale:</p><table style="width: 800px;">
+	<thead align="left">
+		<tr>
+			<th><span style="font-size:14px;">RelayState</span></th>
+			<th><span style="font-size:14px;">Meaning</span></th>
+			<th><span style="font-size:14px;">Action</span></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><span style="font-size:14px;">Blank or absent</span></td>
+			<td><span style="font-size:14px;">IdP did not specify a destination</span></td>
+			<td><span style="font-size:14px;">Redirect to CM</span></td>
+		</tr>
+		<tr>
+			<td><span style="font-size:14px;">urn:rightscale:product:cm</span></td>
+			<td><span style="font-size:14px;">User wants to interact with Cloud Management (CM)</span></td>
+			<td><span style="font-size:14px;">Redirect to CM</span></td>
+		</tr>
+		<tr>
+			<td><span style="font-size:14px;">urn:rightscale:product:ss</span></td>
+			<td><span style="font-size:14px;">User wants to interact with Self-Service (SS)</span></td>
+			<td><span style="font-size:14px;">Redirect to SS</span></td>
+		</tr>
+		
+		
+		<tr>
+			<td><span style="font-size:14px;">urn:rightscale:product:ca</span></td>
+			<td><span style="font-size:14px;">User wants to interact with Cloud Analytics (CA)</span></td>
+			<td><span style="font-size:14px;">Redirect to CA</td>
+		</tr>
+<tr>
+			<td><span style="font-size:14px;">https://*.rightscale.com/*</span></td>
+			<td><span style="font-size:14px;">User wants to reach a specific page in some product</span></td>
+			<td><span style="font-size:14px;">Redirect to requested page</span></td>
+		</tr>
+	</tbody>
+</table>
+<p>To specify the RightScale RelayState, in Okta, select the <strong>Sign On</strong> tab for the RightScale app:</p>
+
+<p><img src="images/apps/rightscale5.png" alt=“rightscale5.png" /></p>
+
+</li>
+
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+<p>IdP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported.</p>
+
+<p><strong>For SP-initiated flows</strong> (if enabled, see step 4, above):</p>
+
+<ol>
+<li><p>Go to <a href="https://login.rightscale.com/login/session/new" target="_blank">https://login.rightscale.com/login/session/new</a>.</p></li>
+
+<li><p>Click the <strong>Use single sign-on</strong> button.</p>
+<p><img src="images/apps/rightscale6.png" alt=“rightscale6.png" /></p>
+</li>
+<li><p>Enter your Discovery hint (see step 4, above) into the  <strong>Enter your SSO Identifier </strong> field, then click the <strong>Log In</strong> button.</p>
+<p><img src="images/apps/rightscale7.png" alt=“rightscale7.png" /></p>
+
+</li>
+
+
+</ol>
+
+
+
+</ol>
+
+
+
+</ol></div>
+</body>
+</html>
