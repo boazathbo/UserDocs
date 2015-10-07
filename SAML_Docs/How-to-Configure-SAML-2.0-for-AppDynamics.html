@@ -1,0 +1,73 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for AppDynamics</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+
+
+<li><p>Log in to your AppDynamics account as an administrator.</p></li>
+<li><p>Click on the settings icon in the top right of the screen, then select <Strong>Administration</strong> from the menu.</p>
+<p><img src="images/apps/appdynamics1.png" alt=“appdynamics1.png" /></p>
+</li>
+
+<li><p>Select the <Strong>Authentication Provider</strong> tab and enter the following information (see screen shot at end of step for reference):</p>
+<ul>
+<li><p>Check the <strong>SAML</strong> box for <strong>Authentication Provide</strong>.</p></li>
+<li><p><strong>Login URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+<li><p><strong>Logout URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOutUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+<li><p><strong>Certificate</strong>: Copy and paste the following:</p>
+<p><pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre></p>
+</li>
+
+<li><p>Check all the roles you would like to apply SAML login to.</p></li>
+
+<li><p>Click <strong>Save</strong>.</p></li>
+
+
+</ul>
+<p><img src="images/apps/appdynamics2.png" alt=“appdynamics2.png" /></p>
+</li>
+
+
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+<p>IdP-initiated flows and SP-initiated flows are supported.</p>
+<p>Just In Time (JIT) provisioning is not supported.</p><br />
+<p><strong>For SP-initiated flows</strong>:</p>
+<p>Go to your controller sign in URL and enter your account name. At this point you will be prompted to authenticate using a 3rd party service. Click <strong>Login</strong>.</p> 
+
+<p><img src="images/apps/appdynamics3.png" alt=“appdynamics3.png" /></p>
+
+
+</ol></div>
+</body>
+</html>
