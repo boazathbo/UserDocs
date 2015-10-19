@@ -1,0 +1,64 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions"> 
+<h1>How to Configure SAML 2.0 for SignalFX</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+<li>Sign into SignalFX as an administrator.</li>
+<li><p>Navigate to <strong>INTEGRATIONS &gt; SAML SSO</strong> and select the <strong>NEW INTEGRATION</strong> button, 
+as shown below.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/SignalFX_1.png" alt="SignalFX_1.png" /></p>
+</li>
+<li>Refer to the screen shown below for steps 3a-3f.
+<p><img style="border: 0; padding: 0;" src="images/apps/SignalFX_2.png" alt="SignalFX_2.png" /></p>
+<ol>
+<li>In the screen that opens, enter the following <strong>Name</strong>.
+<p><kbd>Okta</kbd></p>
+</li>
+<li>Save the information in the <strong>Integration ID</strong> field.</li>
+<li>Enter the following <strong>Public Key</strong>.
+<p><pre id="x509CertTextPem">Sign in to the Okta Admin dashboard to generate this value.</pre></p>
+</li>
+<li>Enter the following <strong>Issuer URL</strong>.
+<p><kbd id="issuer">Sign in to the Okta Admin dashboard to generate this value.</kbd></p>
+</li>
+<li>
+Enter the following <strong>Metadata URL</strong>.
+<p><kbd id="metadataUrl">Sign in to the Okta Admin dashboard to generate this value.</kbd></p>
+</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<li>In Okta, on the <strong>General</strong> tab for the SignalFX app, paste the <strong>Integration ID</strong>
+that you copied in step 3b, as shown below.
+<p><img style="border: 0; padding: 0;" src="images/apps/SignalFX_3.png" alt="SignalFX_3.png" /></p>
+</li>
+<li>Click <strong>Save</strong>.</li>
+<li><p>Done!</p>
+<p><strong>Note: </strong> IdP-initiated flows and Just In Time (JIT) provisioning are supported.
+SP-initiated flows are not supported.
+</li>
+</ol>
+</div>
+</body>
+</html>
