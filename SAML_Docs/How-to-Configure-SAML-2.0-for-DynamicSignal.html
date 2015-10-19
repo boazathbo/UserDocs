@@ -1,0 +1,45 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">Dynamic Signal</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+<li>Send an email message to Dynamic Signal support and request that they enable SAML for your organization.</li>
+<li>
+<p>Select the link shown below to download an x.509 certificate. Save it with the name <strong>okta.cert</strong>.</p>
+<kbd id="downloadCertificate">Sign into the Okta Admin dashboard to generate this value.</kbd></li>
+<li>
+<p>Attach the file you saved in step 2 to the email message.</p>
+</li>
+<li><p>Copy and paste the following <strong>Sign On URL</strong> into the email message.</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin dashboard to generate this value.</kbd><p></li>
+<li><p>Copy and paste the following <strong>DP Issuer/Entity ID</strong> into the email message.</p>
+<p><kbd id="issuer">Sign into the Okta Admin dashboard to generate this value.</kbd><p></li>
+
+<li>Dynamic Signal will process your request. When you receive a confirmation that SAML is enabled, you can start assigning users to the application.</li>
+<li>Done!<br /><br /><strong>Note:</strong> IdP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported.</li>
+</ol>
+</div>
+</body>
+</html>
