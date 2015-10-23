@@ -1,0 +1,73 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div> 
+
+<div class="okta-instructions"> 
+<h1>How to Configure SAML 2.0 for Assembla</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p> 
+</div>
+<ol>
+<li><p>Login to Assembla as an Administrator.</p><li>
+
+<li><p>Navigate to the portfolio’s <strong>Admin</strong> tab (<font color="blue">https://[yourSubDomain].assembla.com/p/admin</font>)</p></li>
+
+<li> Scroll down to the <strong>SAML authentication</strong> section and check the <strong>Enable SAML</strong> box. This expands the <strong>SAML authentication</strong> section.</li>
+
+<li><p>Enter the following information (see screen shot at end of step for reference):</p>
+<ul>
+<li><p><Strong>SAML Assertion Consumer Service URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl"> Sign in to the Okta Admin app to generate this value.</kbd></p>
+</li>
+
+<li><p><Strong>X.509 Certificate</strong>: Copy and paste the following:</p>
+<p><pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre></p>
+</li>
+
+<li><p>Click <Strong>Update SAML Settings</strong>.</p></li>
+
+</ul>
+<p><img src="images/apps/assembla1.png" alt=“assembla1.png" /></p>
+
+
+</li>
+
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+<p>IdP-initiated flows, SP-initiated flows and Just In Time (JIT) provisioning are all supported.</p>
+
+<p><strong>For SP-initiated flows:</strong></p>
+
+<ol>
+<li><p>Open your Assembla login URL: <font color="blue">https://[yourSubDomain].assembla.com/p/home</font> </li>
+<li><p>Click the <strong>Login with SAML</strong> button.</p>
+
+<p><img src="images/apps/assembla2.png" alt=“assembla2.png" /></p>
+</li>
+
+
+</ol>
+
+
+
+</ol></div>
+</body>
+</html>
