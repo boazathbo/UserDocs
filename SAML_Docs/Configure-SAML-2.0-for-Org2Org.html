@@ -29,63 +29,66 @@
     <h2>Overview</h2>
     <p>The Org2Org connector application is used to push/match users from one Okta organization to another. By configuring SAML for this application, users will be authenticated via SAML from one Okta organization to another. This application is used to master in the target (Hub) Okta organization, from the source (Spoke) Okta organization. The Org2Org application was specifically designed for a Hub/Spoke configuration. </p>
     <h2>Assumptions</h2>
-    This Setup assumes that you are adding this Org2Org SAML Application to your <strong>Okta source (Spoke) organization.</strong>
+    This setup assumes that you are adding this Org2Org SAML Application to your <strong>Okta source (Spoke) organization.</strong>
     <h2> Configuring the Hub/Target Org (Inbound SAML)</h2>
     <ol>
         <li>
-            <p>Log into your Okta target orgamization (Hub) and select the <strong>Admin</strong> button. Select the <strong>Security</strong> menu, click on <strong>Authentication</strong>. Next, select the <strong>Inbound SAML</strong> tab to open the interface.</p>
-            <p><strong>Note:</strong>All inbound SAML configurations will be created using the spoke/source affiliates name.</p>
+            <p>Log into your Okta target organization (Hub) and select the <strong>Admin</strong> button.</p></li>
+<li><p>Navigate to <strong>Security > Authentication</strong>, then select the <strong>Inbound SAML</strong> tab to open the interface.</p>
+
+            <p><strong>Note</strong>: All inbound SAML configurations will be created using the spoke/source affiliates name.</p>
         </li>
         <li>
-            <p>Click Add Endpoint button to create a new inbound SAML endpoint for the spoke/source affiliate.</strong>&nbsp;section.</p>
+            <p>Click <strong>Add Endpoint</strong> to create a new inbound SAML endpoint for the spoke/source affiliate</strong>.</p>
             <img src="images/apps/org2org.png" alt="org2org.png" width="600" height="590" />
         </li>
-        <li>
-            <p>Enter the spoke/source org name in the <strong>Alias</strong> field.</p>
-        </li>
-        <li>
-            <p>Download the X509 Certificate (below) and upload it in the &nbsp;<strong>IDP Certificate</strong>&nbsp; section:</p>
-            <kbd id="downloadCertificate">Sign into the Okta admin app to have this variable generated for you.</kbd>
-        </li>
-        <li>
-            <p>Copy and paste the following into&nbsp;<strong>IDP Issuer</strong> field:</p>
-            <kbd id="issuer">Sign into the Okta admin app to have this variable generated for you.</kbd>
-        </li>
-        <li>
-            <p>Copy and paste the following URL to the &nbsp;<strong>IDP URL</strong>&nbsp; field:</p>
-            <kbd id="signOnUrl">Sign in to the Okta Admin app to generate this variable.</kbd>
-        </li>
-        <li>
-            <p>IDP Bindings - Set to <strong>HTTP-Post</strong></p>
-            <p>Default Group Assignment – blank</p>
-            <p>Transform Username – Set to <strong>UserName</strong></p>
-            <p>Name ID Format – Set to <strong>Unspecified</strong></p>
-            <p>Enable SP initiated SAML – Unchecked</p>
-        </li>
-        <li>
-            <p>Hit <strong>Save</strong>.</p>
-        </li>
-        <li>
-            <p>Once you save, you will be brought back on the main Inbound SAML page. Locate the Inbound SAML connection you just created. Copy the <strong>Assertion Consumer Service</strong> & paste it in the <strong>Hub ACS URL</strong> field in your source (spoke) Org2Org Application setup under the Sign on tab.</p>
-            <p>Next, copy the <strong>Audience URI</strong> and paste it in the <strong>Hub Audience URI</strong> field in your spoke (source) Org2Org Application setup under the Sign on tab.</p>
+        <li><p>Enter the following information:</p>
+<ul>
+        <li><p><strong>Alias</strong>: Enter the spoke/source org name.</p></li>
+        <li><p><strong>IDP Certificate</strong>: Download, then upload the X509 Certificate (below):</p>
+            <p><kbd id="downloadCertificate">Sign into the Okta admin app to have this variable generated for you.</kbd></p></li>
+
+<li><p><strong>IDP Issuer</strong>: Copy and paste the following:</p>
+            <p><kbd id="issuer">Sign into the Okta admin app to have this variable generated for you.</kbd></p></li>
+
+<li><p><strong>IDP Login URL</strong>: Copy and paste the following:</p>
+            <p><kbd id="signOnUrl">Sign in to the Okta Admin app to generate this variable.</kbd></p></li>
+
+<li><p><strong>IDP Bindings</strong>: Set to <strong>HTTP-Post</strong>.</p></li>
+<li><p><strong>Default Group Assignment</strong>: Leave this blank.</p></li>
+<li><p><strong>Transform Username</strong>: Set to <strong>UserName</strong>.</p></li>
+<li><p><strong>Name ID Format</strong>: Set to <strong>Unspecified</strong>.</p></li>
+<li><p><strong>Enable SP initiated SAML</strong>: Leave this unchecked.</p></li>
+
+<li><p>Click <strong>Save Endpoint</strong>.</p></li>
+
+
+</ul>
+</li>
+                         <li>
+            <p>Once you save, you will be brought back on the main Inbound SAML page. Locate the Inbound SAML connection you just created. Copy the <strong>Assertion Consumer Service</strong> & paste it in the <strong>Hub ACS URL</strong> field in your source (spoke) Org2Org Application setup under the <strong>Sign on</strong> tab.</p>
+            <p>Next, copy the <strong>Audience URI</strong> and paste it in the <strong>Hub Audience URI</strong> field in your spoke (source) Org2Org Application setup under the <strong>Sign on</strong> tab.</p>
             <p><img src="images/apps/org2org2.png" alt="org2org2.png" width="400" height="250" /></p>
         </li>
         <li>Done!</li>
         </ol>
         <br></br>
         <h2>Configuring Application for Hub/Spoke</h2>
-        <p>To create an application in the Hub, shared in the spoke, following standard Okta configuration methods for setting the application up in Hub. Once configured, locate the <strong>App Embedded link</strong> under the General Tab of the application. This will become the Default Relay State of the Spoke bookmark application. This example will use Google Apps as an example. </p>
-        <p><strong>Note:</strong>Test to ensure the application works correctly in the Hub before configuring the Spoke.</p>
+        <p>To create an application in the Hub, shared in the spoke, following standard Okta configuration methods for setting the application up in Hub. Once configured, locate the <strong>App Embedded link</strong> under the <strong>General</strong> tab of the application. This will become the <strong>Default Relay State</strong> of the spoke bookmark application. </p>
+
+<p>The following instructions use Google Apps as an example.</p>
+
+        <p><strong>Note</strong>: Test to ensure the application works correctly in the Hub before configuring the Spoke.</p>
         <ol>
         <li>
-            <p>Configure the application in hub org, which you want to share in spoke org. For this example, we used Google Apps with SAML sign on mode.</p>
+            <p>In the Hub org, configure the application that you want to share in spoke org. For this example, we used Google Apps with SAML sign on mode.</p>
             <p><img src="images/apps/org2org4.png" alt="org2org4.png" width="300" height="300" /></p>
         </li>
         <li>
-            <p>Log into your source okta org (spoke), and go to the Admin console. Click on Add Application, and add <strong>Bookmark App</strong></p>
+            <p>Log into your source Okta org (spoke), and go to the Admin console. Click on <strong>Add Application</strong>, then add <strong>Bookmark App</strong>.</p>
         </li>
         <li>
-            <p>Type in an Application Label (Hint: Name of the application you are creating - Google Apps in case of our example)</p>
+            <p>Type in an <strong>Application label</strong> (Hint: Name of the application you are creating - Google Apps in case of our example).</p>
         </li>
         <li>
             <p>You will need 3 things to construct the URL, as follows:</p>
@@ -98,14 +101,15 @@
                     <p>Add <strong>?RelayState=</strong></p>
                 </li>
                 <li>
-                    <p> Followed by the <strong>Embedded link</strong> of the application in the hub. The Embedded link can be found under the General tab for Google Apps, or any other application you are configuring.</p>
+                    <p> Followed by the <strong>Embedded link</strong> of the application in the hub. The <strong>Embedded link</strong> can be found under the <strong>General</strong> tab for Google Apps, or any other application you are configuring.</p>
                 </li>
             <p>For Example:</p>
             <kbd>http://sourceorg.okta.com/app/okta_org2org/exkidkmZXAoxbgwz20g3/sso/saml?RelayState=http://huborg.okta.com/home/google/0oaiqwYT8RpdS8I6D0g3/26</kbd>
             <p><img src="images/apps/org2org3.png" alt="org2org3.png" width="500" height="330" /></p>
             </ol>
         <li>
-            <p>Done! Now users can seamlessy log in to Google Apps from spoke org; Google Apps is configured in hub org.</p>
+            <p>Done!</p>
+<p>Now users can seamlessly log in to Google Apps from spoke org; Google Apps is configured in hub org.</p>
         </li>
         </li>
         </ol>
