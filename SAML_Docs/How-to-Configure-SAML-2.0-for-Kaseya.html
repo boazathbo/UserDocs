@@ -1,0 +1,58 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div> 
+
+<div class="okta-instructions"> 
+<h1>How to Configure SAML 2.0 for Kaseya</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p> 
+</div>
+<ol>
+<li><p>Login to Kaseya as a user who has a Master Role.</p><li>
+
+<li><p>Navigate to <strong>AuthAnvil > Two Factor Auth > Configure Kaseya Logon</strong>.</p></li>
+
+<li><p>Scroll down to the <strong>Kaseya Single Sign On</strong> section  at the bottom and do the following (see screen shot at end of step for reference):</p>
+<ul>
+<li><p>Check the <strong>Enable Single Sign On to Kaseya</strong> box.</p></li>
+<li><p>For <strong>Reply To URL</strong>, enter <font color="blue">https://[sub-domain for the Kaseya server]/vsapres/web20/core/ssologin.aspx</font></p></li>
+<li><p><strong>Certificate</strong>: Download the following certificate, change the file extension from .cert to .cer, then upload to Kaseya.</p>
+<p><kbd id="downloadCertificate">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p>Click <strong>Save Settings</strong>.</p>
+
+
+</ul>
+<p><img src="images/apps/kaseya9.png" alt=“kaseya9.png" /></p>
+
+</li>
+
+
+<li><p>Done!</p>
+
+
+</ol>
+
+
+
+</ol></div>
+</body>
+</html>
