@@ -49,7 +49,8 @@ try{Typekit.load();}catch(e){}
 <li>In Okta, on the <strong>General</strong> tab for the Github Enterprise app, enter your GitHub Enterprise Domain URL/Hostname. This value is on the Authentication settings page that you just saved in your GitHub Admin Console.</li>
 
 <li><p>Done!</p>
-<p><strong>Note: </strong> IdP-initiated and SP-initiated flows are supported. Just In Time (JIT) provisioning is not supported.</li>
+<p><strong>Note: </strong> IdP-initiated and SP-initiated flows are supported.</p>
+<p>Just In Time (JIT) provisioning is also supported - Okta passes the user's firstName, lastName, and email attributes for JIT provisioning. Okta does not support the SSH key and admin attribute for JIT provisioning to GitHub.</li>
 
 </ol>
 </div>
