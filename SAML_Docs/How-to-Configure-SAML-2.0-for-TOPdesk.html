@@ -1,0 +1,101 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div> 
+
+<div class="okta-instructions"> 
+<h1>How to Configure SAML 2.0 for TOPdesk</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p> 
+</div>
+<ol>
+<li><p>Save the following metadata as metadata.xml:</p>
+<p><pre id="idpMetadata">Sign in to Okta Admin app to have this variable generated for you.</pre></p>
+<li>
+
+
+
+<li><p>Log in to TOPdesk as an administrator.</p></li>
+
+<li><p>Navigate to <strong>Settings > Functional Settings > Login Settings > General</strong>.</p></li>
+
+<li><p>Scroll down to the <strong>SAML login</strong> section and click the <strong>Add</strong> button to create a SAML 2.0 setup for the public (Self Service Desk) or secure (Operator’s Section) realm.</p>
+<p><img src="images/apps/topdesk1.png" alt=“topdesk1.png" /></p>
+</li>
+<li><p>The <strong>SAML configuration assistant</strong> window appears, do the following (see screen shot at end of step for reference):</p>
+<ol>
+<li><p>In the <strong>Federation metadata</strong> section:</p>
+<ul>
+<li><p>Select the <strong>Upload as file</strong> button.</p></li>
+<li><p>Click <strong>Browse</strong> and locate and upload the metadata.xml file you saved in step 1.</p></li>
+<li><p>Select <strong>Entity ID</strong> from the dropdown menu.</p></li>
+<li><p>For <strong>User name attribute</strong> enter <strong>username</strong>.</p></li>
+</ul>
+</li>
+
+<li><p>In the <strong>TOPdesk metadata</strong> section:</p>
+<ul>
+<li><p>Uncheck <strong>Assertions will be encrypted</strong>.</p></li>
+<li><p>Click <strong>Browse</strong> to locate and upload a <strong>RSA certificate</strong>.</p></li>
+<li><p>Click <strong>Browse</strong> to locate and upload a <strong>Private key</strong>.</p></li>
+<li><p>For <strong>TOPdesk endpoint</strong> enter the hostname of the TOPdesk server.</p></li>
+</ul>
+</li>
+
+<li><p>In the <strong>Login page</strong> section:</p>
+<ul>
+<li><p><strong>Display name</strong>: Enter <strong>OKTA_Public</strong> for the public (Self Service Desk) ,or OKTA_SECURE</strong> for secure (Operator’s Section) realm.</p></li>
+<li><p><strong>Logo icon</strong>: Click <strong>Browse</strong> to download the following logo: <a href="http://developer.okta.com/docs/sdk/core/csharp_api_sdk/icons/logo.png" target="_blank">http://developer.okta.com/docs/sdk/core/csharp_api_sdk/icons/logo.png</a></p></li>
+</ul>
+</li>
+
+<li><p>Click <strong>Save</strong>.</p></li>
+
+</ol>
+<p><img src="images/apps/topdesk2.png" alt=“topdesk2.png" /></p>
+
+</li>
+
+
+<li><p>Done!</p>
+<p><strong>Notes</strong>:</p>
+<p>IDP-initiated and SP-initiated flows are supported.</p>
+<p>Just In Time (JIT) provisioning is not supported.</p>
+
+<br />
+<p><strong>For SP-initiated flows</strong>:</p>
+<ul>
+<li><p>Open one of the following login pages:</p>
+<p><font color="blue">https://[yourSubDomain].topdesk.net/tas/public/login/saml</font> - public (Self Service Desk) login.</p>
+<p><font color="blue">https://[yourSubDomain].topdesk.net/tas/secure/login/saml</font> - secure (Operator’s Section) login.</p></li>
+<li><p>Click either <strong>OKTA_PUBLIC</strong> for the public (Self Service Desk), or <strong>OKTA_SECURE</strong>  for secure (Operator’s Section) login.</p></li>
+
+
+
+
+
+</li>
+</ol>
+
+
+
+</ol></div>
+</body>
+</html>
