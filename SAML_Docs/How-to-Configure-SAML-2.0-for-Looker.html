@@ -1,0 +1,144 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div> 
+
+<div class="okta-instructions"> 
+<h1>How to Configure SAML 2.0 for Looker</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p> 
+</div>
+<br />
+
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+<h3><strong>Read this before you enable SAML</strong></h3>
+
+<p>The Looker application is pre-configured to pass the Groups as part of the SAML assertion. In order to be able to send Groups, your Okta organization needs to have the following feature flag turned on:</p><br />
+<li>SAML_GROUP_ATTRIBUTE</li>
+
+<br />
+<p>Once this feature flag is turned on, make sure that the Group option is available for the application (Sign On tab):</p>
+<p><img src="images/apps/looker1.png" alt=“looker1.png" /></p>
+</div>
+
+<ol>
+
+<li><p>Log in to Looker as Administrator.</p></li>
+
+<li><p>Navigate to <strong>Admin > SAML Authentication</strong></p></li>
+<li><p>Select <strong>Enabled</strong>.</p>
+<p><img src="images/apps/looker2.png" alt=“looker2.png" /></p>
+</li>
+<li><p>In the <strong>SAM Auth Settings</strong> section:</p>
+<ol>
+<li><p>Copy and paste the following <strong>Admin > SAML Authentication</strong> into the corresponding field:</p>
+<p><pre id="idpMetadata">Sign in to Okta Admin app to have this variable generated for you.</pre></p>
+</li>
+
+<li><p>Click the <strong>Load</strong> button.</p>
+<p><img src="images/apps/looker3.png" alt=“looker3.png" /></p>
+</li>
+<li><p>A <strong>IdP Metadata loaded</strong> message appears. The IdP URL, IdP Issuer, and IdP Certificate files should be filled.</p></li>
+<li><p>Leave the <strong>IdP Audience (Optional)</strong> field empty.</p>
+<p><img src="images/apps/looker4.png" alt=“looker4.png" /></p>
+</li>
+</ol>
+</li>
+
+<li><p>In the <strong>User Attribute Settings</strong> section:</p>
+<ol>
+<li><p><strong>Email Attr</strong>: Enter <strong>Email</strong>.</p></li>
+<li><p><strong>FName Attr</strong>: Enter <strong>FirstName</strong>.</p></li>
+<li><p><strong>LName Attr</strong>: Enter <strong>LastName</strong>.</p></li>
+</ol>
+<p><img src="images/apps/looker5.png" alt=“looker5.png" /></p>
+</li>
+
+
+<li><p>In the <strong>Role Settings</strong> section:</p>
+<ol>
+<li><p>If you don’t need to set roles from groups, select <strong>Default New User Roles</strong> from the dropdown list.</p>
+<p><img src="images/apps/looker6.png" alt=“looker6.png" /></p>
+</li>
+
+<li><p>If you need to set roles from groups:</p>
+<ul>
+<li><p>Set the <strong>Set Roles from Groups</strong> switch to <strong>ON</strong>.</p></li>
+<li><p><strong>Groups Attribute</strong>: Enter <strong>Groups</strong>.</p></li>
+<li><p>Set the <strong>Auth Requires Role</strong> switch to <strong>ON</strong>.</p></li>
+<li><p>In the <strong>Group To Role Pairings</strong> Section:</p>
+<ul>
+<li><p>You need to enter a group name that will be sent and then select a corresponding role in Looker. </p>
+<p>For example: You can create <strong>LookerAdmin</strong> and <strong>LookerUser</strong> groups in OKTA for your Looker users. Then select <strong>Admin</strong> Role for the <strong>LookerAdmin</strong> group, and <strong>User</strong> Role for the <strong>LookerUser</strong> group in Looker.</p>
+<p><img src="images/apps/looker7.png" alt=“looker7.png" /></p>
+</li>
+
+<li><p>In OKTA, select the <strong>Sign On</strong> tab for the Looker app, then click <strong>Edit</strong>.</p></li><li><p>Select your preferred <strong>Group</strong> filter from the dropdown list (<strong>contains</strong> the word <em>Looker</em> to cover both <strong>LookerAdmin</strong> and <strong>LookerUser</strong> groups we used in our example).</p></li><li><p>Click <strong>Save</strong>.</p>
+<p><img src="images/apps/looker8.png" alt=“looker8.png" /></p>
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ol>
+</li>
+
+<li><p>In the <strong>Test User Authentication (values are not saved)</strong> section:</p>
+<ol>
+<li><p>Click the <strong>Test SAML Authentication</strong> button.</p>
+<p><img src="images/apps/looker9.png" alt=“looker9.png" /></p>
+
+</li>
+<li><p>A new window with <strong>Server response successfully validated</strong> message should appear.</p></li>
+<li><p>Close the new window.</p></li>
+</ol>
+</li>
+
+<li><p>In the <strong>Migration Options</strong> section: Select the appropiate options.</p></li>
+
+<li><p>Click <strong>Update Settings</strong>.</p>
+<p><img src="images/apps/looker10.png" alt=“looker10.png" /></p>
+
+</li>
+
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+<p>IdP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported.</p>
+
+<p><strong>For SP-initiated flows</strong>:</p>
+
+<ul>
+<li><p>Go to your login page at: <font color="blue">https://[yourLookerHost].com/login</font>.</p></li>
+<li><p>Click the <strong>Authenticate</strong> button:</p>
+<p><img src="images/apps/looker11.png" alt=“looker11.png" /></p>
+
+</li>
+</ul>
+</ol>
+
+
+
+</ol></div>
+</body>
+</html>
