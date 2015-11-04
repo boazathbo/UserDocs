@@ -50,12 +50,13 @@ try{Typekit.load();}catch(e){}
 <p>Sign in to Google Apps with the same administrator username and password used for your Google Apps user management API credentials in Okta.&nbsp;</p>
 <ol>
 <li>
-<p>Click the <strong>Security</strong> icon shown below.<br /><img style="border: 0; padding: 0;" src="images/apps/Google_Apps_Security_Icon.jpg" alt="Google_Apps_Security_Icon.jpg" /><br /><br />NOTE: If the Security icon is not visible, click More Controls at the bottom of the panel and drag the Security icon into the Admin Console dashboard.</p>
+<p>Click the <strong>Security</strong> icon shown below.<br /><img style="border: 0; padding: 0;" src="images/apps/Google_Apps_Security_Icon.jpg" alt="Google_Apps_Security_Icon.jpg" /><br /><strong>NOTE</strong>: If the Security icon is not visible, click More Controls at the bottom of the panel and drag the Security icon into the Admin Console dashboard.</p>
 </li>
 <li>On the Security menu, select Advanced Settings, as shown below.<br /><img style="border: 0; padding: 0;" src="images/apps/Google_Apps_Advanced_Settings.jpg" alt="Google_Apps_Advanced_Settings.jpg" /></li>
 <li>On the Advanced Settings menu, select <strong>Set up single sign-on (SSO)</strong>, as shown below.<br /><img style="border: 0; padding: 0;" src="images/apps/Google_Apps_3.jpg" alt="Google_Apps_3.jpg" /></li>
 </ol>
 <h3>Complete the Single Sign-on Screen</h3>
+<p>Note: See screen shot at end of document for reference.</p>
 <ol>
 <li>
 <p>Check&nbsp;<strong>Enable Single Sign-on</strong>, as shown below.</p>
@@ -84,10 +85,26 @@ try{Typekit.load();}catch(e){}
 <li>
 <p>Download your Google verification certificate and then upload it in the&nbsp;<strong>Verification certificate</strong>&nbsp;section.</p>
 <kbd id="downloadCertificate"><span>Sign into the Okta Admin dashboard to generate this value.</span></kbd></li>
-<li>Done!<br />Your users are ready to single sign-on to Google Apps!<br /> You can read about additional user management features in the&nbsp;<a href="https://support.okta.com/entries/20155827-Configuring-User-Management-for-Google-Apps" rel="nofollow">online documentation</a>.</li>
+<li><p>Done!</p>
+<p>Your users are ready to single sign-on to Google Apps!</p> 
+<p>IdP-initiated flows and SP-initiated flows are supported.</p>
+<p>For SP-initiated flows, use <font color="blue">https://www.google.com/a/[DOMAIN]/ServiceLogin?continue=https://mail.google.com</font></p>
+<p>For example: <font color="blue">https://www.google.com/a/acme.com/ServiceLogin?continue=https://mail.google.com</font></p>
+
+
+
+<br />
+
+<p>You can read about additional user management features in the&nbsp;<a href="https://support.okta.com/help/articles/Knowledge_Article/28208416-Configuring-Provisioning-for-Google-Apps" rel="nofollow">online documentation</a>.</p></li>
+
+
+
+
+
 </ol>
 <p style="padding-left: 30px;">&nbsp;</p>
 <hr />
+<p>Single Sign-On Screen:</p>
 <p style="padding-left: 30px;"><img style="border: 0; padding: 0;" src="images/apps/Google_Apps_4.png" alt="Google_Apps_4.png" /></p>
 </div>
 </body>
