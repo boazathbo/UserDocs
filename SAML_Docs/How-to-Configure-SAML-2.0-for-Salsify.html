@@ -1,0 +1,72 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div> 
+
+<div class="okta-instructions"> 
+<h1>How to Configure SAML 2.0 for Salsify</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p> 
+</div>
+<br />
+<ol>
+
+<li><p>Send an email to Salsify Support and request that they enable SAML 2.0 for your account.</p></li>
+<li><p>Attach the following:</p>
+<ul>
+<li><p><strong>IDP SSO URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p></li>
+
+<li><p><strong>IDP SHA1 Certificate Fingerprint</strong>: Copy and paste the following:</p>
+<p><kbd id="formattedFingerprint">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+</ul>
+</li>
+
+<li><p>Salsify Support will process your request and then provide you with an <strong>IDP ID</strong>.</p></li>
+
+<li><p>In Okta, select the <strong>General</strong> tab for the Salsify app, then click <strong>Edit</strong>. 
+</p>
+<ul>
+<li><p>Enter the <strong>IDP ID</strong> provided to you into the corresponding field.</p></li>
+<li>Click <strong>Save</strong>.</p></li>
+<p><img src="images/apps/salsify1.png" alt=“salsify1.png" /></p>
+</ul>
+</li>
+
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+<p>IdP-initiated flows and SP-initiated flows are supported.</p>
+<p>Just In Time (JIT) provisioning is not supported.</p>
+<p><strong>For SP-initiated flows</strong>:</p>
+<ul>
+<li>Go to <a href="https://app.salsify.com/users/sign_in" target="_blank">https://app.salsify.com/users/sign_in  </a></li>
+<li>Enter your email.</li>
+<li>Click <strong>LOG IN VIA OKTA</strong>.
+</li>
+<p><img src="images/apps/salsify2.png" alt=“salsify2.png" /></p>
+
+</ul>
+</li>
+
+</ol></div>
+</body>
+</html>
