@@ -27,7 +27,22 @@ try{Typekit.load();}catch(e){}
 </div>
 
 
+<h2>Before you begin</h2>
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+<h3><strong>Read this before you enable SAML</strong></h3>
+<p>The Luno application is pre-configured to pass the custom attributes as part of the SAML assertion. In order to be able to send custom attributes your Okta organization needs to have the following feature flags turned on:</p><br />
+<li><p>CLOUD_DIRECTORY (Universal Directory)</p></li>
+<li><p>OKTA_EL_SAML_ATTRIBUTE_UPGRADE</p></li><br />
+<p>Once these feature flags are turned on, make sure that the attributes are populated in the Okta User Base Profile, and also have the correct attribute mappings set with AD/LDAP (if needed). If this value is empty, Okta will pass a null value to Luno.</p>
+<p>The following attributes are supported:</p>
+<p>Standard Universal Directory user fields:</p><br />
+<li><p>FirstName</p></li>
+<li><p>LastName</p></li>
+<li><p>Email</p></li>
+<li><p>EmployeeID</p></li>
 
+ </p>
+</div>
 
 
 
