@@ -34,8 +34,8 @@ try{Typekit.load();}catch(e){}
 <li>SAML_GROUP_ATTRIBUTE</li>
 
 <br />
-<p>Once this feature flag is turned on, make sure that the Group option is available for the application (Sign On tab):</p>
-<p><img src="images/apps/looker1.png" alt=“looker1.png" /></p>
+<p>Once this feature flag is turned on, make sure that the Group option is available for the application (<strong>Sign On</strong> tab):</p>
+<p><img src="images/apps/lookernew1.png" alt=“lookernew1.png" /></p>
 </div>
 
 <ol>
@@ -49,8 +49,16 @@ try{Typekit.load();}catch(e){}
 <li><p>In the <strong>SAM Auth Settings</strong> section:</p>
 <ol>
 <li><p>Copy and paste the following <strong>Admin > SAML Authentication</strong> into the corresponding field:</p>
+
+<p>You can either use this metadata:<p>
 <p><pre id="idpMetadata">Sign in to Okta Admin app to have this variable generated for you.</pre></p>
+
+<p>Or this URL:</p>
+<p><kbd id="metadataUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd></p>
 </li>
+
+
+
 
 <li><p>Click the <strong>Load</strong> button.</p>
 <p><img src="images/apps/looker3.png" alt=“looker3.png" /></p>
@@ -75,7 +83,7 @@ try{Typekit.load();}catch(e){}
 <li><p>In the <strong>Role Settings</strong> section:</p>
 <ol>
 <li><p>If you don’t need to set roles from groups, select <strong>Default New User Roles</strong> from the dropdown list.</p>
-<p><img src="images/apps/looker6.png" alt=“looker6.png" /></p>
+<p><img src="images/apps/lookernew2.png" alt=“lookernew2.png" /></p>
 </li>
 
 <li><p>If you need to set roles from groups:</p>
@@ -90,8 +98,8 @@ try{Typekit.load();}catch(e){}
 <p><img src="images/apps/looker7.png" alt=“looker7.png" /></p>
 </li>
 
-<li><p>In OKTA, select the <strong>Sign On</strong> tab for the Looker app, then click <strong>Edit</strong>.</p></li><li><p>Select your preferred <strong>Group</strong> filter from the dropdown list (<strong>contains</strong> the word <em>Looker</em> to cover both <strong>LookerAdmin</strong> and <strong>LookerUser</strong> groups we used in our example).</p></li><li><p>Click <strong>Save</strong>.</p>
-<p><img src="images/apps/looker8.png" alt=“looker8.png" /></p>
+<li><p>In OKTA, select the <strong>Sign On</strong> tab for the Looker app, then click <strong>Edit</strong>.</p></li><li><p>Select your preferred <strong>Group</strong> filter from the dropdown list (the <em>Regex</em> rule with the value ".*" in order to send *all* groups to the Looker instance we used in our example).</p></li><li><p>Click <strong>Save</strong>.</p>
+<p><img src="images/apps/lookernew3.png" alt=“lookernew3.png" /></p>
 
 </li>
 
@@ -125,6 +133,11 @@ try{Typekit.load();}catch(e){}
 
 <li><p>Done!</p><p><b>Notes:</b></p>
 <p>IdP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported.</p>
+
+<p>For additional information please refer to to Looker-supplied detailed help, here: <a href="https://discourse.looker.com/t/saml-setup-instructions-release-3-26-with-group-to-role-mapping-3-32/1317" target="_blank">https://discourse.looker.com/t/saml-setup-instructions-release-3-26-with-group-to-role-mapping-3-32/1317</a>
+
+
+
 
 <p><strong>For SP-initiated flows</strong>:</p>
 
