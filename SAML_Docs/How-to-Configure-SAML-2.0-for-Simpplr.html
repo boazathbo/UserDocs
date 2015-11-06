@@ -1,0 +1,124 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div> 
+
+<div class="okta-instructions"> 
+<h1>How to Configure SAML 2.0 for Simpplr</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p> 
+</div>
+
+
+
+
+<ol>
+
+<li><p>Log in to Simpplr as an administrator and click <strong>Go To Salesforce</strong>.</p></li>
+<li><p>Navigate to <strong>Setup > Security Controls > Single Sign-On Settings</strong>, then click <strong>Edit</strong>:</p>
+<p><img src="images/apps/simpplr1.png" alt=“simpplr1.png" /></p>
+</li>
+
+
+<li><p>Under <strong>Single Sign-On Settings</strong>, check the <strong>SAML Enabled</strong> box:</p>
+<p><img src="images/apps/simpplr2.png" alt=“simpplr2.png" /></p>
+</li>
+
+<li><p>Click <strong>New</strong>:</p>
+<p><img src="images/apps/simpplr3.png" alt=“simpplr3.png" /></p>
+</li>
+
+
+
+<li><p>Enter the following (see screen shot at end of step for reference):</p>
+<ul>
+
+<li><p><strong>Issuer</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+
+<li><p><strong>Identity Provider Certificate</strong>: 
+
+<ul>
+<li>Copy and save the following:</p>
+<p><kbd id="downloadCertificate">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p></li>
+<li>Click <strong>Browse</strong> and select the certificate you just saved to upload:</p>
+</ul>
+</li>
+
+
+
+<li><p><strong>Signing Certificate</strong>: Select <strong>Default Certificate</strong>.</p></li>
+
+<li><p><strong>Assertion Decryption Certificate</strong>: Select <strong>Assertion not encrypted</strong>.</p></li>
+
+<li><p><strong>SAML Identity Type</strong>: Check <strong>Assertion contains User's salesforce.com username</strong>.</p></li>
+
+<li><p><strong>SAML Identity Location</strong>: Check <strong>Identity is in the NameIdentifier element of the Subject statement</strong>.</p></li>
+
+<li><p><strong>Identity Provider Login URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+<li><p><strong>Identity Provider Logout URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOutUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p></li>
+
+
+<li><p><strong>Service Provider Initiated Request Binding</strong>: Check <strong>HTTP POST</strong>.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+</ul>
+<p><img src="images/apps/simpplr4.png" alt=“simpplr4.png" /></p>
+</li>
+
+<li><p>Make a copy of the <strong>Salesforce Login URL</strong> and <strong>Entity ID</strong>:</p>
+<p><img src="images/apps/simpplr5.png" alt=“simpplr5.png" /></p>
+</li>
+
+<li><p>In Okta, select the <strong>General</strong> tab for the Simpler app, then copy the values for <strong>Salesforce Login URL</strong> and <strong>Entity ID</strong> that you copied into the <strong>SSO URL</strong> and <strong>Audience Restriction</strong> fields, then click <strong>Save</strong>.</p>
+<p><img src="images/apps/simpplr6.png" alt=“simpplr6.png" /></p>
+</li>
+
+<li><p>Navigate to <strong>Setup > Domain Management > Domains</strong>, and select your domain:</p>
+<p><img src="images/apps/simpplr7.png" alt=“simpplr7.png" /></p>
+</li>
+
+<li><p>Scroll to the <strong>Login Page Settings</strong> section and click <strong>Edit</strong>:</p>
+<p><img src="images/apps/simpplr9.png" alt=“simpplr9.png" /></p>
+</li>
+
+<li><p>Check the <strong>Okta</strong> box, then click <strong>Save</strong>:</p>
+<p><img src="images/apps/simpplr10.png" alt=“simpplr10.png" /></p>
+</li>
+
+
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+<p>IdP-initiated flows and SP-initiated flows are supported.</p>
+
+<p> Just In Time (JIT) provisioning is not supported.</p></
+
+</ol>
+
+
+
+</ol></div>
+</body>
+</html>
