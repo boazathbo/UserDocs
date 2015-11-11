@@ -1,0 +1,99 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){} 
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript">
+  function generateCitrixSsoUrl() {
+    var m = window.dataSAML["signOnUrl"];
+    var n = m.replace("/sso/saml","/slo/saml");
+    $('#citrixSsoUrl').text(n);    
+
+   }
+   
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', generateCitrixSsoUrl);
+  });
+</script>
+
+
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for BullseyeEngagement</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+<li><p>Log in to BullseyeEngagement as as Administrator.</p></li>
+
+<li><p>Navigate to <strong>Settings > Integration</strong>, then click the Okta logo:</p>
+<p><img border="1" src="images/apps/bullseye1.png" alt=“bullseye1.png" /></p>
+</li>
+
+<li><p>Enter the following:</p>
+
+<ul>
+<li><p><strong>Http Endpoint</strong>: Enter <strong>https://www.okta.com</strong>.</p></li>
+<li><p><strong>x.509 Certificate</strong>: Copy and paste the following:</p>
+<p><pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre></p>
+</li>
+<li><p>Click <strong>Save</strong>.</p></li>
+</ul>
+<p><img border="1" src="images/apps/bullseye2.png" alt=“bullseye2.png" /></p>
+
+</li>
+
+<li><p>Navigate to <strong>Settings > API</strong>.</p>
+<li><p>Enter the following:</p>
+<ul>
+<li><p>An <strong>Application Name</strong>, for example, <strong>Okta</strong>.</p></li>
+<li><p>Click <strong>Create</strong>.</p>
+<p><img border="1" src="images/apps/bullseye3.png" alt=“bullseye3.png" /></p>
+</ul>
+</li>
+
+<li><p>Make a copy of your <strong>Access Token</strong> and <strong>Application Key</strong>:</p>
+<p><img border="1" src="images/apps/bullseye4.png" alt=“bullseye4.png" /></p>
+
+</li>
+
+<li><p>In Okta, select the <strong>General</strong> tab for the BullseyeEngagement app, then click <strong>Edit</strong>.</p>
+<ul>
+<li><p>Enter the values you just copied for <strong>Access Token</strong> and <strong>Application Key</strong> into the corresponding fields.</p></li>
+
+<li><p>Click <strong>Save</strong>.</p></li>
+
+
+</ul>
+<p><img border="1" src="images/apps/bullseye5.png" alt=“bullseye5.png" /></p>
+
+</li>
+
+
+
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+<p>IdP-initiated flows are supported.</p>
+<p>SP-initiated flows and Just In Time (JIT) provisioning are not supported.</p>
+</li>
+</ol>
+</div>
+</body>
+</html>
