@@ -1,0 +1,51 @@
+<html>
+<head>
+  <link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+  <script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+  <script type="text/javascript">
+  try{Typekit.load();}catch(e){}
+  </script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="resources/scripts/vkbeautify.js"></script>
+  <script src="resources/scripts/getAppValues.js"></script>
+  <title>Identity Provider Set Up for LinkedIn</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+  <div class="logo-container">
+    <img src="resources/css/okta-logo-white.png" alt="Okta Logo" />
+  </div>
+</div>
+<div class="okta-instructions">
+
+<h1>Identity Provider Set Up for LinkedIn</h1>
+
+<p>Note: You must have a LinkedIn account in order to set up a LinkedIn app through the <a href="https://developer.linkedin.com/">LinkedIn Developers</a> page.</p>
+
+<ol>
+<li>Log in to your LinkedIn account.</li>
+<li>Go to <a href="https://developer.linkedin.com/">LinkedIn Developers</a>.</li>
+<li>Click "My Apps" from the toolbar and click the "Create Application" button:
+    <img src="images/LinkedIn_create_application_button.png" alt="LinkedIn Create Application button">
+</li>
+<li>Follow the instructions to create a new app by entering information about yourself and your company, then click "Submit".</li>
+<li>Regarding LinkedIn Application Permissions, <code>r_basicprofile</code> and <code>r_emailaddress</code> are selected by default in the Okta configuration.  Make sure that they are also selected under "Default Application Permissions" on the Authentication page. (see screenshot above)</li>
+<li>The next screen will look like the following:
+    <img src="images/LinkedIn_application_authentication_page.png" alt="LinkedIn Application Authentication Page">
+</li>
+<li>Use the <b>Client ID</b> and <b>Client Secret</b> to complete the LinkedIn application Identity Provider configuration in Okta.</li>
+<li>Once the LinkedIn Identity Provider configuration is saved in Okta, you need to copy the <b>Redirect URI</b> from the Okta "Identity Provider" page into your clipboard:
+    <img src="images/LinkedIn_okta_configuration.png" alt="LinkedIn Okta configuration">
+</li>
+<li>In your LinkedIn application configuration, paste the Okta <b>Redirect URI</b> you copied in the step above into the <b>Authorized Redirect URLs</b> field in the "OAuth 2.0" section pictured above.</li>
+<li>Before clicking the blue "Update" button in the LinkedIn "Authentication" page, make sure <code>r_basicprofile</code> and <code>r_emailaddress</code> are selected in the "Default Application Permissions" section of the on the Authentication page (see screenshot above). These application permissions are used by default in Okta and must be selected by in the LinkedIn application configuration as well.</li>
+<li>Click on the blue "Update" button on the LinkedIn page.</li>
+</ol>
+
+<p>To understand more about LinkedIn OAuth setup and Application Permissions, visit LinkedIn's "<a href="https://developer.linkedin.com/docs/oauth2">Authentication with OAuth 2.0</a>" page.</p>
+
+
+</div><!-- class="okta-instructions" -->
+</body>
+</html>

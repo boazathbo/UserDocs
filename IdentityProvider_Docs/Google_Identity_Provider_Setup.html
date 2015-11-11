@@ -1,0 +1,61 @@
+<html>
+<head>
+  <link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+  <script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+  <script type="text/javascript">
+  try{Typekit.load();}catch(e){}
+  </script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="resources/scripts/vkbeautify.js"></script>
+  <script src="resources/scripts/getAppValues.js"></script>
+  <title>Set Up Identity Provider</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+  <div class="logo-container">
+    <img src="resources/css/okta-logo-white.png" alt="Okta Logo" />
+  </div>
+</div>
+<div class="okta-instructions">
+
+<h1>Identity Provider Set Up for Google</h1>
+
+<p>Note: You must have a Google account in order to set up a Google app through the <a href="https://console.developers.google.com">Google Developers Console</a>.</p>
+
+<ol>
+<li>Log into your Google account</li>
+<li>Go to <a href="https://console.developers.google.com/">Google Developers Console</a></li>
+<li>To create a new app, click "Select a Project" dropdown and select "Create a project".
+  <img src="images/Google_create_a_project.png" alt="Google Create a project" />
+</li>
+<li>From the left pane, select "APIs &amp; auth", then "Credentials".</li>
+<li>Click on the blue "Add credentials" drop down menu, then select "OAuth 2.0 client ID".</li>
+<li>Click on the blue "Configure consent screen" button to the right of the text that reads "To create an OAuth client ID, you must first set a product name on the consent screen".</li>
+<li>In the OAuth consent screen tab, provide an email and product name.  You need to provide a product name before you can obtain the client ID/secret.  Click "Save" when done.</li>
+<li>You will see a "Create Client ID" screen, select "Web application", name your web application, then click "Create". Note: You will be filling in "Authorized redirect URIs" after you have completed the Okta setup.
+  <img src="images/Google_create_client_id.png" alt="Screenshot of the Google Create Client ID screen" />
+</li>
+<li> You should now see the OAuth "Client ID" and "Client secret".  Use these values to complete the Okta Google Identity Provider setup.
+  <img src="images/Google_client_id_client_secret.png" alt="Screenshot of the Google Client ID and Client secret screen" />
+</li>
+<li>Once you have saved the configuration in Okta for the Google Identity Provider, copy the <b>Redirect URI</b> from your newly created IDP configuration.
+  <img src="images/Google_okta_idp_config.png" alt="Screenshot of the Okta Identity Provider page" />
+</li>
+<li>Now, go back to your Google Developers Console and select your app again from the app dropdown.
+
+  <img src="images/Google_example_project.png" alt="Google Redirect URI" />
+</li>
+<li>
+  Enter the <b>Redirect URI</b> you copied in step #10 under Authorized Redirect URIs.
+</li>
+</ol>
+
+<p>Note: Regarding Google scopes, <code>profile</code>, <code>email</code>, and <code>openid</code> are automatically included by Okta.</p>
+
+<p>For more information on OAuth scopes that Google uses, go to the <a href="https://developers.google.com/+/web/api/rest/oauth#login-scopes">Authorization Scopes</a> section on their developer site.</p>
+
+<p>To learn more about Google support for Social Auth - go to the <a href="https://developers.google.com/identity/protocols/OpenIDConnect">OpenID Connect</a> section on Google's developer site.</p>
+</div><!-- class="okta-instructions" -->
+</body>
+</html>
