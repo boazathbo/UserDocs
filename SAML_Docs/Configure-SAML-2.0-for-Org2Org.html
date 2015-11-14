@@ -52,7 +52,8 @@
             <p><kbd id="issuer">Sign into the Okta admin app to have this variable generated for you.</kbd></p></li>
 
 <li><p><strong>IDP Login URL</strong>: Copy and paste the following:</p>
-            <p><kbd id="signOnUrl">Sign in to the Okta Admin app to generate this variable.</kbd></p></li>
+            <p><kbd id="signOnUrl">Sign in to the Okta Admin app to generate this variable.</kbd></p>
+            <p><strong>Note:</strong> You will need this URL for Step 4 under "Configuring Application for Hub/Spoke"</p></li>
 
 <li><p><strong>IDP Bindings</strong>: Set to <strong>HTTP-Post</strong>.</p></li>
 <li><p><strong>Default Group Assignment</strong>: Leave this blank.</p></li>
@@ -98,8 +99,7 @@
             <p>You will need 3 things to construct the URL, as follows:</p>
             <ol>
                 <li>
-                    <p>Copy and paste the following Login Redirect URL to the URL field:</p>
-                    <kbd id="signOnUrl">Sign in to the Okta Admin app to generate this variable.</kbd>
+                    <p>Copy and paste the <strong>IDP Login URL</strong> to the URL field, from Step 4 above, under 'Configuring the Hub/Target Org (Inbound SAML)'</p>
                 </li>
                 <li>
                     <p>Add <strong>?RelayState=</strong></p>
