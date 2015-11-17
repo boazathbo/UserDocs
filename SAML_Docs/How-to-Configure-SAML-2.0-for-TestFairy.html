@@ -1,0 +1,75 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){} 
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript">
+  function generateCitrixSsoUrl() {
+    var m = window.dataSAML["signOnUrl"];
+    var n = m.replace("/sso/saml","/slo/saml");
+    $('#citrixSsoUrl').text(n);    
+
+   }
+   
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', generateCitrixSsoUrl);
+  });
+</script>
+
+
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for TestFairy</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+<li><p>Log in to your TestFairy account.</p></li>
+<li><p>Open the <strong>Account Preferences</strong> page by selecting <strong>Preferences</strong> from the top right drop down menu:</p>
+<p><img border="1" src="images/apps/testfairy1.png" alt=“testfairy1.png" /></p>
+</li>
+
+
+<li><p>Select <strong>SAML/Single Sign-on</strong> from the left navigation pane.</p></li>
+
+<li><p><strong>ID Provider Metadata</strong>: Copy and paste the following into this field:</p>
+<p><pre id="idpMetadata">Sign in to Okta Admin app to have this variable generated for you.</pre></p>
+</li>
+
+<li><p>Click <strong>Update SAML ID Provider Metadata</strong>.</p>
+<p><img border="1" src="images/apps/testfairy2.png" alt=“testfairy2.png" /></p>
+
+</li>
+
+<li><p>To test, log out. You should now see the same login page, but with a new <strong>SSO LOGIN</strong> button:</p>
+<p><img border="1" src="images/apps/testfairy3.png" alt=“testfairy3.png" /></p>
+
+</li>
+
+
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+<p>SP-initiated flows and Just In Time (JIT) provisioning are supported.</p>
+<p>IdP-initiated flows are not supported.</p>
+</li>
+</ol>
+</div>
+</body>
+</html>
