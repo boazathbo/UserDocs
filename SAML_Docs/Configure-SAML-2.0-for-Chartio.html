@@ -1,0 +1,63 @@
+<html>
+<head>
+    <link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        try{Typekit.load();}catch(e){}
+    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="resources/scripts/vkbeautify.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+    <title>Setup SSO</title>
+
+    <script src="resources/scripts/getAppValues.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+    <div class="logo-container">
+        <img src="resources/css/okta-logo-white.png" alt="Okta" />
+    </div>
+</div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Chartio</h1>
+
+
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
+</div>
+<ol>
+<li><p>Sign in to Chartio as an Organization owner.<p></li>
+<li><p>Select <strong>Organization</strong> from the upper right <strong>Settings</strong> drop down menu:</p>
+<p><img src="images/apps/chartio1.png" alt=“chartio1.png" /></p>
+</li>
+<li><p>On the <strong>Organization</strong> settings page, scroll down to the <strong>Authentication</strong> section and enter the following: (see screen shot at end of step for reference):<p>
+<ul>
+<li><p>For <strong>Login Methods</strong>, make sure <strong>SAML</strong> is checked.<p></li>
+<li><p><strong>SAML Entity ID</strong>: Copy and paste the following:<p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p><strong>SAML SSO URL</strong>: Copy and paste the following:<p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p><strong>X.509 Certificate</strong>: Copy and paste the following:<p>
+<p><kbd id="x509CertText">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p>Click <strong>Update</strong>.<p></li>
+
+
+</ul>
+<p><img src="images/apps/chartio2.png" alt=“chartio2.png" /></p>
+
+
+</li>
+
+<li><p>Done!</p>
+<p><strong>Notes</strong>:</p>
+<p>SP-initiated flows, IdP-initiated flows, and Just In Time (JIT) provisioning are all supported.
+</li>
+
+
+</ul>
+</div></body>
+</html>
