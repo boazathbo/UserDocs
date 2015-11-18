@@ -23,27 +23,43 @@ try{Typekit.load();}catch(e){}
 <div class="okta-instructions">
 
 
-<h1>How to pass User Groups in Angel Points Provisioning Integration</h1>
+<h1>How to Pass User Groups in AngelPoints Provisioning Integration</h1>
 
 
-<p>In Angel Points, each Group belongs to a Group Category. In order to pass user groups to Angel Points, Okta needs to pass the Group Category name along with the Group name, as defined in your Angel Points instance. This can be achieved by creating custom attributes specifying the Group Category Name, and mapping it to an attribute in your source System (such as Active Directory or LDAP), which contains the Group value. For example, you can create a custom attribute 'groupCategory_Department' & map it to 'Department' attribute in Active Directory. Group to be passed will be the value stored in Active Directory for the user, for example 'Engineering'. The group Category Name passed will be 'Department'.</p>
-<p>Please note that you cannot create a new Group Category through the API. For this reason, the Group Category Name you pass from Okta should match an <strong>existing</strong> Group Category Name in Angel Points.</p>
+<p>In AngelPoints, each Group belongs to a Group Category. In order to pass user groups to AngelPoints, Okta needs to pass the Group Category name along with the Group name, as defined in your AngelPoints instance. This can be achieved by creating custom attributes specifying the Group Category Name, and mapping it to an attribute in your source System (such as Active Directory or LDAP), which contains the Group value.</p>
+<p>For example, you can create a custom attribute <strong>groupCategory_Department</strong> & map it to <strong>Department</strong> attribute in Active Directory. The Group to be passed will be the value stored in Active Directory for the user, for example <strong>Engineering</strong>. The group Category Name passed will be <strong>Department</strong>.</p>
+<p><strong>Note</strong>: You cannot create a new Group Category through the API. For this reason, the Group Category Name you pass from Okta should match an <em>existing</em> Group Category Name in AngelPoints.</p>
 
 
-<p>Follow the instructions below to configure AngelPoints to pass user groups: </p> 
+<p><strong>To Configure AngelPoints to Pass User Groups:</strong></p> 
 
 <ol>
-<li><p>In Okta to go the Profile Editor > Apps > AngelPoints User > Add Attribute</p>
+<li><p>In Okta, navigate to <strong>Profile Editor > Apps > AngelPoints User > Add Attribute</strong>.</p>
 <p><img src="images/apps/AngelPoints0.png" alt="Select AngelPoints User.png" /></p></li>
-<li><p>Type in a Display Name for the Attribute. The <strong>variable name</strong> should have a prefix <strong>groupCategory</strong> followed by an underscore, and the Group Category Name to which the user's group belongs in Angel Points. For example, if the Group Category name is Department, you would enter groupCategory_Department as shown below.</p>
+
+
+<li>Enter the following:</p>
+<ul>
+<li><p><strong>Display name</strong>: Type in a display name for the new attribute.</p></li>
+<li><p><strong>Variable name</strong>: Type in a variable name.</p>
+<p>The variable name should have a prefix <strong>groupCategory</strong> followed by an underscore, and the Group Category Name to which the user's group belongs in AngelPoints. For example, if the Group Category name is Department, you would enter <strong>groupCategory_Department</strong> (as shown in our example in the screen shot below).</p>
 <p><strong>Note:</strong> When setting the variable name, Okta will not accept any spaces. For this reason, the Group Category Name cannot contain any spaces.</p>
-<p> Fill in additional details as desired.</p>
+</li>
+<li><p>Fill in additional details as needed.</p></li>
+<li><p>Click <strong>Add Attribute</strong>.</p></li>
+
+</ul>
 <p><img src="images/apps/AngelPoints1.png" alt="Add Attribute Details.png" /></p></li>
-<li><p>Next, go to Angel Points User Mappings by clicking on <strong>Map Attributes</strong>. Click on the tab <strong>Okta to Angel Points</strong>. Set mappings for the attribute you created. For example, map Department to groupCategory_Department.</p>
+
+</li>
+
+
+<li><p>Go to AngelPoints User Mappings by clicking on <strong>Map Attributes</strong>. Click on the <strong>Okta to AngelPoints</strong> tab and set mappings for the attribute you just created.</p> 
+<p>For example, map <strong>Department</strong> to <strong>groupCategory_Department</strong>.</p>
 <p><img src="images/apps/AngelPoints2.png" alt="Map Attributes.png" /></p>
-By setting the mapping, you will be sending the User's Department value stored in source system (Engineering/Sales/Marketing) as a Group Name. For example, the user will be added as a member in Group "Engineering" in Group Category "Department" in Angel Points. </li>
+<p>By setting the mapping, you will be sending the User's Department value stored in source system (Engineering/Sales/Marketing) as a Group Name. For example, the user will be added as a member in Group <strong>Engineering</strong> in Group Category <strong>Department</strong> in AngelPoints. </li>
 </ol>
 
-<h2> Note to the Administrator:</h2>
-<p>The Angel Points External ID does not have a default mapping in Okta. Before assigning the Angel Points application to groups in Okta, make sure you have the External ID mappings in place. You can edit the attribute mappings using the Profile Editor.
+<h2> Note to the Administrator</h2>
+<p>The AngelPoints External ID does not have a default mapping in Okta. Before assigning the AngelPoints application to groups in Okta, make sure you have the External ID mappings in place. You can edit the attribute mappings using the Profile Editor:
 <p><img src="images/apps/Angelpoints3.png" alt="AngelPoints Mappings.png" /></p></li>
