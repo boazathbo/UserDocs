@@ -36,8 +36,11 @@ try{Typekit.load();}catch(e){}
 <li>
 <p><a href="https://rally1.rallydev.com/slm/help.sp?pp=contact">L</a>og in to the Jive 6.0 Administration Console with your username and password.<br /><br /><img style="border: 0; padding: 0;" src="images/apps/Jive_1.jpg" alt="Jive_1.jpg" /></p>
 </li>
-<li>Select<strong> People &gt; Settings &gt; SAML</strong>.<br /><strong><br /></strong><img style="border: 0; padding: 0;" src="images/apps/Jive_2.jpg" alt="Jive_2.jpg" /><br /><br /></li>
-<li>On the <strong>SAML</strong> tab, select <strong>General</strong>. Make sure all the settings are the same as those shown below.<br /><br /><img style="border: 0; padding: 0;" src="images/apps/Jive_5b.png" alt="Jive_5.png" /></li>
+<li><p>Select<strong> People &gt; Settings &gt; SAML</strong>.<br /><strong><br /></strong><img style="border: 0; padding: 0;" src="images/apps/Jive_2.jpg" alt="Jive_2.jpg" /><br /><br /></li>
+<li>On the <strong>SAML</strong> tab, select <strong>General</strong>. Make sure all the settings are the same as those shown below.</p>
+<p>In particular, make sure that <strong>SSO Service Binding</strong> has this value:</p>
+<p>urn:oasis:names:tc:SAML:2.0:binding:HTTP-Redirect</p>
+<br /><img style="border: 0; padding: 0;" src="images/apps/Jive_5b.png" alt="Jive_5.png" /></li>
 <li>
 <p>On the <strong>SAML</strong> tab, select <strong>Metadata</strong>. Then, check <strong>Enabled</strong> and paste the IDP metadata shown in step 1.</p>
 <img style="border: 0; padding: 0;" src="images/apps/Jive_3.jpg" alt="Jive_3.jpg" /></li>
