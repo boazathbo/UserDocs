@@ -1,0 +1,60 @@
+<html>
+<head>
+    <link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        try{Typekit.load();}catch(e){}
+    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="resources/scripts/vkbeautify.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+    <title>Setup SSO</title>
+
+    <script src="resources/scripts/getAppValues.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+    <div class="logo-container">
+        <img src="resources/css/okta-logo-white.png" alt="Okta" />
+    </div>
+</div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Buildkite</h1>
+
+
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
+</div>
+<ol>
+<li><p>Send an email to Buildkite Support (<a href="mailto:hello@buildkite.com">hello@buildkite.com</a>) and request that they enable SAML 2.0 for your account.<p></li>
+<li><p>Include the following:<p>
+<ul>
+<li><p><strong>IDP SSO URL</strong>: Copy and paste the following:<p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+<li><p><strong>x.509 Certificate</strong>: Download, save, and attach the following:<p>
+<p><kbd id="downloadCertificate">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+</ul>
+</li>
+<li><p>Buildkite Support will process your request. After receiving a confirmation email, you can start assigning people to the application.<p></li>
+
+
+<li><p>Done!</p>
+<p><strong>Notes</strong>:</p>
+<p>SP-initiated flows, IdP-initiated flows, and Just In Time (JIT) provisioning are all supported.
+</li><br />
+
+<p><strong>For SP-initiated flows</strong>:</p>
+<ol>
+<li><p>Go to <a href="https://buildkite.com/login" target="_blank">https://buildkite.com/login</a></p></li>
+<li><p>Enter your email address.</p></li>
+<li><p>Click on the <strong>Login</strong> button:</p>
+<p><img border="1" src="images/apps/buildkite1.png" alt=“buildkite1.png" /></p>
+</li>
+
+</ul>
+</div></body>
+</html>
