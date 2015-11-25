@@ -32,20 +32,28 @@ try{Typekit.load();}catch(e){}
 <p><strong>Backup URL</strong></p>
 <p>New Relic does not provide backup log-in url where users can sign-in using their normal username and password. You can call New Relic support to turn off SAML, if necessary.</p>
 </div>
-<p>Sign in to <strong>New Relic</strong> as a user with rights to edit SAML configuration.</p>
 <ol>
-<li>Go to <strong>Account Settings</strong>.<strong><br /><img src="images/apps/Screen+Shot+2014-03-21+at+11.24.00+AM+%282%29.png" alt="Screen_Shot_2014-03-21_at_11.24.00_AM__2_.png" /><br /></strong></li>
+<li><p>Sign in to <strong>New Relic</strong> as a user with rights to edit SAML configurations.</p></li>
+
+<li>Go to <strong>Account Settings</strong>.<strong><br /><img style="border: 0; padding: 0;" src="images/apps/newrelic1.png" alt=“newrelic1.png" /><br /></strong></li>
 <li>Next, go to<strong> Security and authentication &gt; Sign sign on &gt; Configure</strong>.<strong><br /><img src="images/apps/Screen+Shot+2014-03-21+at+11.23.32+AM.png" alt="Screen_Shot_2014-03-21_at_11.23.32_AM.png" /><br /></strong></li>
-<li>Download and upload the&nbsp;following&nbsp;Identity Provider Certificate in the<strong> Upload New Certificate</strong> field:<strong><br /><br /></strong><kbd id="downloadCertificate"> Sign in to the Okta Admin app to have this variable generated for you.</kbd></li>
+
+<li>Download the&nbsp;following&nbsp;Identity Provider Certificate, then click <strong>Choose File</strong> and upload it to the <strong> Upload a New Certificate</strong> field:<strong><br /></strong><kbd id="downloadCertificate"> Sign in to the Okta Admin app to have this variable generated for you.</kbd></li>
 <li>
 <p>Copy and paste the following into the<strong> Remote Login URL </strong>field:<strong>&nbsp;</strong></p>
 <kbd id="signOnUrl"> Sign in to the Okta Admin app to have this variable generated for you </kbd></li>
 <li>
-<p>In New Relic, copy the <strong>Assertion Consumer URL </strong>and paste it into the<strong> Login URL field </strong>in Okta Configuration, under the <strong>General</strong> tab.<br /><strong><img src="images/apps/Screen+Shot+2014-03-21+at+11.54.01+AM.png" alt="Screen_Shot_2014-03-21_at_11.54.01_AM.png" /><br /><br /></strong></p>
+<p>In New Relic, copy the <strong>Assertion Consumer URL </strong>and paste it into the<strong> Login URL field </strong>in Okta Configuration, under the <strong>General</strong> tab.<br /><strong><img src="images/apps/Screen+Shot+2014-03-21+at+11.54.01+AM.png" alt="Screen_Shot_2014-03-21_at_11.54.01_AM.png" /><br /></strong></p>
 </li>
-<li>Save the Configuration in both Okta and New Relic.</li>
+<li>Save the configuration in both Okta and New Relic.</li>
 <li>Click <strong>Test SAML Login</strong> in New Relic to test your configuration.</li>
-<li>After the test passes, click <strong>Enable SAML Login</strong> in New Relic.<br /><img src="images/apps/Screen+Shot+2014-03-21+at+11.59.10+AM.png" alt="Screen_Shot_2014-03-21_at_11.59.10_AM.png" /></li>
+
+
+<li>After the test passes, click <strong>Enable SAML Login</strong> in New Relic.<br /><img src="images/apps/Screen+Shot+2014-03-21+at+11.59.10+AM.png" alt="Screen_Shot_2014-03-21_at_11.59.10_AM.png" />
+<p><strong>Note</strong>: All accounts in New Relic need to be activated by the user by clicking on the <strong>Confirm Access</strong> button in the activation emails received by users, as shown in the example email below. Until this is done, you will receive an error message when you click <strong>Enable SAML Login</strong>.</p>
+<p><img border="1" src="images/apps/NewRelic_1.png" alt=“NewRelic_1.png" /></p>
+
+</li>
 <li>Done!</li>
 </ol></div>
 </body>
