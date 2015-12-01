@@ -1,0 +1,122 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="resources/scripts/vkbeautify.js"></script>
+
+<title>UltiPro Provisioning</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+
+
+<h1>Configuring Provisioning for BambooHR</h1>
+
+<p>This guide provides the steps required to configure Provisioning for BambooHR.</p>
+
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+
+<p><strong>Notes</strong></p>
+
+<ul>
+<li>
+<p>This integration cannot create new users in BambooHR. Assigning an Okta user to BambooHR with Provisioning enabled will result in an error. Instead, import existing users from BambooHR first to avoid this error.</p></li>
+<li><p>If you want to republish the Mapping Template via SU, turn off Push User Attributes feature to avoid provisioning errors, or you can retry failed tasks after the template is republished.</p> </li>
+</ul>
+</div>
+
+<h2>Configuring Bamboo as a New App</h2>
+<ol>
+<li><p>Obtain a BambooHR API Key. To do this:</p>
+<ul>
+<li><p>Login to BambooHR as an administrator.</p></li>
+<li><p>Select <strong>Account Settings</strong> in the upper right corner, then select <strong>API Keys</strong>.</p>
+<p><img src="images/apps/bamboo2.png" alt=“bamboo2.png" /></p></li>
+</li>
+<li><p>Select <strong>Add a new key</strong>, or uses an existing one if you have one is the list ov <strong>Valid API Keys</strong>
+<li><p>Make a copy of the Key to enter in Okta later in this procedure.</p>
+<p><img src="images/apps/bamboo3.png" alt=“bamboo3.png" /></p></li>
+
+</li>
+
+
+</ul>
+</li>
+
+
+
+
+
+
+<li><p>In Okta, from the Admin dashboard, select <strong>Applications > Add Application</strong>.</p></li>
+<li><p>Search for the BambooHR app, then click <strong>Add</strong>.</p></li>
+<li><p>Under BambooHR’s <strong>General Settings</strong>:</p>
+<ul>
+<li><p><strong>Applications Label</strong>: Add an application label.</p></li>
+<li><p><strong>Subdomain</strong>: Enter your BambooHR subdomain. For example, enter <strong>company</strong> for <strong>http://company.bamboohr.com/</strong>.</p></li>
+<li><p>Click <strong>Next</strong>.</p></li>
+</ul>
+<p><img src="images/apps/bamboo1.png" alt=“bamboo1.png" /></p></li>
+</li>
+<li><p>Configure your <strong>Sign-On Options</strong> on the next tab, then click <strong>Next</strong>.</p></li>
+
+<li><p>Configure your <strong>Provisioning Settings</strong> as follows:</p>
+<ul>
+<li><p>Click <strong>Enable provisioning features</strong>.</p></li>
+<li><p><strong>API Key</strong>: Enter the key you copied from BambooHR (step 1) into this field.</p></li>
+<li><p><strong>Parameter to Use for Groups</strong>: You can select any of the following parameters:</p>
+<ul>
+<li><p><strong>Departments</strong></p></li>
+<li><p><strong>Locations</strong></p></li>
+<li><p><strong>Divisions</strong></p></li>
+</ul>
+</li>
+
+<li><p><strong>Pre-Start Interval</strong>: Enter the interval in days, so that users with <strong>Hire Date</strong> ahead of current date and within this interval could be considered active and imported to Okta.
+For example, if you enter <strong>7</strong>, the users with a <strong>Hire Date</strong> later than one week ahead of current date will not be imported.</p></li>
+</ul>
+<p><img src="images/apps/bamboo4.png" alt=“bamboo4.png" /></p></li>
+</li>
+
+<li><p>Scroll down and select the Provisioning Features you want to enable, either <strong>Profile Master</strong> or <strong>Push User Attributes</strong>, then click <strong>Next</strong>. Note that you cannot enable both of these at the same time, select only one.</p>
+<p><img src="images/apps/bamboo5.png" alt=“bamboo5.png" /></p></li>
+</li>
+<li><p>You can now assign people to the app (if needed) and finish the application setup.</p></li>
+
+
+<h2>Schema Discovery</h2>
+
+<p>BambooHR supports User's Schema Discovery, so you can add some extra attributes to User's Profile, to do that, follow the instructions below:</p>
+
+<li><p>In Okta, from the Admin dashboard, select <strong>Directory > Profile Editor</strong>.</p></li>
+
+<li><p>Select the <strong>APPS</strong> section in the left navigation bar, then find your app in the list.</p></li>
+
+<li><p>Check the list of attributes, and if you decide you need more, click <strong>Add Attribute</strong>. A list of extended attributes will appear:</p>
+<p><img src="images/apps/bamboo5.png" alt=“bamboo5.png" /></p></li>
+
+</li>
+
+<li><p>Select the attributes you want to add, then click <strong>Save</strong>.</p></li>
+
+<li><p>You can now import and push these user attribute values to/from BambooHR</p></li>
+
+
+
+
+</div>
+</body>
+</html>
