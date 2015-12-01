@@ -1,0 +1,53 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix"> 
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Culture Amp</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+<li><p>Send and email to the Culture Amp support team and request that they enable SAML 2.0 for your account.</p></li>
+
+<li><p>Copy and attach the following <strong>IDP Metadata URL</strong>:</p>
+<p><kbd id="metadataUrl">Sign in to the Okta Admin app to have this variable generated for you</kbd></p>
+</li>
+
+
+<li>Culture Amp Support will process your request. After receiving a confirmation email, you can start assigning people to the application.</p></li>
+
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+<p>SP-initiated flows and IdP-initiated flows are supported.</p>
+<p>Just In Time (JIT) provisioning is not supported.</p>
+
+<p><strong>For SP-initiated flows</strong>:</p>
+<p>Go to this URL <font color="blue">https://[yourSubDomain].cultureamp.com/saml/[yourSubDomain]</font>.</p>
+
+<p>For example, if your Culture Amp SubDomain is <strong>acme</strong>, you need to open: <font color="blue">https://acme.cultureamp.com/saml/acme</font>.</p>
+</li>
+
+
+</ol>
+</div>
+</body>
+</html>
