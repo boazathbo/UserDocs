@@ -1,0 +1,57 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Salesforce Provisioning</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+
+
+<h1>Configuring Provisioning for Saleforce</h1>
+
+<p>This guide provides the steps required to configure Provisioning for Salesforce.</p>
+
+<h2>Before you Begin</h2>
+<ol>
+<li><p>Create an administrator account in Salesforce. You will use this account’s username and password in to configure the Salesforce app in Okta. When you create an administrator account, salesforce will provide you with a <em>token</em>.</p>
+<p><strong>Note</strong>: Every time you reset this account’s password, Salesforce will provide you with a new token, and you need to edit the Salesforce app’s <strong>Provisioning</strong> settings in Okta using the new password/token as described below.</p></li>
+
+</li>
+
+<li><p>You are now ready to configure your <strong>Provisioning</strong> settings as follows:</p>
+<ul>
+<li><p>In the <strong>API Credentials</strong> section, enter the <strong>Username</strong>, <strong>Password</strong> and <strong>Token</strong> associated with your Salesforce Administrator account.</p>
+<p><strong>Note</strong>: Simply append the token Salesforce provided to you to your password, no spaces or other characters.</p>
+</p></li>
+<li><p>Click <strong>Test API Credentials</strong>; if successful, a verification message appears at the top of the screen, as shown below:</p></li>
+</ul>
+<p><img src="images/apps/salesforce1.png" alt=“salesforce1.png" /></p></li>
+
+</li>
+
+<li><p>Scroll down and specify the type of <strong>Provisioning Features</strong> you want to enable, then click <strong>Next</strong>.</p></li>
+
+<li><p>You can now assign people to the app (if needed) and finish the application setup.</p></li>
+</ol>
+
+
+
+</div>
+</body>
+</html>
