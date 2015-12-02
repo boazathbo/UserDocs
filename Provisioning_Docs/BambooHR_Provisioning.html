@@ -37,8 +37,8 @@ try{Typekit.load();}catch(e){}
 <li><p>If you want to republish the Mapping Template via SU, turn off Push User Attributes feature to avoid provisioning errors, or you can retry failed tasks after the template is republished.</p> </li>
 </ul>
 </div>
-
-<h2>Configuring BambooHR as a New App</h2>
+<h2>Before you Begin</h2>
+<p>Before you start configuring provisioning for BambooHR, you need to obtain a Bamboo API Key and verify the BambooHR app’s <strong>General Settings</strong> are correct:</p>
 <ol>
 <li><p>Obtain a BambooHR API Key. To do this:</p>
 <ul>
@@ -46,7 +46,7 @@ try{Typekit.load();}catch(e){}
 <li><p>Select <strong>Account Settings</strong> in the upper right corner, then select <strong>API Keys</strong>.</p>
 <p><img src="images/apps/bamboo2.png" alt=“bamboo2.png" /></p></li>
 </li>
-<li><p>Select <strong>Add a new key</strong>, or uses an existing one if you have one is the list ov <strong>Valid API Keys</strong>
+<li><p>Select <strong>Add a new key</strong>, or uses an existing one if you have one is the list of <strong>Valid API Keys</strong>
 <li><p>Make a copy of the Key to enter in Okta later in this procedure.</p>
 <p><img src="images/apps/bamboo3.png" alt=“bamboo3.png" /></p></li>
 
@@ -57,23 +57,19 @@ try{Typekit.load();}catch(e){}
 </li>
 
 
-
-
-
-
-<li><p>In Okta, from the Admin dashboard, select <strong>Applications > Add Application</strong>.</p></li>
-<li><p>Search for the BambooHR app, then click <strong>Add</strong>.</p></li>
-<li><p>Under BambooHR’s <strong>General Settings</strong>:</p>
+<li><p>Verify the BambooHR app’s <strong>General Settings</strong>:</p>
 <ul>
-<li><p><strong>Applications Label</strong>: Add an application label.</p></li>
-<li><p><strong>Subdomain</strong>: Enter your BambooHR subdomain. For example, enter <strong>company</strong> for <strong>http://company.bamboohr.com/</strong>.</p></li>
-<li><p>Click <strong>Next</strong>.</p></li>
-</ul>
-<p><img src="images/apps/bamboo1.png" alt=“bamboo1.png" /></p></li>
+<li><p>Uncheck <Strong>Enable provisioning features</strong>.</p></li>
+<li><p>Select the <Strong>General Settings</strong> tab.</p></li>
+<li><p>Verify that the <strong>Subdomain</strong> is your BambooHR subdomain. For example, enter <strong>company</strong> for <strong>http://company.bamboohr.com/</strong>.</p></li>
+<li><p>Click <strong>Next</strong>.</p>
+<p><img src="images/apps/bamboonew1.png" alt=“bamboonew1.png" /></p></li>
 </li>
-<li><p>Configure your <strong>Sign-On Options</strong> on the next tab, then click <strong>Next</strong>.</p></li>
+<li><p>Configure your <strong>Sign-On Options</strong> on the next tab, then click <strong>Next</strong> to take you back to the <strong>Provisioning</strong> tab.</p></li>
+</ul>
+</li>
 
-<li><p>Configure your <strong>Provisioning Settings</strong> as follows:</p>
+<li><p>You are now ready to configure your <strong>Provisioning Settings</strong> as follows:</p>
 <ul>
 <li><p>Click <strong>Enable provisioning features</strong>.</p></li>
 <li><p><strong>API Key</strong>: Enter the key you copied from BambooHR (step 1) into this field.</p></li>
@@ -95,12 +91,14 @@ For example, if you enter <strong>7</strong>, the users with a <strong>Hire Date
 <p><img src="images/apps/bamboo5.png" alt=“bamboo5.png" /></p></li>
 </li>
 <li><p>You can now assign people to the app (if needed) and finish the application setup.</p></li>
+</ol>
 
 
 <h2>Schema Discovery</h2>
 
 <p>BambooHR supports User's Schema Discovery, so you can add some extra attributes to User's Profile, to do that, follow the instructions below:</p>
 
+<ol>
 <li><p>In Okta, from the Admin dashboard, select <strong>Directory > Profile Editor</strong>.</p></li>
 
 <li><p>Select the <strong>APPS</strong> section in the left navigation bar, then find your app in the list.</p></li>
@@ -113,7 +111,7 @@ For example, if you enter <strong>7</strong>, the users with a <strong>Hire Date
 <li><p>Select the attributes you want to add, then click <strong>Save</strong>.</p></li>
 
 <li><p>You can now import and push these user attribute values to/from BambooHR</p></li>
-
+</ol>
 
 
 
