@@ -26,48 +26,60 @@ try{Typekit.load();}catch(e){}
 </div>
 
 
-
-
-
-
 <ol>
 
 
-<li><p>Create an account in <a href="https://discoverunifi.com">Unifi.</a></p></li>
-
-
-
 <li><p>Login to your Unifi account as an administrator.</p></li>
-<li><p>Select <strong>Identity Providers</strong>:
+<li><p>Navigate to <strong>My Account > Users</strong>, then click the <strong>Add New Identity Provider</strong> button.</p>
 <p><img src="images/apps/unifi1.png" alt=“unifi1.png" /></p>
 </li>
 
-<li><p>Select <strong>Add New Identity Provider</strong>:
+
+
+<li><p>On the <strong>Add Identity Provider</strong> page, do the following:</p>
+<ul>
+<li><p><strong>Provider Name</strong>: Enter <strong>Okta</strong>.</p></li>
+<li><p><strong>Provider URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p><strong>Certificate</strong>: Copy and paste the following:</p>
+<p><kbd id="x509CertText">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p>Click the <strong>Add Provider</strong>button.</p></li>
+
+</ul>
 <p><img src="images/apps/unifi2.png" alt=“unifi2.png" /></p>
 </li>
 
-<li><p>Enter the following information (see screenshot at end of text for reference):</p>
+<li><p>To enable Identify Provider for User:</p>
 <ul>
-<li><p><strong>Provider Namer</strong>: Enter <Strong>Okta</strong>.</p> </li>
-<li><p>Provider URL: Copy and paste the following:</p>
-<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
-</li>
-<li><p><strong>Certificate</strong>: Copy and paste the following certificate:</p>
-<p><pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre></p></li>
-<li><p>Click <strong>Add Identity Provider</strong>.</p></li>
+<li><p>Log in to the Unify desktop application as a company administrator.</p> </li>
+<li><p>Open the <strong>User Management</strong> tab in the left menu.</p></li>
+<li><p>Click the <strong>Users</strong> button.</p></li>
 
-<p><img src="images/apps/unifi3.png" alt=“unifi3.png" /></p>
+
 </ul>
 
-
+<p><img src="images/apps/unifi3.png" alt=“unifi3.png" /></p>
 
 </li>
 
+<li><p>Click <strong>Edit</strong> for the required user:</p>
+<p><img src="images/apps/unifi4.png" alt=“unifi4.png" /></p>
+
+</li>
+
+
+<li><p>Select <strong>Okta</strong> from the <strong>Identity Provider</strong> drop down menu, then click <strong>Save User</strong>.</p>
+<p><img src="images/apps/unifi4.png" alt=“unifi4.png" /></p>
+
+</li>
 
 
 
 <li><p>Done!</p><p><b>Notes:</b></p>
-<p>Only SP-initiated flows are supported with the Unifi app. (The Unifi website supports other flows.)</p>
+<p>IdP-initiated flows are supported.</p>
+<p>SP-initiated flows and Just In Time (JIT) provisioning are not supported.</p>
 </li>
 
 
