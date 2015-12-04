@@ -1,0 +1,118 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){} 
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript">
+  function generateCitrixSsoUrl() {
+    var m = window.dataSAML["signOnUrl"];
+    var n = m.replace("/sso/saml","/slo/saml");
+    $('#citrixSsoUrl').text(n);    
+
+   }
+   
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', generateCitrixSsoUrl);
+  });
+</script>
+
+
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Connected Data</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+
+
+<li><p>Log in to the Transporter Management website as your Organization Admin.</p></li>
+
+<li><p>Navigate to <strong>Organization Settings</strong>.</p></li>
+
+<li><p>Click on the <strong>Manage IdP Integration</strong> button:</p>
+<p><img border="1" src="images/apps/connecteddata1.png" alt=“connecteddata1.png" /></p>
+</li>
+
+<li><p>The <strong>Identity Provider Integration</strong> window opens, enter the following (see screen shot at end of step for reference):</p>
+<ul>
+<li><p><strong>SAML 2.0 Endpoint (HTTP)</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+
+</li>
+<li><p><strong>SLO Endpoint (HTTP)</strong>: Copy and paste the following:</p>
+<p><kbd id="signOutUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p><strong>Issuer URL</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p><strong>X.509 Certificate</strong>: Download the following, then click <strong>Browse</strong> to locate and upload it:</p>
+<p><kbd id="downloadCertificate">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p>Click the <strong>Save Identity Provider Settings</strong> button.</p></li>
+
+</ul>
+<p><img border="1" src="images/apps/connecteddata2.png" alt=“connecteddata2.png" /></p>
+
+</li>
+
+<li><p>Wait until you receive a <strong>IdP settings were successfully saved. Paste the information below into your IdP</strong> message.</p></li>
+
+
+<li><p>Make a copy of the value from the <strong>SAML Consumer URL</strong> field, then click the <strong>Close</strong> button:</p>
+<p><img border="1" src="images/apps/connecteddata3.png" alt=“connecteddata3.png" /></p>
+
+</li>
+
+
+<li><p>In Okta, select the <strong>General</strong> tab for the Connected Data app, then click <strong>Edit</strong>.</p>
+
+<ul>
+<li><p>Enter the <strong>SAML Consumer URL</strong> value you saved earlier into the corresponding field.</p> </li>
+<li><p>Click <strong>Save</strong>:</p></li>
+<p><img border="1" src="images/apps/connecteddata4.png" alt=“connecteddata4.png" /></p>
+</li>
+</ul>
+
+
+</li>
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+<p>SP-initiated flows and IdP-initiated flows are supported.</p>
+<p>Just In Time (JIT) provisioning is not supported.</p>
+
+<p><strong>For SP-initiated flows</strong>:</p>
+<ol>
+<li><p>Open your Login URL.</p></li>
+
+<li><p>Enter your email address.</p></li>
+<li><p>Click the <strong>Sign In</strong> button:</p>
+<p><img border="1" src="images/apps/connecteddata5.png" alt=“connecteddata5.png" /></p>
+
+
+</li>
+
+
+</ol>
+</li>
+</ol>
+</div>
+</body>
+</html>
