@@ -1,0 +1,86 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Runscope</h1>
+
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
+</div>
+
+<ol>
+<li><p>Log in to Runscope.</p></li>
+<li><p>Go to this page: <a href="https://www.runscope.com/teams" target="_blank">https://www.runscope.com/teams</a>.</p></li>
+
+<li><p>Click on the <strong>View Team Details</strong> link:</p>
+<p><img src="images/apps/runscope1.png" alt=“runscope1.png" /></p>
+
+</li>
+
+<li><p>Save the last part of the URL from your browser, as shown below:</p>
+<p><img src="images/apps/runscope2.png" alt=“runscope2.png" /></p>
+
+</li>
+
+<li><p>In Okta, select the <strong>Sign On</strong> tab for the Runscope app:</p>
+<ul>
+<li><p>Click <strong>Edit</strong>.</p></li>
+<li><p>Enter the value you copied in step 4 (above) into the <strong>Default Relay State</strong> field.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+
+
+</ul>
+<p><img src="images/apps/runscope3.png" alt=“runscope3.png" /></p>
+
+</li>
+<li><p>Contact the Runscope Support team at:  <a href="mailto:help@runscope.com">help@runscope.com</a> and request that they enable SAML 2.0 for your account.</p></li>
+
+<li><p>Save and attach the following metadata:</p>
+<p><pre id="idpMetadata">Sign in to Okta Admin app to have this variable generated for you.</pre></p>
+</li>
+
+<li><p>Include the <strong>team name</strong> for which you want to activate SAML 2.0.</p></li>
+
+<li><p>Runscope Support will process your request. After receiving a confirmation email, you can start assigning people to the application.</p></li>
+
+
+
+
+
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+<p>IdP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported. </p>
+
+<p><strong>For an SP-initiated flows</strong>:</p>
+<ol>
+<li><p>Go to <a href="https://www.runscope.com/signin" target="_blank">https://www.runscope.com/signin</a>. </p>
+<li>Enter your email address.</li>
+<li>Click the <strong>Sign In</strong> button.</li>
+
+<p><img border="1" src="images/apps/runscope4.png" alt=“runscope4.png" /></p>
+</ol>
+
+</li>
+
+</ol>
+</div>
+</body>
+</html>
