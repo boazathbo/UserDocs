@@ -23,14 +23,13 @@ try{Typekit.load();}catch(e){}
 <div class="okta-instructions">
 
 
-<h1>Configuring Provisioning for Saleforce</h1>
+<h1>Configuring Provisioning for Salesforce</h1>
 
 <p>This guide provides the steps required to configure Provisioning for Salesforce.</p>
 
-<h2>Before you Begin</h2>
 <ol>
-<li><p>Create an administrator account in Salesforce. You will use this account’s username and password in to configure the Salesforce app in Okta. When you create an administrator account, salesforce will provide you with a <em>token</em>.</p>
-<p><strong>Note</strong>: Every time you reset this account’s password, Salesforce will provide you with a new token, and you need to edit the Salesforce app’s <strong>Provisioning</strong> settings in Okta using the new password/token as described below.</p></li>
+<li><p>Create an administrator account in Salesforce. You will use this account’s username and password to configure the Salesforce app in Okta. When you create an administrator account, Salesforce will provide you with a <em>token</em>.</p>
+<p><strong>Note</strong>: Every time you reset this account’s password, Salesforce will provide you with a new token, and you need to edit the Salesforce app’s <strong>Provisioning</strong> settings in Okta using the new password/token as described below.  See TIPS below.</p></li>
 
 </li>
 
@@ -38,7 +37,20 @@ try{Typekit.load();}catch(e){}
 <ul>
 <li><p>In the <strong>API Credentials</strong> section, enter the <strong>Username</strong>, <strong>Password</strong> and <strong>Token</strong> associated with your Salesforce Administrator account.</p>
 <p><strong>Note</strong>: Simply append the token Salesforce provided to you to your password, no spaces or other characters.</p>
-</p></li>
+</p>
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+<h3><strong>TIPS</strong></h3>
+
+<p>- To avoid breaking the integration when the password is reset, use a dedicated API account for connecting Okta to Salesforce.</p>
+<p>- Do not enable delegated authentication in Salesforce for the API user specified here.</p>
+
+
+
+ </p>
+</div>
+
+
+</li>
 <li><p>Click <strong>Test API Credentials</strong>; if successful, a verification message appears at the top of the screen, as shown below:</p></li>
 </ul>
 <p><img src="images/apps/salesforce1.png" alt=“salesforce1.png" /></p></li>
@@ -49,6 +61,159 @@ try{Typekit.load();}catch(e){}
 
 <li><p>You can now assign people to the app (if needed) and finish the application setup.</p></li>
 </ol>
+<br /><br />
+
+
+<hr>
+<h3><strong>NOTES</strong></h3>
+
+<ul>
+<li><p>If the existing Salesforce app instance that you have configured does not allow schema discovery, then it is an older version of the integration. You need to add a new Saleforce app instance to obtain the Schema Discovery feature.</p>
+<p><img src="images/apps/salesforce2.png" alt=“salesforce2.png" /></p></li>
+
+
+</li>
+<li><p>Schema discovery does not support all Salesforce custom attribute types. The following is a list of the custom attribute types along with whether they are supported or not.</p>
+
+<p><table style="width: 275px;">
+	<thead align="left">
+		<tr>
+			<th><span style="font-size:14px;">Attribute</span></th>
+			<th><span style="font-size:14px;"> Supported</span></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><span style="font-size:14px;">Auto Number</span></td>
+			<td align="center"><span style="font-size:14px;">No</span></td>
+		</tr>
+		<tr>
+			<td><span style="font-size:14px;">Formula</span></td>
+			<td align="center"><span style="font-size:14px;">No</span></td>
+		</tr>
+		<tr>
+			<td><span style="font-size:14px;">Roll-Up Summary</span></td>
+			<td align="center"><span style="font-size:14px;">No</span></td>
+		</tr>
+		
+		
+		<tr>
+			<td><span style="font-size:14px;">Hierarchical Relationship</span></td>
+			<td align="center"><span style="font-size:14px;">No</span></td>
+		</tr>
+<tr>
+			<td><span style="font-size:14px;">Checkbox</span></td>
+			<td align="center"><span style="font-size:14px;">Yes</span></td>
+		</tr>
+
+</tr>
+<tr>
+			<td><span style="font-size:14px;">Currency</span></td>
+			<td align="center"><span style="font-size:14px;">No</span></td>
+		</tr>
+
+</tr>
+<tr>
+			<td><span style="font-size:14px;">Date</span></td>
+			<td align="center"><span style="font-size:14px;">Yes</span></td>
+		</tr>
+
+</tr>
+<tr>
+			<td><span style="font-size:14px;">Date/Time</span></td>
+			<td align="center"><span style="font-size:14px;">Yes</span></td>
+		</tr>
+
+</tr>
+<tr>
+			<td><span style="font-size:14px;">Email</span></td>
+			<td align="center"><span style="font-size:14px;">Yes</span></td>
+		</tr>
+</tr>
+<tr>
+			<td><span style="font-size:14px;">Geolocation</span></td>
+			<td align="center"><span style="font-size:14px;">No</span></td>
+		</tr>
+
+</tr>
+<tr>
+			<td><span style="font-size:14px;">Number</span></td>
+			<td align="center"><span style="font-size:14px;">Yes</span></td>
+		</tr>
+
+</tr>
+<tr>
+			<td><span style="font-size:14px;">Percent</span></td>
+			<td align="center"><span style="font-size:14px;">No</span></td>
+		</tr>
+</tr>
+<tr>
+			<td><span style="font-size:14px;">Phone</span></td>
+			<td align="center"><span style="font-size:14px;">Yes</span></td>
+		</tr>
+
+
+</tr>
+<tr>
+			<td><span style="font-size:14px;">Picklist</span></td>
+			<td align="center"><span style="font-size:14px;">No</span></td>
+		</tr>
+</tr>
+<tr>
+			<td><span style="font-size:14px;">Picklist (multi-select)</span></td>
+			<td align="center"><span style="font-size:14px;">No</span></td>
+		</tr>
+
+</tr>
+<tr>
+			<td><span style="font-size:14px;">Text</span></td>
+			<td align="center"><span style="font-size:14px;">Yes</span></td>
+		</tr>
+
+
+</tr>
+<tr>
+			<td><span style="font-size:14px;">Text Area</span></td>
+			<td align="center"><span style="font-size:14px;">Yes</span></td>
+		</tr>
+</tr>
+<tr>
+			<td><span style="font-size:14px;">Text Area (long)</span></td>
+			<td align="center"><span style="font-size:14px;">Yes</span></td>
+		</tr>
+
+</tr>
+<tr>
+			<td><span style="font-size:14px;">Text Area (rich)</span></td>
+			<td align="center"><span style="font-size:14px;">Yes</span></td>
+		</tr>
+
+</tr>
+<tr>
+			<td><span style="font-size:14px;">Text (encrypted)</span></td>
+			<td align="center"><span style="font-size:14px;">Yes</span></td>
+		</tr>
+
+</tr>
+<tr>
+			<td><span style="font-size:14px;">URL</span></td>
+			<td align="center"><span style="font-size:14px;">No</span></td>
+		</tr>
+
+	</tbody>
+</table>
+</p>
+</li>
+
+<li><p>This integration only supports the Salesforce <strong>User</strong> object. <strong>Contacts</strong>, <strong>Accounts</strong>, and <strong>Opportunity</strong> objects are not supported.</p></li>
+<li><p>It is not possible for Okta to auto-update all user attributes in Salesforce, while selectively excluding <strong>Profile</strong> or <strong>Role</strong> from being updated.</p></li>
+
+</p>
+
+</ul>
+
+ </p>
+
 
 
 
