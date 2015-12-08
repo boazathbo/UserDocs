@@ -1,0 +1,78 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Biztera</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+
+<ol>
+
+
+<li><p>Login to Biztera as an administrator.</p></li>
+<li><p>Select the <strong>Organization</strong> you want to enable SAML 2.0 for:</p>
+<p><img src="images/apps/biztera1.png" alt=“biztera1.png" /></p>
+</li>
+
+<li><p>Select the <strong>Advanced</strong> tab for your orgnization:</p>
+<p><img src="images/apps/biztera2.png" alt=“biztera2.png" /></p>
+</li>
+<li><p>Select <strong>SAML</strong> from the <strong>Advanced</strong> drop down menu:</p>
+<p><img src="images/apps/biztera3.png" alt=“biztera3.png" /></p>
+</li>
+
+<li><p>On the SAML configuration screen, enter the following (see screen shot at end of step for reference):</p>
+<ul>
+<li><p>Check the <strong>Enabled</strong> box.</p></li>
+<li><p><strong>SAML SSO URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p><strong>Identity Provider Issuer</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p></li>
+<li><p><strong>Public Certificate</strong>: Copy and paste the following:</p>
+<p><kbd id="x509CertText">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p>Click <strong>Save</strong>.</p></li>
+
+
+</ul>
+<p><img src="images/apps/biztera4.png" alt=“biztera4.png" /></p>
+
+</li>
+
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+
+<p>IdP-initiated flows and Just In Time (JIT) provisioning are supported.</p>
+<p>SP-initiated flows are not supported.</p> 
+</li>
+
+
+
+
+
+
+
+</div>
+</body>
+</html>
