@@ -24,47 +24,42 @@ try{Typekit.load();}catch(e){}
 <h1>Identity Provider Set Up for Facebook</h1>
 
 
-<h2>Begin in Facebook</h2>
-
-<p>Register your application with Facebook and obtain a client ID and client secret.</p>
-
 <ol>
-<li><p>Go to (<a href="http://developers.facebook.com" target="_blank">http://developers.facebook.com</a>). Note that you may be prompted to register if you have not previously used the Facebook Developer site.</p></li>
-<li><p>Select <strong>Add a New App</strong> from the <strong>My Apps</strong> menu.</p></li>
-<li><p>In the <strong>Platform Selection</strong> screen, select <strong>Website</strong>.</p></li>
-<li><p>When prompted, enter a descriptive name and select <strong>Create New Facebook App ID</strong>.</p></li>
-<li><p>In the confirmation dialog, select a category, then click the <strong>Create New Facebook App ID</strong> button.</p></li>
-<li><p>Copy the following values from your Facebook Developer App Settings page:</p>
-
-<ul>
-
-<li><p>The Facebook <strong>App ID</strong>. You will paste this value in the <strong>Client ID</strong> field in the Okta Identity Provider configuration page.</p></li>
-<li><p>The Facebook <strong>App Secret</strong>. You will paste this value to the <strong>Client Secret</strong> field In the Okta Identity Provider configuration page. Note that you need to click  <strong>Show</strong> on the Facebook page to obtain the Client Secret.</p></li>
-
-</li>
-</ul>
-
+  <li><p>Go to <a href="http://developers.facebook.com" target="_blank">developers.facebook.com</a> and register for a developer account. You may be prompted to register if you have not previously used the Facebook Developer site.</p></li>
+  <li>Click <strong>My Apps</strong> from the toolbar and select <strong>Add a New App</strong> from the dropdown.
+    <img src="images/Facebook_Add_a_New_App.png" alt="Add a New App screenshot"></li>
+  <li>Select <strong>Website</strong> from the <strong>Add a New App</strong> window.</li>
+  <li>Choose a name of your app. This name is what your users will see when they authenticate to your app.</li>
+  <li>Click <strong>Create New Facebook App ID</strong>.</li>
+  <li>You will need to choose a category for your app in the <strong>Create a New App ID</strong> window. If you are unsure what to select, we suggest selecting the <strong>Utilities</strong> category. Click the blue <strong>Create App ID</strong> button when you are done.</li>
+  <li>When you see <strong>Quick Start for Website</strong>, click <strong>Skip Quick Start</strong>. You should now see the Dashboard for the app you are creating.
+    <img src="images/Facebook_app_Dashboard.png" alt="Facebook App Dashboard"></li>
 </ol>
 
-<h2>Configure settings in the Okta Admin Dashboard</h2>
-
-<ol><li><p>In a separate browser or tab, go to the Okta Admin dashboard. [For what to do in Okta, we'll provide a link to the Service Cloud doc.]</p></li></ol>
-
-
+<h2>Finish configuring the Facebook Identity Provider in Okta</h2>
+<ol>
+  <li>Return to the browser tab where you were configuring Identity Providers in Okta.</li>
+  <li>Use the <strong>App ID</strong> from above as the Okta <strong>Client Id.</strong></li>
+  <li>Use the <strong>App Secret</strong> from above as the Okta <strong>Client Secret.</strong></li>
+  <li>Once the Okta Facebook configuration is saved in Okta, you will need to copy the redirect URI from the identity provider as shown below:
+    <img src="images/Okta_idp_configuration.png" alt="Okta identity provider configuration"></li>
+</ol>
 <h2>Return to Facebook</h2>
-
 <ol>
-<li><p>On the Facebook Developer App Settings page, click the <strong>Add Platform</strong> button, then select <strong>Website</strong> from the pop-up.</p></li>
-<li><p>Paste the Okta Identity Provider Login URL that you copied from the Okta Idenity Provider page into the field labeled <strong>URL of your site</strong>. </p>
-<p>The Okta URL you paste into the field should look similar to this: "https://example.okta.com/sso/authorize/0ab1c2de3fGHIjKLM4n5"</p></li>
-<li><p>Click <strong>Save Changes</strong> .</p></li>
-
+  <li>In your Facebook app configuration, click <strong>Settings</strong> in the left pane.</li>
+  <li>Click <strong>Add Platform</strong>.</li>
+  <li>Select <strong>Website</strong>. </li>
+  <li>In the <strong>Site URL</strong> field in the "Website" section, enter the Redirect URI you obtained above.</li>
+  <li>Click <strong>Save Changes</strong>.
+    <img src="images/Facebook_app_Settings.png" alt="Configuring the Okta Redirect URI in the Facebook app Settings"></li>
 </ol>
 
-
-
-
-
+<h2>Note regarding Facebook scopes</h2>
+<p>
+  The <code>public_profile</code> and <code>email</code> OAuth scopes are automatically included by Okta.
+  
+If your app requires more than <code>public_profile</code>, <code>email</code>, it will require a <a href="https://developers.facebook.com/docs/facebook-login/review">Login Review</a>.  For more information on Facebook scopes, go to the <a href="https://developers.facebook.com/docs/facebook-login/permissions">Permissions</a> section on their developer site.
+</p>
 </div>
 </body>
 </html>
