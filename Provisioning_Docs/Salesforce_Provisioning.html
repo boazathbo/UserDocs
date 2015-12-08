@@ -65,20 +65,28 @@ try{Typekit.load();}catch(e){}
 
 
 <hr>
-<h3><strong>NOTES</strong></h3>
+<h2>Schema Discovery</h2>
 
+<p>If the existing Salesforce app instance that you have configured does not allow schema discovery, then it is an older version of the integration. You need to add a new Saleforce app instance to obtain the Schema Discovery feature.</p>
+<p>To add extra attributes to a User’s Profile, follow the instructions below:</p>
+
+<ol>
+<li><p>In Okta, from the Admin dashboard, select <strong>Directory > Profile Editor</strong>.</p></li>
+<li><p>Select the <strong>APPS</strong> section in the left navigation pane, then find your app in the list.</p></li>
+<li><p>Check the list of attributes, and if you decide you need more, click <strong>Add Attribute</strong>. A list of extended attributes will appear:</p></li>
+<p><img src="images/apps/salesforce_provisioning.png" alt=“salesforce_provisioning.png" /></p></li>
+<li><p>Select the attributes you want to add, then click <strong>Save</strong>.</p></li>
+<li><p>You can now import and push these user attribute values to/from Salesforce.</p></li>
+</ol>
+<br />
+<h2>Notes</h2>
 <ul>
-<li><p>If the existing Salesforce app instance that you have configured does not allow schema discovery, then it is an older version of the integration. You need to add a new Saleforce app instance to obtain the Schema Discovery feature.</p>
-<p><img src="images/apps/salesforce2.png" alt=“salesforce2.png" /></p></li>
-
-
-</li>
 <li><p>Schema discovery does not support all Salesforce custom attribute types. The following is a list of the custom attribute types along with whether they are supported or not.</p>
 
 <p><table style="width: 275px;">
 	<thead align="left">
 		<tr>
-			<th><span style="font-size:14px;">Attribute</span></th>
+			<th><span style="font-size:14px;">Attribute Data Type</span></th>
 			<th><span style="font-size:14px;"> Supported</span></th>
 		</tr>
 	</thead>
