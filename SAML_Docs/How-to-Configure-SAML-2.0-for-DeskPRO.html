@@ -24,6 +24,18 @@ try{Typekit.load();}catch(e){}
 <div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
 <p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
 </div>
+<h2>Before You Begin</h2>
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+<h3><strong>Read this before you enable SAML</strong></h3>
+<p>The DeskPRO application is pre-configured to pass all the attributes from the Okta User Base Profile as part of the SAML assertion. These attributes are required to perform Just in Time (JIT) provisioning for DeskPRO. In order to be able to send these attributes your Okta organization needs to have the following feature flags turned on:</p><br />
+<li><p>CLOUD_DIRECTORY (Universal Directory)</p></li>
+<li><p>OKTA_EL_SAML_ATTRIBUTE_UPGRADE</p></li><br />
+<p>Once these feature flags are turned on, make sure that the attributes are populated in the Okta User Base Profile, and also have the correct attribute mappings set with AD/LDAP (if needed). If this value is empty, Okta will pass null values to DeskPRO.</p>
+
+</div>
+
+
+
 <ol>
 <li>
 <p>Sign in to DeskPRO as a user with administrator permissions.</p>
