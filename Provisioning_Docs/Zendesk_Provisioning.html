@@ -1,0 +1,107 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Zendesk Provisioning</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>You are viewing this document because you checked <strong>Enable provisioning features</strong> while configuring this app. To reconfigure any of the <strong>General Settings</strong> or <strong>Sign-On Options</strong>, uncheck the <strong>Enable provisioning features</strong> box, and use the <strong>Previous</strong> and <strong>Next</strong> buttons to navigate through the configuration screens.</p>
+</div>
+
+
+<h1>Configuring Provisioning for Zendesk</h1>
+
+<p>This guide provides the steps required to configure Provisioning for Zendesk.</p>
+
+
+<ol>
+
+<li><p>Configure your <strong>Provisioning</strong> settings for Zendesk as follows:</p>
+<ul>
+<li><p>Click <strong>Enable provisioning features</strong>.</p></li>
+<li><p>Enter your Zendesk credentials in the <strong>Username</strong> and <strong>Password</strong> fields.</p>
+<p><strong>NOTES</strong>:</p>
+<ul>
+<li><p>Only verified account credentials can be used (see <a href="https://support.zendesk.com/entries/23242272-Verifying-a-user-s-email-address" target="_blank">https://support.zendesk.com/entries/23242272-Verifying-a-user-s-email-address</a> for more information).</p></li>
+
+<li><p>Only accounts with-out 2-factor authentication can be used.</p></li>
+</ul>
+</li>
+<li><p>Select what kind of <strong>User Roles to Import</strong>; either <strong>All Users</strong> or <strong>Only Admins and Agents</strong>.</p>
+<p><img src="images/apps/zendesk1.png" alt=“zendesk1.png" /></p>
+
+<li><p>Scroll down and select the <strong>Provisioning Features</strong> you want to enable.</p>
+
+</li>
+<li><p>Click <strong>Save</strong>.</p>
+<p><img src="images/apps/zendesk2.png" alt=“zendesk2.png" /></p>
+</li>
+</li>
+
+</ul>
+</li>
+
+<li><p>You can now assign people to the app (if needed) and finish the application setup.</p></li>
+
+<h2>Schema Discovery</h2>
+
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+
+
+
+<p>In order to use schema discovery, make sure you have the UD feature flag <strong>PROV_ZENDESK_ENABLE_UD</strong> turned on before you create your app instance.</p>
+
+</div>
+
+<p>Zendesk supports User's Schema Discovery, so you can add some extra attributes to User's Profile, to do that, follow the instructions below:</p>
+
+
+<ol>
+<li><p>In Okta, from the Admin dashboard, select <strong>Directory > Profile Editor</strong>.</p></li>
+
+<li><p>Select the <strong>APPS</strong> section in the left navigation bar, then find your app in the list.</p></li>
+
+<li><p>Check the list of attributes, and if you decide you need more, click <strong>Add Attribute</strong>. A list of extended attributes will appear:</p>
+<p><img src="images/apps/zendesk3.png" alt=“zendesk3.png" /></p></li>
+
+</li>
+
+<li><p>Select the attributes you want to add, then click <strong>Save</strong>.</p></li>
+
+<li><p>You can now import and push these user attribute values to/from Zendesk.</p></li>
+</ol>
+
+<h2>Common Issues</h2>
+
+<p>If you are in the process of creating a Zendesk app instance with <strong>PROV_ZENDESK_ENABLE_UD</strong> provisioning feature turned on, you will encounter an error similar to the following during the app assignment flow.</p>
+<p><img src="images/apps/zendesk4.png" alt=“zendesk4.png" /></p></li>
+
+<p>The workaround for this is to first create the app instance without assigning it to any user/group. Once the app instance exists, you can then assign the app to the respective people by either:
+<ul>
+<li><p><strong>By User</strong>: From the Okta admin dashboard, navigate to <strong>Directory > People</strong> and assign apps to users.</p></li>
+<li><p><strong>By Application</strong>: From the Okta admin dashboard, navigate to <strong>Applications</strong> and assigning apps to users.</p></li>
+
+</ul>
+
+
+</div>
+</body>
+</html>
