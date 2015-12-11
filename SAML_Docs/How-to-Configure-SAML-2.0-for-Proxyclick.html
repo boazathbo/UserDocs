@@ -1,0 +1,76 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Proxyclick</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+
+<ol>
+
+
+<li><p>Send an email to Proxyclick Support and request that they enable SAML 2.0 for your account.</p></li>
+<li><p>Attach the following:</p>
+<ul>
+<li><p><strong>IDP Issuer/Entity ID</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+
+</li>
+
+<li><p><strong>Login URL/SignOn URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+
+</li>
+<li><p><strong>x.509 Certificate</strong> in PEM text format: Copy and paste the following:</p>
+<p><pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre></p>
+</li>
+
+
+</ul>
+</li>
+<li><p>After Proxyclick set up the connection, users can login with SAML from Okta.</p></li>
+
+<li><p>In Okta, select the <strong>General</strong> tab for the Proxyclick app, then click <strong>Edit</strong>.</p>
+<p><img src="images/apps/proxyclick1.png" alt=“proxyclick1.png" /></p>
+</li>
+
+<li><p>Enter the id of the account in which you want to log in, in the <strong>Company ID</strong> field.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+
+<p>IdP-initiated flows are supported.
+<p>SP-initiated flows and Just In Time (JIT) provisioning are not supported.</p>
+
+</li>
+
+
+
+
+
+
+
+
+</div>
+</body>
+</html>
