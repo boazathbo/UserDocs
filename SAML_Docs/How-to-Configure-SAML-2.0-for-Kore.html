@@ -1,0 +1,91 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Kore</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+
+<ol>
+
+
+<li><p>Login to Kore as an Administrator.</p></li>
+<li><p>Navigate to <strong>Security > Single Sign On</strong>, then select <strong>Enable SSO</strong>:</p>
+<p><img src="images/apps/kore1.png" alt=“kore1.png" /></p>
+</li>
+
+<li><p>Select <strong>SAML</strong> as the <strong>Sign-On Protocol</strong>.</p></li>
+<li><p>Under the <strong>Scope</strong> tab, select who the SSO configuration will apply to. In our example, we selected <strong>All Users</strong></strong>:</p>
+<p><img src="images/apps/kore2.png" alt=“kore2.png" /></p>
+</li>
+<li><p>Select the <strong>Configure</strong> tab, then enter the following:</p>
+
+<ul>
+<li><p>Select <strong>Okta</strong> as identity provider.</p></li>
+<li><p><strong>Okta Single Sign-On URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p><strong>Identity Provider Issuer</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p><strong>Certificate</strong>: Copy and paste the following in text format:</p>
+<p><kbd id="x509CertText">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+<li><p>Click <strong>Save</strong>.</p></li>
+
+
+</ul>
+<p><img src="images/apps/kore3.png" alt=“kore3.png" /></p>
+
+</li>
+
+
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+
+<p>IdP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported.
+
+<br /><br />
+
+<p><strong>For SP-initiated Flows:</p></strong>
+<ol>
+<li><p>Open the Kore login page (<a href="https://app.kore.com/" target="_blank">https://app.kore.com/</a>)</p> </li>
+<li><p>Enter your email address.</p> </li>
+<li><p>Click <strong>Continue</strong>.</p></li>
+<p><img src="images/apps/kore4.png" alt=“kore4.png" /></p>
+
+
+</ol>
+</li>
+
+
+
+
+
+
+
+
+</div>
+</body>
+</html>
