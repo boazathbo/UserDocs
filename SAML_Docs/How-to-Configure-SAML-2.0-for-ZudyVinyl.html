@@ -56,6 +56,7 @@ try{Typekit.load();}catch(e){}
 <li><p><strong>Priority</strong>: Enter <strong>10</strong>. Note that this value must be a <em>unique</em> integer between 10 and 100.</p></li>
 <li><p>Check <strong>User Provisioning</strong> to enable Just In Time (JIT) user provisioning.</p></li>
 <li><p>Check <strong>Supplies Group Membership</strong> to indicate that Okta has been configured to pass user group membership.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
 
 </ul>
 <p><img src="images/apps/zudy3.png" alt=“zudy3.png" /></p>
@@ -65,7 +66,9 @@ try{Typekit.load();}catch(e){}
 
 <ul>
 <li><p>Click <strong>Add</strong, then select the <strong>MetadataEndpoint</strong> parameter from the dropdown list.</p></li>
-<li><p>Copy and paste the following <strong>Metadata URL</strong>.</p></li>
+<li><p>Copy and paste the following <strong>Metadata URL</strong>.</p>
+<p><kbd id="metadataUrl">Sign in to the Okta Admin app to have this variable generated for you</kbd></p>
+</li>
 <li><p>Check the <strong>Save</strong> icon (check mark).</p></li>
 
 </ul>
@@ -102,7 +105,7 @@ try{Typekit.load();}catch(e){}
 
 <li><p>Enter the following:</p>
 <ul>
-<li><p>In the Providers panel, select <strong>Okta</strong> as the security provider.</p>
+<li><p>In the Providers panel, select <strong>Okta security provider</strong>.</p>
 </li>
 
 <li><p>In the Provider Groups panel, click <strong>Add</strong>.</p>
@@ -111,7 +114,7 @@ try{Typekit.load();}catch(e){}
 <li><p>In the <strong>Identifier</strong> field, enter a group name (which will be sent from Okta).</p>
 </li>
 
-<li><p>In the <strong>Group</strong> field, enter the corresponding Vinyl Group (<strong>LAdministrators</strong> in our example).</p></li>
+<li><p>In the <strong>Group</strong> field, enter the corresponding Vinyl Group (<strong>Administrators</strong> in our example).</p></li>
 <li><p>Click <strong>Save</strong>.</p></li>
 
 
