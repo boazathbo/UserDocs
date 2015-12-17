@@ -1,0 +1,160 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="resources/scripts/vkbeautify.js"></script>
+
+<title>DocuSign Provisioning</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>To reconfigure any of the <strong>General Settings</strong> or <strong>Sign-On Options</strong>, uncheck the <strong>Enable provisioning features</strong> box, and use the <strong>Previous</strong> and <strong>Next</strong> buttons to navigate through the configuration screens.</p>
+</div>
+
+
+<h1>Configuring Provisioning for DocuSign</h1>
+
+<p>This guide provides the steps required to configure Provisioning for DocuSign.</p>
+
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+<h3><strong>Note</strong></h3>
+<p>Make sure your account plan supports silent user activation via API.</p> 
+<p>This means that an activation email won't be sent to created user, who will immediately become <strong>Active</strong>.</p>
+<p>If you find that you have provisioned users created in Docusign with status of <strong>ActivationSent</strong>, contact DocuSign Support to have the Plan associated with your DocuSign account changed to one which turns off email activations.</p>
+<p>See <a href="https://support.docusign.com/guides/dfs-admin-guide-add-users" target="_blank">https://support.docusign.com/guides/dfs-admin-guide-add-users</a></p>
+</div>
+
+
+
+<h2>Features</h2>
+<p>The following provisioning features are supported:</p>
+<ul>
+<li>Push Groups</li>
+<li>Import New Users</li>
+<li>Import Profile Updates</li>
+<li>Push New Users</li>
+<li>Push Profile Updates</li>
+<li>Push User Deactivation</li>
+</ul>
+<p><strong>Note</strong>: This app supports the full set of group operations. For more information, see <a href="https://support.okta.com/help/articles/Knowledge_Article/27086213-Using-Group-Push" target="_blank">https://support.okta.com/help/articles/Knowledge_Article/27086213-Using-Group-Push</a></p>
+
+
+
+<h2>Requirements</h2>
+<p>Complete the following before you configure provisioning for DocuSign:</p>
+
+
+
+
+
+
+<ol>
+<li><p>Obtain your <strong>Account ID</strong>:</p>
+<ul>
+<li><p>Log in to DocuSign as an administrator.</p></li>
+<li><p>Your <strong>Account ID</strong> is at the top of the page; and is also available by clicking your profile icon, as shown below:</p>
+<p><p><img src="images/apps/docusign1.png" alt=“docusign1.png" /></p></li>
+
+</li>
+
+</li>
+</ul>
+
+<li><p>Verify the DocuSign app’s <strong>General Settings</strong> in Okta:</p>
+<ul>
+<li><p>In Okta, select the <strong>General</strong> tab for the DocuSign app.</p></li>
+<li><p>Specify an <strong>Instance Type</strong>:</p>
+<p><p><img src="images/apps/docusign2.png" alt=“docusign2.png" /></p></li>
+</ul>
+</li>
+
+<h2>Configuration Steps</h2>
+<ol>
+
+<li><p>Configure your <strong>Provisioning</strong> settings for DocuSign as follows:</p>
+<ul>
+<li><p>Check the <strong>Enable provisioning features</strong> box.</p></li>
+<li><p>Enter your DocuSign <strong>API Credentials</strong>:</p>
+<ul>
+<li><p><strong>Admin Username</strong>.</p></li>
+<li><p><strong>Admin Password</strong>.</p></li>
+<li><p><strong>Admin Account ID</strong>.</p></li>
+</ul>
+<p><p><img src="images/apps/docusign3.png" alt=“docusign3.png" /></p></li>
+</li>
+
+<li><p>Scroll down and select the <strong>Provisioning Features</strong> you want to enable.</p>
+<p><p><img src="images/apps/docusign4.png" alt=“docusign4.png" /></p></li>
+
+
+</li>
+<li><p>Click <strong>Save</strong>.</p>
+</li>
+</li>
+</ul>
+</li>
+
+
+
+<li><p>You can now assign people to the app (if needed) and finish the application setup.</p></li>
+<br />
+
+
+
+
+
+<h2>User Assignment</h2>
+
+<ol>
+<li><p>To assign users to the Docusign app: open the app, select the <strong>People</strong> tab and then click the <strong>Assign to People</strong> button.</p>
+<p><p><img src="images/apps/docusign5.png" alt=“docusign5.png" /></p></li>
+</li>
+
+<li><p>Then, in the <strong>Assign DocuSign to People</strong> dialog, select a user, then click <strong>Assign</strong> button.</p>
+<p><p><img src="images/apps/docusign6.png" alt=“docusign6.png" /></p></li>
+</li>
+
+<li><p>You can set whether user can send envelopes or not by selecting either <strong>true</strong> or </strong>false</strong> in the from <strong>Can Send Envelope</strong> field. If set to <strong>true</strong>, this user can send envelopes though the DocuSign. </p>
+<p><p><img src="images/apps/docusign7.png" alt=“docusign7.png" /></p></li>
+</li>
+
+
+</ol>
+<br />
+<h2>Known Issues</h2>
+
+
+
+<p>Errors encountered while authenticating with Docusign:</p>
+<ul>
+<li><p>Invalid <strong>username/password</strong> provided or wrong DocuSign <strong>Instance Type</strong> selected in <strong>General Settings<strong>.
+<p><img src="images/apps/docusign8.png" alt=“docusign8.png" /></p></li>
+
+<li><p>Invalid <strong>Account ID</strong>.</p>
+<p><img src="images/apps/docusign9.png" alt=“docusign9.png" /></p></li>
+
+</li>
+
+</ul>
+</li>
+
+</ol>
+
+</div>
+</body>
+</html>
