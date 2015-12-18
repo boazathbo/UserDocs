@@ -8,7 +8,7 @@ try{Typekit.load();}catch(e){}
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="resources/scripts/vkbeautify.js"></script>
 
-<title>Samanage Provisioning</title>
+<title>JIRA (Atlassian) Provisioning</title>
 
 <script src="resources/scripts/getAppValues.js"></script>
 
@@ -27,34 +27,24 @@ try{Typekit.load();}catch(e){}
 </div>
 
 
-<h1>Configuring Provisioning for Samanage</h1>
+<h1>Configuring Provisioning for JIRA (Atlassian)</h1>
 
-<p>This guide provides the steps required to configure Provisioning for Samanage.</p>
-<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+<p>This guide provides the steps required to configure Provisioning for JIRA (Atlasssian).</p>
 
-
-
-<p>To get access all supported features, including Schema Discovery, the feature flag <strong>PROV_SAMANAGE_ENABLE_CLOUD_DIRECTORY</strong> must be turned on before you create your app instance.</p>
-
-</div>
 
 <h2>Features</h2>
 <p>The following provisioning features are supported:</p>
 <ul>
-<li><p><strong>Push new users</strong>.</p>
+<li><p><strong>Push new users</strong></p>
 <p>New users created through OKTA will also be created in the third party application.</p></li>
-<li><p><strong>Push profile update</strong>.</p>
+<li><p><strong>Push profile update</strong><p></li>
 <p>Updates made to the user's profile through OKTA will be pushed to the third party application.</p></li>
-
-<li><p><strong>Push user deactivation</strong>.</p>
-<p>Deactivating the user or disabling the user's access to the application through OKTA will deactivate the user in the third party application.</p></li>
-
-<li><p><strong>Import new users</strong>.</p>
+<li><p><strong>Push password update</strong><p></li>
+<p>Changes made to the user's password will be pushed to the third party application.</p></li>
+<li><p><strong>Import new users</strong><p></li>
 <p>New users created in the third party application will be downloaded and turned in to new AppUser objects, for matching against existing OKTA users.</p></li>
-
-<li><p><strong>Import profile updates</strong>.</p>
+<li><p><strong>Import profile updates</strong><p></li>
 <p>Updates made to a user's profile in the third party application will be downloaded and applies to the profile fields stored locally in OKTA.  If the app is the system of record for the user, changes made to core profile fields (email, first name, last name, etc) will be applied to the Okta user profile.  If the app is NOT the system of record for the user, only changes made to app-specific fields will be applied to the local user profile.</p></li>
-
 <li><p><strong>Group push</strong>.</p>
 <p>Groups and their members can be pushed to remote systems. More about using group push operations you can find here: <a href="https://support.okta.com/help/articles/Knowledge_Article/27086213-Using-Group-Push" target="_blank">Using Group Push</a></p></li>
 
@@ -63,22 +53,24 @@ try{Typekit.load();}catch(e){}
 <h2>Configuration Steps</h2>
 <ol>
 
-<li><p>Configure your <strong>Provisioning</strong> settings for Samanage as follows:</p>
+<li><p>Configure your <strong>Provisioning</strong> settings for JIRA (Atlassian) as follows:</p>
 <ul>
 <li><p>Check the <strong>Enable provisioning features</strong> box.</p></li>
-<li><p>Enter your Samanage <strong>API Credentials</strong>
+<li><p>Enter your JIRA (Atlassian) <strong>API Credentials</strong>
 <ul>
 <li><p><strong>Admin Username</strong>: An admin username that has provisioning rights.</p></li>
 <li><p><strong>Admin Password</strong>: The password for the above admin username.</p></li>
-<li><p><strong>Import active users only</strong>: If you enable this flag, you can import only active users from Samanage. Otherwise all users will be imported.</p></li>
+<li><p><strong>All User’s Group</strong>: a group name, from which users are imported from remote side.</p>
+<p><strong>Note</strong>: Depending on organization settings, the <strong>All User's Group</strong> property may be not usable. By default, users imports are from a specified group only.</p>
+</li>
 
 
 </ul>
-<p><p><img src="images/apps/samanage1.png" alt=“samanage1.png" /></p></li>
+<p><p><img src="images/apps/atlassian1.png" alt=“atlassian1.png" /></p></li>
 </li>
 
 <li><p>Scroll down and select the <strong>Provisioning Features</strong> you want to enable.</p>
-<p><p><img src="images/apps/samanage2.png" alt=“samanage2.png" /></p></li>
+<p><p><img src="images/apps/atlassian2.png" alt=“atlassian2.png" /></p></li>
 
 
 </li>
@@ -95,24 +87,8 @@ try{Typekit.load();}catch(e){}
 
 
 
-<p>Samanage supports User's Schema Discovery, so you can add some extra attributes to User's Profile, to do that, follow the instructions below:</p>
+<p>JIRA (Atlasssian) does not supports User's Schema Discovery.</p>
 
-
-<ol>
-<li><p>In Okta, from the Admin dashboard, select <strong>Directory > Profile Editor</strong>.</p></li>
-
-<li><p>Select the <strong>APPS</strong> section in the left navigation bar, then find your app in the list.</p></li>
-
-<li><p>Check the list of attributes, and if you decide you need more, click <strong>Add Attribute</strong>. A list of extended attributes will appear:</p>
-<p><img src="images/apps/samanage3.png" alt=“samanage3.png" /></p></li>
-
-</li>
-
-<li><p>Select the attributes you want to add, then click <strong>Save</strong>.</p></li>
-
-<li><p>You can now import and push these user attribute values to/from Samanage.</p></li>
-</ol>
-<br />
 
 </ol>
 
