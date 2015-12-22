@@ -1,0 +1,109 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Hipchat Provisioning</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>To reconfigure any of the <strong>General Settings</strong> or <strong>Sign-On Options</strong>, uncheck the <strong>Enable provisioning features</strong> box, and use the <strong>Previous</strong> and <strong>Next</strong> buttons to navigate through the configuration screens.</p>
+</div>
+
+
+<h1>Configuring Provisioning for HipChat</h1>
+
+<p>This guide provides the steps required to configure Provisioning for HipChat.</p>
+
+
+<h2>Features</h2>
+<p>The following provisioning features are supported:</p>
+<ul>
+<li>Import New Users</li>
+<li>Import Profile Updates</li>
+<li>Push New Users</li>
+<li>Push Password Updates</li>
+<li>Push Profile Updates</li>
+<li>Push User Deactivation</li>
+<li>Reactivate Users</li>
+</ul>
+
+
+
+<h2>Requirements</h2>
+
+<H4>Obtain HipChat API V1 token</H4>
+<p><strong>Note</strong>: HipChat API V2 token will not work.</p>
+
+
+<ol>
+
+<li><p>Go to <a href="https://hipchat.com/admin/api" target="_blank">https://hipchat.com/admin/api</a> and login as an <strong>Admin</strong> user or as <strong>Group Owner</strong>.</p></li>
+
+<li><p>Either:</p>
+<ul>
+<li><p>Use an exiting token:</p>
+<p><img src="images/apps/hipchat.png" alt=“hipchat.png" /></p></li>
+
+<li><p>Create a new one:</p>
+<p><img src="images/apps/hipchat1.png" alt=“hipchat1.png" /></p></li>
+</li>
+
+</ul>
+</li>
+
+
+
+<h2>Configuration Steps</h2>
+<ol>
+
+<li><p>Configure your <strong>Provisioning</strong> settings for HipChat as follows:</p>
+<ul>
+<li><p>Check the <strong>Enable provisioning features</strong> box.</p></li>
+<li><p>In the <strong>API Credentials</strong> section, enter the token you just obtained into the <strong>API Token</strong>field:</p>
+<p><p><img src="images/apps/hipchat2.png" alt=“hipchat2.png" /></p></li>
+</li>
+
+<li><p>Scroll down the Provisioning page and select those provisioning features you want to enable:</p>
+<p><p><img src="images/apps/hipchat3.png" alt=“hipchat3” /></p></li>
+
+</li>
+<li><p>Click <strong>Save</strong>.</p></li>
+
+</ul>
+<li><p>You can now assign people to the app (if needed) and finish the application setup.</p></li>
+
+<h2>Common Errors</h2>
+
+
+
+
+<ul>
+<li><p>You will receive the following error when you have an invalid API token:</p>
+<p><img src="images/apps/hipchat4.png" alt=“hipchat4.png" /></p>
+</li>
+
+<li><p>You will receive the following error when you try to push profile update for Group Owner User:</p>
+<p><img src="images/apps/hipchat5.png" alt=“hipchat5.png" /></p>
+</li>
+</ul>
+
+</div>
+</body>
+</html>
