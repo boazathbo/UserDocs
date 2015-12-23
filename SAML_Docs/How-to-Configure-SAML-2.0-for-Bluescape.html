@@ -1,0 +1,91 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Bluescape</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+
+<ol>
+
+
+<li><p>Login to Bluescape as <strong>Instance Admin</strong>.</p></li>
+<li><p>Create a new SAML organization from instance admin.</p>
+<ul>
+<li><p>Owner/Admin should be a current Bluescape user (they will to be able to edit the SAML organization information using their Bluescape login).</p></li>
+<li><p>Check the <strong>SAML Organisation</strong> option. Note that this can only be done once, when the organisation is created.</p></li>
+</ul>
+<p><img src="images/apps/bluescape1.png" alt=“bluescape1.png" /></p>
+</li>
+
+<li><p>Take note of the Bluescape org settings, as shown below:</p>
+<p><img src="images/apps/bluescape2.png" alt=“bluescape2.png" /></p>
+</li>
+
+
+<li><p>In Okta, select the <strong>General</strong> tab for the Bluescape app, then click <strong>Edit</strong>.</p>
+<ul>
+<li><p>Enter the values you saw in the Bluescape org settings into the corresponding fields:</p>
+<p><img src="images/apps/bluescape3.png" alt=“bluescape3.png" /></p>
+
+</li>
+
+<li><p>Click <strong>Save</strong>.</p></li>
+</ul>
+</li>
+
+<li><p>In Bluescape, create a new SAML Provider:</p>
+<ul>
+<li><p><strong>ID Provider Metadata URL</strong>: Copy and paste the following into this field:</p>
+<p><kbd id="metadataUrl">Sign in to the Okta Admin app to have this variable generated for you</kbd></p>
+</li>
+<li><p>Click <strong>Create</strong>.</p></li>
+
+</ul>
+<p><img src="images/apps/bluescape4.png" alt=“bluescape4.png" /></p>
+
+</li>
+
+<li><p>In Bluescape, edit the Organization and add the new SAML Provider from the dropdown menu, then save the org:</p>
+<p><img src="images/apps/bluescape6.png" alt=“bluescape6.png" /></p>
+
+</li>
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+
+<p>SP-initiated flows, IdP-initiated flows, and Just In Time (JIT) provisioning are all supported.</p>
+<br /><br />
+
+</ol>
+</li>
+
+
+
+
+
+
+
+
+</div>
+</body>
+</html>
