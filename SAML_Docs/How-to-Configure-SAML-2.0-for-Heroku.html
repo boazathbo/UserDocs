@@ -41,12 +41,12 @@ try{Typekit.load();}catch(e){}
 </div>
 <ol>
 
-<li><p>Save the following as <strong>metadata.xml</strong>.</p>
-<p><kbd id="metadataUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd></p></li>
+<li><p>Copy the following and save as <strong>metadata.xml</strong> to be uploaded later.</p>
+<p><pre id="idpMetadata">Sign in to Okta Admin app to have this variable generated for you.</pre></p></li>
 
 <li><p>Log in to your Heroku account as an administrator.</p></li>
-<li><p>Navigate to <strong>Your Organization > Settings</strong>.</p></li>
-<li><p>Click <strong>Update Metadata</strong> then upload the <strong>metadata.xml</strong> file you saved in step 1.</p>
+<li><p>Navigate to <strong>Your Organization > Settings</strong>, or go to <strong>https://dashboard.heroku.com/orgs/your-org-name/settings</strong></p></li>
+<li><p>Click <strong>Upload Metadata…</strong> then locate and upload the <strong>metadata.xml</strong> file you saved in step 1.</p>
 <p><img border="1" src="images/apps/heroku1.png" alt=“heroku1.png" /></p>
 
 </li>
