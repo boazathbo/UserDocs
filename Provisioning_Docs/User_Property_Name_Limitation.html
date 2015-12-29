@@ -1,0 +1,45 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="resources/scripts/vkbeautify.js"></script>
+
+<title>User Property Naming</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+
+
+<h1>User Property Name Limitations</h1>
+
+<p>This document describes how Okta deals with non-alphanumeric characters in Schema Discover and Services.</p>
+
+<p>Okta allows only alphanumeric characters and underscores in its <strong>User Property</strong> names, additionally, they cannot start with a digit.</p>
+<p>This constraint creates a limitation for Schema Discovery and Services, which allows non-alphanumeric characters in their user attributes.</p>
+<p>For cases when Service does support non-alphanumeric characters, Okta converts these characters to their unicode number, then adds a ”_u” at the beginning.</p>
+<p>Here are some examples:</p>
+<pre>Passport# -> Passport_u0023</ br>
+<p>custom$ -> custom_u0024
+</pre>
+<p>For properties that start with a digit, a preceding "p" character is added:</p>
+<pre><p>1stParam -> p1stParam</p></pre>
+<p>The provisioning for such properties still works.</p>
+<p>The <strong>Display Name</strong> will not be modified.</p>
+<p><strong>Note</strong>: You must use a modified property name when setting up Mapping.</strong>
+
+
+</body>
+</html>
