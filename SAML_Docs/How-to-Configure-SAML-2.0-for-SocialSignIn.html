@@ -1,0 +1,98 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for SocialSignIn</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+
+<ol>
+
+
+<li><p>Log in to your SocialSignIn account as an administrator.</p></li>
+<li><p>Click the account icon at the top right of the screen, then select <Strong>Settings</strong> from the drop down menu:</p>
+<p><img border="1" src="images/apps/socialsignin1.png" alt=“socialsignin.png” /></p>
+</li>
+<li><p>On the <strong>Settings</strong> page, select <strong>Company Preferences</strong>.</p>
+<p><img border="1" src="images/apps/socialsignin2.png" alt=“socialsignin2.png” /></p>
+
+</li>
+
+
+<li><p>On the <strong>Company Preferences</strong> page, scroll to the <strong>SAML Authentication</strong> section.</p>
+<ul>
+<li><p>Make sure the value for <strong>Company UUID</strong> is saved in the Okta app (you can find it by selecting the <strong>General</strong> tab for the SocialSignIn app in Okta).</p></li>
+<li><p>For <strong>Select a provider</strong>: Select <strong>Okta</strong> from the dropdown list.</p></li>
+
+</ul>
+<p><img border="1" src="images/apps/socialsignin3.png" alt=“socialsignin3.png” /></p>
+
+</li>
+
+
+
+
+<li><p>Enter the following information:</p>
+<ul>
+
+
+<li><p><strong>Identity provider issuer</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p></li>
+
+
+<li><p><strong>SAML 2.0 endpoint (HTTP)</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+
+<li><p><strong>Public certificate</strong>: Cut and paste the following in PEM Text Format:</p>
+<p><pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre></p>
+</li>
+
+<li><p>Click <strong>Save</strong>.</p></li>
+
+</ul>
+<p><img border="1" src="images/apps/socialsignin4.png" alt=“socialsignin4.png” /></p>
+
+
+</li>
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+
+<p>IdP-initiated flows are supported.</p>
+<p>SP-initiated flows and Just In Time (JIT) provisioning are not supported.</p>
+<br /><br />
+
+</ol>
+</li>
+
+
+
+
+
+
+
+
+</div>
+</body>
+</html>
