@@ -20,65 +20,144 @@ try{Typekit.load();}catch(e){}
         </div>
     </div>
 <div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for NWP Services Corporation</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
 
 <h1>How to Configure SAML 2.0 for Vera</h1>
 <div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
 <p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization. </p>
 </div>
-<h2>Case 1: For groups not using Group Push</h2>
+<h2>Case 1: For Okta Users Not Using Group Push</h2>
 <ol>
-<li>Copy the following <strong>IDP Metadata</strong> and save as an xml file:<br />&nbsp;<textarea id="idpMetadata" style="margin: 0px; width: 817px; height: 190px;">Sign into the Okta Admin Dashboard to generate this variable.</textarea></li>
+<li>Copy the following <strong>IDP Metadata</strong> and save as a <em>.xml</em> file:<br />&nbsp;<textarea id="idpMetadata" style="margin: 0px; width: 817px; height: 190px;">Sign into the Okta Admin Dashboard to generate this variable.</textarea></li>
+
 <li>Log in to your Vera account.</li>
-<li>Navigate to the <strong>Settings</strong> page:<br /><img src="images/apps/veradocs1.png" alt=“veradocs1.png" /><br /></li>
+<li>Navigate to the <strong>Settings</strong> page:</p>
+<p><img src="images/apps/vera_new1.png" alt=“veranew1.png" /></p></li>
+
 <li>
-<p>On the <strong>Settings</strong> page, navigate to the <strong>Internal Authentication</strong> section.</p>
+<p>On the <strong>Settings</strong> page, navigate to the <strong>Authentication</strong> tab, then scroll down to the <strong>Internal Authentication</strong> section.</p>
 </li>
-<li>Enter the following values into the corresponding fields (see screen capture at end of step for reference):<br />
+
+<li>Enter the following values into the corresponding fields (see screen capture at end of step for reference):</p>
 <ul>
-<li><strong>Authentication type</strong>: <strong>SAML</strong></li>
-<li><strong>SAML Metadata</strong>: Click <strong style="font-size: 14px; background-color: initial;">Choose file</strong>, and upload the xml file you saved in step 1.</li>
-<li>Copy the following into the&nbsp;<strong>Login URL</strong> field:<kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></li>
-<li>Copy the following into the<strong>&nbsp;Logout</strong> <strong>URL</strong> field:<kbd id="signOutUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></li>
-<li><strong>Email attribute</strong>: Enter <strong>user.userName</strong></li>
-<li><strong>Groups attribute</strong>: Leave the default values.</li>
-<li><strong>Internal Domains and Users</strong>: Enter the domain name &nbsp;of the username that will be using SAML to access the account. <br />For example, if the username is johnDoe@MyCompany.com, enter MyCompany.com in this field.<br />Or, you can also manually enter the usernames of all the users who will be using SAML under the <strong>Users</strong> section.<br /><br /><img src="images/apps/veradocs2.png" alt=“veradocs2.png" /></li>
+<li>Select the <strong>Authentication type</strong>: <strong>SAML</strong></li>
+<li><strong>SAML Metadata</strong>: Click <strong>Choose file</strong>, and upload the <em>.xml</em> file you saved in step 1.</li>
+
+<li>Copy the following into the <strong>Login URL</strong> field:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p></li>
+
+<li>Copy the following into the <strong>Logout URL</strong> field:</p>
+<p><kbd id="signOutUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p></li>
+
+
+<li><p><strong>Email attribute</strong>: Enter <strong>user.userName</strong> (enter as is).</p></li>
+<li><p><strong>Groups attribute</strong>: Leave the default values.</p></li>
+
+<li><strong>Internal Domains and Users</strong>: Enter the domain name of the username that will be using SAML to access the account.</P>
+<P>For example, if the username is <strong>johndoe@mycompany.com</strong>, enter <strong>mycompany.com</strong> in this field. Or, you can also manually enter the usernames of all the users who will be using SAML under the <strong>Users</strong> section.</p>
+<p><img src="images/apps/vera_new2.png" alt=“vera_new2.png" /></p>
+</li>
 </ul>
 </li>
-<li>Click <strong>Save</strong> in the top right corner.<br /><img src="images/apps/veradocs3.png" alt=“veradocs3.png" /></li>
+
+
+
+
+<li>Click <strong>Save</strong> in the top right corner.</p>
+<p><img src="images/apps/vera_new3.png" alt=“vera_new3.png" /></p></li>
+
+
+
 <li>Done!</li>
+
+
 </ol>
-<h2>Case 2: With groups using Group Push</h2>
+<h2>Case 2: For Okta Users Using Group Push</h2>
 
 <ol>
-<li>Sign into Okta and create a&nbsp;<strong>Template SAML 2.0 App</strong>.&nbsp;</li>
-<li>Enter the following values to the following fields in the <strong>General Settings</strong> for the new T<strong>emplate SAML 2.0 App</strong>. &nbsp;See the screen shots in line for reference.
+
+
+<li><p>From the Okta Application Network dashboard, navigate to the <strong>Admin</strong> tab. (Note: you must be the Okta admin to configure Vera.)</p></li>
+
+<li><p>Select the <strong>Applications</strong> tab and search for <strong>Template SAML 2.0 App </strong>.</p>
+<p><img src="images/apps/vera_new.png" alt=“vera_new.png" /></p></li>
+
+
+<li><p>Select the <strong>General</strong> tab for the new <strong>Template App</strong>, then click <strong>Edit</strong>.</p></li>
+
+<li><p>Enter the following values into the corresponding fields (see screen shots inline for reference):</p>
 <ul>
-<li><strong>Application label</strong>: The name that will appear under the app on the Vera home page.</li>
-<li><strong>Post Back URL</strong>:&nbsp;<em>https://&lt;yourSubDomain&gt;.vera.com/api/req/verify</em></li>
-<li><strong>Name ID Format</strong>: <strong>EmailAddress</strong></li>
-<li><strong>Recipient</strong>:&nbsp;<em>https://&lt;yourSubDomain&gt;.<em>veradocs.com/api/auth/req/verify</em></em></li>
-<li><strong>Audience Restriction</strong>:&nbsp;https://&lt;yourSubDomain&gt;.vera.com/api/auth/req/verify</li>
-<li><strong>authnContextClassRef</strong>:&nbsp;<strong>PasswordProtectedTransport</strong></li>
-<li><strong>Response</strong>: <strong>Signed</strong></li>
-<li><strong>Assertion</strong>: <strong>Signed</strong></li>
-<li><strong>Request</strong>: <strong>Uncompressed</strong></li>
-<li><strong>Destination</strong>:&nbsp;<em>https://&lt;yourSubDomain&gt;.vera.com/api/auth/req/verify</em></li>
-<li><strong>Default Relay State</strong>: Leave this field empty.
-<img src="images/apps/veradocs4.png" alt=“veradocs4.png" />
+<li><p><strong>Application label</strong>: The name that will appear under the app on the Vera home page.</p></li>
+
+<li><p><strong>Post Back URL</strong>:&nbsp;<em>https://&lt;yourSubDomain&gt;.vera.com/api/req/verify</em>.</p>
+<ul>
+<li><p>For example: <em>https://acme.vera.com/api/req/verify</em> where <em>acme</em> is the sub domain name.</li>
+</ul>
 </li>
-<li><strong>Attribute Statements</strong>:&nbsp;Leave this field empty.<em><br /></em></li>
-<li><strong>Group Name</strong>:&nbsp;Enter the group names that you would like to pass from Okta to Vera</li>
-<li><strong>Group filter</strong>: &nbsp;Enter&nbsp;an expression that will be used to filter groups. For example: <strong>app1.*</strong>&nbsp;includes all groups prefixed with the string <strong>app1</strong>. This field accepts regular expression syntax</li>
-<li><strong>Application Visibility</strong>: Leave unchecked
-<img src="images/apps/veradocs5.png" alt=“veradocs5.png" />
+
+
+<li><p><strong>Name ID Format</strong>: Select <strong>Email Address</strong> from the <strong>Name ID</strong> dropdown menu.</p></li>
+
+<li><p><strong>Recipient</strong>:&nbsp;<em>https://&lt;yourSubDomain&gt;.<em>veradocs.com/api/auth/req/verify</em></em>.</p></li>
+
+
+<li><p><strong>Audience Restriction</strong>:&nbsp;https://&lt;yourSubDomain&gt;.vera.com/api/auth/req/verify.</p></li>
+
+
+<li><p><strong>authnContextClassRef</strong>:&nbsp;<strong>PasswordProtectedTransport</strong>.</p></li>
+
+<li><p><strong>Response</strong>: <strong>Signed</strong>.</p></li>
+
+<li><p><strong>Assertion</strong>: <strong>Signed</strong>.</p></li>
+
+<p><p><img src="images/apps/vera_new4.png" alt=“vera_new4.png" /></p></li>
+
+
+<li><p><strong>Request</strong>: <strong>Uncompressed</strong>.</p></li>
+
+
+<li><p><strong>Destination</strong>:&nbsp;<em>https://&lt;yourSubDomain&gt;.vera.com/api/auth/req/verify</em>.<p></li>
+
+
+
+<li><p><strong>Default Relay State</strong>: Leave this field empty.</p></li>
+
+<li><p><strong>Attribute Statements</strong>:&nbsp;Leave this field empty.</p></li>
+
+
+<li><p><strong>Group Name</strong>: Enter the name for this attribute that will be included in the SAML response attribute statement (this essentially turns the option on). You’ll then need to enter in the groups (using expressions) in the group filter field to specify which groups will be included with this attribute.</p></li>
+
+
+<li><p><strong>Group filter</strong>: (Optional). Specify which groups you want included with the attributed you named in the Group Name field by entering expressions that will be used to filter groups. For example app1.* means all groups prefixed with that string will be included in the SAML Response attribute statement.</p></li>
+
+
+
+<li><p><strong>Application Visibility</strong>: Leave unchecked.</p></li>
+
+<img src="images/apps/vera_new5.png" alt=“vera_new5.png" />
 </li>
 </ul>
 </li>
-<li>Select <strong>Save</strong>.</li>
-<li>Assign the application to a user, then click <strong>Done</strong>.</li>
-<li>Select the <strong>Applications > Sign On</strong> tab then select <strong>View Setup Instructions</strong>. Scroll down to the <strong>Configuration Data</strong> section to retrieve the data you'll need for the next step.</li>
-<li>Login to your Vera account, and follow the instructions outlined in <strong>Case 1: For groups not using Group Push</strong> above, except use the data in the setup instructions you just opened for the values for Login URL, Logout URL, and so on.
-<li>Done!
+
+
+
+
+
+
+<li><p>Select <strong>Save</strong>.</p></li>
+
+
+<li><p>Assign the application to a user, then click <strong>Done</strong>.</p></li>
+
+<li>Select the <strong>Applications > Sign On</strong> tab (for the new template app you just configured) then select <strong>View Setup Instructions</strong>. Scroll down to the <strong>Configuration Data</strong> section to retrieve the data you'll need for the next step.</li>
+
+
+<li>Login to your Vera account, and follow the instructions outlined in <strong>Case 1: For Okta Users Not Using Group Push</strong> above, except use the data in the new setup instructions you just opened for the values for <strong>Login URL</strong>, <strong>Logout URL</strong>, and so on.</p></li>
+
+<li><p>Done!</p>
 
 
 <br />
