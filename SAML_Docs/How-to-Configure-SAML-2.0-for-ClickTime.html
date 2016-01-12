@@ -24,27 +24,33 @@ try{Typekit.load();}catch(e){}
 <div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
 <p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
 </div>
+
 <ol>
 <li>
 <p>Sign in to ClickTime as the administrator or manager of your organization.</p>
 </li>
+
 <li>
 <p>Click the <strong>Company</strong> tab and then <strong>Preferences</strong>.</p>
 </li>
+
 <li>Expand the <strong>Security Settings</strong> section.</li>
+
 <li>Select <em>Allow</em> or <em>Required</em> for <strong>sign-in using Single Sign-On</strong> as appropriate for your organization's policies.
+
 <ul>
 <li>If you choose <strong>Allow</strong> sign in using Single SignOn, then you can login to your ClickTime account with an email and password, OpenID, Google, or SAML.</li>
 <li>If you choose <strong>Require</strong> sign in using Single SignOn, and you check <em>Enable SAML 2.0 based Single SignOn (SSO)</em>, then you can only sign into ClickTime using your SAML method.</li>
 </ul>
 </li>
+
 <li>
 <p>Check <em>Enable SAML 2.0-based Single Sign-On (SSO)</em>.</p>
 </li>
 <li>Select <strong>Okta</strong> from the dropdown list next to <em>Provider</em>.</li>
 <li>
 <p>Copy the following URL into the <em>Identity Provider Endpoint</em> field.</p>
-<kbd id="signOnUrl”> Sign into the Okta Admin dashboard to generate this value. </kbd></li>
+<kbd id="signOnUrl">Sign into the Okta Admin dashboard to generate this value.</kbd></li>
 
 
 
@@ -52,6 +58,8 @@ try{Typekit.load();}catch(e){}
 <li>
 <p>Copy and paste the following certificate, including the BEGIN and END lines, into the <em>X.509 Certificate</em> field.&nbsp;</p>
 <kbd id="x509CertTextPem"> Sign into the Okta Admin dashboard to generate this value. </kbd></li>
+
+
 <p><img border="1" src="images/apps/clicktime1.png" alt=“clicktime1.png” /></p>
 
 <li><p>Click <strong>Save</strong>.</p>
