@@ -35,7 +35,7 @@ try{Typekit.load();}catch(e){}
 <li>Select <em>Allow</em> or <em>Required</em> for <strong>sign-in using Single Sign-On</strong> as appropriate for your organization's policies.
 <ul>
 <li>If you choose <strong>Allow</strong> sign in using Single SignOn, then you can login to your ClickTime account with an email and password, OpenID, Google, or SAML.</li>
-<li>If you choose <strong>Require</strong> sign in using Single SignOn,and you check <em>Enable SAML 2.0 based Single SignOn (SSO)</em>, then you can only sign into ClickTime using your SAML method.</li>
+<li>If you choose <strong>Require</strong> sign in using Single SignOn, and you check <em>Enable SAML 2.0 based Single SignOn (SSO)</em>, then you can only sign into ClickTime using your SAML method.</li>
 </ul>
 </li>
 <li>
@@ -44,15 +44,23 @@ try{Typekit.load();}catch(e){}
 <li>Select <strong>Okta</strong> from the dropdown list next to <em>Provider</em>.</li>
 <li>
 <p>Copy the following URL into the <em>Identity Provider Endpoint</em> field.</p>
-<kbd id="signOnURL"> Sign into the Okta Admin dashboard to generate this value. </kbd></li>
+<kbd id="signOnUrl”> Sign into the Okta Admin dashboard to generate this value. </kbd></li>
+
+
+
+
 <li>
 <p>Copy and paste the following certificate, including the BEGIN and END lines, into the <em>X.509 Certificate</em> field.&nbsp;</p>
 <kbd id="x509CertTextPem"> Sign into the Okta Admin dashboard to generate this value. </kbd></li>
-<li>
-<p>Click <strong>Save</strong>.</p>
+<p><img border="1" src="images/apps/clicktime1.png" alt=“clicktime1.png” /></p>
+
+<li><p>Click <strong>Save</strong>.</p>
 </li>
 <li>Done!
 <p>&nbsp;</p>
+<p><strong>Notes</strong>:</p><p>IDP-initiated flows and SP-initiated flow are supported.</p><p>Just In Time (JIT) provisioning is not supported.</p><p>&nbsp;</p><p><strong>For SP-initiated flows</strong>:</p><ol><li><p>Got to the ClickTime SSO login page - https://login.clicktime.com/#saml/okta</p></li><li><p>Enter your email into the corresponded field.</p></li><li><p>Click OKTA button.</p></li>
+
+
 </li>
 </ol></div>
 </body>
