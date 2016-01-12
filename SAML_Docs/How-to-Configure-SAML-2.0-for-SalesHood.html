@@ -1,0 +1,60 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for SalesHood</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+<ol>
+<li>
+<p>Send an email to SalesHood Support and request that they enable SAML 2.0 for your account.</p></li>
+
+<li><p>Provide the following information:</p>
+<ul>
+<li><p><strong>x509 Certificate</strong>: Copy and paste the following certificate in PEM Text Format:</p>
+<kbd id="x509CertTextPem"> Sign into the Okta Admin dashboard to generate this value. </kbd></li>
+
+
+
+<li><p><strong>Login URL/SignOn URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin dashboard to generate this value.</kbd></p></li>
+
+
+<li><p><strong>IDP Issuer/Entity ID</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p></li>
+
+</ul>
+</li>
+
+
+<li><p>SalesHood will notify you once SAML is enabled.</p>
+</li>
+<li>Done!
+<p>&nbsp;</p>
+<p><strong>Notes</strong>:</p><p>IDP-initiated flows and SP-initiated flow are supported.</p><p>Just In Time (JIT) provisioning is not supported.</p><p>&nbsp;</p>
+
+
+</li>
+</ol></div>
+</body>
+</html>
