@@ -1,0 +1,87 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for SendBloom</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+<ol>
+<li>
+<p>Login to SendBloom as a team lead, here: <a href="https://www.sendbloom.com/ " target="_blank">https://www.sendbloom.com/ </a></p>
+</li>
+
+<li>
+<p>Click the gear icon in the top right corner to go to the <strong>Settings</strong> page:</p>
+<p><img border="1" src="images/apps/sendbloom1.png" alt=“sendbloom1.png” /></p>
+</li>
+
+
+<li><p>In the left side menu on the <strong>Settings</strong> page, under <strong>Account</strong> select <strong>Teams & Users</strong>:</p>
+<p><img border="1" src="images/apps/sendbloom2.png" alt=“sendbloom2.png” /></p>
+</li>
+
+
+<li><p>Locate <strong>Single Sign-On (SSO)</strong> and click on the blue <strong>Edit</strong> text on the right side.</p>
+</li>
+
+<li><p>Do the following:</p>
+<ul>
+<li><p>Click the <strong>Enable Single Sign-On</strong> button. More fields will appear.</p>
+</li>
+<li><p><strong>SSO URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+<li><p><strong>Metadata</strong>: Copy and paste the following:</p>
+<p><pre id="idpMetadata">Sign in to Okta Admin app to have this variable generated for you.</pre></p>
+</li>
+
+<li><p><strong>ACS URL</strong>: Make a copy of this value, you will need to enter it in Okta later.</p></li>
+
+<li><p>Click <strong>Save</strong>.</p></li>
+
+</ul>
+<p><img border="1" src="images/apps/sendbloom3.png" alt=“sendbloom3.png” /></p>
+
+</li>
+
+<li><p>In Okta, select the <strong>General</strong> tab for the SendBloom app, then click <strong>Edit</strong>.</p>
+<ul>
+<li><p>Enter the value you copied from SendBloom into the <strong>ACS Url</strong> field.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+</ul>
+<p><img border="1" src="images/apps/sendbloom4.png" alt=“sendbloom4.png” /></p>
+
+</li>
+
+
+<li><p>Click <strong>Save</strong>.</p></li>
+<li>Done!
+<p>&nbsp;</p>
+<p><strong>Notes</strong>:</p><p>IDP-initiated flows are supported.</p><p>SP-initiated flows and Just In Time (JIT) provisioning are supported for non-team lead accounts.</p>
+
+
+</li>
+</ol></div>
+</body>
+</html>
