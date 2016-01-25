@@ -1,0 +1,71 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Observable Networks</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+<ol>
+<li>
+<p>Send an email to Observable Networks and request that they enable SAML 2.0 for your account.</p>
+</li>
+
+<li><p>Provide the following with your email:</p>
+<ul>
+<li><p><strong>LoginURL/SignOn URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+<li><p><strong>x509 Certificate</strong>: Cut and paste the following (PEM Text Format):</p>
+<p><pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre></p>
+</li>
+
+
+</ul>
+</li>
+
+<li><p>Observable Networks will inform you when SAML has been enabled, and will provide you with a <strong>Connection Name</strong>.</p></li>
+
+<li><p>In Okta, select the <strong>General</strong> tab for the Observable Networks app, then click <strong>Edit</strong>.</p>
+<ul>
+<li><p><strong>Connection Name</strong>: Enter the name provided to you by Observable Networks.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+
+
+
+</ul>
+<p><img style="border: 0; padding: 0;" src="images/apps/observablenetworks1.png" alt="observablenetworks1.png" /></p>
+
+</li>
+
+
+<li>Done!
+<p>&nbsp;</p>
+<p><strong>Notes</strong>:</p><p>IDP-initiated flows, and SP-initiated flows, and Just In Time (JIT) Provisioning are all supported</p>
+
+
+
+</li>
+</ol></div>
+</body>
+</html>
