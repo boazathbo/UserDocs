@@ -32,13 +32,62 @@ try{Typekit.load();}catch(e){}
 <p>This guide provides the steps required to configure Provisioning for Connected Data.</p>
 
 
-<h2>Features</h2>
-
 <h2>Prerequisites</h2>
+
+
+<p>Before you can configure provisioning for Connected Data in Okta, you need to collect some values from Connected Data, as follows:</p>
+<ol>
+<li><p>Login to Connected Data as an administrator.</p></li>
+<li><p>In the left navigation pane, click the <strong>Organization Preferences</strong> icon to open the <strong>Organization Settings</strong> page.</p></li>
+<li><p>Select <strong>Manage IdP Integration</strong>:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/connecteddata4.png" alt=“connecteddata4.png” /></p>
+</li>
+
+<li><p>Make a copy of the value of <strong>SAML Consumer URL</strong>:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/connecteddata1.png" alt=“connecteddata1.png” /></p>
+</li>
+
+<li><p>Make a copy of the value of <strong>SCIM Base URL</strong>:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/connecteddata2.png" alt=“connecteddata2.png” /></p>
+</li>
+
+<li><p>Locate the <strong>Custom Headers</strong> section, and make a copy of the value of <strong>Authorization</strong>:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/connecteddata3.png" alt=“connecteddata3.png” /></p>
+</li>
+
+<li><p>Close the <strong>Organization Settings</strong> page.</p>
+</li>
+</ol>
+
+
 <h2>Configuration Steps</h2>
-<h2>Schema Discovery</h2>
+
+<ol>
+<ol>
+<li><p>In Okta, navigate back to the <strong>General Settings</strong> section for the <strong>Connected Data</strong> app.</p></li>
+
+<li><p>Enter the value you saved into the corresponding <strong>SAML Consumer URL</strong> field:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/connecteddata5.png" alt=“connecteddata5.png” /></p>
+</li>
+
+<li><p>Click <strong>Next</strong>.</p></li>
+
+<li><p>Check the <strong>Enable provisioning features</strong> box, then enter the values you saved for <strong>SCIM Base URL</strong> and <strong>Custom Headers</strong> into the <strong>Base URL</strong> and <strong>Access Token</strong> fields, respectively:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/connecteddata6.png" alt=“connecteddata6.png” /></p>
+</li>
+
+
+<li><p>Scroll down and select the <strong>Provisioning Features</strong> you want to enable.</p></li>
+
+<li><p>Click <strong>Save</strong>.</p></li>
+</ol>
+
 
 <h2>Troubleshooting Tips</h2>
+<ul>
+<li><p>Currently Connected Data keep groups created within Connected Data and groups created by AD/IdP separately. Therefore during imports, you are unable to download groups created via the web.</p></li>
+<li><p>A current Connected Data issue is that if you attempt to search by userName, their API actually searches for email instead. This can be a problem for users who have different userName and emails in OKTA.</p></li>
+</ul>
 
 
 </div>
