@@ -137,7 +137,7 @@ try{Typekit.load();}catch(e){}
 <p><strong>Public</strong>: This parameter defines if the contact information visibility is Public or Private.</p>
 <p><img src="images/apps/workday6.png" alt="workday6.png" /></p>
 
-<p>A table at the end of this article lists the Workday attributes that are currently supported.</p>
+<p>See <a href="#Attributes">Appendix A</a> at the end of this article for a list of the Workday attributes that are currently supported.</p>
 </li>
 
 
@@ -194,6 +194,440 @@ String.removeSpaces(String.substringAfter(user.mobilePhone, "x")) -> 12345</p></
 <li><p>Once Okta sets the Primary Workday attributes, it will not be able to set it back to NULL. This is because a Workday validation rule does not allow NULL values.</p></li>
 </ol>
 
+<h2><a name="Attributes"></a>Appendix A – Supported Attributes</h2>
+
+<table class="gridtable">
+
+<tr>
+
+<th>S. No</th>
+<th>Attribute Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+
+<tr>
+<td align="left">1</td>
+<td align="left">Home Email</td>
+<td align="left">string</td>
+<td align="left">homeEmail</td>
+
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">Home Fax Phone AreaCode</td>
+<td align="left">string</td>
+<td align="left">homeFaxPhoneAreaCode</td>
+
+</tr>
+
+<tr>
+<td align="left">3</td>
+<td align="left">Home Fax Phone / InternationalPhoneCode</td>
+<td align="left">string</td>
+<td align="left">homeFaxPhoneInternationalPhoneCode</td>
+
+</tr>
+
+<tr>
+<td align="left">4</td>
+<td align="left">Home Fax Phone PhoneExtension</td>
+<td align="left">string</td>
+<td align="left">homeFaxPhonePhoneExtension</td>
+
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left">Home Fax Phone PhoneNumber</td>
+<td align="left">string</td>
+<td align="left">homeFaxPhonePhoneNumber</td>
+
+</tr>
+
+<tr>
+<td align="left">6</td>
+<td align="left">Home Mobile Phone AreaCode</td>
+<td align="left">string</td>
+<td align="left">homeMobilePhoneAreaCode</td>
+
+</tr>
+
+<tr>
+<td align="left">7</td>
+<td align="left">Home Mobile Phone / InternationalPhoneCode</td>
+<td align="left">string</td>
+<td align="left">homeMobilePhoneInternationalPhoneCode</td>
+
+</tr>
+
+<tr>
+<td align="left">8</td>
+<td align="left">Home Mobile Phone PhoneExtension</td>
+<td align="left">string</td>
+<td align="left">homeMobilePhonePhoneExtension</td>
+
+</tr>
+<tr>
+<td align="left">9</td>
+<td align="left">Home Mobile Phone PhoneNumber</td>
+<td align="left">string</td>
+<td align="left">homeMobilePhonePhoneNumber</td>
+
+</tr>
+
+<tr>
+<td align="left">10</td>
+<td align="left">Home Pager Phone AreaCode</td>
+<td align="left">string</td>
+<td align="left">homePagerPhoneAreaCode</td>
+
+</tr>
+
+<tr>
+<td align="left">11</td>
+<td align="left">Home Pager Phone / InternationalPhoneCode</td>
+<td align="left">string</td>
+<td align="left">homePagerPhoneInternationalPhoneCode</td>
+
+</tr>
+
+<tr>
+<td align="left">12</td>
+<td align="left">Home Pager Phone PhoneExtension</td>
+<td align="left">string</td>
+<td align="left">homePagerPhonePhoneExtension</td>
+
+</tr>
+
+<tr>
+<td align="left">13</td>
+<td align="left">Home Pager Phone PhoneNumber</td>
+<td align="left">string</td>
+<td align="left">homePagerPhonePhoneNumber</td>
+
+</tr>
+<tr>
+<td align="left">14</td>
+<td align="left">Home Telephone Phone AreaCode</td>
+<td align="left">string</td>
+<td align="left">homeTelephonePhoneAreaCode</td>
+
+</tr>
+
+<tr>
+<td align="left">15</td>
+<td align="left">Home Telephone Phone / InternationalPhoneCode</td>
+<td align="left">string</td>
+<td align="left">homeTelephonePhoneInternationalPhoneCode</td>
+
+</tr>
+
+<tr>
+<td align="left">16</td>
+<td align="left">Home Telephone Phone / PhoneExtension</td>
+<td align="left">string</td>
+<td align="left">homeTelephonePhonePhoneExtension</td>
+
+</tr>
+
+<tr>
+<td align="left">17</td>
+<td align="left">Home Telephone Phone PhoneNumber</td>
+<td align="left">string</td>
+<td align="left">homeTelephonePhonePhoneNumber</td>
+
+</tr>
+
+<tr>
+<td align="left">18</td>
+<td align="left">Set Home Email As Primary</td>
+<td align="left">Boolean</td>
+<td align="left">setHomeEmailAsPrimary</td>
+
+</tr>
+
+<tr>
+<td align="left">19</td>
+<td align="left">Set Home Email As Public</td>
+<td align="left">Boolean</td>
+<td align="left">setHomeEmailAsPublic</td>
+
+</tr>
+<tr>
+<td align="left">20</td>
+<td align="left">Set Home Fax Phone As Primary</td>
+<td align="left">Boolean</td>
+<td align="left">setHomeFaxPhoneAsPrimary</td>
+
+</tr>
+
+<tr>
+<td align="left">21</td>
+<td align="left">Set Home Fax Phone As Public</td>
+<td align="left">Boolean</td>
+<td align="left">setHomeFaxPhoneAsPublic</td>
+
+</tr>
+
+<tr>
+<td align="left">22</td>
+<td align="left">Set Home Mobile Phone As Primary</td>
+<td align="left">Boolean</td>
+<td align="left">setHomeMobilePhoneAsPrimary</td>
+
+</tr>
+
+<tr>
+<td align="left">23</td>
+<td align="left">Set Home Mobile Phone As Public</td>
+<td align="left">Boolean</td>
+<td align="left">setHomeMobilePhoneAsPublic</td>
+
+</tr>
+<tr>
+<td align="left">24</td>
+<td align="left">Set Home Pager Phone As Primary</td>
+<td align="left">Boolean</td>
+<td align="left">setHomePagerPhoneAsPrimary</td>
+
+</tr>
+
+<tr>
+<td align="left">25</td>
+<td align="left">Set Home Pager Phone As Public</td>
+<td align="left">Boolean</td>
+<td align="left">setHomePagerPhoneAsPublic</td>
+
+</tr>
+
+<tr>
+<td align="left">26</td>
+<td align="left">Set Home Telephone Phone As Primary</td>
+<td align="left">Boolean</td>
+<td align="left">setHomeTelephonePhoneAsPrimary</td>
+
+</tr>
+<tr>
+<td align="left">27</td>
+<td align="left">Set Home Telephone Phone As Public</td>
+<td align="left">Boolean</td>
+<td align="left">setHomeTelephonePhoneAsPublic</td>
+
+</tr>
+
+<tr>
+<td align="left">28</td>
+<td align="left">Set Work Email As Primary</td>
+<td align="left">Boolean</td>
+<td align="left">setWorkEmailAsPrimary</td>
+
+</tr>
+
+<tr>
+<td align="left">29</td>
+<td align="left">Set Work Email As Public</td>
+<td align="left">Boolean</td>
+<td align="left">setWorkEmailAsPublic</td>
+
+</tr>
+
+<tr>
+<td align="left">30</td>
+<td align="left">Set Work Fax Phone As Primary</td>
+<td align="left">Boolean</td>
+<td align="left">setWorkFaxPhoneAsPrimary</td>
+
+</tr>
+<tr>
+<td align="left">31</td>
+<td align="left">Set Work Fax Phone As Public</td>
+<td align="left">Boolean</td>
+<td align="left">setWorkFaxPhoneAsPublic</td>
+
+</tr>
+
+<tr>
+<td align="left">32</td>
+<td align="left">Set Work Mobile Phone As Primary</td>
+<td align="left">Boolean</td>
+<td align="left">setWorkMobilePhoneAsPrimary</td>
+
+</tr>
+
+<tr>
+<td align="left">33</td>
+<td align="left">Set Work Mobile Phone As Public</td>
+<td align="left">Boolean</td>
+<td align="left">setWorkMobilePhoneAsPublic</td>
+
+</tr>
+<tr>
+<td align="left">34</td>
+<td align="left">Set Work Pager Phone As Primary</td>
+<td align="left">Boolean</td>
+<td align="left">setWorkPagerPhoneAsPrimary</td>
+
+</tr>
+
+<tr>
+<td align="left">35</td>
+<td align="left">Set Work Pager Phone As Public</td>
+<td align="left">Boolean</td>
+<td align="left">setWorkPagerPhoneAsPublic</td>
+
+</tr>
+
+<tr>
+<td align="left">36</td>
+<td align="left">Set Work Telephone Phone As Primary</td>
+<td align="left">Boolean</td>
+<td align="left">setWorkTelephonePhoneAsPrimary</td>
+
+</tr>
+
+<tr>
+<td align="left">37</td>
+<td align="left">Set Work Telephone Phone As Public</td>
+<td align="left">Boolean</td>
+<td align="left">setWorkTelephonePhoneAsPublic</td>
+
+</tr>
+<tr>
+<td align="left">38</td>
+<td align="left">Work Email</td>
+<td align="left">string</td>
+<td align="left">workEmail</td>
+
+</tr>
+
+<tr>
+<td align="left">39</td>
+<td align="left">Work Fax Phone AreaCode</td>
+<td align="left">string</td>
+<td align="left">workFaxPhoneAreaCode</td>
+
+</tr>
+
+<tr>
+<td align="left">40</td>
+<td align="left">Work Fax Phone / InternationalPhoneCode</td>
+<td align="left">string</td>
+<td align="left">workFaxPhoneInternationalPhoneCode</td>
+
+</tr>
+
+<tr>
+<td align="left">41</td>
+<td align="left">Work Fax Phone PhoneExtension</td>
+<td align="left">string</td>
+<td align="left">workFaxPhonePhoneExtension</td>
+
+</tr>
+
+<tr>
+<td align="left">42</td>
+<td align="left">Work Fax Phone PhoneNumber</td>
+<td align="left">string</td>
+<td align="left">workFaxPhonePhoneNumber</td>
+
+</tr>
+<tr>
+<td align="left">43</td>
+<td align="left">Work Mobile Phone AreaCode</td>
+<td align="left">string</td>
+<td align="left">workMobilePhoneAreaCode</td>
+
+</tr>
+
+<tr>
+<td align="left">44</td>
+<td align="left">Work Mobile Phone / InternationalPhoneCode</td>
+<td align="left">string</td>
+<td align="left">workMobilePhoneInternationalPhoneCode</td>
+
+</tr>
+
+<tr>
+<td align="left">45</td>
+<td align="left">Work Mobile Phone PhoneExtension</td>
+<td align="left">string</td>
+<td align="left">workMobilePhonePhoneExtension</td>
+
+</tr>
+
+<tr>
+<td align="left">46</td>
+<td align="left">Work Mobile Phone PhoneNumber</td>
+<td align="left">string</td>
+<td align="left">workMobilePhonePhoneNumber</td>
+
+</tr>
+<tr>
+<td align="left">47</td>
+<td align="left">Work Pager Phone AreaCode</td>
+<td align="left">string</td>
+<td align="left">workPagerPhoneAreaCode</td>
+
+</tr>
+
+<tr>
+<td align="left">48</td>
+<td align="left">Work Pager Phone / InternationalPhoneCode</td>
+<td align="left">string</td>
+<td align="left">workPagerPhoneInternationalPhoneCode</td>
+
+</tr>
+
+<tr>
+<td align="left">49</td>
+<td align="left">Work Pager Phone PhoneExtension</td>
+<td align="left">string</td>
+<td align="left">workPagerPhonePhoneExtension</td>
+
+</tr>
+<tr>
+<td align="left">50</td>
+<td align="left">Work Pager Phone PhoneNumber</td>
+<td align="left">string</td>
+<td align="left">workPagerPhonePhoneNumber</td>
+
+</tr>
+
+<tr>
+<td align="left">51</td>
+<td align="left">Work Telephone Phone AreaCode</td>
+<td align="left">string</td>
+<td align="left">workTelephonePhoneAreaCode</td>
+
+</tr>
+
+<tr>
+<td align="left">52</td>
+<td align="left">Work Telephone Phone / InternationalPhoneCode</td>
+<td align="left">string</td>
+<td align="left">workTelephonePhoneInternationalPhoneCode</td>
+
+</tr>
+
+<tr>
+<td align="left">53</td>
+<td align="left">Work Telephone Phone PhoneExtension</td>
+<td align="left">string</td>
+<td align="left">workTelephonePhonePhoneExtension</td>
+
+</tr>
+<tr>
+<td align="left">54</td>
+<td align="left">Work Telephone Phone PhoneNumber</td>
+<td align="left">string</td>
+<td align="left">workTelephonePhonePhoneNumber</td>
+
+</tr>
+
+
+
+</tbody>
+</table>
 
 </div>
 </body>
