@@ -19,12 +19,7 @@ try{Typekit.load();}catch(e){}
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 
-<style>
-table, tbody {border: 1px solid black border-collapse: collapse;}
-tr {border: 1px solid black border-collapse: collapse;  }
-td {border: 1px solid black;}
 
-</style>
 
 
 </head>
@@ -89,18 +84,18 @@ td {border: 1px solid black;}
 <li><p>Add the required Workday attributes, then click <strong>Save</strong>:</p>
 <p>Note that each attribute has three different data types which are explained below. In this table, we are using the attribute <em>Work Email</em> as an example:</p>
 
+<table class="gridtable">
 
-<table>
-<tbody>
-<th>
 <tr>
-<td align="left" width="20%"><strong>Attribute Name</strong></td>
-<td align="left" width-"10%"><strong>Type</strong></td>
-<td align="left" width="25%"><strong>Description</strong></td>
-<td align="left" width="10%"><strong>Required/Optional</strong></td>
-<td align="left" width="25%"><strong>Comments</strong></td>
-<td align="left" width="10%"><strong>Sample Values</strong></td>
-</tr></th>
+
+<th>Attribute Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required/Optional</th>
+<th>Comments</th>
+<th>Sample Values</th>
+</tr>
+
 <tr>
 <td align="left">Work Email</td>
 <td align="left">String</td>
@@ -120,7 +115,7 @@ td {border: 1px solid black;}
 
 <tr>
 <td align="left">Set Work Email As Public</td>
-<td align="left">boolean</td>
+<td align="left">Boolean</td>
 <td align="left">setWorkEmailAsPublic</td>
 <td align="left">Optional</td>
 <td align="left">If Work email that is pushed needs to be set as Public, Set value as true. If not set, Default is false</td>
@@ -128,7 +123,7 @@ td {border: 1px solid black;}
 </tr>
 
 
-</tbody>
+
 </table>
 
 <p>Workday Contact information has 2 parameters: Primary and Public.</p>
