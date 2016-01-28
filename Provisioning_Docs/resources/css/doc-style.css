@@ -225,6 +225,11 @@ kbd *, code *, pre * {
     background-position: -72px 0;
 }
 
+<<<<<<< HEAD
+=======
+/* Table with Grid and Contrast Header Color */
+
+>>>>>>> 672dc698da78567a93c74ac5efdf779df51c9508
 table.gridtable {
     font-family: verdana,arial,sans-serif;
     font-size:11px;
