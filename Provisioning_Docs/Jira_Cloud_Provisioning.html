@@ -8,7 +8,7 @@ try{Typekit.load();}catch(e){}
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="resources/scripts/vkbeautify.js"></script>
 
-<title>Connected Data Provisioning</title>
+<title>JIRA Cloud Provisioning</title>
 
 <script src="resources/scripts/getAppValues.js"></script>
 
@@ -29,10 +29,10 @@ try{Typekit.load();}catch(e){}
 
 <h1>Configuring Provisioning for Jira Cloud</h1>
 
-<p>This guide provides the steps required to configure Provisioning for Jira Cloud.</p>
+<p>This guide provides the steps required to configure Provisioning for JIRA Cloud.</p>
 
 <div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
-<p>Okta's JIRA Cloud integration supports the following three JIRA products, whether you are using one, or a combination of these JIRA products:</p><br />
+<p>Okta's JIRA Cloud integration supports the following JIRA version 7 products, whether you are using one, or a combination of these JIRA products:</p><br />
 <li><p>JIRA Core</p></li>
 <li><p>JIRA Software</p></li>
 <li><p>JIRA Service Desk</p></li><br />
@@ -80,9 +80,9 @@ try{Typekit.load();}catch(e){}
 <li><p>Click <strong>Next</strong> to complete provisioning setup.</p></li>
 
 <div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
-<p>Depending on <strong>JIRA_USE_REST_FOR_GROUPS</strong> feature flag groups list in assignment dialog will contain different values:</p><br />
+<p>Depending on whether the <strong>JIRA_USE_REST_FOR_GROUPS</strong> feature flag is enabled, the groups list in the assignment dialog will contain different values:</p><br />
 <ul>
-<li><p>JIRA_USE_REST_FOR_GROUPS <strong>disabled</strong>: List contains jira-users group only. In case of JIRA 7 you can ignore it since JIRA handles default assignment for you automatically.</p></li>
+<li><p>JIRA_USE_REST_FOR_GROUPS <strong>disabled</strong>: List contains jira-users group only. In case of JIRA version 7 you can ignore it since JIRA handles default assignment for you automatically.</p></li>
 <li><p>JIRA_USE_REST_FOR_GROUPS <strong>enabled</strong>: List contains all groups from your JIRA account and fully operable.</p></li>
 </ul>
 
