@@ -127,14 +127,14 @@ try{Typekit.load();}catch(e){}
 
 <li><p>Select the attributes you want to add, then click <strong>Save</strong>.</p></li>
 
-<li><p>You can now import and push these user attribute values to/from Zendesk.</p></li>
+<li><p>You can now import and push these user attribute values to/from Netsuite.</p></li>
 </ol>
 <br />
 <h2>Troubleshooting Tips</h2>
 
 <ol>
 
-<li><p>If you are in the process of creating a NetSuite app instance with <strong>PROV_ZENDESK_ENABLE_UD</strong> provisioning feature turned on, you will encounter an error similar to the following during the app assignment flow.</p>
+<li><p>If you are in the process of creating a NetSuite app instance with <strong>PROV_NETSUITE_ENABLE_UD</strong> provisioning feature turned on, you will encounter an error similar to the following during the app assignment flow.</p>
 <p><img src="images/apps/netsuite4.png" alt=“netsuite4.png" /></p>
 
 <p>The workaround for this is to first create the app instance without assigning it to any user/group. Once the app instance exists, you can then assign the app to the respective people by either:
@@ -147,6 +147,11 @@ try{Typekit.load();}catch(e){}
 
 <li><p>Make sure that the attribute <strong>subsidiary</strong> has dependency on <strong>department</strong>. There are not all departments available for each type of subsidiary and as result you may see an error during <strong>Push New Users</strong> or <strong>Push Profile</strong> updates, as shown below:
 <p><img src="images/apps/netsuite6.png" alt=“netsuite6.png" /></p></li>
+
+
+</li>
+
+<li><p>For applications with disabled <strong>PROV_NETSUITE_ENABLE_UD</strong> feature flag only. When you are changing <strong>Subsidiary</strong> property for user on OKTA side the <strong>Department</strong> field will be reset on NetSuite side.</p></li>
 
 
 </li>

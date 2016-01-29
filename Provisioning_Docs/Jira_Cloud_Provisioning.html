@@ -31,14 +31,68 @@ try{Typekit.load();}catch(e){}
 
 <p>This guide provides the steps required to configure Provisioning for Jira Cloud.</p>
 
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+<p>Okta's JIRA Cloud integration supports the following three JIRA products, whether you are using one, or a combination of these JIRA products:</p><br />
+<li><p>JIRA Core</p></li>
+<li><p>JIRA Software</p></li>
+<li><p>JIRA Service Desk</p></li><br />
+
+<p>By default, the integration works with one configured user group only. In case you want to assign users to a full list of user groups - ensure the <strong>JIRA_USE_REST_FOR_GROUPS</strong> feature flag is enabled for your Okta org.</p> <br />
+<p>Note: <strong>JIRA_USE_REST_FOR_GROUPS</strong> is an <strong>Early Access</strong> feature; contact Okta Support to have it enabled for your Okta org.</p>
+</div>
+
 
 <h2>Features</h2>
 
+<p>The JIRA Cloud application supports the following features:</p>
+<ul>
+<li><p><strong>Push new users</strong></p>
+<p>New users created through OKTA are also created in the third party application.</p></li>
+<li><p><strong>Push profile update</strong></p>
+<p>Updates made to the user's profile through OKTA are pushed to the third party application.</p>
+<li><p><strong>Push password update</strong></p>
+<p>Changes made to the user's password are pushed to the third party application.</p></li>
+<li><p><strong>Import new users</strong></p>
+<p>New users created in the third party application are downloaded and turned in to new AppUser objects, for matching against existing OKTA users.</p></li>
+<li><p><strong>Import profile updates</strong></p>
+<p>Updates made to a user's profile in the third party application are downloaded and applied to the profile fields stored locally in OKTA. If the app is the system of record for the user, changes made to core profile fields (email, first name, last name, etc) are applied to the Okta user profile. If the app is NOT the system of record for the user, only changes made to app-specific fields are applied to the local user profile.</p></li>
+</ul>
 
 <h2>Configuration Steps</h2>
-<h2>Schema Discovery</h2>
 
-<h2>Troubleshooting Tips</h2>
+
+<ol>
+<li><p>Once you have selected <strong>Enable provisioning features</strong>, configure your provisioning settings as follows:</p>
+<ul>
+<li><p><strong>Admin User Name</strong>: Enter the admin username that has rights for user management.</p></li>
+<li><p><strong>Admin Password</strong>: The password for the admin user.</p></li>
+<li><p><strong>All User’s Group</strong>: A group name, from which users are imported from remote side.</p></li>
+</ul>
+<p><img src="images/apps/jira_cloud1.png" alt=“jira_cloud1.png" /></p>
+</li>
+<li><p>Scroll down and <strong>Enable</strong> your required Provisioning Features.</p>
+<p><img src="images/apps/jira_cloud2.png" alt=“jira_cloud2.png" /></p>
+</li>
+<li><p>Click <strong>Next</strong> to proceed to the <strong>Assign to People</strong> tab.</p></li>
+
+<li><p>On the <strong>Assign to People</strong> tab, you can assign any existing OKTA users to the application.</p></li>
+
+<li><p>Click <strong>Next</strong> to complete provisioning setup.</p></li>
+
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+<p>Depending on <strong>JIRA_USE_REST_FOR_GROUPS</strong> feature flag groups list in assignment dialog will contain different values:</p><br />
+<ul>
+<li><p>JIRA_USE_REST_FOR_GROUPS <strong>disabled</strong>: List contains jira-users group only. In case of JIRA 7 you can ignore it since JIRA handles default assignment for you automatically.</p></li>
+<li><p>JIRA_USE_REST_FOR_GROUPS <strong>enabled</strong>: List contains all groups from your JIRA account and fully operable.</p></li>
+</ul>
+
+</div>
+
+
+
+<h2>Schema Discovery</h2>
+<p>JIRA Cloud does not support User's Schema Discovery.
+
 
 
 </div>
