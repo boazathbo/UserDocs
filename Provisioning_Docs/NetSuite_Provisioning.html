@@ -101,7 +101,30 @@ try{Typekit.load();}catch(e){}
 </li>
 
 <li><p>You can now assign people to the app (if needed) and finish the application setup.</p></li>
+
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+<p><strong>User Provisioning Notes</strong>:</p><br />
+<ul>
+<li><p>If you have the <strong>PROV_NETSUITE_ENABLE_UD</strong> feature flag enabled for your org, Okta offers the added functionality to set the  <strong>Employee's Supervisor</strong> attribute. This attribute can only be set for users who are imported into Okta from Active Directory. The <strong>Employee's Supervisor</strong> attribute maps to the supervisor's <strong>User ID</strong> in Netsuite.</p></li>
+
+<li><p> If you are setting up Netsuite as Master, inactive users and users with insufficient access levels in Netsuite will be deactivated in Okta if you have the following provisioning options enabled in Okta:</p>
+<ul>
+<li><p>Do not import inactive users</p></li>
+<li><p>Do not import users without access</p></li>
+</ul>
+</li>
+
+</ul>
+
+</div>
+
+
+
 <br />
+<br />
+
+
+
 <h2>Schema Discovery</h2>
 
 <div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
@@ -127,14 +150,16 @@ try{Typekit.load();}catch(e){}
 
 <li><p>Select the attributes you want to add, then click <strong>Save</strong>.</p></li>
 
-<li><p>You can now import and push these user attribute values to/from Zendesk.</p></li>
+<li><p>You can now import and push these user attribute values to/from Netsuite.</p></li>
 </ol>
 <br />
+
+
 <h2>Troubleshooting Tips</h2>
 
-<ol>
+<ul>
 
-<li><p>If you are in the process of creating a NetSuite app instance with <strong>PROV_ZENDESK_ENABLE_UD</strong> provisioning feature turned on, you will encounter an error similar to the following during the app assignment flow.</p>
+<li><p>If you are in the process of creating a NetSuite app instance with <strong>PROV_NETSUITE_ENABLE_UD</strong> provisioning feature turned on, you will encounter an error similar to the following during the app assignment flow.</p>
 <p><img src="images/apps/netsuite4.png" alt=“netsuite4.png" /></p>
 
 <p>The workaround for this is to first create the app instance without assigning it to any user/group. Once the app instance exists, you can then assign the app to the respective people by either:
@@ -151,7 +176,12 @@ try{Typekit.load();}catch(e){}
 
 </li>
 
-</ol>
+<li><p>For applications with disabled <strong>PROV_NETSUITE_ENABLE_UD</strong> feature flag only. When you are changing <strong>Subsidiary</strong> property for user on OKTA side the <strong>Department</strong> field will be reset on NetSuite side.</p></li>
+
+
+</li>
+
+</ul>
 
 </div>
 </body>
