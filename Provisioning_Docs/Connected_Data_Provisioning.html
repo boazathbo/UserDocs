@@ -31,6 +31,35 @@ try{Typekit.load();}catch(e){}
 
 <p>This guide provides the steps required to configure Provisioning for Connected Data.</p>
 
+<h2>Features</h2>
+<p>The following provisioning features are supported:</p>
+
+<ul>
+<li><p><strong>Push Groups</strong></p>
+<p>Groups and their members can be pushed to remote systems. More about using group push operations you can find here: Using Group Push.</p>
+</li>
+<li><p><strong>Import New Users</strong></p>
+<p>New users created in the third party application will be downloaded and turned in to new AppUser objects, for matching against existing OKTA users.</p>
+</li>
+<li><p><strong>Import Profile Updates</strong></p>
+<p>Updates made to a user's profile in the third party application will be downloaded and applies to the profile fields stored locally in OKTA. If the app is the system of record for the user, changes made to core profile fields (email, first name, last name, etc) will be applied to the Okta user profile. If the app is NOT the system of record for the user, only changes made to app-specific fields will be applied to the local user profile.</p>
+</li>
+<li><p><strong>Push New Users</strong></p>
+<p>New users created through OKTA will also be created in the third party application.</p>
+</li>
+
+<li><p><strong>Push Password Updates</strong></p>
+<p>Updates made to the user's password through OKTA will be pushed to the third party application.</p>
+</li>
+<li><p><strong>Push Profile Updates</strong></p>
+<p>Updates made to the user's profile through OKTA will be pushed to the third party application.</p>
+
+</li>
+<li><p><strong>Push User Deactivation</strong></p>
+<p>Deactivating the user or disabling the user's access to the application through OKTA will deactivate the user in the third party application.</p>
+</li>
+<li><p><strong>Reactivate Users</strong></p></li>
+
 
 <h2>Prerequisites</h2>
 
