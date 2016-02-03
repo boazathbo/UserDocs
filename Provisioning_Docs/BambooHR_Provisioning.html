@@ -34,29 +34,59 @@ try{Typekit.load();}catch(e){}
 <ul>
 <li>
 <p>This integration cannot create new users in BambooHR. Assigning an Okta user to BambooHR with Provisioning enabled will result in an error. Instead, import existing users from BambooHR first to avoid this error.</p></li>
-<li><p>If you want to republish the Mapping Template via SU, turn off Push User Attributes feature to avoid provisioning errors, or you can retry failed tasks after the template is republished.</p> </li>
+
+<li><p>Please turn off the <strong>Push User Attribute</strong> feature before requesting Okta Support republish your profile template mappings.</p> </li>
+
+
+<li><p>Attributes with special characters will be represented with their Unicode values in Okta. For example: if you attribute is <strong>ShirtSize#</strong> it will be displayed as <strong>ShirtSize_U+0023</strong>.
 </ul>
 </div>
-<h2>Before you Begin</h2>
-<p>Before you start configuring provisioning for BambooHR, you need to obtain a Bamboo API Key and verify the BambooHR app’s <strong>General Settings</strong> are correct:</p>
-<ol>
-<li><p>Obtain a BambooHR API Key. To do this:</p>
+<h2>Features</h2>
+
+<p>The following provisioning features are supported:</p>
+
 <ul>
+
+<li><p><strong>Import New Users</strong></p>
+
+</li>
+<li><p><strong>Import Profile Updates</strong></p>
+
+</li>
+
+<li><p><strong>Import User Schema</strong></p>
+<p></p>
+</li>
+
+<li><p><strong>Profile Mastering</strong></p>
+<p></p>
+</li>
+
+<li><p><strong>Push Profile Updates</strong></p>
+
+
+</li>
+
+
+
+<h2>Requirements</h2>
+<p>Before you start configuring provisioning for BambooHR, you need to obtain a Bamboo API Key:</p>
+<ol>
 <li><p>Login to BambooHR as an administrator.</p></li>
 <li><p>Select <strong>Account Settings</strong> in the upper right corner, then select <strong>API Keys</strong>.</p>
 <p><img src="images/apps/bamboo2.png" alt=“bamboo2.png" /></p></li>
 </li>
-<li><p>Select <strong>Add a new key</strong>, or uses an existing one if you have one is the list of <strong>Valid API Keys</strong>
+<li><p>Select <strong>Add a new key</strong>, or use an existing one if you have one is the list of <strong>Valid API Keys</strong>
 <li><p>Make a copy of the Key to enter in Okta later in this procedure.</p>
 <p><img src="images/apps/bamboo3.png" alt=“bamboo3.png" /></p></li>
 
-</li>
+</ol>
 
 
-</ul>
-</li>
+<h2>Configuration Steps</h2>
 
 
+<ol>
 <li><p>Verify the BambooHR app’s <strong>General Settings</strong>:</p>
 <ul>
 <li><p>Uncheck <Strong>Enable provisioning features</strong>.</p></li>
@@ -87,7 +117,7 @@ For example, if you enter <strong>7</strong>, the users with a <strong>Hire Date
 <p><img src="images/apps/bamboo4.png" alt=“bamboo4.png" /></p></li>
 </li>
 
-<li><p>Scroll down and select the Provisioning Features you want to enable, either <strong>Profile Master</strong> or <strong>Push User Attributes</strong>, then click <strong>Next</strong>. Note that you cannot enable both of these at the same time, select only one.</p>
+<li><p>Scroll down and select the Provisioning Features you want to enable, either <strong>Profile Master</strong> or <strong>Push User Attributes</strong>, then click <strong>Next</strong>. Note that you cannot enable both of these at the same time, select only one. The ability to have BambooHR be the Profile Master while also having certain attributes (for example, email, phone #) mastered by a different source and updated back into BambooHR is not currently supported.</p>
 <p><img src="images/apps/bamboo5.png" alt=“bamboo5.png" /></p></li>
 </li>
 <li><p>You can now assign people to the app (if needed) and finish the application setup.</p></li>
