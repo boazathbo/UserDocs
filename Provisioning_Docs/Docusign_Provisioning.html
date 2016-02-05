@@ -32,11 +32,14 @@ try{Typekit.load();}catch(e){}
 <p>This guide provides the steps required to configure Provisioning for DocuSign.</p>
 
 <div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
-<h3><strong>Note</strong></h3>
-<p>Make sure your account plan supports silent user activation via API.</p> 
+<h3><strong>Notes</strong></h3>
+<ul>
+<li><p>Make sure your account plan supports silent user activation via API.</p> 
 <p>This means that an activation email won't be sent to created user, who will immediately become <strong>Active</strong>.</p>
 <p>If you find that you have provisioned users created in Docusign with status of <strong>ActivationSent</strong>, contact DocuSign Support to have the Plan associated with your DocuSign account changed to one which turns off email activations.</p>
-<p>See <a href="https://support.docusign.com/guides/dfs-admin-guide-add-users" target="_blank">https://support.docusign.com/guides/dfs-admin-guide-add-users</a></p>
+<p>See <a href="https://support.docusign.com/guides/dfs-admin-guide-add-users" target="_blank">https://support.docusign.com/guides/dfs-admin-guide-add-users</a></p></li>
+<li><p>Make sure your users have enabled <strong>Senders may add new spellings of my name</strong> flag in the <strong>Preferences > Names Available</strong> section. Otherwise you won't be able to assign Okta users to existing Docusign users. This is a user specific field and cannot be changed by Docusign Admin, only the user can do this for himself.</p></li>
+</ul>
 </div>
 
 
@@ -130,7 +133,7 @@ try{Typekit.load();}catch(e){}
 </li>
 
 <li><p>You can set whether user can send envelopes or not by selecting either <strong>true</strong> or </strong>false</strong> in the from <strong>Can Send Envelope</strong> field. If set to <strong>true</strong>, this user can send envelopes though the DocuSign. </p>
-<p><p><img src="images/apps/docusign7.png" alt=“docusign7.png" /></p></li>
+<p><img src="images/apps/docusign7.png" alt=“docusign7.png" /></p></li>
 </li>
 
 
@@ -139,22 +142,35 @@ try{Typekit.load();}catch(e){}
 <h2>Troubleshooting Tips</h2>
 
 
-
-<p>Errors encountered while authenticating with Docusign:</p>
+<ol>
+<li><p>Errors encountered while authenticating with Docusign:</p>
 <ul>
-<li><p>Invalid <strong>username/password</strong> provided or wrong DocuSign <strong>Instance Type</strong> selected in <strong>General Settings<strong>.
+<li><p>Invalid <strong>username/password</strong> provided or wrong DocuSign <strong>Instance Type</strong> selected in <strong>General Settings</strong>.</p>
 <p><img src="images/apps/docusign8.png" alt=“docusign8.png" /></p></li>
-
+</li>
 <li><p>Invalid <strong>Account ID</strong>.</p>
 <p><img src="images/apps/docusign9.png" alt=“docusign9.png" /></p></li>
+</ul>
+
+
 
 </li>
+<li><p>Errors encountered while assigning user on Docusign application:</p>
+<ul>
+<li><p>Docusign user has disabled <strong>Senders may add new spellings of my name</strong> flag in <strong>Preferences > Names Available</strong> section.</p>
+<p><img src="images/apps/docusign_new1.png" alt=“docusign_new1.png" /></p>
 
+<p>May produce errors such as this one:</p>
+<p><img src="images/apps/docusign_new2.png" alt=“docusign_new2.png" /></p>
+</li>
+
+</li>
 </ul>
 </li>
-
 </ol>
 
 </div>
 </body>
 </html>
+
+
