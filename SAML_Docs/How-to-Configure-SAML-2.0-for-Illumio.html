@@ -27,17 +27,17 @@ try{Typekit.load();}catch(e){}
 
 <ol>
 <li>
-<p>Login to Illumio as an administrator.</p>
+<p>Login to the Illumio PCE web console.</p>
 </li>
 
 <li>
-<p>From your login, select <strong>SSO Config</strong> from the dropdown menu, as shown:</p>
+<p>From the <strong>User</strong> dropdown menu, select <strong>SSO Config</strong>:</p>
 <p><img style="border: 0; padding: 0;" src="images/apps/illumio1.png" alt=“illumio1.png" /></p>
 </li>
 
 
 <li>
-<p>Click <strong>Edit</strong> and enter the following:</p>
+<p>Click <strong>Edit</strong> and enter the following information:</p>
 <ul>
 <li><p>Check the <strong>Enabled</strong> box for <strong>SAML Status</strong>.</p></li>
 
@@ -50,11 +50,11 @@ try{Typekit.load();}catch(e){}
 <li><p><strong>Logout Landing URL</strong>: Copy and paste the following:</p>
 <kbd id="signOutUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></li>
 
-
+<li><p>Click <strong>Save</strong> to save your changes.</p></li>
 </ul>
 <p><img style="border: 0; padding: 0;" src="images/apps/illumio2.png" alt=“illumio2.png" /></p>
 </li>
-<li><p>Navigate to the Illumine <Strong>SAML Setup</strong> page under the <strong>Information from Identity Provider</strong> tab, and make note of the values of the following fields:</p>
+<li><p>In the <strong>Information for Identity Provider</strong> section, make note of the values for the following fields:</p>
 <ul>
 <li>
 <p><strong>Issuer</strong>.</p></li>
@@ -63,7 +63,7 @@ try{Typekit.load();}catch(e){}
 <p><img style="border: 0; padding: 0;" src="images/apps/illumio4.png" alt=“illumio4.png" /></p>
 </li>
 
-<li><p>In Okta, select the <strong>General</strong> tab for the Illumino app, then click <strong>Edit</strong> and enter the following values you just noted from Illumine:</p>
+<li><p>In Okta, select the <strong>General</strong> tab for the Illumio app, then click <strong>Edit</strong> and enter the following values you just noted from Illumio:</p>
 <ul>
 <li>
 
