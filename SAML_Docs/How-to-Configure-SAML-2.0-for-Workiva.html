@@ -1,0 +1,96 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Workiva</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+<ol>
+<li>
+<p>Login to Wdesk as a Security Administrator.</p>
+</li>
+
+<li>
+<p>Select <strong>Account Admin</strong> from the <strong>Admin</strong> drop down menu in the upper right:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/workiva1.png" alt=“workiva1.png" /></p>
+</li>
+
+<li>
+<p>Navigate to <strong>Security > SAML > SAML Settings</strong>:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/workiva2.png" alt=“workiva2.png" /></p>
+</li>
+
+<li>
+<p>Check the <strong>Enable SAML Single Sign On</strong> box:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/workiva3.png" alt=“workiva3.png" /></p>
+</li>
+
+<li>
+<p>From the <strong>SAML Settings</strong> tab, make a note of the values for <strong>Metadata URL</strong> and <Strong>Consumer URL</strong>:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/workiva4.png" alt=“workiva4.png" /></p>
+</li>
+
+<li>
+<p>Copy, then save the following IdP Metadata as <strong>Metadata.xml</strong>:</p>
+<pre id="idpMetadata">Sign in to Okta Admin app to have this variable generated for you.</pre>
+</li>
+
+<li>
+<p>Click the <strong>Configure IdP Settings</strong> button; the <strong>Edit IdP Settings</strong> dialog will open. Click <strong>Browse</strong> to locate the <strong>Metadata.xml</strong> file you just saved, then <strong>upload</strong> it.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/workiva7.png" alt=“workiva7.png" /></p>
+</li>
+
+<li>
+<p>Click <strong>Save Changes</strong>.</p>
+</li>
+
+<li>
+<p>In Okta, select the  <strong>General</strong> tab for the Workiva app, then click <strong>Edit</strong>.</p>
+
+<ul>
+<li>
+<p>For <strong>ACS URL</strong> enter the <strong>Consumer URL</strong> you saved in step 5.</p></li>
+<li>
+<p>For <strong>Audience URI</strong> enter the <strong>Metadata URL</strong> you saved in step 5.</p></li>
+
+<li>
+<p>Click <strong>Save</strong>.</p></li>
+
+</ul>
+<p><img style="border: 0; padding: 0;" src="images/apps/workiva5.png" alt=“workiva5.png" /></p>
+
+</li>
+
+
+
+<li>Done!
+<p>&nbsp;</p>
+<p><strong>Notes</strong>:</p><p>IDP-initiated flows and SP-initiated flows are supported.</p>
+<p>Just In Time (JIT) Provisioning is not supported.</p>
+
+
+
+</li>
+</ol></div>
+</body>
+</html>
