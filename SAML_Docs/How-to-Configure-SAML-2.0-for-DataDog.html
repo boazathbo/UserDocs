@@ -25,17 +25,57 @@ try{Typekit.load();}catch(e){}
 <p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
 </div>
 <ol>
-<li>Copy and save the following IdP Metadata show below with the filename <strong>metadata.xml</strong>.&nbsp;<br /> <pre id="idpMetadata">Sign into the Okta Admin dashboard to generate this value.</pre></li>
+<li><p>Copy and save the following IdP Metadata show below with the filename <strong>metadata.xml</strong>.</p> 
+<p><pre id="idpMetadata">Sign into the Okta Admin dashboard to generate this value.</pre></p></li>
+
 <li>
-<p>Log in to Datadog at https://www.datadoghq.com with your administrative credentials.</p>
+<p>Log in to Datadog at <a href="https://app.datadoghq.com/account/login" target="_blank">https://app.datadoghq.com/account/login</a> with your administrative credentials.</p>
 </li>
-<li>Select the <strong>Datadog icon</strong> in the upper right, and then, select <strong>Configure SAML</strong> in the menu that appears, as shown below.<br /><br /><img style="border: 0; padding: 0;" src="images/apps/DataDog_1.png" alt="DataDog_1.png" /></li>
-<li>Select <strong>Enable SAML</strong>, as shown below.<br /><br /><img style="border: 0; padding: 0;" src="images/apps/DataDog_2.png" alt="DataDog_2.png" /></li>
-<li>In the Identity Provider Metadata section, select <strong>Choose file</strong> and navigate to the <em>metadata.xml</em> file you saved in step 1, as shown below. When the file name appears, select <strong>Upload File</strong>.<br /><br /><img style="border: 0; padding: 0;" src="images/apps/DataDog_4.png" alt="DataDog_4.png" /></li>
-<li>Note the <strong>Single Sign On Login URL</strong> to use for authentication that is shown in the Status section.<br /><br /><img style="border: 0; padding: 0;" src="images/apps/DataDog_6.png" alt="DataDog_6.png" /></li>
-<li>Done!<br /><br />DataDog only supports SP-initiated SAML.&nbsp;For the convenience of your end users,&nbsp;<strong style="font-size: 14px; background-color: initial;">Okta recommends that you hide the Datadog app and set up a Bookmark app</strong>&nbsp;with the Datadog logo. For instructions on setting up a Bookmark app and hiding the original app, see&nbsp;<a style="font-size: 14px; background-color: initial;" href="https://support.okta.com/entries/27685638-Simulating-an-IDP-initiated-Flow-with-the-Bookmark-App" target="_blank">Simulating an IDP-initiated Flow with the Bookmark App</a>.<br /><br /><strong>Note:</strong> Just In Time Provisioning (JIT) is not supported.</li>
+
+<li><p>Select the <strong>Datadog icon</strong> in the bottom right, and then select <strong>Configure SAML</strong> in the menu that appears, as shown below.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/datadog1.png" alt=“datadog1.png" /></p></li>
+
+<li>Select <strong>Enable SAML</strong>, as shown below.<br /><br /><img style="border: 0; padding: 0;" src="images/apps/datadog2.png" alt=“datadog2.png" /></li>
+
+<li><p>In the Identity Provider Metadata section, select <strong>Browse…</strong> and navigate to the <em>metadata.xml</em> file you saved in step 1, as shown below. When the file name appears, select <strong>Upload File</strong>.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/datadog3.png" alt=“datadog3.png" /></p></li>
+
+
+
+<li><p>Note the <strong>Single Sign On Login URL</strong> to use for authentication that is shown in the Status section.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/datadog5.png" alt=“datadog5.png" /></p></li>
+
+
+<li><p>If the IdP Initiated Login feature has been activated (optional):</p><ol>
+<li><p>Open your Datadog SAML Configuration page.</p></li>
+<li><p>Copy your Company ID prefix from the Assertion Consumer Service URL as shown below:</p><p>For example, if your ACS URL is <strong>https://app.datadoghq.com/account/saml/assertion/id/[yourCompanyId]</strong>, you need to copy the <strong>/id/[yourCompanyId]</strong> value.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/datadog6.png" alt=“datadog6.png" /></p></li>
+
+<li><p>In Okta, select the <strong>General</strong> tab for the DataDog app, then click <strong>Edit</strong>.</p></li>
+
+<li><p>Enter your <strong>Company ID</strong> as shown below:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/datadog7.png" alt=“datadog7.png" /></p></li>
+</li>
+<li><p>Click <strong>Save</strong>.</p></li>
+
 </ol>
-<h2>&nbsp;</h2>
+
+
+
+<li><p>Done!</p>
+<p><strong>Notes</strong>:</p>
+<p>IdP Initiated Login and Just in Time Provisioning (JIT Provisioning) features are available on request. If you would like access to them, contact Datadog support and describe your scenario. The feature will be available on your account after some configurations on Datadog side. Please refer to <a href="http://docs.datadoghq.com/guides/saml/" target="_blank">http://docs.datadoghq.com/guides/saml/</a> doc.</p>
+
+
+<p>IdP-initiated flows, SP-initiated flows, and Just In Time Provisioning (JIT) are all supported.</p>
+
+<p>For the SP-initiated flow: Open your <strong>Single Sign On Login URL</strong> (see step 6).</p>
+</li>
+
+
+
+</ol>
+
 </div>
 </body>
 </html>
