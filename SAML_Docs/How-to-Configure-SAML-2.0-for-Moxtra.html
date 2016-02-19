@@ -1,0 +1,118 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Moxtra</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+<li><p>Login to your Moxtra account as an administrator.</p></li> 
+<li><p>Navigate to <strong>Admin Console > SAML Single Sign-on</strong>.</p></li> 
+<li><p>Choose to set up a new SAML integration.</p></li> 
+<li><p>Enter the following information (see screen shot at end of step for reference):</p>
+<ul>
+<li><p><strong>Name</strong>: Enter <strong>Okta</strong></p></li> 
+<li><p><strong>IdP Entity ID</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li> 
+
+<li><p><strong>SP Entity ID</strong>: Enter <strong><a href="http://www.moxtra.com" target="_blank">http://www.moxtra.com</a></strong>. </p></li> 
+<li><p><strong>Login URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li> 
+
+<li><p><strong>AuthnContextClassRef</strong>: <strong>urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</strong> (the default value). </p></li> 
+<li><p><strong>NameID Format</strong>: Select <strong>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</strong> from the drop down menu. </p></li> 
+<li><p><strong>SSO Flow</strong>: Select <strong>SP-Initiated</strong>.</p></li> 
+
+<li><p><strong>Protocol Binding</strong>: Select <strong>Http Redirect</strong>.</p></li> 
+<li><p><strong>AuthnRequest Signed</strong>: Uncheck this option.</p></li> 
+
+<li><p><strong>Certificate</strong>: Copy and paste the following:</p>
+<p><pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre></p>
+</li>
+
+<li><p><strong>SAML email domain</strong>: Enter your email domain.</p>
+<p><strong>Note</strong>: You need to verify your email domain. Follow the Moxtra instructions on the page</p></li>
+
+
+
+
+<li><p><strong>Moxtra Org ID</strong>: Make a copy of this value, you will need it later in Okta.</p></li> 
+
+<li><p>Click <strong>Update</strong>.</p></li> 
+
+</ul>
+<p><img style="border: 0; padding: 0;" src="images/apps/moxtra1.png" alt=“moxtra1.png" /></p>
+
+
+</li> 
+
+<li><p>In Okta, select the <strong>General</strong> tab for the Moxtra app, then click <strong>Edit</strong>.</p>
+<ul>
+<li><p>Enter the <strong>Moxtra Org ID</strong> you made a copy of earlier.</p></li> 
+
+<li><p>Click <strong>Save</strong>.</p></li> 
+
+</ul>
+<p><img style="border: 0; padding: 0;" src="images/apps/moxtra2.png" alt=“moxtra2.png" /></p>
+
+</li> 
+
+<li><p>Select the <strong>Sign On</strong> tab, then click <strong>Edit</strong>.</p>
+<ul>
+<li><p>For <strong>Default Relay State</strong>, enter <a href="https://www.moxtra.com/service/?type=web" target="_blank">https://www.moxtra.com/service/?type=web</a>.</p></li> 
+
+<li><p>Click <strong>Save</strong>.</p></li> 
+
+</ul>
+<p><img style="border: 0; padding: 0;" src="images/apps/moxtra3.png" alt=“moxtra3.png" /></p>
+
+</li> 
+
+
+<li><p>Done!</p>
+<p><strong>Notes</strong>:</p>
+
+
+
+<p>IdP-initiated flows, SP-initiated flows, and Just In Time Provisioning (JIT) are all supported.</p>
+
+
+</li>
+<br />
+<br />
+<p><strong>For SP-initiated flows</strong>:</p>
+
+<ol>
+<li><p>Open <a href="https://www.moxtra.com/service/?type=web#/ssologin" target="_blank">https://www.moxtra.com/service/?type=web#/ssologin</a>. </p></li>
+
+<li><p>Enter your <strong>Email Address</strong>.</p></li>
+<li><p>Click <strong>Continue</strong>.</p></li>
+<p><img style="border: 0; padding: 0;" src="images/apps/moxtra4.png" alt=“moxtra4.png" /></p>
+
+</ol>
+</ol>
+
+</div>
+</body>
+</html>
