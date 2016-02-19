@@ -27,25 +27,130 @@ try{Typekit.load();}catch(e){}
 </div>
 
 
+
 <h1>Configuring Provisioning for Salesforce Customer Portal</h1>
 
 <p>This guide provides the steps required to configure Provisioning for Salesforce Federated ID.</p>
 
-
-
-
 <h2>Features</h2>
-<p>The following provisioning features are supported:</p>
+<ul>
+<li><p><strong>Import New Users</strong></p></li>
+<li><p><strong>Import Profile Updates</strong></p></li>
+<li><p><strong>Push New Users</strong></p></li>
+<li><p><strong>Push Profile Updates</strong></p></li>
+<li><p><strong>Push User Deactivation</strong></p></li>
+<li><p><strong>Sync Okta Password</strong></p></li>
+<li><p><strong>Profile Mastering</strong></p></li>
+
+</li>
 
 <h2>Requirements</h2>
 <p>Complete the following before you configure provisioning for Salesforce Customer Portal:</p>
 
+<ul>
+<li><p>Create an administrator account in Salesforce. You will use this account’s username and password to configure the Salesforce Customer Portal app in Okta. When you create an administrator account, Salesforce will provide you a <strong>token</strong>.</p>
+
+<p><strong>Note</strong>: Every time you reset this account’s password, Salesforce will provide you with a new token, and you need to edit the Salesforce app’s <strong>Provisioning</strong> settings in Okta using the new password/token as described below. See <a href="#TIPS">TIPS</a>.</p></li>
+</ul>
+
 
 
 <h2>Configuration Steps</h2>
-<h2>Troubleshooting Tips</h2>
+
+<p>You are now ready to configure your <strong>Provisioning</strong> settings as follows:</p>
+
+<ol>
+<li><p>In the API Credentials section, enter the <strong>Username</strong>, <strong>Password</strong> and <strong>Token</strong> associated with your Salesforce Administrator account.</p>
 
 
+<p><strong>Note</strong>: Simply append the token Salesforce provided to you to your password, no spaces or other characters.</p></li>
+
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+<a name="TIPS"></a><h3><strong>TIPS</strong></h3>
+<ul>
+<li><p>To avoid breaking the integration when the password is reset, use a dedicated API account for connecting Okta to Salesforce.</p></li>
+<li><p>Do not enable delegated authentication in Salesforce for the API user specified here.</p></li>
+</ul>
+</div>
+
+
+
+<li><p>Select the user types you want to import from Salesforce Customer Portal: <strong>High Volume Portal</strong>, <strong>Customer Portal User</strong>, <strong>Customer Portal Manager</strong> or <strong>Partner</strong>:</p>
+
+<p><img src="images/apps/salesforce_customer_portal1.png" alt=“salesforce__customer_portal1" /></p>
+
+</li>
+
+<li><p>Click <strong>Test API Credentials</strong>; if successful, a verification message appears at the top of the screen, as shown above.</p></li>
+
+<li><p>Scroll down and specify the type of <strong>Provisioning Features</strong> you want to enable:</p>
+
+<p><img src="images/apps/salesforce_customer_portal2.png" alt=“salesforce__customer_portal2” /></p>
+
+</li>
+
+
+<li><p>Click <strong>Save</strong>.</p></li>
+
+</ol>
+
+<h2>User Assignment</h2>
+
+<p>To assign users to the Salesforce Customer Portal app:</p>
+<ol>
+<li>Open the Salesforce Customer Portal app, select the <strong>People</strong> tab and then click the <strong>Assign to People</strong> button:</p>
+
+<p><img src="images/apps/salesforce_customer_portal3.png" alt=“salesforce__customer_portal3” /></p>
+
+</li>
+
+<li><p>Then, in the <strong>Assign Salesforce Customer Portal to People</strong> dialog, select a user, then click the <strong>Assign</strong> button:</p>
+<p><img src="images/apps/salesforce_customer_portal.png" alt=“salesforce__customer_portal” /></p>
+
+</li>
+
+<li><p>You can set the <strong>Profile</strong>, <strong>Role</strong>, <strong>Federation ID</strong> and <strong>Permission Sets</strong> for each user:</p>
+<p><img src="images/apps/salesforce_customer_portal4.png" alt=“salesforce__customer_portal4” /></p>
+
+</li>
+
+<h2>Feature Licenses and Public Groups Support</h2>
+
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+<h3><strong>Note</strong></h3>
+<ul>
+<li><p>If you would like to enable support for Feature Licenses and Public Groups for Salesforce, contact Okta Support and ask them to enable it for your organization.</p></li>
+<li><p>When Okta Support has enabled that functionality for you, you need to create and configure new Salesforce Customer Portal application in order to work with the new user attributes.</p>
+<p>This is a known limitation.</p></li>
+
+</div>
+
+<p>You can manage <strong>Feature Licenses</strong> and <strong>Public Groups</strong> for users by enabling the corresponding checkboxes on the <strong>User Assignment</strong> page.</p>
+<p>Note that <strong>Feature Licenses</strong> depend on the selected user <strong>Profile</strong>. If you select a <strong>Feature License</strong> that is not supported by the selected <strong>Profile</strong> you will encounter an error, as described in <a href="#trouble">Troubleshooting Tips</a>.</p>
+<p><img src="images/apps/salesforce_customer_portal5.png" alt=“salesforce__customer_portal5” /></p>
+
+
+<a name="trouble"></a><h2>Troubleshooting Tips</h2>
+
+<ul>
+<li><p>Error when you try to assign a Feature License (for example, Live Agent User) that is not applicable for the current user License:</p>
+<p><img src="images/apps/salesforce_customer_portal6.png" alt=“salesforce__customer_portal6” /></p>
+</li>
+
+<li><p>Error when you try to assign a Profile to a user that does not exist in the License:</p>
+<p><img src="images/apps/salesforce_customer_portal7.png" alt=“salesforce__customer_portal7” /></p>
+</li>
+
+
+<li><p>Error when you try to assign a Role that is not supported by the current User License:</p>
+<p><img src="images/apps/salesforce_customer_portal8.png" alt=“salesforce__customer_portal8” /></p>
+</li>
+
+<li><p> Error when you try to assign a permission set to a User with a License that doesn't support the permission set: </p>
+<p><img src="images/apps/salesforce_customer_portal9.png" alt=“salesforce__customer_portal9” /></p>
+</li>
+
+</ul>
 </div>
 </body>
 </html>

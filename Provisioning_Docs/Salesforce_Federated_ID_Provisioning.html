@@ -47,16 +47,16 @@ try{Typekit.load();}catch(e){}
 <p>Complete the following before you configure provisioning for Salesforce Federated ID:</p>
 
 <ul>
-<li><p>Create an administrator account in Salesforce. You use this account’s username and password to configure the Salesforce Federated ID app in Okta. When you create an administrator account, Salesforce will then provide you a token.</p>
+<li><p>Create an administrator account in Salesforce. You use this account’s username and password to configure the Salesforce Federated ID app in Okta. When you create an administrator account, Salesforce will then provide you a <strong>token</strong>.</p>
 
-<p><strong>Note</strong>: Every time you reset this account’s password, Salesforce will provide you with a new token, and you need to edit the Salesforce app’s Provisioning settings in Okta using the new password/token as described below. See <a href="#TIPS">TIPS</a>.</p></li>
+<p><strong>Note</strong>: Every time you reset this account’s password, Salesforce will provide you with a new token, and you need to edit the Salesforce app’s <strong>Provisioning</strong> settings in Okta using the new password/token as described below. See <a href="#TIPS">TIPS</a>.</p></li>
 </ul>
 
 
 
 <h2>Configuration Steps</h2>
 
-<p>You are now ready to configure your Provisioning settings as follows:</p>
+<p>You are now ready to configure your <strong>Provisioning</strong> settings as follows:</p>
 
 <ol>
 <li><p>In the API Credentials section, enter the <strong>Username</strong>, <strong>Password</strong> and <strong>Token</strong> associated with your Salesforce Administrator account.</p>
@@ -69,10 +69,11 @@ try{Typekit.load();}catch(e){}
 <ul>
 <li><p>To avoid breaking the integration when the password is reset, use a dedicated API account for connecting Okta to Salesforce.</p></li>
 <li><p>Do not enable delegated authentication in Salesforce for the API user specified here.</p></li>
-
+</ul>
 </div>
 
-</ul>
+</li>
+
 
 
 
@@ -116,8 +117,8 @@ try{Typekit.load();}catch(e){}
 <div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
 <h3><strong>Note</strong></h3>
 <ul>
-<li><p>If you would like to enable support for Feature Licenses and Public Groups for Salesforce, you need to contact Okta support and ask them to enable it for your organization.</p></li>
-<li><p>When you Okta Support has enabled that functionality for you, you have to create and configure new Salesforce Federated ID application in order to work with new user attributes.</p>
+<li><p>If you would like to enable support for Feature Licenses and Public Groups for Salesforce, contact Okta Support and ask them to enable it for your organization.</p></li>
+<li><p>When Okta Support has enabled that functionality for you, you need to create and configure a new Salesforce Federated ID application in order to work with the new user attributes.</p>
 <p>This is a known limitation.</p></li>
 
 </div>
