@@ -29,23 +29,59 @@ try{Typekit.load();}catch(e){}
 
 <h1>Configuring Provisioning for Jira On-Premise</h1>
 
+
 <p>This guide provides the steps required to configure Provisioning for Jira On-Premise.</p>
-
-
-
-
 <h2>Features</h2>
 <p>The following provisioning features are supported:</p>
 
-<h2>Requirements</h2>
-<p>Complete the following before you configure provisioning for Jira On-Premise:</p>
+<ul>
+<li><p><strong>Push new users</strong></p>
+<p>New users created through OKTA will also be created in the third party application.</p></li>
+<li><p><strong>Push profile update</strong></p>
+<p>Updates made to the user's profile through OKTA will be pushed to the third party application.</p></li>
+<li><p><strong>Push password update</strong></p>
+<p>Changes made to the user's password will be pushed to the third party application</p></li>
+<li><p><strong>Import new users</strong></p>
+<p>New users created in the third party application will be downloaded and turned in to new AppUser objects, for matching against existing OKTA users.</p></li>
+<li><p><strong>Import profile updates</strong></p></li>
+
+</ul>
+
 
 
 
 <h2>Configuration Steps</h2>
-<h2>Troubleshooting Tips</h2>
+<p>You are now ready to configure your <strong>Provisioning</strong> settings as follows:</p>
+<ol>
+<li><p>In the <strong>API Credentials</strong> section, enter the following:</p>
+<ul>
+<li><p><strong>Admin User Name</strong>: An admin username, with rights for user provisioning.</p></li>
+<li><p><strong>Admin Password</strong>: The admin password.</p></li>
+<li><p><strong>All User’s Group</strong>: A group name, from which users are imported.</p>
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+<p><strong>Note</strong>:
+<p>The default group for Jira Software is <strong>jira-software-users</strong> or <strong>jira-users</strong> depending on your Jira instance. Check your default group by navigating to <strong>JIRA site administration > User Management > Groups</strong>.</p>
+
+</div>
+
+</li>
+</ul>
 
 
+
+<p><img src="images/apps/on_prem_jira1.png" alt=“on_pre_jira1" /></p>
+</li>
+
+<li><p>Scroll down and <strong>Enable</strong> the required Provisioning features:</p>
+<p><img src="images/apps/on_prem_jira2.png" alt=“on_pre_jira2” /></p>
+</li>
+<li><p>Click <strong>Save</strong></p>.</li>
+
+
+</ol>
+<h2>Schema Discovery</h2>
+
+<p>Jira On-Premise SAML does not support User's Schema Discovery.</p>
 </div>
 </body>
 </html>
