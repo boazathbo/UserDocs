@@ -1,0 +1,97 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Cisco Spark Platform</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+<li><p>Login to your Cisco Spark Platform account as an administrator.</p></li> 
+
+<li><p>Select <strong>Enterprise Settings</strong> from the <strong>Service Setup</strong> drop down menu:</p>
+<p><img border="1" src="images/apps/ciscospark1.png" alt=“ciscospark1.png" /></p>
+</li> 
+
+
+<li><p>On the <strong>Enterprise Settings</strong> page, select <strong>Integrate a 3rd-party provider</strong>, then click <strong>Next</strong>:</p>
+<p><img border="1" src="images/apps/ciscospark2.png" alt=“ciscospark2.png" /></p>
+</li> 
+
+<li><p>Click the <strong>Download Metadata File</strong> button, then open the Metadata file in a text editor:</p>
+<p><img border="1" src="images/apps/ciscospark3.png" alt=“ciscospark3.png" /></p>
+</li> 
+
+<li><p>In the Metadata file, locate and make a copy of the value of <strong>entityID</strong>.</p> <p>The value should look like: <strong>https://idbroker.webex.com/acme</strong>.</p>
+</li> 
+
+
+<li><p>In Okta, select the <strong>General</strong> tab for the Cisco Spark Platform app, then click <strong>Edit</strong>:</p>
+<ul>
+<li><p>For <strong>Organization ID</strong>, enter the last part of the value you just copied from the <strong>entityID</strong> value in the Metadata file.</p>
+
+<p>For example, if the value for the <strong>entityID</strong> is <strong>https://idbroker.webex.com/acme</strong>, enter <strong>acme</strong> into this field.</p>
+</li> 
+<li><p>Click <strong>Save</strong>.</p></li> 
+</ul>
+<p><img border="1" src="images/apps/ciscospark4.png" alt=“ciscospark4.png" /></p>
+
+</li> 
+
+<li><p>Copy this metadata and save it as an xml file, then click <strong>Import</strong> to upload it to Cisco Spark Platform. Next, check the <strong>Require certificate signed by a certificate authority in Metadata</strong> option, then click <strong>Next</strong>.</p>
+<p><img border="1" src="images/apps/ciscospark5.png" alt=“ciscospark5.png" /></p>
+</li> 
+
+<li><p>Click <strong>Test SSO Connection</strong>, after which you should see a screen indicating the text was successful. Check <strong>The test was successful. Enable Single Sign On</strong> option, then click <strong>Save</strong>.</p>
+<p><img border="1" src="images/apps/ciscospark6.png" alt=“ciscospark6.png" /></p>
+</li> 
+
+<li><p>A <strong>Single Sign-on succeeded</strong> page appears.</p>
+<p><img border="1" src="images/apps/ciscospark7.png" alt=“ciscospark7.png" /></p>
+</li> 
+
+
+<li><p>Done!</p>
+<p><strong>Notes</strong>:</p>
+
+
+
+<p>SP-initiated flows are supported.</p>
+<p>IdP-initiated flows and Just In Time Provisioning (JIT) are not supported.</p>
+
+</li>
+<br />
+<br />
+<p><strong>For SP-initiated flows</strong>:</p>
+
+<ol>
+<li><p>Go to <a href="https://admin.ciscospark.com/#/login" target="_blank">https://admin.ciscospark.com/#/login</a>. </p></li>
+
+<li><p>Enter your <strong>Email Address</strong>.</p></li>
+<li><p>Click <strong>Sign In</strong>.</p></li>
+<p><img border="1" src="images/apps/ciscospark8.png" alt=“ciscospark8.png" /></p>
+
+</ol>
+</ol>
+
+</div>
+</body>
+</html>
