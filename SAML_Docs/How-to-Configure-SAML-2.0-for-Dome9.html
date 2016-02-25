@@ -1,0 +1,83 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Dome9</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+<li><p>Login to Dome9 Central with a super user account. Make sure that the user is set to be a SSO user.
+<p><strong>Note</strong>: Refer to <a href="https://dome9-security.atlassian.net/wiki/display/DG/Single+Sign+On" target="_blank">https://dome9-security.atlassian.net/wiki/display/DG/Single+Sign+On</a> if you need to create a new SSO user.</p></li> 
+
+<li><p>Select <strong>Account Settings</strong> from the drop down menu under the User’s name:</p>
+<p><img border="1" src="images/apps/dome9_1.png" alt=“dome9_1.png" /></p>
+</li> 
+
+<li><p>Select <strong>SSOLog In</strong> to your Dome9 account, the <strong>SSO settings</strong> page opens, select <strong>Enable</strong>:</p>
+<p><img border="1" src="images/apps/dome9_2.png" alt=“dome9_2.png" /></p>
+</li> 
+
+
+<li><p>The <strong>SSO Configuration</strong> page opens, enter the following information (see screen shot at end of step for reference):</p>
+<ul>
+<li><p><strong>Account ID</strong>: Enter a custom defined string to create your Account ID; for example your company name.</p>
+
+<li><p><strong>IDP Issuer/Entity ID</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+<li><p><strong>Login URL/SignOn URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+<li><p><strong>X.509 Certificate</strong>: Copy and paste the following certificate in PEM Text format:</p>
+<p><pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre></p></li>
+
+<li><p>Click <strong>Save</strong>.</p>
+
+
+</ul>
+<p><img border="1" src="images/apps/dome9_3.png" alt=“dome9_3.png" /></p>
+</li> 
+
+<li><p>In Okta, select the <strong>General</strong> tab for the Dome9 app, then click <strong>Edit</strong>.</p>
+<ul>
+<li><p>Enter the <strong>Account ID</strong> you used in step 4, above.</p>
+
+<li><p>Click <strong>Save</strong>.</p>
+
+
+</ul>
+<p><img border="1" src="images/apps/dome9_4.png" alt=“dome9_4.png" /></p>
+</li> 
+
+
+<li><p>Done!</p>
+<p><strong>Notes</strong>:</p>
+<p>SP-initiated flows and IdP-initiated flows are supported.</p>
+<p>Just in Time (JIT) provisioning is not supported.</p>
+
+</ol>
+
+</div>
+</body>
+</html>
