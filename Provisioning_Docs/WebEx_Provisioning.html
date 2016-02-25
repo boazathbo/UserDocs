@@ -1,0 +1,147 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="resources/scripts/vkbeautify.js"></script>
+
+<title>WebEx Provisioning</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>To reconfigure any of the <strong>General Settings</strong> or <strong>Sign-On Options</strong>, uncheck the <strong>Enable provisioning features</strong> box, and use the <strong>Previous</strong> and <strong>Next</strong> buttons to navigate through the configuration screens.</p>
+</div>
+
+
+<h1>Configuring Provisioning for WebEx</h1>
+
+<p>This guide provides the steps required to configure Provisioning for WebEx.</p>
+
+<h2>Features</h2>
+<p>The following provisioning features are supported:</p>
+
+<ul>
+
+<li><p><strong>Import New Users</strong></p>
+<p>New users created in the third party application will be downloaded and turned in to new AppUser objects, for matching against existing OKTA users.</p>
+</li>
+
+<li><p><strong>Import Profile Updates</strong></p>
+</li>
+
+<li><p><strong>Push New Users</strong></p>
+<p>New users created through OKTA will also be created in the third party application.</p>
+</li>
+
+
+<li><p><strong>Push Password Updates</strong></p>
+<p>Updates made to the user's password through OKTA will be pushed to the third party application.</p></li>
+
+<li><p><strong>Push Profile Updates</strong></p>
+<p>Updates made to the user's profile through OKTA will be pushed to the third party application.</p>
+</li>
+
+<li><p><strong>Push User Deactivation</strong></p>
+<p>Deactivating the user or disabling the user's access to the application through OKTA will deactivate the user in the third party application.</p>
+</li>
+
+
+<li><p><strong>Reactivate Users</strong></p>
+<p>Reactivating the user through Okta will reactivate the user in the 3rd party application.</p>
+</li>
+
+</ul>
+
+
+
+<h2>Prerequisites</h2>
+
+<p>Before you configure provisioning for WebEx, make sure you have configured the <strong>Your WebEx site name</strong> name under the <strong>General Settings</strong> tab:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/webex1.png" alt=“webex1.png” /></p>
+</li>
+
+
+<h2>Configuration Steps</h2>
+
+<ol>
+<li><p>Configure your <strong>Provisioning</strong> settings for WebEx as follows:</p>
+
+<ul>
+<li><p>Check the <strong>Enable provisioning features</strong> box.</p></li>
+<li><p>Enter your WebEx <strong>API Credentials</strong>:</p>
+
+<ul>
+<li><p>Enter the <strong>Username</strong> for the admin account.</p></li>
+<li><p>Enter the <strong>Password</strong> for the <strong>Username</strong> account above.</p></li>
+</ul>
+</li>
+
+</ul>
+<p><img style="border: 0; padding: 0;" src="images/apps/webex2.png" alt=“webex2.png” /></p>
+</li>
+
+
+
+
+
+
+
+<li><p>Scroll down and select the <strong>Provisioning Features</strong> you want to enable.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/webex3.png" alt=“webex3.png” /></p>
+</li>
+
+
+
+
+<li><p>Click <strong>Save</strong>.</p></li>
+
+<li><p>You can now assign people to the app (if needed) and finish the application setup.</p></li>
+
+</ol>
+<br />
+<br />
+
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+<h3><strong>Note</strong></h3>
+
+<p>Okta does not support Webex with Spark Meet provisioning (WBS30). </p>
+</div>
+
+
+
+
+
+
+<h2>Troubleshooting Tips</h2>
+<ul>
+<li><p>Errors encountered:</p>
+
+<p>User limit exceeded for Session Type:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/webex4.png" alt=“webex4.png” /></p>
+<p>To address this error, either extend your license limits or unassign other user(s) from the desired session type.</p>
+</li>
+
+
+</ul>
+</li>
+
+</ul>
+
+
+</div>
+</body>
+</html>
