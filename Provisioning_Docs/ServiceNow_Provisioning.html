@@ -1,0 +1,139 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="resources/scripts/vkbeautify.js"></script>
+
+<title>ServiceNow Provisioning</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>To reconfigure any of the <strong>General Settings</strong> or <strong>Sign-On Options</strong>, uncheck the <strong>Enable provisioning features</strong> box, and use the <strong>Previous</strong> and <strong>Next</strong> buttons to navigate through the configuration screens.</p>
+</div>
+
+
+<h1>Configuring Provisioning for ServiceNow</h1>
+
+<p>This guide provides the steps required to configure Provisioning for ServiceNow.</p>
+
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+<h3><strong>Note</strong></h3>
+
+<p>This guide is for ServiceNow - Eureka and later releases. </p>
+</div>
+
+<h2>Features</h2>
+<p>The following provisioning features are supported:</p>
+
+<ul>
+
+
+<li><p><strong>Push Groups</strong></p>
+<p>Groups and their members can be pushed to remote systems. More about using group push operations you can find here: Using Group Push</p>
+</li>
+
+<li><p><strong>Import New Users</strong></p>
+<p>New users created in the third party application will be downloaded and turned in to new AppUser objects, for matching against existing OKTA users.</p>
+</li>
+
+<li><p><strong>Import Profile Updates</strong></p>
+</li>
+
+<li><p><strong>Push New Users</strong></p>
+<p>New users created through OKTA will also be created in the third party application.</p>
+</li>
+
+
+<li><p><strong>Push Password Updates</strong></p>
+<p>Updates made to the user's password through OKTA will be pushed to the third party application.</p></li>
+
+
+<li><p><strong>Push Profile Updates</strong></p>
+<p>Updates made to the user's profile through OKTA will be pushed to the third party application.</p>
+</li>
+
+<li><p><strong>Push User Deactivation</strong></p>
+<p>Deactivating the user or disabling the user's access to the application through OKTA will deactivate the user in the third party application.</p>
+</li>
+
+
+<li><p><strong>Reactivate Users</strong></p>
+<p>Reactivating the user through Okta will reactivate the user in the 3rd party application.</p>
+</li>
+
+</ul>
+
+
+
+<h2>Prerequisites</h2>
+
+<p>Before you configure provisioning for ServiceNow, make sure you have configured your complete <strong>Login URL</strong> name under the <strong>General Settings</strong> tab:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/servicenow1.png" alt=“servicenow1.png” /></p>
+
+<p>Configure your <strong>Sign-On Options</strong> on the next tab, then click <strong>Next</strong> to take you back to the <strong>Provisioning</strong> tab</p>
+
+
+<h2>Configuration Steps</h2>
+
+
+<p>Configure your <strong>Provisioning</strong> settings for ServiceNow as follows:</p>
+
+<ol>
+<li><p>Check the <strong>Enable provisioning features</strong> box.</p></li>
+<li><p>Enter your ServiceNow <strong>API Credentials</strong>:</p>
+
+<ul>
+<li><p><strong>Admin User Name</strong>: Enter a ServiceNow username with administrator permissions for your organization.</p></li>
+<li><p><strong>Admin Password</strong>: Enter a password for your administrator account (above).</p></li>
+<li><p>The configuration requires you to enter the corresponding column names in ServiceNow SYS_USER_LIST table. If you have modified the column names, please enter the custom values. Otherwise, use the default values.</p></li>
+</ul>
+<p><img style="border: 0; padding: 0;" src="images/apps/servicenow2.png" alt=“servicenow2.png” /></p>
+</li>
+</ol>
+
+
+
+
+
+<h2>Troubleshooting Tips</h2>
+
+
+<H4><p>Where do I find my SYS_USER table list?</h4>
+<ol>
+<li><p>Log into your ServiceNow Admin Account.</p></li>
+<li><p>Select <strong>Ctl + Option(Alt) + N</strong> to open the <strong>Toggle Navigation Bar</strong>.</p></li>
+<li><p>Search for <strong>: Tables</strong>.</p>
+<ul>
+<li><p>Under <strong>System Definition</strong>, select <strong>Tables</strong>.</p></li>
+</ul>
+</li>
+<li><p>Search for <em>sys_user</em>.</p></li>
+
+
+
+</ol>
+</li>
+<p><img style="border: 0; padding: 0;" src="images/apps/servicenow3.png" alt=“servicenow3.png” /></p>
+
+
+<H4><p>How do I disable mapping for specific fields?</h4>
+<p>You can turn off synchronization for the specific field by leaving corresponding Service Now column name value as empty.</p>
+
+</div>
+</body>
+</html>
