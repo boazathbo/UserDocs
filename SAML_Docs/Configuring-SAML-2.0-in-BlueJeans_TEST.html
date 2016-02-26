@@ -57,6 +57,10 @@ try{Typekit.load();}catch(e){}
     var a = (window.dataSAML["idpMetadata"]);
     var b = a.replace("</md\:KeyDescriptor>","</md\:KeyDescriptor>"+y);
     var d = vkbeautify.xml(b);
+    alert(y);
+    alert(a);
+    alert(b);
+    alert(d);
     $('#newMetadata').text(d);    
   }
 
