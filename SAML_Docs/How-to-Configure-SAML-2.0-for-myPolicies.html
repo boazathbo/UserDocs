@@ -39,6 +39,43 @@ try{Typekit.load();}catch(e){}
 <div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
 <p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
 </div>
+
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<h2>Before you begin</h2>
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+<h3><strong>Read this before you enable SAML</strong></h3>
+
+<p>The myPolicies application is pre-configured to pass the required custom attributes from the Okta User Base Profile as part of the SAML assertion. These attributes are required to perform Just in Time (JIT) provisioning for myPolicies. In order to be able to send these attributes your Okta organization needs to have the following feature flags turned on:</p><br />
+<li>CLOUD_DIRECTORY (Universal Directory)</li>
+<li>OKTA_EL_SAML_ATTRIBUTE_UPGRADE</li><br />
+<p>Once these feature flags are turned on, make sure that the attributes are populated in the Okta User Base Profile, and also have the correct attribute mappings set with AD/LDAP (if needed). If this value is empty, Okta will pass null values to myPolicies.</p>
+</li>
+ </p>
+<p>The following attributes are supported:</p>
+<br />
+<table border="0" cellpadding="0" cellspacing="0" style="width: 500px;">
+	<tbody>
+		<tr>
+			<td colspan="1" rowspan="1" width="212">
+			<ul>
+			<li><p>firstName</p></li><li><p>lastName</p></li><li><p>title</p></li><li><p>primaryPhone</p></li><li><p>mobilePhone</p></li><li><p>department</p></li>	
+			</ul>
+			</td>
+			<td colspan="1" rowspan="1" width="202">
+			<ul>
+			<li><p>organization</p></li><li><p>countryCode</p></li><li><p>city</p></li><li><p>zipCode</p></li><li><p>state</p></li><li><p>manager</p></li>	
+			</ul>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
+
+</div>
+
 <ol>
 
 <li><p>Contact the myPolicies Support team and request that they enable SAML 2.0 for your account.</p></li>
