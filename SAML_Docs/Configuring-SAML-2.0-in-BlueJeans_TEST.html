@@ -14,6 +14,11 @@ try{Typekit.load();}catch(e){}
 <script type="text/javascript">
   function updateValues() {
     $('#signOnUrlReplicon').html(window.dataSAML["signOnUrl"] + '?target={1}');
+    var a = (window.dataSAML["idpMetadata"]);
+    var b = a.replace("</md\:KeyDescriptor>","</md\:KeyDescriptor><md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>");
+    var d = vkbeautify.xml(b);
+    $('#newMetadata').text(d);    
+  }
   }
 
   $(document).ready(function($) {
@@ -158,6 +163,10 @@ try{Typekit.load();}catch(e){}
 <li>
   <p>Download the following <strong>Certificate PEM format. </strong> </p>
   <kbd id="downloadCertificatePem">Sign in to the Okta Admin app to generate this variable.</kbd></li>
+
+  <li><p>Copy and paste the following IDP Metadata for Cisco Spark, then save it as an <em>xml</em> file.</p>
+<textarea id="newMetadata" style="margin: 0px; width: 817px; height: 190px;"> Sign into the Okta Admin dashboard to generate this value.</textarea>
+</li>
 
 </body>
 </html>
