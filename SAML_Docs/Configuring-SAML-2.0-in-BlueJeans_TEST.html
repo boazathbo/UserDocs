@@ -55,7 +55,7 @@ try{Typekit.load();}catch(e){}
   function updateValues() {
     var y = '<md\:NameIDFormat>urn\:oasis\:names\:tc\:SAML\:2.0\:nameid-format\:transient</md\:NameIDFormat>';
     var a = (window.dataSAML["idpMetadata"]);
-    var b = a.replace("</md\:KeyDescriptor>","</md\:KeyDescriptor>"+z);
+    var b = a.replace("</md\:KeyDescriptor>","</md\:KeyDescriptor>"+y);
     var d = vkbeautify.xml(b);
     $('#newMetadata').text(d);    
   }
