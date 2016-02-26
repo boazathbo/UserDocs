@@ -11,6 +11,23 @@ try{Typekit.load();}catch(e){}
 
 <script src="resources/scripts/getAppValues.js"></script>
 
+<script type="text/javascript">
+  function updateMetadata2() {
+    var y = '<md\:NameIDFormat>urn\:oasis\:names\:tc\:SAML\:2.0\:nameid-format\:transient</md\:NameIDFormat\>';
+    var a = (window.dataSAML["idpMetadata"]);
+    var b = a.replace("</md\:KeyDescriptor>","</md\:KeyDescriptor>"+y);
+    var d = vkbeautify.xml(b);
+    $('#newMetadata').text(d); 
+
+  }
+
+  $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', updateMetadata2); 
+  
+  });
+</script>
+
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
@@ -57,20 +74,23 @@ try{Typekit.load();}catch(e){}
 </li> 
 
 <li><p>Copy and paste the following IDP Metadata, then save it as an <em>xml</em> file.</p>
-<p><pre id="idpMetadata">Sign in to Okta Admin app to have this variable generated for you.</pre></p>
+<pre id="newMetadata"> Sign into the Okta Admin dashboard to generate this value.</pre>
 </li>
 
 
 
-<li>In <strong>Enterprise Settings</strong> click <strong>Browse</strong> to locate the <em>xml</em> file you just saved, then <strong>Import</strong> to upload it to Cisco Spark Platform. Next, check the <strong>Require certificate signed by a certificate authority in Metadata</strong> option, then click <strong>Next</strong>.</p>
+<li>In <strong>Enterprise Settings</strong> click <strong>Browse</strong> to locate the <em>xml</em> file you just saved, then <strong>Import</strong> to upload it to Cisco Spark Platform. Next, check the <strong>Require certificate signed by a certificate authority in Metadata</strong> option, then click <strong>Next</strong>.
+</p>
 <p><img border="1" src="images/apps/ciscospark5.png" alt=“ciscospark5.png" /></p>
 </li> 
 
-<li><p>Click <strong>Test SSO Connection</strong>, after which you should see a screen indicating the text was successful. Check <strong>The test was successful. Enable Single Sign On</strong> option, then click <strong>Save</strong>.</p>
+<li><p>Click <strong>Test SSO Connection</strong>, after which you should see a screen indicating the text was successful. Check <strong>The test was successful. Enable Single Sign On</strong> option, then click <strong>Save</strong>.
+</p>
 <p><img border="1" src="images/apps/ciscospark6.png" alt=“ciscospark6.png" /></p>
 </li> 
 
-<li><p>A <strong>Single Sign-on succeeded</strong> page appears.</p>
+<li><p>A <strong>Single Sign-on succeeded</strong> page appears.
+</p>
 <p><img border="1" src="images/apps/ciscospark7.png" alt=“ciscospark7.png" /></p>
 </li> 
 
