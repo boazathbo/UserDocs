@@ -103,7 +103,7 @@ try{Typekit.load();}catch(e){}
 <ul>
 <li><p><strong>Admin User Name</strong>: Enter a ServiceNow username with administrator permissions for your organization.</p></li>
 <li><p><strong>Admin Password</strong>: Enter a password for your administrator account (above).</p></li>
-<li><p>The configuration requires you to enter the corresponding column names in ServiceNow SYS_USER_LIST table. If you have modified the column names, please enter the custom values. Otherwise, use the default values.</p></li>
+<li><p>The rest of the attributes are repopulated with default values. If you need to edit any of these values, you will need to enter the corresponding column names in the ServiceNow SYS_USER table. See <a href="#tips">Troubleshooting Tips</a>, below.</p></li>
 </ul>
 <p><img style="border: 0; padding: 0;" src="images/apps/servicenow2.png" alt=“servicenow2.png” /></p>
 </li>
@@ -113,10 +113,10 @@ try{Typekit.load();}catch(e){}
 
 
 
-<h2>Troubleshooting Tips</h2>
+<a name ="tips"></a><h2>Troubleshooting Tips</h2>
 
 
-<H4><p>Where do I find my SYS_USER table list?</h4>
+<H3><p>Where do I find my SYS_USER table list?</h3>
 <ol>
 <li><p>Log into your ServiceNow Admin Account.</p></li>
 <li><p>Select <strong>Ctl + Option(Alt) + N</strong> to open the <strong>Toggle Navigation Bar</strong>.</p></li>
@@ -125,7 +125,7 @@ try{Typekit.load();}catch(e){}
 <li><p>Under <strong>System Definition</strong>, select <strong>Tables</strong>.</p></li>
 </ul>
 </li>
-<li><p>Search for <em>sys_user</em>.</p></li>
+<li><p>Search for <em>SYS_USER</em>.</p></li>
 
 
 
@@ -134,7 +134,7 @@ try{Typekit.load();}catch(e){}
 <p><img style="border: 0; padding: 0;" src="images/apps/servicenow3.png" alt=“servicenow3.png” /></p>
 
 
-<H4><p>How do I disable mapping for specific fields?</h4>
+<H3><p>How do I disable mapping for specific fields?</h3>
 <p>You can turn off synchronization for the specific field by leaving corresponding Service Now column name value as empty.</p>
 
 </div>
