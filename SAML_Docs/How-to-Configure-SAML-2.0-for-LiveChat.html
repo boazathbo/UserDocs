@@ -1,0 +1,73 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for LiveChat</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+
+
+<li><p>Login to LiveChat as an Owner/Administrator: <a href="https://my.livechatinc.com/settings/agents-authentication" target="_blank">https://my.livechatinc.com/settings/agents-authentication</a>.</p></li> 
+
+<li><p>Navigate to <strong>Settings > Security > Agents authentication</strong>.</p></li> 
+
+<li><p>Locate <strong>Okta</strong> under <strong>Your login method</strong>, then click <strong>configure</strong>.</p>
+<p><img border="1" src="images/apps/livechat1.png" alt=“livechat2.png" /></p>
+</li> 
+
+
+
+<li><p>Enter the following (see screen shot at end of step for reference):</p>
+<ul>
+<li><p><strong>Identity provider Single Sign-On URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+
+</li> 
+
+<li><p><strong>X.509 certificate</strong>: Copy and paste the following (PEM Text Format):</p>
+<p><pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre></p></li>
+
+</li> 
+
+<li><p>Click <strong>Save Changes</strong>.</p></li> 
+</ul>
+<p><img border="1" src="images/apps/livechat2.png" alt=“livechat2.png" /></p>
+</li> 
+
+
+
+
+<li><p>All agents on your license will receive an email describing a change in the login process. From now on, normal agents can only login via the Okta Identity Provider. Owner and Admins can also login with Okta, however, they also are able to login with LiveChat credentials in case of emergency.</p>
+</li> 
+
+
+<li><p>Done!</p>
+<p><strong>Notes</strong>:</p>
+<p>SP-initiated flows, IdP-initiated flows, and Just in Time (JIT) provisioning are all supported.</p>
+
+</ol>
+
+</div>
+</body>
+</html>
