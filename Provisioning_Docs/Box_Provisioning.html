@@ -23,27 +23,55 @@ try{Typekit.load();}catch(e){}
 <div class="okta-instructions">
 
 <div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
-<p>To reconfigure any of the <strong>General Settings</strong> or <strong>Sign-On Options</strong>, uncheck the <strong>Enable provisioning features</strong> box, and use the <strong>Previous</strong> and <strong>Next</strong> buttons to navigate through the configuration screens.</p>
+<p>Currently these instructions only cover employee offboarding. We plan on providing additional provisioning information in the near future.</p>
 </div>
 
 
-<h1>Configuring Provisioning for Box</h1>
-
-<p>This guide provides the steps required to configure Provisioning for Box.</p>
+<h2>Configuring Box Offboarding</h2>
 
 
+<ol>
+<li><p>The default status upon deactivation is to make a user <strong>Inactive</strong>:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/box1.png" alt=“box1.png” /></p>
+</li>
+
+<li><p>To change to a different status upon deactivation, select the <strong>Deleted</strong> option from the <strong>Box user status on deactivation</strong> dropdown menu.</p>
+<p>Once you select the <strong>Deleted</strong> option, you need to specify the <strong>File management upon user deletion</strong> action:</p>
+<ol>
+<li><p>The first file management action once a user is deleted is to <strong>Transfer user’s files to account user</strong>. If you select this option, you need to enter a valid, active Box account in the text field to which a user's files will be transferred when they are deactivated:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/box2.png" alt=“box2.png” /></p>
+</li>
+
+<li><p>The second file management action once a user is deleted is <strong>Do not delete users with files, create manual de-provisioning task</strong>. If you select this option, only users with no files in their account will be deleted when deactivated through Okta. A task is also generated when deactivating a user with files requesting manual de-provisioning:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/box3.png" alt=“box3.png” /></p>
+</li>
+
+<li><p>The third file management action once a user is deleted is to <strong>Delete all files - are you sure?</strong>. Note that if you select this option, files will be permanently deleted from a user's account when they are deactivated:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/box4.png" alt=“box4.png” /></p>
+</li>
+
+</ol>
+</li>
 
 
-<h2>Features</h2>
-<p>The following provisioning features are supported:</p>
-
-<h2>Requirements</h2>
-<p>Complete the following before you configure provisioning for Box:</p>
 
 
 
-<h2>Configuration Steps</h2>
+</ol>
+<h2>Additional Documentation</h2>
+
+<ul>
+<li><p>Box Deployment Guide</p></li>
+<li><p>Managing Groups for Box</p></li>
+</ul>
+
 <h2>Troubleshooting Tips</h2>
+
+
+<ul>
+<li><p>With the personal folder creation feature, OKTA creates a personal folder for users during provisioning through the admin account. This makes the admin the owner of the created folder, and a copy of the folder is available in the admin account. The new user can be made either an editor or co-owner. If the user is later deactivated with the option to transfer files enabled, this folder is not transferred because it is not owned by the user. The admin's copy of the folder and its contents remains accessible in their account and is not deleted.</p></li>
+<li><p>Personal folders are usually named after a user's username. If a folder with this name already exists, a user is still created but a personal folder is not be created for them. A task is generated with an explanation of the conflict – after manually addressing the issue, you may resolve this task to complete successful provisioning of this user. </p></li>
+</ul>
 
 
 </div>
