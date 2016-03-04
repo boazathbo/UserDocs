@@ -1,0 +1,86 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for NationBuilder</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+<li><p>Login to your NationBuilder account as an administrator.</p></li> 
+<li><p>Navigate to <strong>Settings > Auth</strong>.</p></li> 
+<li><p>Click the <strong>+ New provider</strong> link:</p>
+<p><img border="1" src="images/apps/nationbuilder1.png" alt=“nationbuilder1.png" /></p>
+</li> 
+
+
+<li><p>Enter the following values:</p>
+<ul>
+<li><p><strong>Name</strong>: Okta.</p></li> 
+<li><p><strong>Slug</strong>: Okta (this can be any value).</p></li> 
+<li><p><strong>Unique ID</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li> 
+<li><p><strong>Single sign-on endpoint URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li> 
+<li><p><strong>Single sign-out endpoint URL</strong>: Leave this field empty.</p></li> 
+<li><p><strong>X.509 certificate</strong>: Copy and paste the following:</p>
+<p><pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre></p>
+<li><p>Optional. Check the <strong>Give new users control panel access</strong>: box, then assign permission set to a user, select the preferred role (<strong>Admin</strong> or <strong>Staffer</strong>.</p></li> 
+<li><p>Click <strong>Save</strong>.</p></li> 
+
+</ul>
+<p><img border="1" src="images/apps/nationbuilder2.png" alt=“nationbuilder2.png" /></p>
+
+</li> 
+
+<li><p>In Okta, select the <strong>General</strong> tab for the NationBuilder app, click <strong>Edit</strong>, then enter the following:</p>
+
+<ol>
+
+<li><p>Your <strong>SubDomain</strong>.</p></li>
+<li><p>Your <strong>Slug</strong> (see step 4).</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+
+
+</ol>
+<p><img border="1" src="images/apps/nationbuilder3.png" alt=“nationbuilder3.png" /></p>
+
+</li> 
+
+
+
+<li><p>Done!</p>
+<p><strong>Notes</strong>:</p>
+<p>SP-initiated flows, IdP-initiated flows, and Just in Time (JIT) provisioning are all supported.</p>
+</ol>
+<br />
+<p><strong>For SP-initiated flows</strong>:</p>
+<ol>
+<li><p>Open: <strong>https://[yourSubDomain].nationbuilder.com/forms/user_sessions/new</strong>.</p></li>
+<li><p>Click the button for the authentication provider you’ve connected to Okta.</p></li>
+
+</div>
+</body>
+</html>
+
+
