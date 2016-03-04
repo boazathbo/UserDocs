@@ -72,11 +72,21 @@ try{Typekit.load();}catch(e){}
 
 <p>Before you configure provisioning for Dropbox for Business, make sure you have configured the <strong>General Settings</strong> and any <strong>Sign-On Options</strong> for the Dropbox for Business app.</p>
 
-<p><strong>Note</strong>: Under <strong>Sign-On Options</strong> you may select the <strong>Silent Provisioning</strong> option. If you select this, you are preventing Dropbox from sending welcome emails to new users being provisioned into Dropbox from Okta. This feature is mainly to be used with SAML authentication, as users will not receive an email with their <strong>Reset Password</strong> link. Instead, they should go to <a href="https://www.dropbox.com/sso" target="_blank">https://www.dropbox.com/sso</a> to get their accounts activated.</p>
+<p><strong>Note</strong>: Under <strong>Sign-On Options</strong> you can select the <strong>Silent Provisioning</strong>. If you select this, you are preventing Dropbox from sending welcome emails to new users being provisioned into Dropbox from Okta. This feature is mainly to be used with SAML authentication, as users will not receive an email with their Reset Password link.</p>
+<p>In order to use the Silent Provisioning feature you must:</p>
+<ol>
+<li><p>Setup SSO in the Dropbox admin console.</p></li>
+<li><p>Claim your Dropbox Domain with Dropbox (someone with authority to claim the domain, such as an IT admin who manually verifies the domain with Dropbox. This is done by one person and only once).</p></li>
+</ol>
+<p>Once the above steps are complete, the flow from the Okta side is:</p>
+<ol>
+<li><p>The Okta admin provisions the Dropbox users with Silent Provisioning enabled.</p></li>
+<li><p>If the user is already a basic or pro user in Dropbox (that is, has a personal account), they are taken through the team onboarding/migration flow the next time they log in to Dropbox. At the same time, their desktop client stops syncing and prompts them to onboard to the team account they are invited to.</p></li>
+<li><p>If the user does not already exist in Dropbox, they are directed to <a href="https://www.dropbox.com/sso" target="_blank">https://www.dropbox.com/sso</a> to login where they need to get their accounts activated. As these users are not already on Dropbox, and Okta hasn’t sent them invitations by email, they need to be notified of this URL by some other means.</p></li>
+</ol>
 
 
-
-<p>By default this option is disabled. That means, that new users will retrieve welcome email. You may switch that option at any time.</p>
+<p>By default the Silent Provisioning option is disabled. That means, that new users will retrieve welcome email. You may switch that option at any time.</p>
 
 
 <p><img style="border: 0; padding: 0;" src="images/apps/dropbox1.png" alt=“dropbox1.png” /></p>
