@@ -76,8 +76,19 @@ try{Typekit.load();}catch(e){}
 <br />
 <p><strong>For SP-initiated flows</strong>:</p>
 <ol>
-<li><p>Open: <strong>https://[yourSubDomain].nationbuilder.com/forms/user_sessions/new</strong>.</p></li>
-<li><p>Click the button for the authentication provider you’ve connected to Okta.</p></li>
+<li><p>Create a button for the SP-initiated flow anywhere on your site. For example:  <strong>https://[yourSubDomain].nationbuilder.com/forms/user_sessions/new</strong>.</p><p>Use the following code for the button:</p>
+
+<pre class="code-html">
+<span class="code-tag">&lt;a href=<span class="code-quote">"{{ request.authentication_modes.[yourSlug].sign_in_url }}"</span>&gt;</span>
+<span class="code-quote">"Sign in with {{ request.authentication_modes.[yourSlug].label }}"</span>
+<span class="code-tag">&lt;/a&gt;</span>
+</pre>
+
+
+
+</li>
+<li><p>Go to <strong>https://[yourSubDomain].nationbuilder.com/forms/user_sessions/new</strong>.</p>
+<li><p>Click the button you created in step 1.</p></li>
 
 </div>
 </body>
