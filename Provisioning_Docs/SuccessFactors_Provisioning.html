@@ -1,0 +1,167 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="resources/scripts/vkbeautify.js"></script>
+
+<title>SuccessFactors Provisioning</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions"> 
+
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>To reconfigure any of the <strong>General Settings</strong> or <strong>Sign-On Options</strong>, uncheck the <strong>Enable provisioning features</strong> box, and use the <strong>Previous</strong> and <strong>Next</strong> buttons to navigate through the configuration screens.</p>
+</div>
+
+
+<h1>Configuring Provisioning for SuccessFactors</h1>
+
+<p>This guide provides the steps required to configure Provisioning for SuccessFactors.</p>
+
+
+
+<h2>Features</h2>
+<p>The following provisioning features are supported:</p>
+
+<ul>
+
+
+<li><p><strong>Import New Users</strong></p>
+<p>New users created in the third party application will be downloaded and turned in to new AppUser objects, for matching against existing OKTA users.</p>
+</li>
+
+<li><p><strong>Import Profile Updates</strong></p>
+</li>
+
+<li><p><strong>Import User Schema</strong></p>
+</li>
+
+
+<li><p><strong>Push New Users</strong></p>
+<p>New users created through OKTA will also be created in the third party application.</p>
+</li>
+
+
+
+<li><p><strong>Push Password Updates</strong></p>
+<p>Updates made to the user's password through OKTA will be pushed to the third party application.</p></li>
+
+
+
+<li><p><strong>Push Profile Updates</strong></p>
+<p>Updates made to the user's profile through OKTA will be pushed to the third party application.</p>
+</li>
+
+
+
+
+<li><p><strong>Push User Deactivation</strong></p>
+<p>Deactivating the user or disabling the user's access to the application through OKTA will deactivate the user in the third party application.</p>
+</li>
+
+
+
+<li><p><strong>Reactivate Users</strong></p>
+<p>Reactivating the user through Okta will reactivate the user in the 3rd party application.</p>
+</li>
+
+
+
+
+<li><p><strong>Profile Master</strong></p>
+
+</li>
+
+
+
+</ul>
+
+
+
+<h2>Prerequisites</h2>
+
+<p>Before you configure provisioning for SuccessFactors, make sure you have configured your <strong>Company ID</strong> parameter under the <strong>General Settings</strong> tab for the SuccessFactors app.</p>
+<p>You can obtain this value from your login URL:</p>
+<p><strong>https://acme.successfactors.com/login?company=ACME123456789</strong></p> 
+<p>Where <strong>ACME123456789</strong> = <strong>Company ID</strong>.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/successfactors1.png" alt=“successfactors1.png” /></p>
+
+
+
+<p>Configure your <strong>Sign-On Options</strong> on the next tab, then click <strong>Next</strong> to take you back to the <strong>Provisioning</strong> tab</p>
+
+
+<h2>Configuration Steps</h2>
+
+
+<p>Configure your <strong>Provisioning</strong> settings for SuccessFactors as follows:</p>
+
+<ol>
+<li><p>Check the <strong>Enable provisioning features</strong> box.</p></li>
+<li><p>Enter your SuccessFactors <strong>API Credentials</strong>:</p>
+
+<ul>
+<li><p><strong>Base URL for Web Service</strong>: This is your API base URL. This can differ from your  login URL. You can find a list of API URLs <a href="http://help.sap.com/saphelpiis_cloud4hr/EN/SuccessFactors_HCM_Suite_OData_API_Reference_en/frameset.htm?03e1fc3791684367a6a76a614a2916de.html" target="_blank">here</a>.</p></li>
+
+<li><p><strong>Admin Username</strong>: Enter a username for your administrator account (above).</p></li>
+
+<li><p><strong>Admin Password</strong>: Enter a password for your administrator account (above).</p></li>
+
+<li><p><strong>Pre-Start Interval</strong>: The number of days before the start date an employee should be considered active.</p></li>
+</ul>
+<p><img style="border: 0; padding: 0;" src="images/apps/successfactors2.png" alt=“successfactors2.png” /></p>
+</li>
+
+<li><p>Scroll down and enable the <strong>Provisioning Features</strong> you want to use for this app.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/successfactors3.png" alt=“successfactors3.png” /></p>
+
+</li>
+<li><p>Click <strong>Save</strong>.</p></li>
+<li><p>You can now assign people to the app, if needed.</p></li>
+
+
+</ol>
+
+
+
+
+
+<h2>Troubleshooting Tips</h2>
+
+<ul>
+<li><p>The provided manager or HR user ID isn't present in SuccessFactors:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/successfactors4.png" alt=“successfactors4.png” /></p>
+<p>To fix: Provide a current user ID or create the user in your SuccessFactors account.</p>
+</li>
+
+
+<li><p>Timezone length value exceed configured limit:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/successfactors5.png" alt=“successfactors5.png” /></p>
+<p>To fix: Modify your SFSF data model to allow TZ values with a greater length or select another value.</p>
+</li>
+
+<li><p>Default Locale value isn't allowed in current SuccessFactors account:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/successfactors6.png" alt=“successfactors6.png” /></p>
+<p>To fix: Select the one from allowed list, as shown here:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/successfactors7.png" alt=“successfactors7.png” /></p>
+</li>
+
+
+</ul>
+
+</div>
+</body>
+</html>
