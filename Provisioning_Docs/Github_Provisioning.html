@@ -37,12 +37,40 @@ try{Typekit.load();}catch(e){}
 <h2>Features</h2>
 <p>The following provisioning features are supported:</p>
 
+<ul>
+<li><p><strong>Import New Users</strong></p>
+<p>New users created in the third party application will be downloaded and turned in to new AppUser objects, for matching against existing OKTA users.</p>
+</li>
+<li><p><strong>Push New Users</strong></p>
+<p>New users created through OKTA will also be created in the third party application.</p>
+</li>
+<li><p><strong>Push Profile Updates</strong></p>
+<p>Updates made to the user's profile through OKTA will be pushed to the third party application.</p>
+</li>
+<li><p><strong>Push User Deactivation</strong></p>
+<p>Deactivating the user through OKTA will remove the user from the organization and all teams in the third party application.</p>
+</li>
+
+<li><p><strong>Reactivate Users</strong></p>
+<p>Reactivating the user through OKTA will add the user back to the organization and selected teams in the third party application.</p>
+</li>
+
+
+</ul>
+
+
 <h2>Requirements</h2>
-<p>Complete the following before you configure provisioning for Github:</p>
+<p>Github does not support creation of new users through its API. You cannot assign Github through Okta to a user who does not already exist on the Github side. When assigning a user to the GitHub app, ensure that the user already has a GitHub account. Okta will only add the existing GitHub user to the selected Organization and Teams managed by Okta.</p>
+<p>Github does not support changes to a user's profile other than team memberships. Changing the username of a user can cause problems such as org/team unassignment. </p> 
+<p>When assigning a user to Github through Okta who is part of Github but not a member of the organization, the user will receive an invitation to join the org. Until the user accepts the invitation, they will be in pending status. Pending users will not show up during user imports nor can their profiles be updated. </p>
 
 
 
 <h2>Configuration Steps</h2>
+
+
+
+
 <h2>Troubleshooting Tips</h2>
 
 
