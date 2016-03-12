@@ -103,7 +103,7 @@ ol > li:before {
     content: counter(li, lower-alpha);
 }
 
-.okta-instructions ol > li > ul > li> ol > li {
+.okta-instructions ol > li > ul > li > ol > li {
     list-style-type: lower-alpha;
 }
 
