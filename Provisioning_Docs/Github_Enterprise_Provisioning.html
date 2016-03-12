@@ -8,7 +8,7 @@ try{Typekit.load();}catch(e){}
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="resources/scripts/vkbeautify.js"></script>
 
-<title>Github Enterprise Provisioning</title>
+<title>GitHub Enterprise Provisioning</title>
 
 <script src="resources/scripts/getAppValues.js"></script>
 
@@ -27,9 +27,9 @@ try{Typekit.load();}catch(e){}
 </div>
 
 
-<h1>Configuring Provisioning for Github Enterprise</h1>
+<h1>Configuring Provisioning for GitHub Enterprise</h1>
 
-<p>This guide provides the steps required to configure Provisioning for Github Enterprise.</p>
+<p>This guide provides the steps required to configure Provisioning for GitHub Enterprise.</p>
 
 
 
@@ -37,13 +37,119 @@ try{Typekit.load();}catch(e){}
 <h2>Features</h2>
 <p>The following provisioning features are supported:</p>
 
+<ul>
+<li><p><strong>Import New Users</strong></p>
+<p>New users created in the third party application will be downloaded and turned in to new AppUser objects, for matching against existing OKTA users.</p>
+</li>
+<li><p><strong>Push New Users</strong></p>
+<p>New users created through OKTA will also be created in the third party application.</p>
+</li>
+<li><p><strong>Push Profile Updates</strong></p>
+<p>Updates made to the user's profile through OKTA will be pushed to the third party application.</p>
+</li>
+<li><p><strong>Push User Deactivation</strong></p>
+<p>Deactivating the user through OKTA will remove the user from the organization and all teams in the third party application.</p>
+</li>
+
+<li><p><strong>Reactivate Users</strong></p>
+<p>Reactivating the user through OKTA will add the user back to the organization and selected teams in the third party application.</p>
+</li>
+
+
+</ul>
+
+
 <h2>Requirements</h2>
-<p>Complete the following before you configure provisioning for Github Enterprise:</p>
+<p>GitHub Enterprise does not support creation of new users through its API. You cannot assign GitHub through Okta to a user who does not already exist on the GitHub side. When assigning a user to the GitHub app, ensure that the user already has a GitHub account. Okta will only add the existing GitHub user to the selected Organization and Teams managed by Okta.</p>
+<p>GitHub Enterprise does not support changes to a user's profile other than team memberships. Changing the username of a user can cause problems such as org/team unassignment. </p> 
+<p>When assigning a user to GitHub through Okta who is part of GitHub but not a member of the organization, the user will receive an invitation to join the org. Until the user accepts the invitation, they will be in pending status. Pending users will not show up during user imports nor can their profiles be updated. </p>
+</ br>
+
+<p>Before you configure provisioning for GitHub Enterprise, make sure you have configured the following:
+<ul>
+<li><p>Under <strong>General Settings</strong> for the GitHub Enterprise app, enter an <strong>Application label</strong> of your choice and the <strong>GitHub URL</strong> (the full URL of your GitHub Enterprise instance:</p>
+<p><img src="images/apps/gitenterprise1.png" alt=“gitenterprise1.png" /></p>
+</li>
+<li><p>Select your <strong>Sign-on Options</strong> options for the GitHub Enterprise app. The Okta username format is typically set to the email address, which is not the same as the GitHub application username as a GitHub username cannot be in an email format. To resolve this conflict when importing users and pushing profile updates, you must change the application username format, which is set by default to the Okta username, to either a Custom, email prefix, username prefix or (None):</p>
+<p><img src="images/apps/gitenterprise2.png" alt=“gitenterprise2.png" /></p>
+<p><img src="images/apps/githubnew1.png" alt=“githubnew1.png" /></p>
+</li>
+</ul>
+
+<p>Once you have configured/confirmed your <strong>General Settings</strong> and <strong>Sign-on Options</strong>, click <strong>Next</strong> to take you back to the <strong>Provisioning</strong> tab (see below).<p>
+
+
+
 
 
 
 <h2>Configuration Steps</h2>
+<p>Configure your <strong>Provisioning</strong> settings for GitHub Enterprise as follows:</p>
+<ol>
+<li><p>Check the <strong>Enable provisioning features</strong> box.</p></li>
+
+<li><p>Enter your GitHub <strong>API Credentials</strong>:</p>
+<ul>
+<li><p><strong>GitHub Organization</strong>.</p></li>
+<li><p><strong>Personal Access Token</strong>.</p>
+<p><img src="images/apps/gitenterprise3.png" alt=“gitenterprise3.png" /></p>
+
+<p>If you do not have an API Access token:</p>
+<ol>
+<li><p>Go to your GitHub Enterprise instance and login to your account.</p></li>
+<li><p>Click on your icon button near the top right of the page, then select <strong>Settings</strong> from the drop down menu:</p>
+<p><img src="images/apps/gitenterprise4.png" alt=“gitenterprise4.png" /></p>
+<p>In this example, it is the green icon.</p>
+</li>
+<li><p>From <strong>Settings</strong>, select <strong>Personal access tokens</strong>.</p>
+<p><img src="images/apps/gitenterprise5.png" alt=“gitenterprise5.png" /></p>
+</li>
+<li><p>Select <strong>Generate new access token</strong>.</p></li>
+<li><p>In the <strong>New personal access token</strong> window, enter a <strong>Token description</strong>, then select the appropriate scopes (make sure to provide admin rights), then click <strong>Generate token</strong>.</p>
+<p><img src="images/apps/gitenterprise6.png" alt=“gitenterprise6.png" /></p>
+</li>
+<li><p>Copy the generated token. <em>Be sure to keep the token somewhere safe but accessible</em>, once you leave the page, you are not able to copy the token again.</p></li>
+<li><p>Go back to Okta and enter your newly generated access token.</p></li>
+</li>
+</ol>
+
+
+
+</ul>
+</li>
+
+<li><p>Click <strong>Test API Credentials</strong> to verify the token. You should see a message that notifies you that GitHub Enterprise was verified successfully.</p></li>
+
+<li><p>Scroll down and enable the user import and provisioning features you want:</p>
+<p><img src="images/apps/gitenterprise7.png" alt=“gitenterprise7.png" /></p>
+<p><img src="images/apps/gitenterprise9.png" alt=“gitenterprise9.png" /></p>
+</li>
+<li><p>Click <strong>Save</strong>.</p></li>
+<li><p>You can now assign people to the app, if needed.</p></li>
+
+
+
+</ol>
+</li>
+
+
+
+
+
+</li>
+</ol>
+
 <h2>Troubleshooting Tips</h2>
+
+<ul>
+<li><p>Setting the application username format to the default of email address causes problems when pushing profile updates. Make sure it is set to a custom format to match the username imported from GitHub or to <strong>None</strong>.</p></li>
+<li><p>If you try to assign a user to GitHub through Okta, who does not already exist in GitHub, a task is generated informing you that the provisioning failed. You can view this task by going to <strong>Dashboard > Tasks</strong>.</p>
+<p><img src="images/apps/gitenterprise10.png" alt=“gitenterprise10.png" /></p>
+</li>
+
+<li><p>When assigning a user to GitHub through Okta, who is part of GitHub but not a member of the organization, the user receives an invitation to join the org. Until the user accepts the invitation, they will be in a pending status. Pending users do not show up during user imports nor can their profiles be updated.</p></li>
+</ul>
+
 
 
 </div>

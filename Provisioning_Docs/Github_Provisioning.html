@@ -8,7 +8,7 @@ try{Typekit.load();}catch(e){}
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="resources/scripts/vkbeautify.js"></script>
 
-<title>Github Provisioning</title>
+<title>GitHub Provisioning</title>
 
 <script src="resources/scripts/getAppValues.js"></script>
 
@@ -27,9 +27,9 @@ try{Typekit.load();}catch(e){}
 </div>
 
 
-<h1>Configuring Provisioning for Github</h1>
+<h1>Configuring Provisioning for GitHub</h1>
 
-<p>This guide provides the steps required to configure Provisioning for Github.</p>
+<p>This guide provides the steps required to configure Provisioning for GitHub.</p>
 
 
 
@@ -60,20 +60,65 @@ try{Typekit.load();}catch(e){}
 
 
 <h2>Requirements</h2>
-<p>Github does not support creation of new users through its API. You cannot assign Github through Okta to a user who does not already exist on the Github side. When assigning a user to the GitHub app, ensure that the user already has a GitHub account. Okta will only add the existing GitHub user to the selected Organization and Teams managed by Okta.</p>
-<p>Github does not support changes to a user's profile other than team memberships. Changing the username of a user can cause problems such as org/team unassignment. </p> 
-<p>When assigning a user to Github through Okta who is part of Github but not a member of the organization, the user will receive an invitation to join the org. Until the user accepts the invitation, they will be in pending status. Pending users will not show up during user imports nor can their profiles be updated. </p>
+<p>GitHub does not support creation of new users through its API. You cannot assign GitHub through Okta to a user who does not already exist on the GitHub side. When assigning a user to the GitHub app, ensure that the user already has a GitHub account. Okta will only add the existing GitHub user to the selected Organization and Teams managed by Okta.</p>
+<p>GitHub does not support changes to a user's profile other than team memberships. Changing the username of a user can cause problems such as org/team unassignment. </p> 
+<p>When assigning a user to GitHub through Okta who is part of GitHub but not a member of the organization, the user will receive an invitation to join the org. Until the user accepts the invitation, they will be in pending status. Pending users will not show up during user imports nor can their profiles be updated. </p>
+</ br>
+
+<p>Before you configure provisioning for GitHub, make sure you have configured the following:
+<ul>
+<li><p>Under <strong>General Settings</strong> for the GitHub app, enter an <strong>Application label</strong> and your <strong>GitHub Organization</strong>:</p>
+<p><img src="images/apps/github1.png" alt=“github1.png" /></p>
+</li>
+<li><p>Select your <strong>Sign-on Options</strong> options for the GitHub app. The Okta username format is typically set to the email address, which is not the same as the GitHub application username as a GitHub username cannot be in an email format. To resolve this conflict when importing users and pushing profile updates, you must change the application username format, which is set by default to the Okta username, to either a Custom, email prefix, username prefix or (None):</p>
+<p><img src="images/apps/github2.png" alt=“github2.png" /></p>
+<p><img src="images/apps/githubnew1.png" alt=“github1.png" /></p>
+</li>
+</ul>
+
+<p>Once you have configured/confirmed your <strong>General Settings</strong> and <strong>Sign-on Options</strong>, click <strong>Next</strong> to take you back to the <strong>Provisioning</strong> tab (see below).<p>
+
+
+
 
 
 
 <h2>Configuration Steps</h2>
+<p>Configure your <strong>Provisioning</strong> settings for GitHub as follows:
+<ol>
+<li><p>Check the <strong>Enable provisioning features</strong> box.</p></li>
+<li><p>In the <strong>API Authentication</strong> section, click <strong>Authenticate with GitHub</strong>:</p>
+<p><img src="images/apps/github3.png" alt=“github3.png" /></p>
+</li>
+<li><p>You are prompted to login your GitHub account, enter your <strong>Username</strong> and <strong>Password</strong>, then click <strong>Sign In</strong>:</p>
+<p><img src="images/apps/github4.png" alt=“github4.png" /></p>
+</li>
+<li><p>Scroll down and enable the user import and provisioning features you want:</p>
+<p><img src="images/apps/github5.png" alt=“github5.png" /></p>
+<p><img src="images/apps/github6.png" alt=“github6.png" /></p>
+</li>
+<li><p>Click <strong>Save</strong>.</p></li>
+<li><p>You can now assign people to the app, if needed.</p></li>
+
+</ol>
+</li>
 
 
 
+
+
+</li>
+</ol>
 
 <h2>Troubleshooting Tips</h2>
+<ul>
+<li><p>Setting the application username format to the default of email address causes problems when pushing profile updates. Make sure it is set to a custom format to match the username imported from GitHub or to <strong>None</strong>.</p></li>
+<li><p>If you try to assign a user to GitHub through Okta, who does not already exist in GitHub, a task is generated informing you that the provisioning failed. You can view this task by going to <strong>Dashboard > Tasks</strong>.</p>
+<p><img src="images/apps/github7.png" alt=“github7.png" /></p>
+</li>
 
-
+<li><p>When assigning a user to GitHub through Okta, who is part of GitHub but not a member of the organization, the user receives an invitation to join the org. Until the user accepts the invitation, they will be in a pending status. Pending users do not show up during user imports nor can their profiles be updated.</p></li>
+</ul>
 </div>
 </body>
 </html>
