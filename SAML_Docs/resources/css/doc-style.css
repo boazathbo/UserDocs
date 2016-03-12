@@ -104,7 +104,7 @@ ol > li:before {
 }
 
 .okta-instructions ol.l
-    list-style-type: lower-alpha; 
+    list-style-type: lower-alpha; color=blue;
 }
 
 /* Headings */
