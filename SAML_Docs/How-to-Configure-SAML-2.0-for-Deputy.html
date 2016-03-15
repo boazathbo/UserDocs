@@ -1,0 +1,95 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Deputy</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+
+
+<li><p>Login to your Deputy account as an administrator.</p></li> 
+<li><p>Go to <strong>https://[yourSubDomain].deputy.com/exec/config/system_config</strong>.</p></li> 
+<li><p>Navigate to <strong>Security Settings</strong>, then click <strong>Edit</strong>:</p>
+<p><img border="1" src="images/apps/deputy1.png" alt=“deputy1.png" /></p>
+</li> 
+<li><p>The <strong>Security Settings</strong> page appears. See screen shot at end of instructions for reference.</p></li>
+<li><p>For <strong>Enable Social Login</strong>, select <strong>ON</strong>.</p></li> 
+<li><p><strong>OpenSSL Certificate</strong>: Copy and paste the following certificate (PEM text format):</p>
+<pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre>
+</li> 
+
+
+<li><p><strong>Deputy Token to create user on the fly</strong>. This is optional and is required for Just In Time (JIT) provisioning.</p>
+<p>To get the <strong>Access Token</strong>:</p>
+<ol>
+<li><p>Click the <strong>here</strong> link, or go to <strong>https://[yourSubDomain].deputy.com/exec/devapp/oauth_clients</strong>:</p>
+<p><img border="1" src="images/apps/deputy2.png" alt=“deputy2.png" /></p>
+</li> 
+<li><p>Click <strong>New OAuth Client</strong>:</p>
+<p><img border="1" src="images/apps/deputy3.png" alt=“deputy3.png" /></p>
+</li> 
+
+
+<li><p>Enter the following:</p>
+<ul>
+
+<li><p><strong>Name</strong>: Enter <strong>Okta</strong>.</p></li> 
+<li><p><strong>Redirect Uri</strong>: Enter <strong>okta.com</strong>.</p></li> 
+<li><p>Click <strong>Save This OAuth Client</strong>.</p></li> 
+</ul>
+<p><img border="1" src="images/apps/deputy4.png" alt=“deputy4.png" /></p>
+</li>
+
+<li><p>Click <strong>Get An Access Token</strong>:</p>
+<p><img border="1" src="images/apps/deputy5.png" alt=“deputy5.png" /></p>
+</li> 
+
+<li><p>Copy your Access Token from the popup message:</p>
+<p><img border="1" src="images/apps/deputy7.png" alt=“deputy7.png" /></p></li>
+
+<li><p>Enter your <strong>Access Token</strong> on the <strong>Security Settings</strong> page.</p></li>
+
+</ol>
+</li> 
+
+<li><p>Click <strong>Save Settings</strong>:</p>
+<p><img border="1" src="images/apps/deputy8.png" alt=“deputy8.png" /></p></li>
+
+
+
+<li><p>Done!</p>
+<p><strong>Notes</strong>:</p>
+<p>IdP-initiated flows and Just in Time (JIT) provisioning are supported.</p>
+<p>SP-initiated flows are not supported.</p>
+
+
+
+
+
+
+</ol>
+
+</div>
+</body>
+</html>
