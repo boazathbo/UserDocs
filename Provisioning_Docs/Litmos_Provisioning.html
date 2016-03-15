@@ -36,17 +36,87 @@ try{Typekit.load();}catch(e){}
 
 <h2>Features</h2>
 <p>The following provisioning features are supported:</p>
+<ul>
+<li><p><strong>Push New Users</strong></p>
+<p>New users created through OKTA will also be created in the third party application.</p>
+</li>
 
+<li><p><strong>Push User Deactivation</strong></p>
+<p>Deactivating the user through OKTA will remove the user from the organization and all teams in the third party application.</p>
+</li>
+
+<li><p><strong>Push Profile Updates</strong></p>
+<p>Updates made to the user's profile through OKTA will be pushed to the third party application.</p>
+</li>
+
+<li><p><strong>Import New Users</strong></p>
+<p>New users created in the third party application will be downloaded and turned in to new AppUser objects, for matching against existing OKTA users.</p>
+</li>
+
+
+<li><p><strong>Import New Users</strong></p>
+<p>New users created in the third party application will be downloaded and turned in to new AppUser objects, for matching against existing OKTA users.</p>
+</li>
+
+<li><p><strong>Import Profile Updates</strong></p>
+</li>
+</ul>
 
 <h2>Requirements</h2>
 
+<p>Complete the following before you configure provisioning for Litmos:</p>
 
+<ol>
+<li><p>Log in to your Litmos account as an Account Owner or Administrator.</p></li>
+<li><p>Click on the <strong>My Profile & Settings</strong> link in the top of the page:</p>
+<p><img src="images/apps/litmos1.png" alt=“litmos1.png" /></p>
+</li>
+
+<li><p>Scroll down and make a copy of your <strong>API key</strong>. You will need it to setup Litmos application in Okta.</p>
+<p><img src="images/apps/litmos2.png" alt=“litmos2.png" /></p>
+</li>
+</ol>
 
 <h2>Configuration Steps</h2>
 <p>Configure your <strong>Provisioning</strong> settings for Litmos as follows:</p>
 
-<h2>Troubleshooting Tips</h2>
+<ol>
+<li><p>Check the <strong>Enable provisioning features</strong> box.</p></li>
+<li><p>Enter your Litmos <strong>API Credentials</strong>:</p>
+<ul>
 
+<li><p><strong>API Key</strong>: Enter the API key you copied from Litmos (see <strong>Requirements</strong> above). Also, make sure that your <strong>AccessLevel</strong> is <strong>Administrator</strong> or <strong>Account Owner</strong>.</p></li>
+<li><p><strong>Company</strong>: Enter your company name. This is used to identify you in Litmos. You can enter any value that identifies your organization in Litmos.</p></li>
+</ul>
+<p><img src="images/apps/litmos3.png" alt=“litmos3.png" /></p>
+</li>
+<li><p>Click <strong>Test API Creditentials</strong>. If your API credentials are valid, you will see a success message, as shown here:</p>
+<p><img src="images/apps/litmos4.png" alt=“litmos4.png" /></p>
+</li>
+<li><p>Scroll down and enable the <strong>Provisioning Features</strong> you want to use for this app.</p>
+<p><img src="images/apps/litmos5.png" alt=“litmos5.png" /></p>
+</li>
+
+<li><p>Click <strong>Save</strong>.</p></li>
+<li><p>You can now assign people to the app, if needed (see below).</p></li>
+
+</ol>
+
+<h2>User Provisioning</h2>
+
+<ol>
+<li><p>To assign users to the Litmos app, open the app, select the <strong>People</strong> tab and then click the <strong>Assign to People</strong> button:</p>
+<p><img src="images/apps/litmos6.png" alt=“litmos6.png" /></p>
+</li>
+
+<li><p>In the <strong>Assign Litmos to People</strong> dialog, select a user, then click the <strong>Assign</strong> button:</p>
+<p><img src="images/apps/litmos7.png" alt=“litmos7.png" /></p></li>
+
+
+<li><p>You can select which access level grant to each user by selecting the corresponding value from the <strong>AccessLevel</strong> dropdown menu:</p>
+<p><img src="images/apps/litmos8.png" alt=“litmos8.png" /></p></li>
+
+<li><p>Click the <strong>Save and Go Back</strong> button.</p></li>
 </div>
 </body>
 </html>
