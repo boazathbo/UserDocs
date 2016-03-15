@@ -1,0 +1,83 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Showd.me</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+
+
+<li><p>Once you have created your organization at showdme.net, select <strong>Admin Tools</strong> from the top right menu:</p>
+<p><img border="1" src="images/apps/showdme1.png" alt=“showdme1.png" /></p>
+</li>
+
+<li><p>Select <strong>Authentication</strong> from the <strong>Admin Tools</strong> menu:</p>
+<p><img border="1" src="images/apps/showdme2.png" alt=“showdme2.png" /></p>
+</li>
+
+<li><p>Click the  <strong>Enabled</strong> switch for <strong>Okta</strong>,  then click <strong>Configure SAML authentication for Okta</strong>:</p>
+<p><img border="1" src="images/apps/showdme3.png" alt=“showdme3.png" /></p>
+</li>
+
+
+<li><p>Enter the following:</p>
+<ul>
+<li><p><strong>Okta SSO URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+<li><p><strong>Okta SSO identity provider issuer URL</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+<li><p><strong>Public Certificate</strong>: Copy and paste the following (PEM Text Format):</p>
+<pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre>
+</li>
+
+<li><p>Click <strong>Save Settings</strong>.</p>
+</li>
+
+</ul>
+<p><img border="1" src="images/apps/showdme4.png" alt=“showdme4.png" /></p>
+
+</li>
+
+
+
+
+<li><p>Done!</p>
+<p><strong>Notes</strong>:</p>
+<p>IdP-initiated flows and SP-initiated flows are supported.</p>
+<p>Just in Time (JIT) provisioning is not supported.</p>
+
+
+
+
+
+
+</ol>
+
+</div>
+</body>
+</html>
