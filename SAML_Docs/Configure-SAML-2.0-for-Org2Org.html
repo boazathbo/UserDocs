@@ -30,47 +30,74 @@
     <p>The Org2Org connector application is used to push/match users from one Okta organization to another. By configuring SAML for this application, users will be authenticated via SAML from one Okta organization to another. This application is used to master in the target (Hub) Okta organization, from the source (Spoke) Okta organization. The Org2Org application was specifically designed for a Hub/Spoke configuration. </p>
     <h2>Assumptions</h2>
     This setup assumes that you are adding this Org2Org SAML Application to your <strong>Okta source (Spoke) organization.</strong>
-    <h2> Configuring the Hub/Target Org (Inbound SAML)</h2>
+    
+<h2> Configuring the Hub/Target Org (Inbound SAML)</h2>
     <ol>
         <li>
             <p>Log into your Okta target organization (Hub) and select the <strong>Admin</strong> button.</p></li>
-<li><p>Navigate to <strong>Security > Authentication</strong>, then select the <strong>Inbound SAML</strong> tab to open the interface.</p>
+<li><p>Navigate to <strong>Security > Identity Providers</strong>, then click <strong>Add Identity Provider</strong> to create a new inbound SAML endpoint for the spoke/source affiliate.</p>
+<p><strong>Note</strong>: All inbound SAML configurations will be created using the spoke/source affiliates name.</p>         
+<p><img src="images/apps/org2orgnew1.png" alt="org2orgnew1.png" /></p>
 
-            <p><strong>Note</strong>: All inbound SAML configurations will be created using the spoke/source affiliates name.</p>
-        </li>
-        <li>
-            <p>Click <strong>Add Endpoint</strong> to create a new inbound SAML endpoint for the spoke/source affiliate</strong>.</p>
-            <img src="images/apps/org2org.png" alt="org2org.png" width="600" height="590" />
-        </li>
-        <li><p>Enter the following information:</p>
+</li>
+
+<li><p>Under <strong>General Settings</strong>:</p>
 <ul>
-        <li><p><strong>Alias</strong>: Enter the spoke/source org name.</p></li>
-        <li><p><strong>IDP Certificate</strong>: Download, then upload the X509 Certificate (below):</p>
-            <p><kbd id="downloadCertificate">Sign into the Okta admin app to have this variable generated for you.</kbd></p></li>
+<li><p><strong>Name</strong>: Enter the spoke/source name.</p></li>
+</ul>
+</li>
 
-<li><p><strong>IDP Issuer</strong>: Copy and paste the following:</p>
-            <p><kbd id="issuer">Sign into the Okta admin app to have this variable generated for you.</kbd></p></li>
 
-<li><p><strong>IDP Login URL</strong>: Copy and paste the following:</p>
-            <p><kbd id="signOnUrl">Sign in to the Okta Admin app to generate this variable.</kbd></p>
-            <p><strong>Note:</strong> You will need this URL for Step 4 under "Configuring Application for Hub/Spoke"</p></li>
+<li><p>Under <strong>Authentication Settings</strong>:</p>
+<ul>
+<li><p><strong>Transform Username</strong>: Select from the drop down menu. This field specifies how to construct the subject's username from the SAML assertion using an Okta Expression Language transform of attributes defined in the IdP User Profile.</p></li>
+<li><p><strong>Filter Username</strong>: Optional regular expression pattern used to filter transformed usernames to prevent the IdP from authenticating unintended or privileged users.</p></li>
 
-<li><p><strong>IDP Bindings</strong>: Set to <strong>HTTP-Post</strong>.</p></li>
-<li><p><strong>Default Group Assignment</strong>: Leave this blank.</p></li>
-<li><p><strong>Transform Username</strong>: Set to <strong>UserName</strong>.</p></li>
-<li><p><strong>Name ID Format</strong>: Set to <strong>Unspecified</strong>.</p></li>
-<li><p><strong>Enable SP initiated SAML</strong>: Leave this unchecked.</p></li>
+<li><p><strong>Authenticate if username matches</strong>: Make desired selection from drop down. This field specifies what attribute(s) of existing users in Okta are compared to the transformed username to determine whether the authentication response is for a new or existing user. Choose the user attribute to match against the transformed username.</p></li>
 
-<li><p>Click <strong>Save Endpoint</strong>.</p></li>
-
+<li><p><strong>If no match is found</strong>: Make desired selection. If <strong>Create new user (JIT)</strong> is selected, a user's profile will be created in the target org if the user does not exist in the target org. This field specifies the action for authentication responses that do not match an existing user in the Okta organization.</p></li>
 
 </ul>
 </li>
-                         <li>
-            <p>Once you save, you will be brought back on the main Inbound SAML page. Locate the Inbound SAML connection you just created. Copy the <strong>Assertion Consumer Service</strong> & paste it in the <strong>Hub ACS URL</strong> field in your source (spoke) Org2Org Application setup under the <strong>Sign on</strong> tab.</p>
-            <p>Next, copy the <strong>Audience URI</strong> and paste it in the <strong>Hub Audience URI</strong> field in your spoke (source) Org2Org Application setup under the <strong>Sign on</strong> tab.</p>
-            <p><img src="images/apps/org2org2.png" alt="org2org2.png" width="400" height="250" /></p>
-        </li>
+
+<li><p>Under <strong>JIT Settings</strong>:</p>
+<ul>
+<li><p><strong>Profile Master</strong>: Make desired selection. This field determines if the IdP should act as a source of truth for user profile attributes. The IdP must be prioritized with other Profile Masters if the user is assigned to additional apps or directories that are also Profile Masters. See Profile Mastering documentation for more information.</p></li>
+<li><p><strong>Group Assignments</strong>: Make desired selection. This field specifies the behavior of group assignments during provisioning.</p></li>
+</ul>
+</li>
+
+
+<li><p>Under <strong>SAML Protocol Settings</strong>:</p>
+<ul>
+<li><p><strong>IdP Issuer URI</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta admin app to have this variable generated for you.</kbd></p>
+</li>
+<li><p><strong>IdP Single Sign On URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign in to the Okta Admin app to generate this variable.</kbd></p>
+
+</li>
+<li><p><strong>IdP Signature Certificate</strong>: Download, then upload the X509 Certificate (below):</p>
+<p><kbd id="downloadCertificate">Sign into the Okta admin app to have this variable generated for you.</kbd></p>
+</li>
+
+</ul>
+</li>
+<li><p>Click <strong>Add Identity Provider/Save</strong>.</p></li>
+
+
+
+<li><p>Once you save, you are returned to the main Identity Providers page.</p>
+<ul>
+<li><p>Locate the Identity provider you just added. Copy the value for <strong>Assertion Consumer Service</strong> and paste it in the <strong>Hub ACS URL</strong> field in your source (spoke) Org2Org Application setup under the <strong>Sign On</strong> tab.</p></li>
+<li><p>Copy the value for <strong>Audience URI</strong> and paste it in the <strong>Audience URI</strong> field in your spoke (source) Org2Org Application setup under the <strong>Sign On</strong> tab:</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+
+</ul>
+<p><img src="images/apps/org2orgnew2.png" alt="org2orgnew2.png" /></p>
+
+</li>
+
         <li>Done!</li>
         </ol>
         <br></br>
