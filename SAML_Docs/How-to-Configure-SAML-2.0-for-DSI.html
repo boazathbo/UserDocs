@@ -1,0 +1,102 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for DSI</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+
+<li><p>Send an email to DSI requesting that they enable SAML 2.0 for your account.</p></li>
+
+
+<li><p>Provide the following information:</p>
+<ul>
+<li><p><strong>x.509 Certificate</strong>: Copy and paste the following (in PEM Text format):</p>
+<pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre>
+
+</li>
+<li><p><strong>Login URL/SignOn URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p><strong>IDP Issuer/Entity ID</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+</ul>
+</li>
+
+
+<li><p>Ask DSI to provide you with the following:</p>
+<ul>
+<li><p>A value for <strong>Default Relay State</strong></li>
+<li><p>An <strong>Employee number</strong>.</p>
+</li>
+</ul>
+</li>
+
+
+
+
+<li><p>In Okta, select the <strong>Sign On</strong> tab for the DSI app, then click <strong>Edit</strong>:</p>
+<ul>
+<li><p>Enter the <strong>Default Relay State</strong> value provided by DSI.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+</ul>
+<p><img border="1" src="images/apps/dsi1.png" alt=“dsi1.png" /></p>
+</li>
+
+
+<li><p>Still in Okta, select the <strong>People</strong> tab, then click on your <strong>Username</strong>:</p>
+<p><img border="1" src="images/apps/dsi2.png" alt=“dsi2.png" /></p>
+</li>
+
+<li><p>On your <strong>User Dashboard</strong> select the <strong>Profile</strong> tab, then click <strong>Edit</strong>:</p>
+<p><img border="1" src="images/apps/dsi3.png" alt=“dsi3.png" /></p>
+
+<ul>
+<li><p>Enter the <strong>Employee number</strong> provided by DSI.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+</ul>
+<p><img border="1" src="images/apps/dsi4.png" alt=“dsi4.png" /></p>
+</li>
+
+
+
+
+<li><p>Done!</p>
+<p><strong>Notes</strong>:</p>
+<p>IdP-initiated flows are supported.</p>
+<p>SP-initiated flows and Just in Time (JIT) provisioning are not supported.</p>
+
+
+
+
+
+
+
+
+</ol>
+
+</div>
+</body>
+</html>
