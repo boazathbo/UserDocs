@@ -1,0 +1,1 @@
+define({numchunks:1,prefix:'Glossary_Chunk',terms:[{t:'Admin',c:0},{t:'Agent',c:0},{t:'App',c:0},{t:'App Integration Wizard',c:0}]});
