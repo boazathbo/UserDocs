@@ -24,7 +24,7 @@ try{Typekit.load();}catch(e){}
 
 <div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
 <p>To reconfigure any of the <strong>General Settings</strong> or <strong>Sign-On Options</strong>, uncheck the <strong>Enable provisioning features</strong> box, and use the <strong>Previous</strong> and <strong>Next</strong> buttons to navigate through the configuration screens.</p>
-</div>
+</div> 
 
 
 <h1>Configuring Provisioning for Slack</h1>
@@ -37,13 +37,55 @@ try{Typekit.load();}catch(e){}
 <h2>Features</h2>
 <p>The following provisioning features are supported:</p>
 
+<ul>
+<li><p><strong>Push New Users</strong></p>
+<p>New users created through OKTA will also be created in the third party application.</p>
+</li>
+<li><p><strong>Push User Deactivation</strong></p>
+<p>Deactivating the user through OKTA will remove the user from the organization and all teams in the third party application.</p>
+</li>
+<li><p><strong>Push Profile Updates</strong></p>
+<p>Updates made to the user's profile through OKTA will be pushed to the third party application.</p>
+</li>
+<li><p><strong>Import New Users</strong></p>
+<p>New users created in the third party application will be downloaded and turned in to new AppUser objects, for matching against existing OKTA users.</p>
+</li>
+<li><p><strong>Import Profile Updates</strong></p>
+</li>
+</ul>
+
+
 <h2>Requirements</h2>
 <p>Complete the following before you configure provisioning for Slack:</p>
+<ul>
+<li><p>Obtain a full-access API bearer token for your Slack Team: <a href="https://api.slack.com/docs/oauth-test-tokens
+" target="_blank">https://api.slack.com/docs/oauth-test-tokens</a>.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/slack1.png" alt=“slack1.png” /></p>
+</li>
+</ul>
 
 
 
 <h2>Configuration Steps</h2>
-<h2>Troubleshooting Tips</h2>
+<p>Configure your Provisioning settings for <strong>Slack</strong> as follows:</p>
+<ol>
+<li><p>Check the <strong>Enable provisioning</strong> features box.</p></li>
+<li><p>Under <strong>API Credentials</strong> enter your <strong>Slack API token</strong>:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/slack2.png" alt=“slack2.png” /></p>
+</li>
+<li><p>Click <strong>Test API Credentials</strong>. If your credentials are valid, you’ll see a success message:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/slack3.png" alt=“slack3.png” /></p>
+</li>
+<li><p>Scroll down and enable the <strong>Provisioning Features</strong> you want to use for this app:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/slack4.png" alt=“slack4.png” /></p>
+</li>
+<li><p>Click <strong>Save</strong>.</p>
+</li>
+<li><p>You can now assign people to the app, if needed.</p>
+</li>
+
+</ol>
+
 
 
 </div>
