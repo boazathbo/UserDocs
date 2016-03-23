@@ -1,0 +1,147 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Dropbox Business Provisioning</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>To reconfigure any of the <strong>General Settings</strong> or <strong>Sign-On Options</strong>, uncheck the <strong>Enable provisioning features</strong> box, and use the <strong>Previous</strong> and <strong>Next</strong> buttons to navigate through the configuration screens.</p>
+</div>
+
+
+<h1>Configuring Provisioning for Dropbox Business</h1>
+
+<p>This guide provides the steps required to configure Provisioning for Dropbox Business.</p>
+
+
+
+<h2>Features</h2>
+<p>The following provisioning features are supported:</p>
+
+<ul>
+
+<li><p><strong>Push New Users</strong></p>
+<p>New users created through OKTA will also be created in the third party application.</p>
+</li>
+
+<li><p><strong>Push Profile Updates</strong></p>
+<p>Updates made to the user's profile through OKTA will be pushed to the third party application.</p>
+</li>
+
+<li><p><strong>Push User Deactivation</strong></p>
+<p>Deactivating the user or disabling the user's access to the application through OKTA will deactivate the user in the third party application.</p>
+<p><strong>Note</strong>: For this application, deactivating a user means removing all of user's data and removing the user's account.</p>
+</li>
+
+<li><p><strong>Import New Users</strong></p>
+<p>New users created in the third party application will be downloaded and turned in to new AppUser objects, for matching against existing OKTA users.</p>
+</li>
+
+<li><p><strong>Import Profile Updates</strong></p>
+</li>
+
+
+
+<li><p><strong>Push Groups</strong></p>
+<p>Groups and their members can be pushed to remote systems. For more about using group push operations see <a href="https://support.okta.com/help/articles/Knowledge_Article/27086213-Using-Group-Push" target="_blank">Using Group Push</a>.</li>
+
+
+</ul>
+
+
+
+<h2>Prerequisites</h2>
+
+<p>Before you configure provisioning for Dropbox Business, make sure you have configured the <strong>General Settings</strong> and any <strong>Sign-On Options</strong> for the Dropbox Business app.</p>
+
+<p><strong>Note</strong>: Under <strong>Sign-On Options</strong> you can select the <strong>Silent Provisioning</strong>. If you select this, you are preventing Dropbox from sending welcome emails to new users being provisioned into Dropbox from Okta. This feature is mainly to be used with SAML authentication, as users will not receive an email with their Reset Password link.</p>
+<p>In order to use the Silent Provisioning feature you must:</p>
+<ol>
+<li><p>Setup SSO in the Dropbox admin console.</p></li>
+<li><p>Claim your Dropbox Domain with Dropbox (someone with authority to claim the domain, such as an IT admin who manually verifies the domain with Dropbox. This is done by one person and only once).</p></li>
+</ol>
+<p>Once the above steps are complete, the flow from the Okta side is:</p>
+<ol>
+<li><p>The Okta admin provisions the Dropbox users with Silent Provisioning enabled.</p></li>
+<li><p>If the user is already a basic or pro user in Dropbox (that is, has a personal account), they are taken through the team onboarding/migration flow the next time they log in to Dropbox. At the same time, their desktop client stops syncing and prompts them to onboard to the team account they are invited to.</p></li>
+<li><p>If the user does not already exist in Dropbox, they are directed to <a href="https://www.dropbox.com/sso" target="_blank">https://www.dropbox.com/sso</a> to login where they need to get their accounts activated. As these users are not already on Dropbox, and Okta hasn’t sent them invitations by email, they need to be notified of this URL by some other means.</p></li>
+</ol>
+
+
+<p>By default the Silent Provisioning option is disabled. That means, that new users will retrieve welcome email. You may switch that option at any time.</p>
+
+
+<p><img style="border: 0; padding: 0;" src="images/apps/dropbox1.png" alt=“dropbox1.png” /></p>
+<p><strong>Note</strong>: This option works only if provisioning is enabled.</p>
+
+
+
+<p>Click <strong>Next</strong> to take you back to the <strong>Provisioning</strong> tab.</p>
+
+
+<h2>Configuration Steps</h2>
+
+
+<p>Configure your <strong>Provisioning</strong> settings for Dropbox Business as follows:</p>
+
+<ol>
+<li><p>Check the <strong>Enable provisioning features</strong> box.</p></li>
+<li><p>API Authentication:</p>
+
+<ul>
+<li><p>Click the <strong>Authenticate with Dropbox Business</strong> button:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/dropbox2.png" alt=“dropbox2.png” /></p>
+</li>
+<li><p>You will be redirected to Dropbox page, which prompts you to enter your credentials:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/dropbox3.png" alt=“dropbox3.png” /></p>
+</li>
+<li><p>Then you are asked to confirm that you will allow access to your account via OKTA:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/dropbox4.png" alt=“dropbox4.png” /></p>
+</li>
+
+<li><p>You are then redirected back to OKTA to continue application configuration. </p>
+</li>
+</ul>
+
+</li>
+<li><p>Scroll down and select the <strong>Provisioning Features</strong> you want to enable.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/dropbox5.png" alt=“dropbox5.png” /></p>
+</li>
+<li><p>Click <strong>Next</strong></p>
+</li>
+<li><p>You can now assign people to the app (if needed) and finish the application setup.</p>
+
+</ol>
+
+
+<h2>Troubleshooting Tips</h2>
+
+<ul>
+<li><p>If <strong>Silent Provisioning</strong> is enabled, new users must go to <a href="https://www.dropbox.com/sso" target="_blank">https://www.dropbox.com/sso</a> in order to get their accounts activated.</p></li>
+<li><p>Users with a status of <strong>Invited</strong> cannot be updated with a new email address in their profile.</p></li>
+<li><p><strong>Group Push</strong> will not update a Dropbox group if users whose status is <strong>Invited</strong> were added to the group.</p></li>
+<li><p>Users without <strong>First Name</strong> or/and <strong>Last Name</strong> in their Dropbox profiles cannot be imported to Okta as new users.</p></li>
+</ul>
+
+
+</div>
+</body>
+</html>
