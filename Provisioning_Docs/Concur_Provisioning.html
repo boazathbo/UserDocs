@@ -31,15 +31,52 @@ try{Typekit.load();}catch(e){}
 
 <p>This guide provides the steps required to configure Provisioning for Concur.</p>
 
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+
+<p><strong>Notes</strong></p>
+
+<ul>
+<li>
+<p>Okta supports the creation of a Base user record in Concur. Contact the Concur implementation staff to determine whether your Concur tenant uses <strong>Expense</strong> features that require employee data that is not capable of being populated by the current <em>User API</em> and therefore is not supported by the Okta User Provisioning application. If this is the case, you are required to populate the additional data using Concur specified import files.</p>
+<p>The fields that can be populated by the User Provisioning app are specified: 
+<a href="https://developer.concur.com/api-reference/user/company-notification-subscription-resource/user.html#createUser">here</a>.</p>
+</ul>
+</div>
+<h2>Support of Concur Editions</h2>
+<ul>
+<li><p><strong>Small Business</strong>:</p>
+<p>The Okta-Concur integration does not support the Concur Small Business Edition.</p>
+</li>
+<li><p><strong>Standard Edtion</strong>:</p>
+<p>Okta supports provisioning functionality for Concur Standard Edition. Note that Okta only creates a base user record in Concur. Standard Edition clients that are not using extended features can use the User Provisioning app to add records without having to import additional data. However, even some Standard Edition features require additional file imports or manually added information in Concur by the client.</p>
+
+</li>
+<li><p><strong>Professional Edition</strong></p>
+<p>Okta supports provisioning functionality for Concur Professional Edition. Note that Okta only creates a base user record in Concur; you may require file imports for attributes (such as employee banking data) not supported by the Concur API. Many <strong>Expense</strong> features require employee data that User Provisioning applications cannot populate since the current <em>User API</em> does not currently include those features.</p>
+</li>
+<li><p><strong>Premium Edition</strong>:
+<p>Okta supports provisioning functionality for Concur Premium Edition. Note that Okta only creates a base user record in Concur; you may require file imports for attributes (such as employee banking data) not supported by the Concur API. Many <strong>Expense</strong> features require employee data that User Provisioning applications cannot populate since the current <em>User API</em> does not currently include those features.</p>
+</p></li>
+
+<h3>Determining Edition Type</h3>
+<p>A client can determine the Concur Edition type by having their administrator login to their Concur site. If they see a <strong>Setup</strong> menu with a sub option for <strong>Expense</strong> within the <strong>Administration</strong> menu (as shown below), then this is a Standard Edition site. If the client administrator does not see the <strong>Expense</strong> menu within the <strong>Setup</strong> menu, then they have a Concur Professional Edition site:</p>
+ 
+<p><p><img src="images/apps/concurnew1.png" alt=“concurnew1.png" /></p>
+
+
+
+</ul>
+
 
 <h2>Features</h2>
 <p>The following provisioning features are supported:</p>
 <ul>
-<li>Schema Discovery</li>
-<li>Create Users</li>
-<li>Update User Attributes</li>
-<li>Deactivate Users</li>
-<li>Sync Password</li>
+<li><p><strong>Schema Discovery</strong></p></li>
+<li><p><strong>Create Users</strong></p>
+<p>Note that Okta only creates a user’s base profile in Concur.</p></li>
+<li><p><strong>Update User Attributes</strong></p></li>
+<li><p><strong>Deactivate Users</strong></p></li>
+<li><p><strong>Sync Password</strong></p></li>
 </ul>
 <p><strong>Note</strong>: Import of Users is currently supported only in CSV format.</p>
 
@@ -50,7 +87,10 @@ try{Typekit.load();}catch(e){}
 
 <li><p>Universal Directory for Concur is an <strong>Early Access</strong> feature. If you would like to turn on UD for Concur, contact Okta Support to enable the following feature flag: <strong>PROV_CONCUR_CLOUD_DIRECTORY_ENABLE</strong>.</p></li>
 
-<li>Before setting up provisioning, ensure that Web Services subscription is enabled for your Concur tenant. Once the subscription is enabled, follow the steps below to enable the Okta application in the Concur:</p></li>
+<li>You must have Concur <strong>Expense</strong> service enabled. That is, Concur <strong>Travel</strong> only is not supported.</p></li>
+
+<li>Before setting up provisioning, ensure that Web Services subscription is enabled for your Concur tenant. Contact Concur to get the Web Services Administrator Profile set up; this is a one-time required set up. Once the subscription is enabled, you will be able to use the provisioning application in your <strong>Concur Production</strong> tenant. The Okta application is listed globally in Concur Production environment, and no further steps need to be taken to enable the Okta application in you Concur Web Services App center.
+If you are in the <strong>Concur Sandbox</strong> environment, follow the steps below to enable the Okta application in Concur:</p></li>
 </ul>
 
 <ol>
@@ -119,15 +159,27 @@ try{Typekit.load();}catch(e){}
 
 <h3>Attributes in Base Profile</h3>
 
-<p>There are few special attributes in Base user profile, they are:</p>
+<p>There are few special attributes in Base user profile, whose values may vary depending on your Concur Edition. Pay special attention to these attributes:</p>
 <ul>
-<li>Locale Name</li>
-<li>Country Code</li>
-<li>Currency Key</li>
-<li>Expense Group ID</li>
-<li>Ledger Key</li>
+<li><p><strong>Locale Name</strong></p>
+<p>Select value from drop down menu.</p></li>
+</li>
+<li><p><strong>Country Code</strong></p>
+<p>Select value from drop down menu.</p></li>
+</li>
+<li><p><strong>Currency Key</strong></p>
+<p>Select value from drop down menu.</p></li>
+
+<li><p><strong>Expense Group ID</strong></p>
+<p>Concur Standard edition may or may not have groups. This attribute is termed as Expense Policy Group in Concur Standard Edition, and Custom21 will be used for the Expense Group value. You have to pass the Group Code value; to get a list of Group code values pertaining to the group names, go to the <strong>Accounting Administration</strong> menu in Concur, then click on <strong>Accounting Structure</strong>.</p>
+<p>Concur Professional/Premium edition has groups. Custom21 will be used for the Expense Group value. Custom 22 will be used for the Invoice Group value. You have to pass the Group Code value; to get a list of Group code values pertaining to the group names, go to <strong>Accounting Administration</strong> menu in Concur, then click on <strong>Accounting Structure</strong>.</p>
+</li>
+
+<li><p><strong>Ledger Key</strong></p>
+<p>For Concur Standard Edition, the value default to be passed is <strong>DEFAULT</strong>. Although this attribute does not appear in your Concur UI, but is required for provisioning. </p>
+<p>For Concur Professional/Premium Edition, the Ledger code(s) must be obtained from Concur since the Code is not available in the API and it is not exposed to the client administrator in the Concur UI (<strong>Accounting Administration</strong> menu). You will have to maintain the list of Ledger codes, and plug them in Okta when assigning new users. Contact Concur at <a href="mailto:pdspe@concur.com" target="_blank">pdspe@concur.com</a> to obtain a list of valid Ledger Code(s) relevant to your Concur tenant.</p></li>
 </ul>
-<p>For these attributes Concur has a pre-defined list of allowed values per tenant, and you will experience errors if you use a wrong value.So please make sure you know what to enter here. See the <strong>Schema Discovery </strong>section to see how to get allowed values.</p>
+<p>For these attributes Concur has a pre-defined list of allowed values per tenant, and you will experience errors if you use a wrong value. So make sure you know what to enter here. See the <strong>Schema Discovery </strong>section to see how to get allowed values.</p>
 
 <br />
 
