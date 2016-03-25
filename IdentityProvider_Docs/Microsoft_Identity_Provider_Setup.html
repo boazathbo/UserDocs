@@ -77,6 +77,276 @@
 <li><p>Click <strong>Save</strong>.</p>
 </li>
 </ol>
+<br />
+<hr>
+<br />
+<h2>UD Mapping</H2>
+<p>The following table shows how attributes are mapped from Microsoft to the Okta user.</p>
+
+<table class="gridtable">
+
+<tr>
+
+<th>Graph DirectoryObject Property</th>
+<th>Description</th>
+<th>IdP AppUser Attribute Name</th>
+</tr>
+
+<tr>
+<td align="left">aboutMe</td>
+<td align="left">A freeform text entry field for the user to describe themselves.</td>
+<td align="left">aboutMe</td>
+
+</tr>
+<tr>
+<td align="left">birthday</td>
+<td align="left">The birthday of the user.</td>
+<td align="left">birthday</td>
+
+</tr>
+
+<tr>
+<td align="left">city</td>
+<td align="left">The city in which the user is located.</td>
+<td align="left">city</td>
+
+</tr>
+
+
+
+<tr>
+<td align="left">country</td>
+<td align="left">The country/region in which the user is located. For example, <strong>US</strong> or <strong>UK</strong>.</td>
+<td align="left">country</td>
+
+</tr>
+<tr>
+<td align="left">department</td>
+<td align="left">The name for the department in which the user works.</td>
+<td align="left">department</td>
+
+</tr>
+
+<tr>
+<td align="left">displayName</td>
+<td align="left">The name displayed in the address book for the user.</td>
+<td align="left">displayName</td>
+
+</tr>
+
+
+<tr>
+<td align="left">givenName</td>
+<td align="left">The given name (first name) of the user.</td>
+<td align="left">givenName</td>
+
+</tr>
+<tr>
+<td align="left">hireDate</td>
+<td align="left">The hire date of the user.</td>
+<td align="left">hireDate</td>
+
+</tr>
+
+<tr>
+<td align="left">id</td>
+<td align="left">The unique identifier for the user.</td>
+<td align="left">externalId</td>
+
+</tr>
+
+
+<tr>
+<td align="left">interests</td>
+<td align="left">A list for the user to describe their interests.</td>
+<td align="left">interests</td>
+
+</tr>
+<tr>
+<td align="left">jobTitle</td>
+<td align="left">The user’s job title.</td>
+<td align="left">jobTitle</td>
+
+</tr>
+
+<tr>
+<td align="left">mail</td>
+<td align="left">The SMTP address for the user.</td>
+<td align="left">mail</td>
+
+</tr>
+
+
+<tr>
+<td align="left">mailNickname</td>
+<td align="left">The mail alias for the user.</td>
+<td align="left">mailNickname</td>
+
+</tr>
+<tr>
+<td align="left">mobilePhone</td>
+<td align="left">The primary cellular telephone number for the user.</td>
+<td align="left">mobilePhone</td>
+
+</tr>
+
+<tr>
+<td align="left">mySite</td>
+<td align="left">The URL for the user's personal site.</td>
+<td align="left">mySite</td>
+
+</tr>
+
+
+<tr>
+<td align="left">officeLocation</td>
+<td align="left">The office location in the user's place of business.</td>
+<td align="left">officeLocation</td>
+
+</tr>
+<tr>
+<td align="left">onPremisesImmutableId</td>
+<td align="left">This property is used to associate an on-premises Active Directory user account to their Azure AD user object.</td>
+<td align="left">onPremisesImmutableId</td>
+
+</tr>
+
+<tr>
+<td align="left">onPremisesLastSyncDateTime</td>
+<td align="left">This date indicates the last time at which the object was synced with the on-premises directory.</td>
+<td align="left">onPremisesLastSyncDateTime</td>
+
+</tr>
+
+
+
+<tr>
+<td align="left">onPremisesSecurityIdentifier</td>
+<td align="left">Contains the on-premises security identifier (SID) for the user that was synchronized from on-premises to the cloud. Read-only.</td>
+<td align="left">onPremisesSecurityIdentifier</td>
+
+</tr>
+<tr>
+<td align="left">onPremisesSyncEnabled</td>
+<td align="left"><strong>true</strong> if this object is synced from an on-premises directory; <strong>false</strong> if this object was originally synced from an on-premises directory but is no longer synced; <strong>null</strong> if this object has never been synced from an on-premises directory (default).</td>
+<td align="left">onPremisesSyncEnabled</td>
+
+</tr>
+
+<tr>
+<td align="left">passwordPolicies</td>
+<td align="left">Specifies password policies for the user. This value is an enumeration with one possible value being <strong>DisableStrongPassword</strong>, which allows weaker passwords than the default policy to be specified. <strong>DisablePasswordExpiration</strong> can also be specified. The two may be specified together; for example: <strong>DisablePasswordExpiration, DisableStrongPassword</strong>.</td>
+<td align="left">passwordPolicies</td>
+
+</tr>
+
+
+
+<tr>
+<td align="left">pastProjects</td>
+<td align="left">A list for the user to enumerate their past projects.</td>
+<td align="left">pastProjects</td>
+
+</tr>
+<tr>
+<td align="left">postalCode</td>
+<td align="left">The postal code for the user's postal address. The postal code is specific to the user's country/region. In the United States of America, this attribute contains the ZIP code.</td>
+<td align="left">postalCode</td>
+
+</tr>
+
+<tr>
+<td align="left">preferredLanguage</td>
+<td align="left">The preferred language for the user.</td>
+<td align="left">preferredLanguage</td>
+
+</tr>
+
+
+<tr>
+<td align="left">preferredName</td>
+<td align="left">The preferred name for the user.</td>
+<td align="left">preferredName</td>
+
+</tr>
+<tr>
+<td align="left">proxyAddresses</td>
+<td align="left">For example: ["SMTP: bob@contoso.com", "smtp: bob@sales.contoso.com"]</td>
+<td align="left">proxyAddresses</td>
+
+</tr>
+
+<tr>
+<td align="left">responsibilities</td>
+<td align="left">A list for the user to enumerate their responsibilities.</td>
+<td align="left">responsibilities</td>
+
+</tr>
+
+
+<tr>
+<td align="left">schools</td>
+<td align="left">A list for the user to enumerate the schools they have attended.</td>
+<td align="left">schools</td>
+
+</tr>
+<tr>
+<td align="left">skills</td>
+<td align="left">A list for the user to enumerate their skills.</td>
+<td align="left">skills</td>
+
+</tr>
+
+<tr>
+<td align="left">state</td>
+<td align="left">The state or province in the user's address.</td>
+<td align="left">state</td>
+
+</tr>
+
+
+
+<tr>
+<td align="left">streetAddress</td>
+<td align="left">The street address of the user's place of business.</td>
+<td align="left">streetAddress</td>
+
+</tr>
+<tr>
+<td align="left">surname</td>
+<td align="left">The user's surname (family name or last name).</td>
+<td align="left">surname</td>
+
+</tr>
+
+<tr>
+<td align="left">usageLocation</td>
+<td align="left">A two letter country code (ISO standard 3166). Required for users that will be assigned licenses due to legal requirement to check for availability of services in countries.</td>
+<td align="left">usageLocation</td>
+
+</tr>
+
+
+<tr>
+<td align="left">userPrincipalName</td>
+<td align="left">The user principal name (UPN) of the user. The UPN is an Internet-style login name for the user based on the Internet standard RFC 822. By convention, this should map to the user's email name. The general format is alias@domain, where domain must be present in the tenant’s collection of verified domains.</td>
+<td align="left">userPrincipalName</td>
+
+</tr>
+
+<tr>
+<td align="left">userType</td>
+<td align="left">A string value that can be used to classify user types in your directory, such as <strong>Member</strong> and <strong>Guest</strong>.</td>
+<td align="left">usageLocation</td>
+
+</tr>
+
+
+
+
+
+</table>
+
 
 </div><!-- class="okta-instructions" -->
 </body>
