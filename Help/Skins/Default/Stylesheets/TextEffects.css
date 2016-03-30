@@ -359,14 +359,12 @@ a.MCToggler_Open.MCTogglerHotSpot
 	float: left;
 	margin: 0 4px;
 	width: 1px;
-	color: #dcdcdc;
-	background-color: #dcdcdc;
+	background-color: #e1e1e1;
 	height: 24px;
 }
 
 .button
 {
-	line-height: 22px;
 	position: relative;
 	/* need this to workaround CSS3PIE known issue: http://css3pie.com/documentation/known-issues/#z-index */
 	margin: 0px 4px;
@@ -376,41 +374,38 @@ a.MCToggler_Open.MCTogglerHotSpot
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
-	-webkit-box-shadow: 0px 1px 0px 0px #FFF;
-	-moz-box-shadow: 0px 1px 0px 0px #FFF;
 	-moz-box-sizing: content-box;
 	-webkit-box-sizing: content-box;
 	box-sizing: content-box;
 	padding: 0;
-	padding-left: 10px;
+	background: #ececec;
+	background: -moz-linear-gradient(top, #ffffff 0%, #ececec 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#ececec));
+	background: -webkit-linear-gradient(top, #ffffff 0%, #ececec 100%);
+	background: -o-linear-gradient(top, #ffffff 0%,#ececec 100%);
+	background: -ms-linear-gradient(top, #ffffff 0%,#ececec 100%);
+	background: linear-gradient(top, #ffffff 0%,#ececec 100%);
+	-pie-background: linear-gradient(#ffffff, #ececec);
+	box-shadow: 0px 1px 0px #ffffff;
+	-webkit-box-shadow: 0px 1px 0px #ffffff;
+	-moz-box-shadow: 0px 1px 0px #ffffff;
+	padding-left: 0px;
 	padding-right: 0px;
 	padding-top: 0px;
 	padding-bottom: 0px;
-	border-top: none 1px #ffffff;
-	border-right: none 1px #ffffff;
-	border-bottom: none 1px #ffffff;
-	border-left: none 1px #ffffff;
+	border-top: solid 1px #e1e1e1;
+	border-right: solid 1px #e1e1e1;
+	border-bottom: solid 1px #e1e1e1;
+	border-left: solid 1px #e1e1e1;
 	border-top-left-radius: 3px;
 	border-top-right-radius: 3px;
 	border-bottom-right-radius: 3px;
 	border-bottom-left-radius: 3px;
 	background-repeat: no-repeat;
 	background-position: center center;
-	-webkit-box-shadow: 0px 1px 0px #686868;
-	-moz-box-shadow: 0px 1px 0px #686868;
-	box-shadow: 0px 1px 0px #686868;
-	-webkit-box-shadow: 0px 1px 0px #686868;
-	-moz-box-shadow: 0px 1px 0px #686868;
 	width: 22px;
 	height: 22px;
-	background: #313131;
-	background: -moz-linear-gradient(top, #313131 0%, #313131 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#313131), color-stop(100%,#313131));
-	background: -webkit-linear-gradient(top, #313131 0%, #313131 100%);
-	background: -o-linear-gradient(top, #313131 0%,#313131 100%);
-	background: -ms-linear-gradient(top, #313131 0%,#313131 100%);
-	background: linear-gradient(top, #313131 0%,#313131 100%);
-	-pie-background: linear-gradient(#313131, #313131);
+	line-height: 22px;
 }
 
 .button[disabled],
@@ -429,19 +424,16 @@ a.MCToggler_Open.MCTogglerHotSpot
 	/* IE10+ */
 	/* W3C */
 	/*PIE*/
-	-webkit-box-shadow: 0px 1px 0px #686868;
-	-moz-box-shadow: 0px 1px 0px #686868;
-	box-shadow: 0px 1px 0px #686868;
-	-webkit-box-shadow: 0px 1px 0px #686868;
-	-moz-box-shadow: 0px 1px 0px #686868;
-	background: #313131 url('Images/navigate-previous.png') no-repeat center center;
-	background: url('Images/navigate-previous.png') no-repeat center center, -moz-linear-gradient(top, #313131 0%, #313131 100%);
-	background: url('Images/navigate-previous.png') no-repeat center center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#313131), color-stop(100%,#313131));
-	background: url('Images/navigate-previous.png') no-repeat center center, -webkit-linear-gradient(top, #313131 0%, #313131 100%);
-	background: url('Images/navigate-previous.png') no-repeat center center, -o-linear-gradient(top, #313131 0%,#313131 100%);
-	background: url('Images/navigate-previous.png') no-repeat center center, -ms-linear-gradient(top, #313131 0%,#313131 100%);
-	background: url('Images/navigate-previous.png') no-repeat center center, linear-gradient(top, #313131 0%,#313131 100%);
-	-pie-background: url('Skins/Default/Stylesheets/Images/navigate-previous.png') no-repeat center center, linear-gradient(#313131, #313131);
+	background: #f7f7f8 url('Images/left-arrow.png') no-repeat center center;
+	-pie-background: #f7f7f8 url('Skins/Default/Stylesheets/Images/left-arrow.png') no-repeat center center;
+	box-shadow: 0px 0px 0px #ffffff;
+	-webkit-box-shadow: 0px 0px 0px #ffffff;
+	-moz-box-shadow: 0px 0px 0px #ffffff;
+	border-top: solid 0px #e1e1e1;
+	border-right: solid 0px #e1e1e1;
+	border-bottom: solid 0px #e1e1e1;
+	border-left: solid 0px #e1e1e1;
+	tooltip: Navigate previous;
 }
 
 .button.next-topic-button
@@ -454,24 +446,35 @@ a.MCToggler_Open.MCTogglerHotSpot
 	/* IE10+ */
 	/* W3C */
 	/*PIE*/
-	-webkit-box-shadow: 0px 1px 0px #686868;
-	-moz-box-shadow: 0px 1px 0px #686868;
-	box-shadow: 0px 1px 0px #686868;
-	-webkit-box-shadow: 0px 1px 0px #686868;
-	-moz-box-shadow: 0px 1px 0px #686868;
-	background: #313131 url('Images/navigate-next.png') no-repeat center center;
-	background: url('Images/navigate-next.png') no-repeat center center, -moz-linear-gradient(top, #313131 0%, #313131 100%);
-	background: url('Images/navigate-next.png') no-repeat center center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#313131), color-stop(100%,#313131));
-	background: url('Images/navigate-next.png') no-repeat center center, -webkit-linear-gradient(top, #313131 0%, #313131 100%);
-	background: url('Images/navigate-next.png') no-repeat center center, -o-linear-gradient(top, #313131 0%,#313131 100%);
-	background: url('Images/navigate-next.png') no-repeat center center, -ms-linear-gradient(top, #313131 0%,#313131 100%);
-	background: url('Images/navigate-next.png') no-repeat center center, linear-gradient(top, #313131 0%,#313131 100%);
-	-pie-background: url('Skins/Default/Stylesheets/Images/navigate-next.png') no-repeat center center, linear-gradient(#313131, #313131);
+	background: #f7f7f8 url('Images/right-arrow.png') no-repeat center center;
+	-pie-background: #f7f7f8 url('Skins/Default/Stylesheets/Images/right-arrow.png') no-repeat center center;
+	box-shadow: 0px 0px 0px #ffffff;
+	-webkit-box-shadow: 0px 0px 0px #ffffff;
+	-moz-box-shadow: 0px 0px 0px #ffffff;
+	border-top: solid 0px #e1e1e1;
+	border-right: solid 0px #e1e1e1;
+	border-bottom: solid 0px #e1e1e1;
+	border-left: solid 0px #e1e1e1;
+	tooltip: Navigate next;
 }
 
 .button.current-topic-index-button
 {
 	padding: 0 12px;
+	background: #ececec;
+	background: -moz-linear-gradient(top, #ffffff 0%, #ececec 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#ececec));
+	background: -webkit-linear-gradient(top, #ffffff 0%, #ececec 100%);
+	background: -o-linear-gradient(top, #ffffff 0%,#ececec 100%);
+	background: -ms-linear-gradient(top, #ffffff 0%,#ececec 100%);
+	background: linear-gradient(top, #ffffff 0%,#ececec 100%);
+	-pie-background: linear-gradient(#ffffff, #ececec);
+	box-shadow: 0px 0px 0px #ffffff;
+	-webkit-box-shadow: 0px 0px 0px #ffffff;
+	-moz-box-shadow: 0px 0px 0px #ffffff;
+	text-shadow: 0px 1px 0px #ffffff;
+	-webkit-text-shadow: 0px 1px 0px #ffffff;
+	-moz-text-shadow: 0px 1px 0px #ffffff;
 	color: #6c6c6c;
 	font-size: 11px;
 	font-weight: bold;
@@ -479,23 +482,13 @@ a.MCToggler_Open.MCTogglerHotSpot
 	padding-right: 12px;
 	padding-top: 0px;
 	padding-bottom: 0px;
-	-webkit-box-shadow: 0px 1px 0px #686868;
-	-moz-box-shadow: 0px 1px 0px #686868;
-	box-shadow: 0px 1px 0px #686868;
-	-webkit-box-shadow: 0px 1px 0px #686868;
-	-moz-box-shadow: 0px 1px 0px #686868;
-	text-shadow: none;
-	-webkit-text-shadow: none;
-	-moz-text-shadow: none;
+	border-top: solid 0px #cccccc;
+	border-right: solid 0px #e1e1e1;
+	border-bottom: solid 0px #e1e1e1;
+	border-left: solid 0px #e1e1e1;
+	text-shadow-visibility: visible;
 	width: auto;
-	background: #313131;
-	background: -moz-linear-gradient(top, #313131 0%, #313131 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#313131), color-stop(100%,#313131));
-	background: -webkit-linear-gradient(top, #313131 0%, #313131 100%);
-	background: -o-linear-gradient(top, #313131 0%,#313131 100%);
-	background: -ms-linear-gradient(top, #313131 0%,#313131 100%);
-	background: linear-gradient(top, #313131 0%,#313131 100%);
-	-pie-background: linear-gradient(#313131, #313131);
+	format: '{n} of {total}';
 }
 
 .button.current-topic-index-button.disabled
@@ -513,19 +506,16 @@ a.MCToggler_Open.MCTogglerHotSpot
 	/* IE10+ */
 	/* W3C */
 	/*PIE*/
-	-webkit-box-shadow: 0px 1px 0px #686868;
-	-moz-box-shadow: 0px 1px 0px #686868;
-	box-shadow: 0px 1px 0px #686868;
-	-webkit-box-shadow: 0px 1px 0px #686868;
-	-moz-box-shadow: 0px 1px 0px #686868;
-	background: #313131 url('Images/expand.png') no-repeat center center;
-	background: url('Images/expand.png') no-repeat center center, -moz-linear-gradient(top, #313131 0%, #313131 100%);
-	background: url('Images/expand.png') no-repeat center center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#313131), color-stop(100%,#313131));
-	background: url('Images/expand.png') no-repeat center center, -webkit-linear-gradient(top, #313131 0%, #313131 100%);
-	background: url('Images/expand.png') no-repeat center center, -o-linear-gradient(top, #313131 0%,#313131 100%);
-	background: url('Images/expand.png') no-repeat center center, -ms-linear-gradient(top, #313131 0%,#313131 100%);
-	background: url('Images/expand.png') no-repeat center center, linear-gradient(top, #313131 0%,#313131 100%);
-	-pie-background: url('Skins/Default/Stylesheets/Images/expand.png') no-repeat center center, linear-gradient(#313131, #313131);
+	background: #f7f7f8 url('Images/paragraph.png') no-repeat center center;
+	-pie-background: #f7f7f8 url('Skins/Default/Stylesheets/Images/paragraph.png') no-repeat center center;
+	box-shadow: 0px 0px 0px #ffffff;
+	-webkit-box-shadow: 0px 0px 0px #ffffff;
+	-moz-box-shadow: 0px 0px 0px #ffffff;
+	border-top: solid 0px #e1e1e1;
+	border-right: solid 0px #e1e1e1;
+	border-bottom: solid 0px #e1e1e1;
+	border-left: solid 0px #e1e1e1;
+	tooltip: Expand all;
 }
 
 .button.collapse-all-button
@@ -538,19 +528,16 @@ a.MCToggler_Open.MCTogglerHotSpot
 	/* IE10+ */
 	/* W3C */
 	/*PIE*/
-	-webkit-box-shadow: 0px 1px 0px #686868;
-	-moz-box-shadow: 0px 1px 0px #686868;
-	box-shadow: 0px 1px 0px #686868;
-	-webkit-box-shadow: 0px 1px 0px #686868;
-	-moz-box-shadow: 0px 1px 0px #686868;
-	background: #313131 url('Images/collapse.png') no-repeat center center;
-	background: url('Images/collapse.png') no-repeat center center, -moz-linear-gradient(top, #313131 0%, #313131 100%);
-	background: url('Images/collapse.png') no-repeat center center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#313131), color-stop(100%,#313131));
-	background: url('Images/collapse.png') no-repeat center center, -webkit-linear-gradient(top, #313131 0%, #313131 100%);
-	background: url('Images/collapse.png') no-repeat center center, -o-linear-gradient(top, #313131 0%,#313131 100%);
-	background: url('Images/collapse.png') no-repeat center center, -ms-linear-gradient(top, #313131 0%,#313131 100%);
-	background: url('Images/collapse.png') no-repeat center center, linear-gradient(top, #313131 0%,#313131 100%);
-	-pie-background: url('Skins/Default/Stylesheets/Images/collapse.png') no-repeat center center, linear-gradient(#313131, #313131);
+	background: #f7f7f7 url('Images/collapse.png') no-repeat center center;
+	-pie-background: #f7f7f7 url('Skins/Default/Stylesheets/Images/collapse.png') no-repeat center center;
+	box-shadow: 0px 0px 0px #ffffff;
+	-webkit-box-shadow: 0px 0px 0px #ffffff;
+	-moz-box-shadow: 0px 0px 0px #ffffff;
+	border-top: solid 0px #e1e1e1;
+	border-right: solid 0px #e1e1e1;
+	border-bottom: solid 0px #e1e1e1;
+	border-left: solid 0px #e1e1e1;
+	tooltip: Collapse all;
 }
 
 .button.print-button
@@ -563,19 +550,16 @@ a.MCToggler_Open.MCTogglerHotSpot
 	/* IE10+ */
 	/* W3C */
 	/*PIE*/
-	-webkit-box-shadow: 0px 1px 0px #686868;
-	-moz-box-shadow: 0px 1px 0px #686868;
-	box-shadow: 0px 1px 0px #686868;
-	-webkit-box-shadow: 0px 1px 0px #686868;
-	-moz-box-shadow: 0px 1px 0px #686868;
-	background: #313131 url('Images/printer.png') no-repeat center center;
-	background: url('Images/printer.png') no-repeat center center, -moz-linear-gradient(top, #313131 0%, #313131 100%);
-	background: url('Images/printer.png') no-repeat center center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#313131), color-stop(100%,#313131));
-	background: url('Images/printer.png') no-repeat center center, -webkit-linear-gradient(top, #313131 0%, #313131 100%);
-	background: url('Images/printer.png') no-repeat center center, -o-linear-gradient(top, #313131 0%,#313131 100%);
-	background: url('Images/printer.png') no-repeat center center, -ms-linear-gradient(top, #313131 0%,#313131 100%);
-	background: url('Images/printer.png') no-repeat center center, linear-gradient(top, #313131 0%,#313131 100%);
-	-pie-background: url('Skins/Default/Stylesheets/Images/printer.png') no-repeat center center, linear-gradient(#313131, #313131);
+	background: #f7f7f8 url('Images/Printer.png') no-repeat center center;
+	-pie-background: #f7f7f8 url('Skins/Default/Stylesheets/Images/Printer.png') no-repeat center center;
+	box-shadow: 0px 0px 0px #ffffff;
+	-webkit-box-shadow: 0px 0px 0px #ffffff;
+	-moz-box-shadow: 0px 0px 0px #ffffff;
+	border-top: solid 0px #e1e1e1;
+	border-right: solid 0px #e1e1e1;
+	border-bottom: solid 0px #e1e1e1;
+	border-left: solid 0px #e1e1e1;
+	tooltip: Print;
 }
 
 .button.remove-highlight-button
@@ -588,19 +572,16 @@ a.MCToggler_Open.MCTogglerHotSpot
 	/* IE10+ */
 	/* W3C */
 	/*PIE*/
-	-webkit-box-shadow: 0px 1px 0px #686868;
-	-moz-box-shadow: 0px 1px 0px #686868;
-	box-shadow: 0px 1px 0px #686868;
-	-webkit-box-shadow: 0px 1px 0px #686868;
-	-moz-box-shadow: 0px 1px 0px #686868;
-	background: #313131 url('Images/highlight.png') no-repeat center center;
-	background: url('Images/highlight.png') no-repeat center center, -moz-linear-gradient(top, #313131 0%, #313131 100%);
-	background: url('Images/highlight.png') no-repeat center center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#313131), color-stop(100%,#313131));
-	background: url('Images/highlight.png') no-repeat center center, -webkit-linear-gradient(top, #313131 0%, #313131 100%);
-	background: url('Images/highlight.png') no-repeat center center, -o-linear-gradient(top, #313131 0%,#313131 100%);
-	background: url('Images/highlight.png') no-repeat center center, -ms-linear-gradient(top, #313131 0%,#313131 100%);
-	background: url('Images/highlight.png') no-repeat center center, linear-gradient(top, #313131 0%,#313131 100%);
-	-pie-background: url('Skins/Default/Stylesheets/Images/highlight.png') no-repeat center center, linear-gradient(#313131, #313131);
+	background: #f7f7f8 url('Images/highlightClearlight.png') no-repeat center center;
+	-pie-background: #f7f7f8 url('Skins/Default/Stylesheets/Images/highlightClearlight.png') no-repeat center center;
+	box-shadow: 0px 0px 0px #ffffff;
+	-webkit-box-shadow: 0px 0px 0px #ffffff;
+	-moz-box-shadow: 0px 0px 0px #ffffff;
+	border-top: solid 0px #e1e1e1;
+	border-right: solid 0px #e1e1e1;
+	border-bottom: solid 0px #e1e1e1;
+	border-left: solid 0px;
+	tooltip: Remove Highlights;
 }
 
 .loading
@@ -627,44 +608,34 @@ a.MCToggler_Open.MCTogglerHotSpot
 
 .button.topic-ratings-button
 {
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;
+	background: transparent url('Images/blue-star.png') no-repeat center center;
+	-pie-background: transparent url('Skins/Default/Stylesheets/Images/blue-star.png') no-repeat center center;
+	box-shadow: 0px 0px 0px #ffffff;
+	-webkit-box-shadow: 0px 0px 0px #ffffff;
+	-moz-box-shadow: 0px 0px 0px #ffffff;
 	border-top: none;
 	border-right: none;
 	border-bottom: none;
 	border-left: none;
-	width: 16px;
-	background: transparent url('Images/starFull.png') no-repeat center center;
-	background: url('Images/starFull.png') no-repeat center center, -moz-linear-gradient(top, transparent 0%, transparent 100%);
-	background: url('Images/starFull.png') no-repeat center center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,transparent), color-stop(100%,transparent));
-	background: url('Images/starFull.png') no-repeat center center, -webkit-linear-gradient(top, transparent 0%, transparent 100%);
-	background: url('Images/starFull.png') no-repeat center center, -o-linear-gradient(top, transparent 0%,transparent 100%);
-	background: url('Images/starFull.png') no-repeat center center, -ms-linear-gradient(top, transparent 0%,transparent 100%);
-	background: url('Images/starFull.png') no-repeat center center, linear-gradient(top, transparent 0%,transparent 100%);
-	-pie-background: url('Skins/Default/Stylesheets/Images/starFull.png') no-repeat center center, linear-gradient(transparent, transparent);
 	background-size: 16px 16px;
+	width: 16px;
+	tooltip: Click a star to rate this topic;
 }
 
 .button.topic-ratings-empty-button
 {
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;
+	background: transparent url('Images/grey-star.png') no-repeat center center;
+	-pie-background: transparent url('Skins/Default/Stylesheets/Images/grey-star.png') no-repeat center center;
+	box-shadow: 0px 0px 0px #ffffff;
+	-webkit-box-shadow: 0px 0px 0px #ffffff;
+	-moz-box-shadow: 0px 0px 0px #ffffff;
 	border-top: none;
 	border-right: none;
 	border-bottom: none;
 	border-left: none;
-	width: 16px;
-	background: transparent url('Images/StarrEmpty.png') no-repeat center center;
-	background: url('Images/StarrEmpty.png') no-repeat center center, -moz-linear-gradient(top, transparent 0%, transparent 100%);
-	background: url('Images/StarrEmpty.png') no-repeat center center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,transparent), color-stop(100%,transparent));
-	background: url('Images/StarrEmpty.png') no-repeat center center, -webkit-linear-gradient(top, transparent 0%, transparent 100%);
-	background: url('Images/StarrEmpty.png') no-repeat center center, -o-linear-gradient(top, transparent 0%,transparent 100%);
-	background: url('Images/StarrEmpty.png') no-repeat center center, -ms-linear-gradient(top, transparent 0%,transparent 100%);
-	background: url('Images/StarrEmpty.png') no-repeat center center, linear-gradient(top, transparent 0%,transparent 100%);
-	-pie-background: url('Skins/Default/Stylesheets/Images/StarrEmpty.png') no-repeat center center, linear-gradient(transparent, transparent);
 	background-size: 16px 16px;
+	width: 16px;
+	tooltip: Click a star to rate this topic;
 }
 
 .button.login-button
@@ -677,19 +648,16 @@ a.MCToggler_Open.MCTogglerHotSpot
 	/* IE10+ */
 	/* W3C */
 	/*PIE*/
-	-webkit-box-shadow: 0px 1px 0px #686868;
-	-moz-box-shadow: 0px 1px 0px #686868;
-	box-shadow: 0px 1px 0px #686868;
-	-webkit-box-shadow: 0px 1px 0px #686868;
-	-moz-box-shadow: 0px 1px 0px #686868;
-	background: #313131 url('Images/login.png') no-repeat center center;
-	background: url('Images/login.png') no-repeat center center, -moz-linear-gradient(top, #313131 0%, #313131 100%);
-	background: url('Images/login.png') no-repeat center center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#313131), color-stop(100%,#313131));
-	background: url('Images/login.png') no-repeat center center, -webkit-linear-gradient(top, #313131 0%, #313131 100%);
-	background: url('Images/login.png') no-repeat center center, -o-linear-gradient(top, #313131 0%,#313131 100%);
-	background: url('Images/login.png') no-repeat center center, -ms-linear-gradient(top, #313131 0%,#313131 100%);
-	background: url('Images/login.png') no-repeat center center, linear-gradient(top, #313131 0%,#313131 100%);
-	-pie-background: url('Skins/Default/Stylesheets/Images/login.png') no-repeat center center, linear-gradient(#313131, #313131);
+	background: #f7f7f8 url('Images/key.png') no-repeat center center;
+	-pie-background: #f7f7f8 url('Skins/Default/Stylesheets/Images/key.png') no-repeat center center;
+	box-shadow: 0px 0px 0px #ffffff;
+	-webkit-box-shadow: 0px 0px 0px #ffffff;
+	-moz-box-shadow: 0px 0px 0px #ffffff;
+	border-top: solid 0px #e1e1e1;
+	border-right: solid 0px #e1e1e1;
+	border-bottom: solid 0px #e1e1e1;
+	border-left: solid 0px #e1e1e1;
+	tooltip: Login;
 }
 
 .button.edit-user-profile-button
@@ -702,19 +670,16 @@ a.MCToggler_Open.MCTogglerHotSpot
 	/* IE10+ */
 	/* W3C */
 	/*PIE*/
-	-webkit-box-shadow: 0px 1px 0px #686868;
-	-moz-box-shadow: 0px 1px 0px #686868;
-	box-shadow: 0px 1px 0px #686868;
-	-webkit-box-shadow: 0px 1px 0px #686868;
-	-moz-box-shadow: 0px 1px 0px #686868;
-	background: #313131 url('Images/edit-profile.png') no-repeat center center;
-	background: url('Images/edit-profile.png') no-repeat center center, -moz-linear-gradient(top, #313131 0%, #313131 100%);
-	background: url('Images/edit-profile.png') no-repeat center center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#313131), color-stop(100%,#313131));
-	background: url('Images/edit-profile.png') no-repeat center center, -webkit-linear-gradient(top, #313131 0%, #313131 100%);
-	background: url('Images/edit-profile.png') no-repeat center center, -o-linear-gradient(top, #313131 0%,#313131 100%);
-	background: url('Images/edit-profile.png') no-repeat center center, -ms-linear-gradient(top, #313131 0%,#313131 100%);
-	background: url('Images/edit-profile.png') no-repeat center center, linear-gradient(top, #313131 0%,#313131 100%);
-	-pie-background: url('Skins/Default/Stylesheets/Images/edit-profile.png') no-repeat center center, linear-gradient(#313131, #313131);
+	background: #f7f7f7 url('Images/editProfile2.png') no-repeat center center;
+	-pie-background: #f7f7f7 url('Skins/Default/Stylesheets/Images/editProfile2.png') no-repeat center center;
+	box-shadow: 0px 0px 0px #ffffff;
+	-webkit-box-shadow: 0px 0px 0px #ffffff;
+	-moz-box-shadow: 0px 0px 0px #ffffff;
+	border-top: solid 0px #e1e1e1;
+	border-right: solid 0px #e1e1e1;
+	border-bottom: solid 0px #e1e1e1;
+	border-left: solid 0px #e1e1e1;
+	tooltip: Edit user profile;
 }
 
 /**/
@@ -753,6 +718,7 @@ a.MCToggler_Open.MCTogglerHotSpot
 	color: #749ab6;
 	font-size: 2em;
 	font-weight: bold;
+	label: Comments;
 }
 
 .comments
@@ -798,10 +764,10 @@ html.feedback-anonymous-enabled .comments .username
 
 .comments .timestamp
 {
-	color: #888;
+	font-weight: normal;
+	color: #888888;
 	font-family: Georgia;
 	font-size: 11px;
-	font-weight: normal;
 	font-style: italic;
 }
 
@@ -924,52 +890,62 @@ span.SearchHighlight
 
 span.SearchHighlight1
 {
-	
+	background-color: #ffff66;
+	color: #000000;
 }
 
 span.SearchHighlight2
 {
-	
+	background-color: #a0ffff;
+	color: #000000;
 }
 
 span.SearchHighlight3
 {
-	
+	background-color: #99ff99;
+	color: #000000;
 }
 
 span.SearchHighlight4
 {
-	
+	background-color: #ff9999;
+	color: #000000;
 }
 
 span.SearchHighlight5
 {
-	
+	background-color: #ff66ff;
+	color: #000000;
 }
 
 span.SearchHighlight6
 {
-	
+	background-color: #880000;
+	color: #ffffff;
 }
 
 span.SearchHighlight7
 {
-	
+	background-color: #00aa00;
+	color: #ffffff;
 }
 
 span.SearchHighlight8
 {
-	
+	background-color: #886800;
+	color: #ffffff;
 }
 
 span.SearchHighlight9
 {
-	
+	background-color: #004699;
+	color: #ffffff;
 }
 
 span.SearchHighlight10
 {
-	
+	background-color: #990099;
+	color: #ffffff;
 }
 
 .highlightGlossary,
@@ -988,65 +964,5 @@ span.SearchHighlight10
 {
 	background-repeat: no-repeat;
 	font-weight: bold;
-}
-
-span.SearchHighlight.SearchHighlight1
-{
-	color: #000000;
-	background-color: #ffff66;
-}
-
-span.SearchHighlight.SearchHighlight2
-{
-	color: #000000;
-	background-color: #a0ffff;
-}
-
-span.SearchHighlight.SearchHighlight3
-{
-	color: #000000;
-	background-color: #99ff99;
-}
-
-span.SearchHighlight.SearchHighlight4
-{
-	color: #000000;
-	background-color: #ff9999;
-}
-
-span.SearchHighlight.SearchHighlight5
-{
-	color: #000000;
-	background-color: #ff66ff;
-}
-
-span.SearchHighlight.SearchHighlight6
-{
-	color: #ffffff;
-	background-color: #880000;
-}
-
-span.SearchHighlight.SearchHighlight7
-{
-	color: #ffffff;
-	background-color: #00aa00;
-}
-
-span.SearchHighlight.SearchHighlight8
-{
-	color: #ffffff;
-	background-color: #886800;
-}
-
-span.SearchHighlight.SearchHighlight9
-{
-	color: #ffffff;
-	background-color: #004699;
-}
-
-span.SearchHighlight.SearchHighlight10
-{
-	color: #ffffff;
-	background-color: #990099;
 }
 

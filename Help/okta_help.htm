@@ -2,16 +2,10 @@
 <html class="left-layout" data-mc-runtime-file-type="Default;TriPane">
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Okta Help</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" /><title></title>
         <link rel="Stylesheet" href="Skins/Default/Stylesheets/TextEffects.css" />
         <link rel="Stylesheet" href="Skins/Default/Stylesheets/Styles.css" />
-        <link rel="Stylesheet" href="Skins/Default/Stylesheets/normalize.css" />
-        <link rel="Stylesheet" href="Skins/Default/Stylesheets/foundation_custom.css" />
-        <link rel="Stylesheet" href="Skins/Default/Stylesheets/offcanvas.css" />
-        <link rel="Stylesheet" href="Skins/Default/Stylesheets/Web.css" />
-        <link rel="Stylesheet" href="Skins/Default/Stylesheets/Tablet.css" />
-        <link rel="Stylesheet" href="Skins/Default/Stylesheets/Mobile.css" />
         <script type="text/javascript" src="Resources/Scripts/custom.modernizr.js">
         </script>
         <script type="text/javascript" src="Resources/Scripts/jquery.min.js">
@@ -54,22 +48,21 @@
                 </div>
             </div>
         </div>
-        <div id="navigationResizeBar" class="show-for-xlarge-up columns navbar-offset nav-closed" data-mc-last-width="300px">
+        <div id="navigationResizeBar" class="nav-closed" data-mc-last-width="300px">
             <div id="show-hide-navigation" class="needs-pie" dir="ltr" data-mc-style="Navigation Panel Hide Arrow">
             </div>
         </div>
-        <div id="body" class="row collapse" data-mc-style="Main Page">
-            <div id="navigation" class="small-2 columns nav-closed" role="complementary">
-                <form id="search-sidebar" class="search-bar-container needs-pie" data-mc-style="Search Bar">
-                    <input id="search-field-sidebar" type="search" placeholder="Search" data-mc-style="Search Input" />
-                    <input id="responsive-search-index" type="search" class="tabs-panel-search" placeholder="Search Index" />
-                    <input id="responsive-search-glossary" type="search" class="tabs-panel-search" placeholder="Search Glossary" />
-                </form>
+        <div id="body" data-mc-style="Main Page">
+            <div id="navigation" role="complementary" class="nav-closed">
                 <div id="home" class=" image-then-text tab-icon" data-mc-style="Home Button"><span id="home-icon" class="tabs-nav-icon"></span><span id="home-text" class="tabs-nav-text">Home</span>
                 </div>
                 <div class="tabs">
                     <div class="tab">
                         <ul class="tabs-nav clearfix image-then-text tab-icon">
+                            <li id="TocTab" class="needs-pie tabs-nav-active" data-mc-style="Navigation Tab.TOC">
+                                <div><span class="tabs-nav-icon active" title="Contents"></span><span class="tabs-nav-text">Contents</span>
+                                </div>
+                            </li>
                         </ul>
                         <div class="tabs-panel tabs-panel-active">
                             <div id="toc" class="tabs-panel-content needs-pie" data-mc-style="Navigation Panel.TOC">
@@ -136,13 +129,19 @@
                     </div>
                 </div>
             </div>
-            <div id="contentBody" class="small-10 expand-for-small-10 columns non-collapsable needs-pie nav-closed" role="main" data-mc-style="Topic Container">
+            <div id="contentBody" class="needs-pie nav-closed" data-mc-style="Topic Container">
                 <div id="responsiveHeader" class="needs-pie" data-mc-style="Header"><a href="okta_help.htm"><h1 class="logo" data-mc-style="Logo"><img src="Skins/Default/Stylesheets/Images/transparent.gif" alt="Logo" /></h1></a>
                     <div id="slideRight" class="toggle-topbar menu-icon"><a id="sidebarButton" href="#"><span></span></a>
                     </div>
                 </div>
                 <div class="buttons toolbar-buttons">
                     <div class="button-group-container-left">
+                        <button class="button needs-pie login-button" type="button" data-state1-class="login-button" data-state2-class="edit-user-profile-button" data-state2-title="Edit user profile" title="Login" data-state1-title="Login">
+                            <img src="Skins/Default/Stylesheets/Images/transparent.gif" alt="login" />
+                        </button>
+                        <button class="button needs-pie collapse-all-button" type="button" title="Collapse all">
+                            <img src="Skins/Default/Stylesheets/Images/transparent.gif" alt="collapse all" />
+                        </button>
                         <button class="button needs-pie print-button" type="button" title="Print">
                             <img src="Skins/Default/Stylesheets/Images/transparent.gif" alt="print" />
                         </button>

@@ -476,16 +476,95 @@ a.glossaryTerm
 	display: none;
 }
 
-.xref
+.MCTextPopupHotSpot_.MCTextPopupHotSpot_Popup
 {
-	color: #2D8DCC;
-	font-weight: bold;
-	text-decoration: underline;
+	background-position: right;
 }
 
-.xref:hover
+.MCTextPopup_Open.MCTextPopupHotSpot_.MCTextPopupHotSpot_Popup
+{
+	background-image: url('ExpandingOpen.gif');
+	padding-right: 17px;
+	padding-left: 0px;
+}
+
+.MCTextPopup_Closed.MCTextPopupHotSpot_.MCTextPopupHotSpot_Popup
+{
+	background-image: url('ExpandingClosed.gif');
+	padding-right: 16px;
+	padding-left: 0px;
+}
+
+.popupBody
+{
+	color: #000000;
+	background-color: #dcdcdc;
+	border: solid 1px #000000;
+	margin: 0px;
+	padding: 5px;
+}
+
+.\000023text
+{
+	font-weight: bold;
+	color: Olive;
+}
+
+.dropDown
+{
+	margin-bottom: 6px;
+	margin-top: 6px;
+}
+
+.dropDownHotspot
+{
+	color: #404040;
+	font-size: 0.9em;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.dropDownHotspot:link
+{
+	color: #404040;
+	font-size: 0.9em;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.dropDownHotspot:hover
 {
 	color: #BED230;
+	font-weight: bold;
+}
+
+.MCDropDownHotSpot_
+{
+	background-position: left;
+}
+
+.MCDropDown_Open .MCDropDownHotSpot_
+{
+	background-image: url('DropDownOpen.png');
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.MCDropDown_Closed .MCDropDownHotSpot_
+{
+	background-image: url('DropDownClosed.png');
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.dropDownHead
+{
+	text-decoration: none;
+}
+
+.dropDownBody
+{
+	border-bottom: solid 1px #bed230;
 }
 
 .MCHelpControl-ConceptHotSpot_
@@ -689,37 +768,9 @@ a.glossaryTerm
 	font-weight: bold;
 }
 
-.dropDown
-{
-	margin-bottom: 6px;
-	margin-top: 6px;
-}
-
 .dropDown.dropDownSecondLevel
 {
 	margin-left: 10px;
-}
-
-.dropDownHotspot
-{
-	color: #404040;
-	font-size: 0.9em;
-	font-weight: bold;
-	text-decoration: none;
-}
-
-.dropDownHotspot:link
-{
-	color: #404040;
-	font-size: 0.9em;
-	font-weight: bold;
-	text-decoration: none;
-}
-
-.dropDownHotspot:hover
-{
-	color: #BED230;
-	font-weight: bold;
 }
 
 .MCDropDownHotSpot_.MCDropDownHotSpot_SecondLevel
@@ -741,38 +792,21 @@ a.glossaryTerm
 	padding-right: 0px;
 }
 
-.dropDownHead
-{
-	text-decoration: none;
-}
-
-.dropDownBody
-{
-	border-bottom: solid 1px #bed230;
-}
-
 .dropDownBody.dropDownBodyFinal
 {
 	border-bottom: 0px;
 }
 
-.MCDropDownHotSpot_
+.xref
 {
-	background-position: left;
+	color: #2D8DCC;
+	font-weight: bold;
+	text-decoration: underline;
 }
 
-.MCDropDown_Open .MCDropDownHotSpot_
+.xref:hover
 {
-	background-image: url('DropDownOpen.png');
-	padding-left: 0px;
-	padding-right: 0px;
-}
-
-.MCDropDown_Closed .MCDropDownHotSpot_
-{
-	background-image: url('DropDownClosed.png');
-	padding-left: 0px;
-	padding-right: 0px;
+	color: #BED230;
 }
 
 .popup
@@ -805,15 +839,6 @@ a.glossaryTerm
 .popup:focus
 {
 	color: #2D8DCC;
-}
-
-.popupBody
-{
-	color: #000000;
-	background-color: #dcdcdc;
-	border: solid 1px #000000;
-	margin: 0px;
-	padding: 5px;
 }
 
 .a:link
@@ -856,7 +881,7 @@ ul.MCGlossaryProxy_0
 
 .MCWebHelpFramesetLink a
 {
-	color: #87cefa;
+	color: #0000ee;
 }
 
 .MCWebHelpFramesetLink.MCWebHelpFramesetLinkTop a
