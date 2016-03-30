@@ -118,15 +118,15 @@ body
 	position: absolute;
 	top: 50%;
 	margin-left: 20px;
-	background:  url('Images/Okta_Logo_Smaller.jpg') no-repeat center center;
-	-pie-background:  url('Skins/Default/Stylesheets/Images/Okta_Logo_Smaller.jpg') no-repeat center center;
+	background:  url('Images/Logo_OktaFINAL.jpg') no-repeat center center;
+	-pie-background:  url('Skins/Default/Stylesheets/Images/Logo_OktaFINAL.jpg') no-repeat center center;
 	background-repeat: no-repeat;
 	background-position: center center;
 	display: block;
 	alt-text: Logo;
-	width: 256px;
-	height: 86px;
-	margin-top: -43px;
+	width: 181px;
+	height: 82px;
+	margin-top: -41px;
 }
 
 #header .logo > img
@@ -1674,8 +1674,8 @@ a.activityText
 
 #header .logo > img
 {
-	width: 256px;
-	height: 86px;
+	width: 181px;
+	height: 82px;
 }
 
 .tab-icon #TocTab.tabs-nav-active .tabs-nav-icon
