@@ -32,6 +32,10 @@ try{Typekit.load();}catch(e){}
 <div class="okta-instructions">
 
 
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>To reconfigure any of the <strong>General Settings</strong> or <strong>Sign-On Options</strong>, uncheck the <strong>Enable provisioning features</strong> box, and use the <strong>Previous</strong> and <strong>Next</strong> buttons to navigate through the configuration screens.</p>
+</div>
+
 
 <h1>Configuring Provisioning for Workday</h1>
 
@@ -39,7 +43,7 @@ try{Typekit.load();}catch(e){}
 
 
 <h2>Overview</h2>
-<p>Okta can import users and groups from Workday through its standard API. Okta supports two typical scenarios: <a href="#ImportFromWorkday">Import from Workday</a> and <a href="#workdaydriven">Workday-­driven IT provisioning, as described below:</a></p>
+<p>Okta can import users and groups from Workday through its standard API. Okta supports two typical scenarios: <a href="#ImportFromWorkday">Import from Workday</a> and <a href="#workdaydriven">Workday-­driven IT provisioning</a>, as described below:</p>
 
 
 
@@ -181,13 +185,13 @@ domain list. For example, <strong>Get and Put</strong>  vs <strong>Get</strong> 
 </ol>
 </li>
 
-<li><p><strong>Custom Report Simple XML XSD URL</strong> (optional): Check section <strong>Custom Expressions</strong>.</p></li>
-<li><p><strong>Custom Report JSON URL</strong> (optional): Check section <strong>Custom Expressions</strong>.</p></li>
+<li><p><strong>Custom Report Simple XML XSD URL</strong> (optional): See <a href="#customexpressions">Custom Expressions</a>.</p></li>
+<li><p><strong>Custom Report JSON URL</strong> (optional): See <a href="#customexpressions">Custom Expressions</a>.</p></li>
 <li><p><strong>Department Field</strong>: The Department Field determines which worker attribute is used for the department attribute of the user in Okta. By default, the value is <strong>Business Unit</strong>.</p></li>
 <li><p><strong>Pre-Start Interval</strong>: The Pre-Start Interval determines how many days before the hire-date you should have the user imported and activated in Okta. For more information, see Pre-Start Interval details.</p></li>
 <li><p><strong>Sync Personal Phones</strong>: This option allows Okta to use personal phone numbers accessed from Workday if work phone numbers are otherwise unavailable.</p></li>
 <li><p><strong>Only Import Workers with Workday</strong>: This option allows you to import only Workday workers who have Workday accounts and automatically filter out workers who don't. By clicking this button, your next import will only include valid Workday workers.</p></li>
-<li><p><strong>Immediate Termination Reasons</strong>: If using the Real Time Sync feature, use this text box to match the <strong>Termination_Subcategory_ID</strong> for each termination reason, as identified in the Workday Integration IDs. This field must be a Regex expression. Check Real Time Sync section for further details.</p></li>
+<li><p><strong>Immediate Termination Reasons</strong>: If using the Real Time Sync feature, use this text box to match the <strong>Termination_Subcategory_ID</strong> for each termination reason, as identified in the Workday Integration IDs. This field must be a Regex expression. See <a href=“#realtime”>Using Real Time Synch</a> for further details.</p></li>
 <li><p><strong>Deactivate on Last Day of Work</strong>: This option allows users to be deactivated based on the last day of work instead of termination date. User deactivation will happen when their Last Day of Work: </p>
 <ol>
 <li><p>Matches the current date, and </p></li>
@@ -268,7 +272,7 @@ on­boarding).</p></li>
 <h3>Changing Provisioning Groups</H3>
 <P>If an existing Worker is added to a different provisioning group in Workday, this will result in a membership change in the associated group in Okta. However, the OU location of the associated AD user does not change. This is because Okta only adds AD users to a particular OU during AD user creation, updates do not apply.</p>
 
-<h2>Using Real Time Sync</h2>
+<a name="realtime"><h2>Using Real Time Sync</h2>
 
 <p>The Real­time sync (RTS) feature updates user profiles, groups, and group memberships during sign­in instead of waiting for a scheduled import. You do not have to import all the users in your directory beforehand. Real­time sync also updates user information whenever you load or refresh a user's People page.</p>
 <p>For details on setting up and using RTS in Workday, see the <a href="https://support.okta.com/help/articles/Knowledge_Article/Workday-Real-Time-Sync-Setup-Guide" style="color="blue";" target="_blank">Workday Real Time Sync Setup Guide</a>.</p>
