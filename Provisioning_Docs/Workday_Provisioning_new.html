@@ -39,10 +39,20 @@ try{Typekit.load();}catch(e){}
 
 <h1>Configuring Provisioning for Workday</h1>
 
-<p>This guide provides the steps required to configure Provisioning for Workday.</p>
+<p>This guide provides the steps required to configure Provisioning for Workday and includes the following topics:</p>
 
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#Requirements">Requirements</a></li>
+<li><a href="#provisioning">Configuring Provisioning in Okta</a></li>
+<li><a href="#WDgroups">Workday Provisioning Groups</a></li>
+<li><a href="#attributes">Attribute Mappings and Active Directory</a></li>
+<li><a href="#realtime">Real Time Sync</a></li>
+<li><a href="#writeback">Writeback Feature</a></li>
+</ul>
+<hr>
 
-<h2>Overview</h2>
+<a name="overview"></a><h2>Overview</h2>
 <p>Okta can import users and groups from Workday through its standard API. Okta supports two typical scenarios: <a href="#ImportFromWorkday">Import from Workday</a> and <a href="#workdaydriven">Workday-­driven IT provisioning</a>, as described below:</p>
 
 
@@ -51,12 +61,11 @@ try{Typekit.load();}catch(e){}
 <p>In the first configuration, <strong>Import from Workday</strong> Okta simply imports users and groups from Workday like any other application. Imported Workday users are used to create Okta users, and imported Workday groups can be used to assign apps. However, once the Workday users are imported into Okta, they are no longer managed by Workday. Any updates to the user made in Workday will not change the associated Okta user.</p>
 <br />
 
-<a name="workdaydriven"><h3>Workday-­driven IT Provisioning</h3>
+<a name="workdaydriven"></a><h3>Workday-­driven IT Provisioning</h3>
 <p>In the second configuration, <strong>Workday­-driven IT Provisioning</strong> Okta integrates with Workday to drive IT provisioning. When the Workday user is imported into Okta, they continue to be managed by Workday. Updates and terminations made in Workday are reflected in Okta and downstream apps. This arrangement enables Workday to manage employee and contractor access to apps. Workday­-driven IT provisioning is a superset of the functionality provided in Import from Workday, so the rest of this document focuses on configuring Workday­-driven IT provisioning, but is relevant to Import from Workday scenarios as well.</p>
 
 <p><strong>Note</strong>: Workday­-driven IT Provisioning requires the <strong>Enterprise</strong> or <strong>Enterprise Plus</strong> versions of Okta to enable Workday as a Profile Master and for flexible attribute mappings.</p>
 
-<h2>Features</H2>
 
 <p>With Workday­-driven IT provisioning, Okta supports the following worker lifecycle events:</p>
 
@@ -96,8 +105,11 @@ try{Typekit.load();}catch(e){}
 </li>
 
 </ul>
+<br />
+<hr>
 
-<h2>Requirements</h2>
+<a name="Requirements"></a><h2>Requirements</h2>
+<p>Before configuring provisioning in Okta, you need to do the following:</p>
 
 <H3>Creating an Integrator System User in Workday</h3>
 <p>Okta accesses the Workday APIs with a special type of Workday user known as an <em>integration system user</em>. To create one, type <em>create integration system user</em> in the <strong>Search</strong> bar and select the resulting task. Follow the directions to create a username and password.</p>
@@ -151,66 +163,102 @@ domain list. For example, <strong>Get and Put</strong>  vs <strong>Get</strong> 
 <ol>
 <li><p>Type <strong>Activate Pending Security Policy Changes</strong> in the <strong>Search</strong> bar.</p></li>
 <li><p>Select the resulting task.</p></li>
-<li><p>Enter a comment (required), then click <strong>OK</strong> to activate.</p></li>
-<li><p>Check the confirm checkbox verifying the changes that needs to be activated.</p></li>
-</ol>
+<li><p>Enter a comment (required), then click <strong>OK</strong> to activate.</p>
 <p><img src="images/apps/workday17.png" alt="workday17.png" /></p>
+</li>
+<li><p>Check the confirm checkbox verifying the changes that needs to be activated.</p>
 <p><img src="images/apps/workday15.png" alt="workday15.png" /></p>
+
+</li>
+</ol>
 
 </li>
 
 </ol>
+<br />
+<hr>
 
-<h2>Configuring Provisioning in Okta</h2>
+
+<a name="provisioning"></a><h2>Configuring Provisioning in Okta</h2>
 <p>To set up the API integration, go to the Okta <strong>Provisioning</strong> tab in your Workday instance:</p>
 <p><img src="images/apps/workday14.png" alt="workday14.png" /></p>
+<p>Check the <strong>Enable provisioning features</strong> box, then enter the following:</p>
+
+
+<p><strong>Note</strong>: The first three fields are required, the rest are optional.</p>
 
 <ol>
-<li><p>Check the <strong>Enable provisioning features</strong> box, then enter the following:</p></li>
 
-<li><p><strong>API Username</strong>: The API username format will be [integration system user name]@[tenant]. For example: <strong>wd_integration@oktademo</strong>.</p></li>
- 
-<li><p><strong>API Password</strong>: The password for the integration system user which is used above.
+
+<li><p><strong>API Username</strong>: The API username format is: [integration system user name]@[tenant]. For example: <strong>wd_integration@oktademo</strong>.</p></li>
+<li><p><strong>API Password</strong>: The password for the integration system user which is used above.</li>
 <li><p><strong>WebServices Endpoint</strong>: The tenant name can be found in your Workday URL. To obtain the Web services endpoint, simply look up the WSDL of any of the Web services in your org, as follows:</p>
+
+
+
+
 <ol>
+
 <li><p>Type <strong>public web services</strong> in the <strong>Search</strong> bar.</p></li>
 <li><p>Under <strong>Reports</strong>, select <strong>Public Web Services</strong>.</p></li>
-<li><p>From the <strong>Public Web Services</strong> list, select any one of them and click the ellipsis (…) to reveal a drop-down menu. Select <strong>Web Service > View WSDL</strong>, which displays the full WSDL in a separate window.</p></p></li>
+<li><p>From the <strong>Public Web Services</strong> list, select any one of them and click the ellipsis (…) to reveal a drop-down menu. Select <strong>Web Service > View WSDL</strong>, which displays the full WSDL in a separate window.</p></li>
 <p><img src="images/apps/workday13.png" alt="workday13.png" /></p>
-
-
-
 <li><p>In the WSDL, search for <strong>soapbind:address</strong> to see the Web services endpoint corresponding to the Web service that you chose.</p></li>
 <li><p>For the Okta configuration you only need the URL up to the tenant name. For example, if the value in the WSDL is <strong>https://implcc.workday.com/ccx/service/okta_pt1/Human_Resources/v19</strong>, you only need to enter: <strong>https://impl-cc.workday.com/ccx/service/okta_pt1</strong>.</p></li>
 </ol>
 </li>
 
+
+
 <li><p><strong>Custom Report Simple XML XSD URL</strong> (optional): See <a href="#customexpressions">Custom Expressions</a>.</p></li>
+
 <li><p><strong>Custom Report JSON URL</strong> (optional): See <a href="#customexpressions">Custom Expressions</a>.</p></li>
+
 <li><p><strong>Department Field</strong>: The Department Field determines which worker attribute is used for the department attribute of the user in Okta. By default, the value is <strong>Business Unit</strong>.</p></li>
+
 <li><p><strong>Pre-Start Interval</strong>: The Pre-Start Interval determines how many days before the hire-date you should have the user imported and activated in Okta. For more information, see Pre-Start Interval details.</p></li>
+
 <li><p><strong>Sync Personal Phones</strong>: This option allows Okta to use personal phone numbers accessed from Workday if work phone numbers are otherwise unavailable.</p></li>
+
 <li><p><strong>Only Import Workers with Workday</strong>: This option allows you to import only Workday workers who have Workday accounts and automatically filter out workers who don't. By clicking this button, your next import will only include valid Workday workers.</p></li>
-<li><p><strong>Immediate Termination Reasons</strong>: If using the Real Time Sync feature, use this text box to match the <strong>Termination_Subcategory_ID</strong> for each termination reason, as identified in the Workday Integration IDs. This field must be a Regex expression. See <a href=“#realtime”>Using Real Time Synch</a> for further details.</p></li>
+
+<li><p><strong>Immediate Termination Reasons</strong>: If using the Real Time Sync feature, use this text box to match the <strong>Termination_Subcategory_ID</strong> for each termination reason, as identified in the Workday Integration IDs. This field must be a Regex expression. See <a href="#realtime">Using Real Time Synch</a> for further details.</p></li>
+
 <li><p><strong>Deactivate on Last Day of Work</strong>: This option allows users to be deactivated based on the last day of work instead of termination date. User deactivation will happen when their Last Day of Work: </p>
-<ol>
+<ul>
+
 <li><p>Matches the current date, and </p></li>
 <li><p>Does not precede Termination Date by more than the number of days specified in Pre-Start Interval.</p></li>
-</ol>
-</p></li>
+</ul>
+
+
+</li>
 
 </ol>
+
+
+
+
+
+
 <br /><br />
-<hr>
+
+<h3>Provisioning Features</h3>
 <P>Scroll down and enable any <strong>Provisioning features</strong> you require:</p> 
 
-<h3>Scheduled Imports</h3>
+<h4>Scheduled Imports</h4>
+<p>The <strong>User Import</strong> provisioning feature is automatically enabled, just edit the other settings for this feature as required.</p>
 <p>For the Workday­-driven IT Provisioning scenario, Okta recommends setting up scheduled import and automatic confirmation so that worker life cycle events in Workday are periodically propagated to Okta without the need for manual intervention. Note that imports can take time to complete if there are a large number of Workers in Workday, so it’s not advisable to schedule imports too frequently.</p>
+
+
+<p><img src="images/apps/workday12_a.png" alt="workday12_a.png" /></p>
+<p>We recommend that you first import your users manually, and based on the results of that import, you can schedule your imports accordingly; that is, if your import takes a long time, you may need to adjust your import schedule.</p>
+
+<h4>Workday as Profile Master</h4>
 <p><img src="images/apps/workday12.png" alt="workday12.png" /></p>
 
 
-<h3>Workday as Profile Master</h3>
-<p>Workday as a Profile Master should also be enabled in the Workday­driven IT provisioning scenario so that Workday manages the Okta users. Furthermore, Workday should be listed as the highest priority Profile Master, specifically above the Active Directory (AD) instance to which it will create users.</p>
+<p>Workday as a Profile Master should also be enabled in the Workday-­driven IT provisioning scenario so that Workday manages the Okta users. Furthermore, Workday should be listed as the highest priority Profile Master, specifically above the Active Directory (AD) instance to which it will create users.</p>
 <p><img src="images/apps/workday11.png" alt="workday11.png" /></p>
 
 
@@ -225,11 +273,13 @@ on­boarding).</p></li>
 <li><p>The interval doesn’t define when a user will be imported; it specifies when they’re eligible to be imported if they have a Pre­Hire Date.</p></li>
 </ul>
 
-<h3>Workday Provisioning Groups</h3>
+<hr>
+
+<a name="WDgroups"></a><h2>Workday Provisioning Groups</h2>
 <p>Workday Provisioning Groups can be used to import workers into Okta in an organized way. Like Active Directory Security Groups, imported Workday Provisioning Groups can be seen under the <strong>People > Group</strong> tab. These groups can be used like any other Okta group: for app assignments, multi­factor authentication (MFA) policy assignments, etc. The groups can also be used to drive provisioning into Active Directory and other applications. Provisioning groups must be created manually inside Workday. Once created, the groups and associated memberships become part of the import into Okta.</p>
 
 
-<h4>Granting Provisioning Group Admin Privileges to a Workday Administrator</h4>
+<h3>Granting Provisioning Group Admin Privileges to a Workday Administrator</h3>
 <p>Before a Workday admin can manage Provisioning Groups, you must ensure they have the correct privileges. If you have typed
 <strong>provisioning groups</strong> in the <strong>Search</strong> bar and do not see the options to <strong>Create Provisioning Groups</strong>, <strong>Delete Provisioning Groups</strong>,or <strong>Edit Provisioning Groups</strong>, this indicates that the admin does not have the required privileges.</p>
 
@@ -245,10 +295,10 @@ on­boarding).</p></li>
 
 </ol>
 
-<h4>Assigning Workday Workers to Provisioning Groups</h4>
+<h3>Assigning Workday Workers to Provisioning Groups</h3>
 <p>Workday workers can be manually assigned to provisioning groups within Workday; however, provisioning groups are most effective when configured to have automated assignments based on conditional rules—defined in a business process within Workday. Because it involves modifying a business process inside Workday, a Workday HR administrator would probably perform this step.</p>
 
-<h4>Provisioning Users to Active Directory via Provisioning Groups</h4>
+<h3>Provisioning Users to Active Directory via Provisioning Groups</h3>
 <p>Okta can automate the creation, update, and deactivation of users from Workday to Active Directory (AD). Okta drives provisioning via Workday provisioning groups. In short, a Workday provisioning group is tied to one (or more) AD organization unit (OU) within Okta. When a user is created in Workday and assigned to a properly configured provisioning group, Okta imports that user from Workday and creates a user in AD under the corresponding OU.</p>
 
 <p>To provision users to AD via provisioning groups:</p>
@@ -272,13 +322,10 @@ on­boarding).</p></li>
 <h3>Changing Provisioning Groups</H3>
 <P>If an existing Worker is added to a different provisioning group in Workday, this will result in a membership change in the associated group in Okta. However, the OU location of the associated AD user does not change. This is because Okta only adds AD users to a particular OU during AD user creation, updates do not apply.</p>
 
-<a name="realtime"><h2>Using Real Time Sync</h2>
-
-<p>The Real­time sync (RTS) feature updates user profiles, groups, and group memberships during sign­in instead of waiting for a scheduled import. You do not have to import all the users in your directory beforehand. Real­time sync also updates user information whenever you load or refresh a user's People page.</p>
-<p>For details on setting up and using RTS in Workday, see the <a href="https://support.okta.com/help/articles/Knowledge_Article/Workday-Real-Time-Sync-Setup-Guide" style="color="blue";" target="_blank">Workday Real Time Sync Setup Guide</a>.</p>
+<hr>
 
 
-<h2>Attribute Mappings and Active Directory</h2>
+<a name="attributes"></a><h2>Attribute Mappings and Active Directory</h2>
 <h3>Attribute Mappings from Workday to an Okta User Profile</h3>
 <p>As shown in the Universal Directory (UD) Profile Editor, the base profile that Okta imports from Workday consists of 20 attributes. Some of these attributes are mapped to the Okta user profile by default, and others must be created for the Okta user first as custom attributes,
 then mapped manually. Figure 14 shows the recommended mappings from a Workday to Okta user for typical use cases, which includes all attributes in the Workday base profile except for Worker Type, Manager ID, and Manager Username.</p>
@@ -295,8 +342,8 @@ to AD.</p>
 <p>SCREEN CAPTURE</p>
 <br />
 <br />
-<a name="customexpressions"><H3>Custom Expressions</H3>
-<p>UD supports the use of custom expressions in profile mappings to transform attributes. As shown in Figure 17, custom expressions are used to populate the SAM Account Name and Manager (UPN).</P>
+<a name="customexpressions"></a><H3>Custom Expressions</H3>
+<p>UD supports the use of custom expressions in profile mappings to transform attributes. As shown in the screen capture above, custom expressions are used to populate the SAM Account Name and Manager (UPN).</P>
 <p>The Manager (UPN) attribute is important for linking managers in AD. The full custom expression for Manager (UPN) is as follows:</p>
 <pre>hasWorkdayUser()?(findWorkdayUser().managerUserName + "@" + target_app.namingContext):null</pre>
 <p>In plain­ English, the custom expression is doing the following: If Workday profile exists for this Okta user, then find the managerUserName attribute of the Workday profile was imported into Okta and append @[AD domain] to populate the Manager (UPN) attribute.</p>
@@ -381,20 +428,50 @@ to AD.</p>
 <p><strong>Note</strong>: Do not de­provision or remove an active admin. If this happens, you'll need to regenerate the URLs by entering a new admin's Workday ID.</p></li>
 
 <li><p>Obtain the newly paginated URLs by right­-clicking on the link and selecting <strong>Copy URL</strong>:</p>
-<ul>
+<ol>
 <li><p><strong>XSD</strong> (under the <strong>Simple XML</strong> heading)</p></li>
 <li><p><strong>JSON</strong> (under the <strong>JSON</strong> heading)</p></li>
 </li>
 <p><img src="images/apps/workday5-1.png" alt="workday5-1.png" /></p>
-</ul>
+</ol>
 
 <li><p>Generate the reports as before, adding the new URLs.</p></li>
+<li><p>In Okta, navigate to the Workday app, then select the <strong>Provisioning</strong> tab.</p></li>
+
+
+<li><p>Paste the URL from step 6a (above) into the <strong>Custom Report Simple XML XSD URL</strong> field (optional). Okta uses the XSD URL to get the custom report’s schema.</p></li>
+<li><p>Paste the URL from step 6b (above) into the <strong>Custom Report JSON URL</strong> field (optional). Okta uses the XSD URL to get the custom report’s data.</p></li>
+
+<p>Okta can now import any attribute from Workday via the custom report web services endpoint. Final steps include extending the Workday app user profile, the Okta app user profile, and optionally the AD user profile with the new attributes, and mapping attributes between profiles and applying transformations, if required.</p>
+<p>See <a href="https://support.okta.com/help/articles/Knowledge_Article/About-Universal-Directory" style="color="blue";" target="_blank">About Universal Directory</a> for instructions.</p>
+
+
+
+
+
 
 
 </ol>
 
-<h2>Writeback Overview</h2>
+<H3>Known Issues</H3>
+<ul>
+<li><p>Okta does not display Arabic characters imported from Workday correctly.</p></li>
+<li><p>Removing a custom attribute in Workday, then importing into Okta, does not erase the custom attribute value that was previously imported.</p></li>
 
+
+
+<hr>
+
+<a name="realtime"></a><h2>Using Real Time Sync</h2>
+
+<p>The Real­time sync (RTS) feature updates user profiles, groups, and group memberships during sign­in instead of waiting for a scheduled import. You do not have to import all the users in your directory beforehand. Real­time sync also updates user information whenever you load or refresh a user's People page.</p>
+<p>For details on setting up and using RTS in Workday, see the <a href="https://support.okta.com/help/articles/Knowledge_Article/Workday-Real-Time-Sync-Setup-Guide" style="color="blue";" target="_blank">Workday Real Time Sync Setup Guide</a>.</p>
+
+
+<hr>
+<a name="writeback"></a><h2>Writeback Feature</h2>
+
+<h3>Overview</h3>
 <p>We have added the ability to write back email and phone number attributes to Workday.</p>
 <p>Previously, Okta could not update Workday Attributes. With this new <em>writeback</em> feature, we allow Okta, as well as Active Directory, or any other Profile Master to update <strong>Phone Number</strong> and <strong>Email</strong> Workday attributes. Note that no other Workday attributes are supported at this time.</p>
 
@@ -407,7 +484,7 @@ to AD.</p>
 
 <p>Contact Okta Support for assistance.</p>
 
-<h2>Prerequisites</h2>
+<h3>Prerequisites</h3>
 
 
 <p>Set up a Workday tenant, as described in the <a href="https://support.okta.com/help/articles/Knowledge_Article/96431486-Workday-Deployment-Guide-Version-4-0" style="color="blue";" target="_blank">Workday Deployment Guide</a>.
@@ -417,7 +494,7 @@ to AD.</p>
 </p>
 
 
-<h2>Okta Setup </h2>
+<h3>Okta Setup </h3>
 
 <ol>
 <li><p>In Okta, open the Workday app, and navigate to the <strong>Provisioning</strong> tab:</p>
@@ -492,7 +569,7 @@ to AD.</p>
 <p><strong>Public</strong>: This parameter defines if the contact information visibility is Public or Private.</p>
 <p><img src="images/apps/workday6.png" alt="workday6.png" /></p>
 
-<p>See <a href="#Attributes">Appendix A</a> at the end of this article for a list of the Workday attributes that are currently supported.</p>
+<p>See <a href="#SupportedAttributes">Appendix A</a> at the end of this article for a list of the Workday attributes that are currently supported.</p>
 </li>
 
 
@@ -542,14 +619,16 @@ String.removeSpaces(String.substringAfter(user.mobilePhone, "x")) -> 12345</p></
 
 <p>This completes the setup for Workday Write Back. Now we can successfully push email and phone attributes to Workday.</p>
 
-<h2>Known Issues</h2>
+<h3>Known Issues</h3>
 <ol>
 <li><p>Unlike the Workday UI, the Workday API does not have format validation/rules for phone number or email (for example: Phone number format must be 3 Digits + Optional dash (or dot) + 4 digits).</p></li>
 
 <li><p>Once Okta sets the Primary Workday attributes, it will not be able to set it back to NULL. This is because a Workday validation rule does not allow NULL values.</p></li>
 </ol>
 
-<h2><a name="Attributes"></a>Appendix A – Supported Attributes</h2>
+<hr>
+
+<h2><a name="SupportedAttributes"></a>Appendix A – Supported Attributes</h2>
 
 <table class="gridtable">
 
