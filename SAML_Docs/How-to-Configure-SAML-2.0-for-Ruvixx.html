@@ -20,60 +20,34 @@ try{Typekit.load();}catch(e){}
         </div>
     </div>
 <div class="okta-instructions">
-<h1>How to Configure SAML 2.0 for 15Five</h1>
+<h1>How to Configure SAML 2.0 for Ruvixx</h1>
 <div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
 <p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
 </div>
 
-<h2>Before You Begin</h2>
-<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
-<h3><strong>Read this before you enable SAML</strong></h3>
-<p>The 15Five application is pre-configured to pass the custom attribute <strong>managerEmail</strong> as part of the SAML assertion. In order to be able to send the custom attribute, your Okta organization needs to have the following feature flags turned on:</p><br />
-<li><p>CLOUD_DIRECTORY (Universal Directory)</p></li>
-<li><p>OKTA_EL_SAML_ATTRIBUTE_UPGRADE</p></li><br />
-<p>Once these feature flags are turned on, make sure that the custom attribute <strong>managerEmail</strong> is populated in the Okta User Base Profile (see instructions below), and also has the correct attribute mappings set with AD/LDAP (if needed). If this value is empty, Okta will pass a null values to 15Five.</p>
-
-</div>
-
-
-<h2>Adding a Custom Attribute</h2>
-<p>Follow these instructions to add the <strong>manageEmail</strong> custom attribute:</p>
 <ol>
-<li><p>In Okta, from the Admin dashboard, navigate to <strong>Directory > Profile Editor</strong>.</p></li>
-<li><p>Select <strong>Okta</strong> from <strong>Filters</strong>.</p></li>
-<li><p>Click the edit <strong>Profile</strong> button:</p>
-<p><img border="1" src="images/apps/15five_new1.png" alt=“15five_new1.png" /></p>
-</li>
-<li><p>Click the <strong>Add Attribute</strong> button:</p>
-<p><img border="1" src="images/apps/15five_new2.png" alt=“15five_new2.png" /></p>
-</li>
-
-<li><p>Enter the following:</p>
+<li><p>Contact the Ruvixx Support team and request that they enable SAML 2.0 for your account.</p></li>
+<li><p>Attach the following:</p>
 <ul>
-<li><p><strong>Display name</strong>: <strong>managerEmail</strong>.</p></li>
-<li><p><strong>Variable name</strong>: <strong>managerEmail</strong>.</p></li>
-<li><p>Click <strong>Add Attribute</strong>.</p></li>
+
+<li>
+<p><strong>IDP Cert Fingerprint</strong>: Copy and paste the following:</p>
+<kbd id="certFingerPrint">Sign into the Okta Admin Dashboard to generate this variable.</kbd>
 </li>
-<p><img border="1" src="images/apps/15five_new3.png" alt=“15five_new3.png" /></p>
-</ul>
 
-</ol>
-<br />
-<hr>
-
-<h2>Configuring SAML 2.0</h2>
-<ol>
-<li>Email 15Five at <a href="mailto:support@15five.com" target="_blank">support@15five.com</a> and request a SAML integration setup for Okta.</li>
 <li>
-<p>Copy the following URL into the email and label it as&nbsp;<strong>Identity Provider Entity ID:</strong></p>
+<p><strong>SSO Target URL</strong>: Copy and paste the following:</p>
+<kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></li>
+
+<li>
+<p><strong>IDP Issuer</strong>: Copy and paste the following:</p>
 <kbd id="issuer">Sign in to the Okta Admin dashboard to generate this value.</kbd></li>
-<li>
-<p>Copy the following link in the same email as <strong>IdP URL:</strong></p>
-<kbd id="signOnUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd></li>
-<li>
-<p>Save the following metadata as an xml file.  Attach it to the email.&nbsp;</p>
-<pre id="idpMetadata">Sign in to the Okta Admin app to generate this value.</pre></li>
-<li>15Five will contact you when the setup is complete.</li>
+
+</li>
+</ul>
+<li><p>Ruvixx support team will process your request. After receiving a confirmation email, you can start assigning people to the application./p>
+
+
 
 <li><p>Done!</p>
 <p><strong>Notes</strong>:</p>
@@ -84,9 +58,9 @@ try{Typekit.load();}catch(e){}
 <hr>
 <p><strong>For SP-initiated flows</strong>:</p>
 <ol>
-<li><p>Open your base URL: <strong>https://[yourSubDomain].15five.com/</strong>.</p></li>
-<li><p>Click the <strong>LOGIN USING SINGLE SIGN-ON</strong> button:</p>
-<p><img border="1" src="images/apps/15five_new4.png" alt=“15five_new4.png" /></p>
+<li><p>Open your login page: <strong>https://[yourRuvixxDomain]/login</strong>.</p></li>
+<li><p>Click the <strong>Launch Single Sign-On</strong> button:</p>
+<p><img border="1" src="images/apps/ruvixx1.png" alt=“ruvixx1.png" /></p>
 
 </li>
 </ol>
