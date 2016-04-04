@@ -1,0 +1,148 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for LiquidPlanner</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+<ol>
+<li><p>Contact the LiquidPlanner Support team and request that they enable SAML 2.0 for your account.</p></li>
+
+<li><p>Login to your LiquidPlanner account as a <strong>workspace owner</strong>.</p></li>
+
+<li><p>Click on our profile picture.</p></li>
+
+<li><p>Select <strong>Settings > Single Sign-On Configuration</strong>.</p></li>
+
+<li><p>In the <strong>Single Sign-On Configuration</strong> section, enter the following (see screen shot at end of step for reference):</p>
+<ul>
+<li>Make a copy of the last part of the <strong>Custom Subdomain Link</strong>.</p>
+<p>For example if your <strong>Custom Subdomain Link</strong> is <strong>https://app.liquidplanner.com/sso_login/0000</strong>, you need to save the <strong>0000</strong> value).</p></li> 
+<li><strong>SAML Identity Provider Certificate</strong>: Copy and paste the following:</p>
+<kbd id="certFingerPrint">Sign into the Okta Admin Dashboard to generate this variable.</kbd>
+</li>
+<li><strong>Remote Login URL</strong>: Copy and paste the following:</p>
+<kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd>
+</li>
+<li>Click <strong>Save</strong>.</p></li>
+</ul>
+<p><img border="1" src="images/apps/liquidplanner1.png" alt=“liquidplanner1.png" /></p>
+
+</li>
+
+
+<li><p>In Okta, select the <strong>General</strong> tab for the LiquidPlanner app.</p>
+<ul>
+<li><p>Click <strong>Edit</strong>.</p></li>
+<li><p>Enter your <strong>Custom Subdomain</strong> (see step 5 above) into the <strong>Company ID</strong> field.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+
+</ul>
+<p><img border="1" src="images/apps/liquidplanner2.png" alt=“liquidplanner2.png" /></p>
+
+</li>
+
+
+<li><p>Back in LiquidPlanner, locate the <strong>Test Your Configuration</strong> section and click the <strong>Test Login</strong> button:</p>
+<p><img border="1" src="images/apps/liquidplanner3.png" alt=“liquidplanner3.png" /></p>
+</li>
+<li><p>Wait for a <strong>Your test was successful. You can enable SSO for your space</strong> message to appear.</p>
+</li>
+
+<li><p>Click the <strong>Enable SSO</strong> link.</p>
+<p><img border="1" src="images/apps/liquidplanner4.png" alt=“liquidplanner4.png" /></p>
+</li>
+
+<li><p>In the <strong>Enable SSO</strong> section:</p>
+<ul>
+
+<li><p>Click <strong>Yes</strong>.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+</ul>
+<p><img border="1" src="images/apps/liquidplanner5.png" alt=“liquidplanner5.png" /></p>
+</li>
+
+<li><p>In the <strong>Member Setup</strong> section:</p>
+<ul>
+<li><p>Under <strong>Enable SSO for All Members</strong>:</p>
+<ul>
+<li><p>Select <strong>Yes</strong> if you need to all new workspace members automatically to be set up with SSO.</p></li>
+<li><p>Select <strong>No</strong> if you need to configure which members will be required to use SAML 2.0 and which will use an email address and password stored in LiquidPlanner to login.</p></li>
+
+</ul>
+</li>
+
+
+<li><p>Under <strong>Enable SSO for All Members by Default</strong>:</p>
+<ul>
+<li><p>Select <strong>Yes</strong> if you need to all new members and portal guests added to your workspace will be required to use SAML 2.0 to authenticate.</p></li>
+<li><p>Select <strong>No</strong> if your members must use an email address and password stored in LiquidPlanner to login.</p></li>
+
+</ul>
+</li>
+
+
+
+
+
+<li><p>Under <strong>SSO Requirement for Individual Members</strong>:</p>
+<ul>
+<li><p>Move everyone (or select required) members and click the <strong>Move All =></strong> (or >>) button.</p></li>
+
+</ul>
+</li>
+
+
+
+
+
+<li><p>Click <strong>Save</strong>:</p></li></p></li>
+
+</ul>
+<p><img border="1" src="images/apps/liquidplanner6.png" alt=“liquidplanner6.png" /></p>
+</li>
+
+
+
+
+<li><p>Done!</p>
+<p><strong>Notes</strong>:</p>
+<p>IdP-initiated flows, SP-initiated flows, and Just In Time (JIT) Provisioning are all supported.</p>
+</ol>
+<br />
+<br />
+<hr>
+<p><strong>For SP-initiated flows</strong>:</p>
+<ol>
+<li><p>Open LiquidPlanner login page: <a href="https://app.liquidplanner.com/login" target="_blank">https://app.liquidplanner.com/login</a>.</p></li>
+<li><p>Enter your email in the <strong>Business Email</strong> button field.</p>
+<li><p>Click the <strong>Sign In</strong> button.</p>
+
+<p><img border="1" src="images/apps/liquidplanner7.png" alt=“liquidplanner7.png" /></p>
+
+</li>
+</ol>
+
+</div>
+</body>
+</html>
