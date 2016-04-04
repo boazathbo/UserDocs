@@ -210,9 +210,9 @@ domain list. For example, <strong>Get and Put</strong>  vs <strong>Get</strong> 
 
 
 
-<li><p><strong>Custom Report Simple XML XSD URL</strong> (optional): See <a href="#customexpressions">Custom Expressions</a>.</p></li>
+<li><p><strong>Custom Report Simple XML XSD URL</strong> (optional): See <a href="#WDcustomattributes">Workday Custom Attributes</a>.</p></li>
 
-<li><p><strong>Custom Report JSON URL</strong> (optional): See <a href="#customexpressions">Custom Expressions</a>.</p></li>
+<li><p><strong>Custom Report JSON URL</strong> (optional): See <a href="#WDcustomattributes">Workday Custom Attributes</a>.</p></li>
 
 <li><p><strong>Department Field</strong>: The Department Field determines which worker attribute is used for the department attribute of the user in Okta. By default, the value is <strong>Business Unit</strong>.</p></li>
 
@@ -222,7 +222,7 @@ domain list. For example, <strong>Get and Put</strong>  vs <strong>Get</strong> 
 
 <li><p><strong>Only Import Workers with Workday</strong>: This option allows you to import only Workday workers who have Workday accounts and automatically filter out workers who don't. By clicking this button, your next import will only include valid Workday workers.</p></li>
 
-<li><p><strong>Immediate Termination Reasons</strong>: If using the Real Time Sync feature, use this text box to match the <strong>Termination_Subcategory_ID</strong> for each termination reason, as identified in the Workday Integration IDs. This field must be a Regex expression. See <a href="#realtime">Using Real Time Synch</a> for further details.</p></li>
+<li><p><strong>Immediate Termination Reasons</strong>: If using the Real Time Sync feature, use this text box to match the <strong>Termination_Subcategory_ID</strong> for each termination reason, as identified in the Workday Integration IDs. This field must be a Regex expression. See <a href="#realtime">Using Real Time Sync</a> for further details.</p></li>
 
 <li><p><strong>Deactivate on Last Day of Work</strong>: This option allows users to be deactivated based on the last day of work instead of termination date. User deactivation will happen when their Last Day of Work: </p>
 <ul>
@@ -247,7 +247,7 @@ domain list. For example, <strong>Get and Put</strong>  vs <strong>Get</strong> 
 <P>Scroll down and enable any <strong>Provisioning features</strong> you require:</p> 
 
 <h4>Scheduled Imports</h4>
-<p>The <strong>User Import</strong> provisioning feature is automatically enabled, just edit the other settings for this feature as required.</p>
+<p>The <strong>User Import</strong> provisioning feature is automatically enabled when provisioning is enabled, just edit the other settings for this feature as required.</p>
 <p>For the Workday­-driven IT Provisioning scenario, Okta recommends setting up scheduled import and automatic confirmation so that worker life cycle events in Workday are periodically propagated to Okta without the need for manual intervention. Note that imports can take time to complete if there are a large number of Workers in Workday, so it’s not advisable to schedule imports too frequently.</p>
 
 
@@ -313,7 +313,9 @@ on­boarding).</p></li>
 <li><p>Select an AD domain(s) to associate with the Workday provisioning group.</p></li>
 <p><img src="images/apps/workday2-1.png" alt="workday2-1.png" /></p>
 <li><p>Select the AD OU within which you wish to provision accounts.</p></li>
-<p>SCREEN SHOT</p>
+
+<p><img src="images/apps/add_directory.png" alt="add_directory.png" /></p>
+
 <li><p>Click <strong>Done</strong>.</p></li>
 <li><p>In the <strong>Okta AD Settings</strong> tab, enable <strong>Provision new Active Directory accounts from Okta</strong>.</p></li>
 
@@ -331,15 +333,19 @@ on­boarding).</p></li>
 then mapped manually. Figure 14 shows the recommended mappings from a Workday to Okta user for typical use cases, which includes all attributes in the Workday base profile except for Worker Type, Manager ID, and Manager Username.</p>
 
 <p><strong>Note</strong>: When Workday is configured to write to AD (and UD is enabled), the Okta admin must manually map some attributes between the Workday app user profile and the Okta user profile. Additionally, the admin must manually map some attributes between the Okta user
-profile and the AD user profile. This allows attributes to flow from Workday to Okta and then
-to AD.</p>
+profile and the AD user profile. This allows attributes to flow from Workday to Okta and then to AD.</p>
 
-<p>SCREEN CAPTURE</p>
+<p><img src="images/apps/AD1.png" alt=“AD1.png" /></p>
+
+<p><img src="images/apps/AD2.png" alt=“AD2.jpeg” /></p>
+
+<p><img src="images/apps/AD3.png" alt=“AD3.png” /></p>
 
 <h3>Attribute Mappings to AD User Profile</h3>
 <p>Workday as a Master typically involves creating AD users. Some of the attribute mappings from Okta user to AD user exist by default, but others need to be created manually. Figure 15 shows the recommended mappings for typical use cases. </p>
 
-<p>SCREEN CAPTURE</p>
+<p><img src="images/apps/WD1.png" alt=“WD1.png" /></p>
+
 <br />
 <br />
 <a name="customexpressions"></a><H3>Custom Expressions</H3>
@@ -350,7 +356,7 @@ to AD.</p>
 <p>Okta uses the Manager (UPN) attribute to find the Active Directory user in AD that is this Okta user’s manager, and links the two AD users together. This custom expression can be modified to construct the Manager (UPN) attribute differently to suit special AD environments.</p>
 <p>Two other situations can result in additional custom expressions appearing in the Provision to AD profile mappings. The first is when UD is turned on for a pre­existing Workday as a Master deployment. The second is when the Workday integration is added to Okta first, before AD is added. In both cases, the Workday attributes of Business Title, Location, Supervisory Organization, Business Unit, and Employee ID are mapped directly to their corresponding AD attributes directly via custom expression.</p>
 
-<h3>Workday Custom Attributes</h3>
+<a name="WDcustomattributes"></a><h3>Workday Custom Attributes</h3>
 <p>Okta's Workday application has been enhanced to support UD, enabling Okta to import more than 20 attributes from Workday. To support this, Okta can import attributes from a separate Workday web services endpoint—a reports­-as­-a­-service endpoint. In short, a customer creates a custom report in Workday and adds attributes to it. Workday exposes a web services endpoint for that custom report, and Okta imports the additional attributes. UD maps the incoming attributes to the Okta user profile and to downstream app user profiles.</p>
 
 <h4>Creating a custom report in Workday</h4>
