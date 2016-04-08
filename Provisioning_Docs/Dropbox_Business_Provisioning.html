@@ -29,11 +29,21 @@ try{Typekit.load();}catch(e){}
 
 <h1>Configuring Provisioning for Dropbox Business</h1>
 
-<p>This guide provides the steps required to configure Provisioning for Dropbox Business.</p>
+<p>This guide provides the steps required to configure Provisioning for Dropbox Business, and includes the following section:</p>
 
 
 
-<h2>Features</h2>
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#configuration">Configuration Steps</a></li>
+<li><a href="#migration">Migration</a></li>
+<li><a href="#tips">Troubleshooting Tips</a></li>
+<hr>
+
+
+
+<a name="features"></a><h2>Features</h2>
 <p>The following provisioning features are supported:</p>
 
 <ul>
@@ -66,9 +76,9 @@ try{Typekit.load();}catch(e){}
 
 </ul>
 
+<hr>
 
-
-<h2>Prerequisites</h2>
+<a name="prerequisites"></a><h2>Prerequisites</h2>
 
 <p>Before you configure provisioning for Dropbox Business, make sure you have configured the <strong>General Settings</strong> and any <strong>Sign-On Options</strong> for the Dropbox Business app.</p>
 
@@ -96,8 +106,9 @@ try{Typekit.load();}catch(e){}
 
 <p>Click <strong>Next</strong> to take you back to the <strong>Provisioning</strong> tab.</p>
 
+<hr>
 
-<h2>Configuration Steps</h2>
+<a name="configuration"></a><h2>Configuration Steps</h2>
 
 
 <p>Configure your <strong>Provisioning</strong> settings for Dropbox Business as follows:</p>
@@ -132,14 +143,44 @@ try{Typekit.load();}catch(e){}
 </ol>
 
 
-<h2>Troubleshooting Tips</h2>
+
+
+
+
+
+<hr>
+<a name="migration"></a><h2>Migration</h2>
+
+<p>If you are migrating from the old Dropbox application to the Dropbox Business Application in Okta, follow the recommended migration steps below:</p>
+
+<ol>
+<li><p>Disable provisioning for old DropBox (at a minimum, turn off user deactivation under the <strong>Provisioning</strong> tab).</p></li>
+ <li><p>Configure new DropBox Business app instance and enable provisioning for the same new dropbox org,</p> <ul>
+<li><p>Select <strong>Advanced: Configure Import Matching Rules</strong>, then in the <strong>EXACT IMPORT MATCH</strong> section, select <strong>Auto-confirm match</strong>.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/dropbox_new1.png" alt=“dropbox_new1.png” /></p>
+
+</li>
+</ul>
+</li> 
+<li><p>Go to your new DropBox Business app and perform an <strong>import new user</strong>. All existing users will be auto-confirmed.</p></li>
+</ol>
+
+<hr>
+
+<a name="tips"></a><h2>Troubleshooting Tips</h2>
+
 
 <ul>
 <li><p>If <strong>Silent Provisioning</strong> is enabled, new users must go to <a href="https://www.dropbox.com/sso" target="_blank">https://www.dropbox.com/sso</a> in order to get their accounts activated.</p></li>
+
+
+
 <li><p>Users with a status of <strong>Invited</strong> cannot be updated with a new email address in their profile.</p></li>
 <li><p><strong>Group Push</strong> will not update a Dropbox group if users whose status is <strong>Invited</strong> were added to the group.</p></li>
 <li><p>Users without <strong>First Name</strong> or/and <strong>Last Name</strong> in their Dropbox profiles cannot be imported to Okta as new users.</p></li>
 </ul>
+
+
 
 
 </div>
