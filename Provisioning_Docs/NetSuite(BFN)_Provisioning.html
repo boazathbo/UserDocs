@@ -1,0 +1,182 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="resources/scripts/vkbeautify.js"></script>
+
+<title>NetSuite Provisioning</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>To reconfigure any of the <strong>General Settings</strong> or <strong>Sign-On Options</strong>, uncheck the <strong>Enable provisioning features</strong> box, and use the <strong>Previous</strong> and <strong>Next</strong> buttons to navigate through the configuration screens.</p>
+</div>
+
+
+<h1>Configuring Provisioning for NetSuite</h1>
+
+<p>This guide provides the steps required to configure Provisioning for NetSuite and includes the following topics:</p>
+
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#configuration">Configuration Steps in Okta</a></li>
+<li><a href="#tips">Troubleshooting Tips</a></li>
+</ul>
+<hr>
+
+
+<a name="features"></a><h2>Features</h2>
+<p>The following provisioning features are supported:</p>
+<ul>
+<li><strong>Import New Users</strong></p>
+<p>New users created in the third party application will be downloaded and turned in to new AppUser objects, for matching against existing OKTA users.</p>
+</li>
+
+<li><strong>Import Profile Updates</strong></li>
+
+<li><strong>Push New Users</strong></p>
+<p>New users created through OKTA will also be created in the third party application.</p>
+
+</li>
+<li><strong>Push Password Updates</strong></p>
+<p>Updates made to the user's password through OKTA will be pushed to the third party application.</p>
+
+</li>
+<li><strong>Push Profile Updates</strong></p>
+<p>Updates made to the user's profile through OKTA will be pushed to the third party application.</p>
+</li>
+<li><strong>Push User Deactivation</strong></p>
+<p>Deactivating the user or disabling the user's access to the application through OKTA will deactivate the user in the third party application.</p>
+</li>
+<li><strong>Reactivate Users</strong></p>
+<p>Reactivating the user through Okta will reactivate the user in the 3rd party application.</p>
+</li>
+</ul>
+<hr>
+
+<a name="requirements"></a><h2>Requirements</h2>
+
+<P><strong>Note</strong>: If you already have setup the NetSuite application with <strong>Admin Username</strong> and <strong>Admin Password</strong> authentication, your existing settings will still work, however if you need to change any provisioning settings you have to switch to <strong>Token Based</strong> authentication.</p>
+
+<p>Complete the following before you configure provisioning for NetSuite:</p>
+
+
+
+<h3>Configure NetSuite</h3>
+
+
+
+
+<ol>
+<li><p>Enable the Web Services feature (the NetSuite web services feature needs to be enabled prior to submitting web services requests):</p>
+<ul>
+<li><p>Log in to NetSuite as an administrator.</p></li>
+<li><p>Navigate to <strong>Setup > Company > Enable Features</strong>.</p></li>
+<li><p>Select the <strong>SuiteCloud</strong> subtab.</p></li>
+<li><p>Check the <strong>Web Services</strong> box.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+</li>
+</ul>
+
+<li><p>Obtain your AccountID:</p>
+<ul>
+<li><p>Still logged into NetSuite as an administrator.</p></li>
+<li><p>Navigate to <strong>Setup > Integration > Web Services Preferences</strong>.</p></li>
+<li><p>Copy and save your <strong>Account ID</strong> as shown below:</p>
+<p><p><img src="images/apps/netsuite1.png" alt=“netsuite1.png" /></p></li>
+</ul>
+</li>
+
+<li><p>Set up Token-Based Authentication (TBA):</p>
+<p><strong>Note</strong>: You require a NetSuite account to access the links referenced in this step.</p>
+<ul>
+<li><p>Follow the steps in this <a href="https://system.na1.netsuite.com/app/help/helpcenter.nl?fid=section_4247337262.html" style="color="blue";" target="_blank">Getting Started with Token-based Authentication</a> guide, and save your <strong>consumer key</strong> and <strong>consumer secret</strong>.</p>
+
+
+
+
+<ul>
+<li><p>Enabling the Token-based Authentication Feature</p></li>
+<li><p>Setting Up Token-based Authentication Roles</p></li>
+<li><p>Assigning Users to Token-based Authentication Roles</p></li>
+</ul>
+</li>
+
+
+
+
+
+
+<li><p>Create a TBA Token by following the instructions in <strong>Access Token Management – Create and Assign a TBA Token</strong> instructions in the <a href="https://system.na1.netsuite.com/app/help/helpcenter.nl?fid=section_4254975694.html#bridgehead_4254081947" style="color="blue";" target="_blank">Managing TBA Tokens</a> guide and save your <strong>Token Id</strong> and <strong>Token secret</strong>. </p></li>
+</ul>
+</li>
+
+
+
+</ol>
+<hr>
+<a name="configuration"></a><h2>Configuration Steps in Okta</h2>
+<ol>
+
+<li><p>Configure your <strong>Provisioning</strong> settings for NetSuite as follows:</p>
+<ul>
+<li><p>Check the <strong>Enable provisioning features</strong> box.</p></li>
+<li><p>Enter your NetSuite <strong>API Credentials</strong>
+<ul>
+<li><p><strong>Admin Account ID</strong>.</p></li>
+<li><p><strong>Consumer Key</strong>.</p></li>
+<li><p><strong>Consumer Secret</strong>.</p></li>
+<li><p><strong>Token ID</strong>.</p></li>
+<li><p><strong>Token Secret</strong>.</p></li>
+
+</ul>
+<p><p><img src="images/apps/netsuite-bfn-1.png" alt=“netsuite-bfn-1.png" /></p></li>
+</li>
+
+<li><p>Scroll down and select the <strong>Provisioning Features</strong> you want to enable.</p>
+
+
+</li>
+<li><p>Click <strong>Save</strong>.</p>
+</li>
+</li>
+
+</ul>
+</li>
+
+<li><p>You can now assign people to the app (if needed) and finish the application setup.</p></li>
+</ol>
+
+
+<hr>
+
+
+<a name="tips"></a><h2>Troubleshooting Tips</h2>
+
+<ul>
+
+<li><p>Problem with password push from OKTA to NetSuite:</p>
+<p><img src="images/apps/netsuite-bfn-2.png" alt=“netsuite-bfn-2.png" /></p></li>
+
+<p>OKTA and NetSuite by default use similar password policies, but NetSuite uses additional checks and can block <em>too simple to guess</em> password. Ensure users use strong enough passwords.</p>
+
+</ul>
+
+</div>
+</body>
+</html>
