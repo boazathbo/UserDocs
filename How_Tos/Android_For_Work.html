@@ -22,11 +22,96 @@ try{Typekit.load();}catch(e){}
     </div>
 <div class="okta-instructions">
 
-<h1>Setting Up Android For Work</h1>
+<p>This article provides instructions to:</p>
+<ul>
+<li><a href="#setup">Setting up Android for Work</a></li>
+<li><a href="#GoogleToken">Generating a Google Token</a></li></ul>
+<hr>
 
-<p>This is a work in progress</p>
+<h1><a name="setup"></a>Setting Up Android For Work</h1>
 
+<p>To configure Android for Work in Okta:</p>
+
+<ol>
+<li><p>In Okta, navigate to <strong>Devices > Mobile Policies</strong>.</p></li>
+<li><p>Click the <strong>Android for Work</strong> setup button on the top right of the Mobile Policy page.</p>
+<img src="resources/images/afw_1.png" alt="afw_1.png" />
+<p>The AfW setup wizard is launched. There are two possible flows, both are described below:</p>
+
+
+
+
+
+<ol>
+<li><p><strong>No Google Apps Instance</strong></p>
+<p>If you don’t have a Google Apps Instance, follow the wizard and enter the following:</p>
+
+<ul>
+<li><p><strong>Your company’s domain</strong>.</p></li>
+<li><p><strong>Your Google token</strong>. See <a href="#GoogleToken">Generating a Google Token</a> for instructions.</p></li>
+<li><p>Click <strong>Next</strong>.</p></li>
+<li><p><strong>Create Google accounts for your users</strong>: Either:</p>
+<ul>
+<li><p>Select <strong>Okta will automatically create Google accounts</strong>. If you select this option, to enable it, you then need to click <strong>Authenticate with Google</strong>. This will redirect you to your Google account where you need to login with your username and password, then specify that you <strong>Allow</strong> Okta to have offline access.</p></li>
+
+<li><p><strong>I’ll create the google accounts</strong>.</p></li>
+<li><p>Click <strong>Next</strong>.</p></li>
+</ul>
+
+
+<li><p><strong>Choose an authentication method</strong>: Either:</p>
+<ul>
+<li><p>Select <strong>SAML</strong>. If you select SAML as the authentication method, click <strong>View Setup Instructions</strong> and follow those directions to set up SAML. Click <strong>Finish</strong> when complete.</p></li>
+
+<li><p>Select <strong>Their Okta password</strong>. If you select this as the authentication method, the user’s password will be pushed to Google.</p></li>
+<li><p>Click <strong>Finish</strong> when complete.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li><p><strong>With a Google Apps Instance</strong>:</p>
+<p>If you already have a Google Apps Instance, follow the wizard and enter the following:</p>
+
+<ul>
+<li><p>Select a <strong>Google Apps domain</strong> (already populated).</p></li>
+<li><p>Click <strong>Next</strong>.</p></li>
+<li><p>Enter your <strong>Google Token</strong>. See <a href="#GoogleToken">Generating a Google Token</a> for instructions</p></li>
+<li><p>Click <strong>Next</strong>.</p></li>
+<li><p>Carefully read the next screen that explains more about your Google Apps Integration.</p></li>
+<li><p>Click <strong>Finish</strong>.</p></li>
+
+</ul>
+</li>
+</ol>
+
+
+
+
+<hr>
 <h2><a name="GoogleToken"></a>Generating a Google Token</H2>
+
+
+<p>To obtain a Google token, go to your Google Apps Admin console, then:</p>
+<ol>
+<li><p>Select <strong>Security</strong>:</p>
+<p><img src="resources/images/afw1.png" alt="afw1.png" /></p></li>
+
+<li><p>Select <strong>Android for Work settings</strong>:</p>
+<p><img src="resources/images/afw2.png" alt="afw2.png" /></p></li>
+
+<li><p>Click on <strong>GENERATE TOKEN</strong>:</p>
+<p><img src="resources/images/afw3.png" alt="afw3.png" /></p></li>
+
+<li><p>Make a copy of your generated token, to enter in Okta when enabling AfW (see above):</p>
+<p><img src="resources/images/afw4.png" alt="afw4.png" /></p>
+
+<p>Note that once you have generated a token, when you navigate back to <strong>Security > Android for Work settings</strong> the option to <strong>GENERATE TOKEN</strong> has been replaced with information about your AfW settings:</p>
+<p><img src="resources/images/afwnew11.png" alt="afwnew11.png" /></p>
+
+
+
+
 
 
 </div>   
