@@ -26,17 +26,29 @@ try{Typekit.load();}catch(e){}
 <ul>
 <li><a href="#setup">Setting up Android for Work</a></li>
 <li><a href="#GoogleToken">Generating a Google Token</a></li></ul>
+
+<p>For reference, Google’s Android for Work support documentation is available here: <a href="https://support.google.com/work/android/?hl=en#topic=6174026" target="_blank">https://support.google.com/work/android/?hl=en#topic=6174026</a>
 <hr>
+
+
 
 <h1><a name="setup"></a>Setting Up Android For Work</h1>
 
-<p>To configure Android for Work in Okta:</p>
+
+
+
+
+
+<H2>Configuring Android for Work in Okta:</h2>
+
+<p><strong>Note</strong>: As part of the setup, you will need to generate a Google Token, you may want to do that in advance, see <a href="#GoogleToken">Generating a Google Token</a> for instructions.</p>
 
 <ol>
 <li><p>In Okta, navigate to <strong>Devices > Mobile Policies</strong>.</p></li>
 <li><p>Click the <strong>Android for Work</strong> setup button on the top right of the Mobile Policy page.</p>
-<img src="resources/images/afw_1.png" alt="afw_1.png" />
-<p>The AfW setup wizard is launched. There are two possible flows, both are described below:</p>
+<img src="resources/images/afw_main.png" alt="afw_main.png" />
+<p>The AfW setup wizard is launched. There are two possible flows, both are described below.</p>
+
 
 
 
@@ -51,13 +63,13 @@ try{Typekit.load();}catch(e){}
 <li><p><strong>Your Google token</strong>. See <a href="#GoogleToken">Generating a Google Token</a> for instructions.</p></li>
 <li><p>Click <strong>Next</strong>.</p></li>
 <li><p><strong>Create Google accounts for your users</strong>: Either:</p>
+
 <ul>
 <li><p>Select <strong>Okta will automatically create Google accounts</strong>. If you select this option, to enable it, you then need to click <strong>Authenticate with Google</strong>. This will redirect you to your Google account where you need to login with your username and password, then specify that you <strong>Allow</strong> Okta to have offline access.</p></li>
-
 <li><p><strong>I’ll create the google accounts</strong>.</p></li>
 <li><p>Click <strong>Next</strong>.</p></li>
 </ul>
-
+</li>
 
 <li><p><strong>Choose an authentication method</strong>: Either:</p>
 <ul>
@@ -67,8 +79,9 @@ try{Typekit.load();}catch(e){}
 <li><p>Click <strong>Finish</strong> when complete.</p></li>
 </ul>
 </li>
+
 </ul>
-</li>
+
 
 <li><p><strong>With a Google Apps Instance</strong>:</p>
 <p>If you already have a Google Apps Instance, follow the wizard and enter the following:</p>
@@ -89,10 +102,47 @@ try{Typekit.load();}catch(e){}
 
 
 <hr>
-<h2><a name="GoogleToken"></a>Generating a Google Token</H2>
+
+<h1><a name="GoogleToken"></a>Generating a Google Token</H1>
+
+<h2>Before You Begin</h2>
+<p>In order to gain access to the Google Apps Admin console in order to generate a Google token, you need to have a Google account.<p>
+
+<ul>
+<li><p><strong>If you are not a Google Apps customer</strong>:</p>
+
+<ul>
+<li><p>Sign up for Android for Work with Google by going to <a href="https://www.google.com/work/android/" target="_blank">https://www.google.com/work/android/</a> </p></li>
+<li><p>Click <strong>GET STARTED</strong> to begin enrollment, then follow the prompts.</p></li>
+</ul>
+
+</li>
 
 
-<p>To obtain a Google token, go to your Google Apps Admin console, then:</p>
+
+
+<li><p><strong>If you are Google Apps customer</strong>:</p>
+<ul>
+<li><p>Go to your Google Apps Admin console (<a href="http://admin.google.com" target="_blank">http://admin.google.com</a>)</p></li>
+<li><p>In the right pane under <strong>Common tasks</strong>​, click <strong>Get more apps and services</strong>​:</p>
+<p><img src="resources/images/afw_google_common_tasks.png" alt="afw_google_common_tasks.png" /></p>
+
+
+</li>
+<li><p>Under <strong>Android for Work</strong>, click <strong>Add It Now</strong>.</p>
+
+<p><strong>Note</strong>: If Android for Work has already been added, it will not show up here. You can proceed to generate a token, as described below:</p></li>
+</ul>
+</li>
+</li>
+</ul>
+
+</ol>
+</ul>
+
+<h3>Generating a Token</h3>
+
+<p>To obtain a Google token, go to your Google Apps Admin console (<a href="http://admin.google.com" target="_blank">http://admin.google.com</a>), then:</p>
 <ol>
 <li><p>Select <strong>Security</strong>:</p>
 <p><img src="resources/images/afw1.png" alt="afw1.png" /></p></li>
@@ -107,7 +157,8 @@ try{Typekit.load();}catch(e){}
 <p><img src="resources/images/afw4.png" alt="afw4.png" /></p>
 
 <p>Note that once you have generated a token, when you navigate back to <strong>Security > Android for Work settings</strong> the option to <strong>GENERATE TOKEN</strong> has been replaced with information about your AfW settings:</p>
-<p><img src="resources/images/afwnew11.png" alt="afwnew11.png" /></p>
+<p><img src="resources/images/afw_new_1.png" alt="afw_new_1.png" /></p>
+
 
 
 
