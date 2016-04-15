@@ -49,7 +49,38 @@ try{Typekit.load();}catch(e){}
 <p>Review your settings, and then select <strong>Create Role</strong>. You should be able to see the new role, as shown below.<br /><br /><img style="border: 0; padding: 0;" src="images/apps/Amazon_AWS_3.png" alt="Amazon_AWS_3.png" /><br /><br /></p>
 </li>
 <li>In Okta, enter the Provider ARN that you copied in step 3 into the&nbsp;&nbsp;<strong>Identity Provider ARN (Amazon Resource Name)</strong>&nbsp;field, as shown below.<br /><img style="border: 0; padding: 0;" src="images/apps/Amazon_AWS_6.png" alt="Amazon_AWS_6.png" /></li>
-<li>In Okta, enable Provisioning for your app, and assign users. Specify the role as the role that you created in step 6, as shown below. <br></br><span><strong>Follow the link below on how to generate your Access Key and Secret Key in AWS:</strong> <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html">http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html</a></span><br /><br /><img style="border: 0; padding: 0;" src="images/apps/Amazon_AWS_5.png" alt="Amazon_AWS_5.png" /></li>
+
+
+
+
+<li>In Okta, enable Provisioning for your app, and assign users. Specify the role as the role that you created in step 6, as shown below:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/amazon_new1.png" alt=“amazon_new1.png" /></p>
+<p>To generate new Access Keys for <strong>Amazon Web Services</strong>:</p>
+<ul>
+<li><p>Login to your Amazon Web Services account as an Administrator, click on your username at the top of the page, then select <strong>Security Credentials</strong>:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/amazon_new2.png" alt=“amazon_new2.png" /></p>
+
+</li>
+<li><p>Click on <strong>Access Keys (Access Key ID and Secret Access Key)</strong> to expand section with Access and Security keys, then click <strong>Create New Access Key button</strong>:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/amazon_new3.png" alt=“amazon_new3.png" /></p>
+
+
+</li>
+<li><p>A dialog with newly created keys appears. Click on <strong>Show Access Key</strong> link to expand the generated keys. Either make a copy of them or use the <strong>Download Key File</strong> option. These keys are required to setup Provisioning in Okta:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/amazon_new4.png" alt=“amazon_new4.png" /></p>
+
+</li>
+
+
+
+
+
+</ul>
+</li>
+
+
+
+
 <li>
 <p dir="ltr">Optionally, you can specify the region that your users sign in to. To specify a region, on the Okta Dashboard for the Amazon Web Services application, select the <strong>Sign On</strong> tab. Enter one of the values shown below in the&nbsp;<strong>Default Relay State&nbsp;</strong>field. Continue to Step 11.</p>
 
