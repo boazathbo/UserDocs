@@ -56,6 +56,11 @@ try{Typekit.load();}catch(e){}
 <p>New users created in the third party application are downloaded and turned in to new AppUser objects, for matching against existing OKTA users.</p></li>
 <li><p><strong>Import profile updates</strong></p>
 <p>Updates made to a user's profile in the third party application are downloaded and applied to the profile fields stored locally in OKTA. If the app is the system of record for the user, changes made to core profile fields (email, first name, last name, etc) are applied to the Okta user profile. If the app is NOT the system of record for the user, only changes made to app-specific fields are applied to the local user profile.</p></li>
+
+<li><p><strong>Group Push</strong></p>
+<p>Groups and their members can be pushed to remote systems. See <a href="https://support.okta.com/help/articles/Knowledge_Article/27086213-Using-Group-Push" style="color="blue";" target="_blank">Using Group Push</a> for more details.
+
+</p></li>
 </ul>
 
 <h2>Configuration Steps</h2>
