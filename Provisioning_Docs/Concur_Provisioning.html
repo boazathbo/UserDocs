@@ -42,7 +42,25 @@ try{Typekit.load();}catch(e){}
 <a href="https://developer.concur.com/api-reference/user/company-notification-subscription-resource/user.html#createUser">here</a>.</p>
 </ul>
 </div>
-<h2>Support of Concur Editions</h2>
+
+<h2>Contents</h2>
+
+<ul>
+<li><a href="#editions">Support of Concur Editions</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#configuration">Configuration Steps</a></li>
+<li><a href="#schema">Schema Discovery</a></li>
+<li><a href="#tips">Troubleshooting Tips</a></li>
+<li><a href="#Migration">Migration from Legacy Concur Application to Universal Directory</a></li>
+</ul>
+<hr>
+
+
+
+
+
+<a name="editions"></a><h2>Support of Concur Editions</h2>
 <ul>
 <li><p><strong>Small Business</strong>:</p>
 <p>The Okta-Concur integration does not support the Concur Small Business Edition.</p>
@@ -61,14 +79,14 @@ try{Typekit.load();}catch(e){}
 <h3>Determining Edition Type</h3>
 <p>A client can determine the Concur Edition type by having their administrator login to their Concur site. If they see a <strong>Setup</strong> menu with a sub option for <strong>Expense</strong> within the <strong>Administration</strong> menu (as shown below), then this is a Standard Edition site. If the client administrator does not see the <strong>Expense</strong> menu within the <strong>Setup</strong> menu, then they have a Concur Professional Edition site:</p>
  
-<p><p><img src="images/apps/concurnew1.png" alt=“concurnew1.png" /></p>
+<p><p><img src="images/apps/concurnew1.png" alt="concurnew1.png" /></p>
 
 
 
 </ul>
 <hr>
 
-<h2>Features</h2>
+<a name="features"></a><h2>Features</h2>
 <p>The following provisioning features are supported:</p>
 <ul>
 <li><p><strong>Schema Discovery</strong></p></li>
@@ -82,7 +100,7 @@ try{Typekit.load();}catch(e){}
 
 <hr>
 
-<h2>Requirements</h2>
+<a name="requirements"></a><h2>Requirements</h2>
 <ul>
 
 <li><p>Universal Directory for Concur is an <strong>Early Access</strong> feature. If you would like to turn on UD for Concur, contact Okta Support to enable the following feature flag: <strong>PROV_CONCUR_CLOUD_DIRECTORY_ENABLE</strong>.</p></li>
@@ -104,7 +122,7 @@ If you are in the <strong>Concur Sandbox</strong> environment, follow the steps 
 <hr>
 </ol>
 
-<h2>Configuration Steps</h2>
+<a name="configuration"></a><h2>Configuration Steps</h2>
 <ol>
 
 <li><p>Configure your <strong>Provisioning</strong> settings for Concur as follows:</p>
@@ -185,7 +203,7 @@ If you are in the <strong>Concur Sandbox</strong> environment, follow the steps 
 <br />
 </ol>
 <hr>
-<h2>Schema Discovery</h2>
+<a name="schema"></a><h2>Schema Discovery</h2>
 
 
 
@@ -197,7 +215,7 @@ If you are in the <strong>Concur Sandbox</strong> environment, follow the steps 
 <p><img src="images/apps/concur9.png" alt=“concur9.png" /></p>
 <hr>
 
-<h2>Troubleshooting Tips</h2>
+<a name="tips"></a><h2>Troubleshooting Tips</h2>
 
 
 
@@ -214,7 +232,7 @@ If you are in the <strong>Concur Sandbox</strong> environment, follow the steps 
 </li>
 </ul>
 <hr>
-<h2>Migration from Legacy Concur Application to Universal Directory</h2>
+<a name="migration"></a><h2>Migration from Legacy Concur Application to Universal Directory</h2>
 
 <p>In order to enable UD support for Concur:</p>
 <ol>

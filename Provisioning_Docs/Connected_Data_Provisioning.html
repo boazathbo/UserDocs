@@ -29,9 +29,22 @@ try{Typekit.load();}catch(e){}
 
 <h1>Configuring Provisioning for Connected Data</h1>
 
-<p>This guide provides the steps required to configure Provisioning for Connected Data.</p>
+<p>This guide provides the steps required to configure Provisioning for Connected Data, and includes the following sections:</p>
 
-<h2>Features</h2>
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#Requirements">Requirements</a></li>
+<li><a href="#configuration">Configuring Steps</a></li>
+<li><a href="#Tips">Troubleshooting Tips</a></li>
+</ul>
+<hr>
+
+
+
+
+
+
+<a name="features"></a><h2>Features</h2>
 <p>The following provisioning features are supported:</p>
 
 <ul>
@@ -63,7 +76,7 @@ try{Typekit.load();}catch(e){}
 </li>
 </ul>
 <hr>
-<h2>Prerequisites</h2>
+<a name="requirements"></a><h2>Requirements</h2>
 
 
 <p>Before you can configure provisioning for Connected Data in Okta, you need to collect some values from Connected Data, as follows:</p>
@@ -92,7 +105,7 @@ try{Typekit.load();}catch(e){}
 
 <hr>
 
-<h2>Configuration Steps</h2>
+<a name="configuration"></a><h2>Configuration Steps</h2>
 
 
 <ol>
@@ -115,7 +128,7 @@ try{Typekit.load();}catch(e){}
 </ol>
 
 <hr>
-<h2>Troubleshooting Tips</h2>
+<a name="tips"></a><h2>Troubleshooting Tips</h2>
 <ul>
 <li><p>Currently Connected Data keep groups created within Connected Data and groups created by AD/IdP separately. Therefore during imports, you are unable to download groups created via the web.</p></li>
 <li><p>A current Connected Data issue is that if you attempt to search by userName, their API actually searches for email instead. This can be a problem for users who have different userName and emails in OKTA.</p></li>

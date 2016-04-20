@@ -29,11 +29,22 @@ try{Typekit.load();}catch(e){}
 
 <h1>Configuring Provisioning for Dropbox for Business</h1>
 
-<p>This guide provides the steps required to configure Provisioning for Dropbox for Business.</p>
+<p>This guide provides the steps required to configure Provisioning for Dropbox for Business, and includes the following sections:</p>
+
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#configuration">Configuration Steps</a></li>
+
+<li><a href="#tips">Troubleshooting Tips</a></li>
+</ul>
+<hr>
 
 
 
-<h2>Features</h2>
+
+
+<a name="features"></a><h2>Features</h2>
 <p>The following provisioning features are supported:</p>
 
 <ul>
@@ -68,7 +79,7 @@ try{Typekit.load();}catch(e){}
 
 <hr>
 
-<h2>Prerequisites</h2>
+<a name="requirements"></a><h2>Requirements</h2>
 
 <p>Before you configure provisioning for Dropbox for Business, make sure you have configured the <strong>General Settings</strong> and any <strong>Sign-On Options</strong> for the Dropbox for Business app.</p>
 
@@ -97,7 +108,7 @@ try{Typekit.load();}catch(e){}
 <p>Click <strong>Next</strong> to take you back to the <strong>Provisioning</strong> tab.</p>
 
 <hr>
-<h2>Configuration Steps</h2>
+<a name="configuration"></a><h2>Configuration Steps</h2>
 
 
 <p>Configure your <strong>Provisioning</strong> settings for Dropbox for Business as follows:</p>
@@ -132,10 +143,16 @@ try{Typekit.load();}catch(e){}
 </ol>
 <hr>
 
-<h2>Troubleshooting Tips</h2>
+<a name="tips"</a><h2>Troubleshooting Tips</h2>
+
+
+
 
 <ul>
-<li><p>If <strong>Silent Provisioning</strong> is enabled, new users must go to <a href="https://www.dropbox.com/sso" target="_blank">https://www.dropbox.com/sso</a> in order to get their accounts activated.</p></li>
+<li><p>If <strong>Silent Provisioning</strong> is enabled, new users must go to the following URL to get their accounts activated:</p>
+<p><a href="https://www.dropbox.com/sso" target="_blank">https://www.dropbox.com/sso</a> </p>
+</li>
+
 <li><p>Users with a status of <strong>Invited</strong> cannot be updated with a new email address in their profile.</p></li>
 <li><p><strong>Group Push</strong> will not update a Dropbox group if users whose status is <strong>Invited</strong> were added to the group.</p></li>
 <li><p>Users without <strong>First Name</strong> or/and <strong>Last Name</strong> in their Dropbox profiles cannot be imported to Okta as new users.</p></li>
