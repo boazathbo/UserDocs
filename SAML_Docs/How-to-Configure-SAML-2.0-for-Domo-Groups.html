@@ -25,17 +25,7 @@ try{Typekit.load();}catch(e){}
 <div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
 <p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
 </div>
-<h2>Before you begin</h2>
-<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
-<h3><strong>Read this before you enable SAML</strong></h3>
-<p>The Domo application is pre-configured to pass the Groups as part of the SAML assertion. In order to be able to send Groups, your Okta organization needs to have the following feature flag turned on:</p><br />
-<li><p>SAML_GROUP_ATTRIBUTE</p></li>
-<br />
-<p>Once this feature flag is turned on, make sure that the Group option is available for the application (<strong>Sign On</strong> tab):</p>
-<p><img src="images/apps/domogroups1.png" alt=“domogroups1.png" /></p>
 
-
-</div>
 <ol>
 <li><p>Log in to Domo as an administrator.</p></li>
 <li><p>Navigate to <strong>Settings > Admin > Security > Single Sign-on</strong>.</p></li>
