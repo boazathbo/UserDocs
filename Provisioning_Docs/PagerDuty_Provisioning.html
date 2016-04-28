@@ -35,8 +35,11 @@ try{Typekit.load();}catch(e){}
 
 <ul>
 <li><a href="#features">Features</a></li>
+<li><a href="#requirements">Requirements</a></li>
+
 <li><a href="#configuration">Configuration Steps</a></li>
-<li><a href="#tips">Troubleshooting Tips</a></li>
+<li><a href="#users">User Assignment</a></li>
+<li><a href="#schema">Schema Discovery</a></li>
 
 </ul>
 <hr>
@@ -47,11 +50,89 @@ try{Typekit.load();}catch(e){}
 
 <a name="features"></a><h2>Features</h2>
 
+<ul>
+<li><p><strong>Push New Users</strong></p>
+<p>New users created through OKTA will also be created in the third party application.</p>
+</li>
+
+<li><p><strong>Push User Deactivation</strong></p>
+<p>Deactivating the user or disabling the user's access to the application through OKTA will deactivate the user in the third party application.</p>
+</li>
+
+
+<li><p><strong>Push Profile Updates</strong></p>
+<p>Updates made to the user's profile through OKTA will be pushed to the third party application.</p>
+</li>
+
+
+<li><p><strong>Import New Users</strong></p>
+<p>New users created in the third party application will be downloaded and turned in to new AppUser objects, for matching against existing OKTA users.</p>
+</li>
+
+</ul>
+<hr>
+<a name="requirements"></a><h2>Requirements</h2>
+<p>You need to complete the following before you can configure provisioning for PagerDuty:</p>
+
+<p>Generate a new API key from PagerDuty:</p>
+<ol>
+<li><p>Login to your PagerDuty account as an Administrator.</p></li>
+<li><p>Select <strong>API Access</strong> from the <strong>Configuration</strong> menu:</p></li>
+<p><img style="border: 0; padding: 0;" src="images/apps/pagerduty1.png" alt=“pagerduty1.png” /></p>
+<li><p>Click the <strong>Create Key</strong> button:</p></li>
+
+<p><img style="border: 0; padding: 0;" src="images/apps/pagerduty2.png" alt=“pagerduty2.png” /></p>
+
+</ol>
+
+
 <hr>
 <a name="configuration"></a><h2>Configuration Steps</h2>
 
+<p>Configure your <strong>Provisioning</strong> settings for PagerDuty as follows:</p>
+
+<ol>
+<li><p>Check the <strong>Enable provisioning features</strong> box.</p></li>
+<li><p>Enter your PagerDuty <strong>API Credentials</strong>:</p>
+<ul>
+<li><p><strong>API Key</strong>: Enter an administrator password.</p></li>
+<li><p><strong>Admin Username</strong>: Enter an admin username with admin or owner permissions.</p></li>
+<p><img style="border: 0; padding: 0;" src="images/apps/pagerduty3.png" alt=“pagerduty3.png” /></p>
+</ul>
+</li>
+<li><p>Scroll down and enable the <strong>Provisioning Features</strong> you want to use for this app:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/pagerduty4.png" alt=“pagerduty4.png” /></p>
+</li>
+
+<li><p>Click <strong>Save</strong>.</p></li>
+<li><p>You can now assign people to the app, if needed (see below).</p></li>
+
+</ol>
+
 <hr>
-<a name="tips"></a><h2>Troubleshooting Tips</h2>
+<a name="users"></a><h2>User Assignment</h2>
+<p>To assign users to the PagerDuty app:</p>
+
+<ol>
+<li>In Okta, select the <strong>People</strong> tab for the PagerDuty app.</p></li>
+<li>Click the <strong>Assign to People</strong> button:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/pagerduty5.png" alt=“pagerduty5.png” /></p>
+</li>
+
+<li>In the <strong>Assign PagerDuty to People</strong> dialog, select a user, then click the <strong>Assign</strong> button:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/pagerduty6.png" alt=“pagerduty6.png” /></p>
+</li>
+
+<li>You can also set the <strong>User Role</strong> for the PagerDuty user:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/pagerduty7.png" alt=“pagerduty7.png” /></p>
+</li>
+
+
+
+
+<hr>
+<a name="schema"></a><h2>Schema Discovery</h2>
+<p>PagerDuty does not support User's Schema Discovery.</p>
 
 
 </div>
