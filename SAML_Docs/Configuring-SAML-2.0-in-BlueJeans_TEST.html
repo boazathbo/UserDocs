@@ -98,6 +98,15 @@ try{Typekit.load();}catch(e){}
 </script>
 
 
+<script type="text/javascript">
+  function updateValues() {
+    $('#signOutUrlGorilla').html(window.dataSAML["signOutUrl"] + '/login/signout');
+  }
+
+  $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', updateValues);
+  });
+</script>
 
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -174,6 +183,10 @@ try{Typekit.load();}catch(e){}
   <p>Download the following <strong>Certificate PEM format. </strong> </p>
   <kbd id="downloadCertificatePem">Sign in to the Okta Admin app to generate this variable.</kbd></li>
 
+<li>
+<p>Copy the following <strong>signOutUrlGorilla</strong> field.</p>
+<kbd id="signOutUrlGorilla"> Sign into the Okta Admin dashboard to generate this value.</kbd>
+</li>
 
 
  <li><p>Copy and paste the following IDP Metadata for Cisco Spark, then save it as an <em>xml</em> file.</p>
