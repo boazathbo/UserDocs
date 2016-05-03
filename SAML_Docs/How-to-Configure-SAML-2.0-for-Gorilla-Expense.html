@@ -11,6 +11,17 @@ try{Typekit.load();}catch(e){}
 
 <script src="resources/scripts/getAppValues.js"></script>
 
+<script type="text/javascript">
+  function updateValues() {
+    $('#signOutUrlGorilla').html(window.dataSAML["signOutUrl"] + '/login/signout');
+  }
+
+  $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', updateValues);
+  });
+</script>
+
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
@@ -37,7 +48,7 @@ try{Typekit.load();}catch(e){}
 
 
 <li><p><strong>IDP SSO Logout URL</strong>: Enter the following:</p>
-<pre>[yourOktaHost]/login/signout</pre></li>
+<kbd id="signOutUrlGorilla">Sign into the Okta Admin Dashboard to generate this variable.</kbd></li>
 
 
 <li><p><strong>X.509 Certificate</strong>: Copy and paste the following (PEM Text Format):</p>
