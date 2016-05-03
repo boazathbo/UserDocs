@@ -30,9 +30,20 @@ try{Typekit.load();}catch(e){}
 
 <h1>Configuring Provisioning for Salesforce Customer Portal</h1>
 
-<p>This guide provides the steps required to configure Provisioning for Salesforce Customer Portal.</p>
+<p>This guide provides the steps required to configure Provisioning for Salesforce Customer Portal, and includes the following sections:</p>
 
-<h2>Features</h2>
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#configuration">Configuration Steps</a></li>
+<li><a href="#users">User Assignment</a></li>
+<li><a href="#licenses">Feature Licenses and Public Groups Support</a></li>
+<li><a href="#trouble">Troubleshooting Tips</a></li>
+</ul>
+<hr>
+
+
+<a name="features"></a><h2>Features</h2>
 <ul>
 <li><p><strong>Import New Users</strong></p></li>
 <li><p><strong>Import Profile Updates</strong></p></li>
@@ -46,29 +57,61 @@ try{Typekit.load();}catch(e){}
 </ul>
 <hr>
 
-<h2>Requirements</h2>
+<a name="requirements"></a><h2>Requirements</h2>
 <p>Complete the following before you configure provisioning for Salesforce Customer Portal:</p>
 
 <ul>
 <li><p>Create an administrator account in Salesforce. You will use this account’s username and password to configure the Salesforce Customer Portal app in Okta. When you create an administrator account, Salesforce will provide you a <strong>token</strong>.</p>
 
 <p><strong>Note</strong>: Every time you reset this account’s password, Salesforce will provide you with a new token, and you need to edit the Salesforce app’s <strong>Provisioning</strong> settings in Okta using the new password/token as described below. See <a href="#TIPS">TIPS</a>.</p></li>
+
+<li><p>Determine your Salesforce <strong>Organization ID</strong>:</p>
+<ul>
+<li><p>Login into your Salesforce account as an administrator.</p></li> 
+<li><p>Click on your name in the top right and select <strong>Setup</strong> from the dropdown menu.</p></li> 
+<li><p>Select <strong>Company Profile > Company Information</strong> in the left sidebar. </p>
+<p>Your <strong>Organization ID</strong> will be displayed in a field on this screen.</p>
+</li>
 </ul>
+
+</li>
+
+<li><p>Determine the Salesforce <strong>Portal ID</strong> of the Salesforce portal you would like to connect to Okta:</p> 
+
+<ul>
+<li><p>Login into your Salesforce account as an administrator.</p></li> 
+<li><p>Click on your name in the top right and select <strong>Setup</strong> from the dropdown menu.</p></li> 
+<li><p>Select <strong>Customize > Customer Portal > Customer Portal Settings</strong> in the left sidebar. </p></li>
+<li><p>Select the portal you are connecting to Okta from the list.</p>
+<p>The <strong>Portal ID</strong> will be displayed in a field on this screen.</p></li>
+
+</li>
+</ul>
+
+<li><p>Determine the Salesforce <strong>Account ID</strong> under which newly created contacts will be placed when provisioned from Okta:</p>
+
+<ul>
+<li><p>Navigate to the specific account you would like to use.</p>
+<p>The <strong>Account ID</strong> will be visible in the URL bar at the top of your browser as the path parameter.</p></li>
+
+</ul>
+
+
 <hr>
 
 
-<h2>Configuration Steps</h2>
+<a name="configuration"></a><h2>Configuration Steps</h2>
 
 <p>You are now ready to configure your <strong>Provisioning</strong> settings as follows:</p>
 
 <ol>
-<li><p>In the API Credentials section, enter the <strong>Username</strong>, <strong>Password</strong> and <strong>Token</strong> associated with your Salesforce Administrator account.</p>
+<li><p>In the API Credentials section, enter the <strong>Username</strong>, <strong>Password</strong> and <strong>Token</strong> associated with your Salesforce Administrator account. Also enter the <strong>Account ID</strong> you would like newly provisioned contacts to be associated with.</p>
 
 
 <p><strong>Note</strong>: Simply append the token Salesforce provided to you to your password, no spaces or other characters.</p></li>
 
 <div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
-<a name="TIPS"></a><h3><strong>TIPS</strong></h3>
+<a name="tips"></a><h3><strong>TIPS</strong></h3>
 <ul>
 <li><p>To avoid breaking the integration when the password is reset, use a dedicated API account for connecting Okta to Salesforce.</p></li>
 <li><p>Do not enable delegated authentication in Salesforce for the API user specified here.</p></li>
@@ -97,7 +140,7 @@ try{Typekit.load();}catch(e){}
 </ol>
 
 <hr>
-<h2>User Assignment</h2>
+<a name="users"></a><h2>User Assignment</h2>
 
 <p>To assign users to the Salesforce Customer Portal app:</p>
 <ol>
@@ -118,7 +161,7 @@ try{Typekit.load();}catch(e){}
 </li>
 </ol>
 <hr>
-<h2>Feature Licenses and Public Groups Support</h2>
+<a name="licenses"></a><h2>Feature Licenses and Public Groups Support</h2>
 
 <div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
 <h3><strong>Note</strong></h3>

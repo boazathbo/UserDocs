@@ -35,10 +35,9 @@ try{Typekit.load();}catch(e){}
 <p>Okta's JIRA Cloud integration supports the following JIRA version 7 products, whether you are using one, or a combination of these JIRA products:</p><br />
 <li><p>JIRA Core</p></li>
 <li><p>JIRA Software</p></li>
-<li><p>JIRA Service Desk</p></li><br />
+<li><p>JIRA Service Desk</p></li>
 
-<p>By default, the integration works with one configured user group only. In case you want to assign users to a full list of user groups - ensure the <strong>JIRA_USE_REST_FOR_GROUPS</strong> feature flag is enabled for your Okta org.</p> <br />
-<p>Note: <strong>JIRA_USE_REST_FOR_GROUPS</strong> is an <strong>Early Access</strong> feature; contact Okta Support to have it enabled for your Okta org.</p>
+
 </div>
 
 
@@ -84,14 +83,7 @@ try{Typekit.load();}catch(e){}
 
 <li><p>Click <strong>Next</strong> to complete provisioning setup.</p></li>
 
-<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
-<p>Depending on whether the <strong>JIRA_USE_REST_FOR_GROUPS</strong> feature flag is enabled, the groups list in the assignment dialog will contain different values:</p><br />
-<ul>
-<li><p>JIRA_USE_REST_FOR_GROUPS <strong>disabled</strong>: List contains jira-users group only. In case of JIRA version 7 you can ignore it since JIRA handles default assignment for you automatically.</p></li>
-<li><p>JIRA_USE_REST_FOR_GROUPS <strong>enabled</strong>: List contains all groups from your JIRA account and fully operable.</p></li>
-</ul>
 
-</div>
 </ol>
 <hr>
 
