@@ -8,7 +8,7 @@ try{Typekit.load();}catch(e){}
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="resources/scripts/vkbeautify.js"></script>
 
-<title>Dropbox Business Provisioning</title>
+<title>Dropbox for Business Provisioning</title>
 
 <script src="resources/scripts/getAppValues.js"></script>
 
@@ -27,29 +27,24 @@ try{Typekit.load();}catch(e){}
 </div>
 
 
-<h1>Configuring Provisioning for Dropbox Business</h1>
+<h1>Configuring Provisioning for Dropbox for Business</h1>
 
-<p>This guide provides the steps required to configure Provisioning for Dropbox Business, and includes the following sections:</p>
-
-
+<p>This guide provides the steps required to configure Provisioning for Dropbox for Business, and includes the following sections:</p>
 
 <ul>
 <li><a href="#features">Features</a></li>
-<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#requirements">Requirements</a></li>
 <li><a href="#configuration">Configuration Steps</a></li>
-<li><a href="#migration">Migration</a></li>
+
 <li><a href="#tips">Troubleshooting Tips</a></li>
-<hr>
 </ul>
+<hr>
+
+
+
 
 
 <a name="features"></a><h2>Features</h2>
-
-<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
-<strong>Invited User Administration</strong> is supported for the Dropbox application. This enables Okta to update user profiles for users who are in an <em>invited</em> state in Dropbox (including those who have not <em>accepted</em> invitations). Okta can also be able to add invited users to groups while they are in invited state.</p>
-
-</div>
-
 <p>The following provisioning features are supported:</p>
 
 <ul>
@@ -84,9 +79,9 @@ try{Typekit.load();}catch(e){}
 
 <hr>
 
-<a name="prerequisites"></a><h2>Prerequisites</h2>
+<a name="requirements"></a><h2>Requirements</h2>
 
-<p>Before you configure provisioning for Dropbox Business, make sure you have configured the <strong>General Settings</strong> and any <strong>Sign-On Options</strong> for the Dropbox Business app.</p>
+<p>Before you configure provisioning for Dropbox for Business, make sure you have configured the <strong>General Settings</strong> and any <strong>Sign-On Options</strong> for the Dropbox for Business app.</p>
 
 <p><strong>Note</strong>: Under <strong>Sign-On Options</strong> you can select the <strong>Silent Provisioning</strong>. If you select this, you are preventing Dropbox from sending welcome emails to new users being provisioned into Dropbox from Okta. This feature is mainly to be used with SAML authentication, as users will not receive an email with their Reset Password link.</p>
 <p>In order to use the Silent Provisioning feature you must:</p>
@@ -113,18 +108,17 @@ try{Typekit.load();}catch(e){}
 <p>Click <strong>Next</strong> to take you back to the <strong>Provisioning</strong> tab.</p>
 
 <hr>
-
 <a name="configuration"></a><h2>Configuration Steps</h2>
 
 
-<p>Configure your <strong>Provisioning</strong> settings for Dropbox Business as follows:</p>
+<p>Configure your <strong>Provisioning</strong> settings for Dropbox for Business as follows:</p>
 
 <ol>
 <li><p>Check the <strong>Enable provisioning features</strong> box.</p></li>
 <li><p>API Authentication:</p>
 
 <ul>
-<li><p>Click the <strong>Authenticate with Dropbox Business</strong> button:</p>
+<li><p>Click the <strong>Authenticate with Dropbox for Business</strong> button:</p>
 <p><img style="border: 0; padding: 0;" src="images/apps/dropbox2.png" alt=“dropbox2.png” /></p>
 </li>
 <li><p>You will be redirected to Dropbox page, which prompts you to enter your credentials:</p>
@@ -147,49 +141,22 @@ try{Typekit.load();}catch(e){}
 <li><p>You can now assign people to the app (if needed) and finish the application setup.</p>
 
 </ol>
-
-
-
-
-
-
-
-<hr>
-<a name="migration"></a><h2>Migration</h2>
-
-<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
-<p>The Dropbox Business App supports <strong>Invited User Administration</strong>. This means that invited users (including those who have not <em>accepted</em> invitations) can be updated and added to groups via Okta. This functionality was not supported in the old Dropbox Application.</p>
-
-</div>
-
-<p>If you are migrating from the old Dropbox application to the Dropbox Business Application in Okta, follow the recommended migration steps below:</p>
-
-<ol>
-<li><p>Disable provisioning for old DropBox (at a minimum, turn off user deactivation under the <strong>Provisioning</strong> tab).</p></li>
- <li><p>Configure new DropBox Business app instance and enable provisioning for the same new dropbox org,</p> <ul>
-<li><p>Select <strong>Advanced: Configure Import Matching Rules</strong>, then in the <strong>EXACT IMPORT MATCH</strong> section, select <strong>Auto-confirm match</strong>.</p>
-<p><img style="border: 0; padding: 0;" src="images/apps/dropbox_new1.png" alt=“dropbox_new1.png” /></p>
-
-</li>
-</ul>
-</li> 
-<li><p>Go to your new DropBox Business app and perform an <strong>import new user</strong>. All existing users will be auto-confirmed.</p></li>
-</ol>
-
 <hr>
 
-<a name="tips"></a><h2>Troubleshooting Tips</h2>
+<a name="tips"</a><h2>Troubleshooting Tips</h2>
+
+
 
 
 <ul>
-<li><p>If <strong>Silent Provisioning</strong> is enabled, new users must go to <a href="https://www.dropbox.com/sso" target="_blank">https://www.dropbox.com/sso</a> in order to get their accounts activated.</p></li>
+<li><p>If <strong>Silent Provisioning</strong> is enabled, new users must go to the following URL to get their accounts activated:</p>
+<p><a href="https://www.dropbox.com/sso" target="_blank">https://www.dropbox.com/sso</a> </p>
+</li>
 
-
-
+<li><p>Users with a status of <strong>Invited</strong> cannot be updated with a new email address in their profile.</p></li>
+<li><p><strong>Group Push</strong> will not update a Dropbox group if users whose status is <strong>Invited</strong> were added to the group.</p></li>
 <li><p>Users without <strong>First Name</strong> or/and <strong>Last Name</strong> in their Dropbox profiles cannot be imported to Okta as new users.</p></li>
 </ul>
-
-
 
 
 </div>
