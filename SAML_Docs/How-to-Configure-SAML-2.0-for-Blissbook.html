@@ -1,0 +1,71 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Blissbook</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+
+<ol>
+
+
+<li><p>Send an email to Blissbook Support and request that they enable SAML 2.0 for your account.</p></li>
+<li><p>Attach the following:</p>
+<ul>
+<li>
+<p>Copy the following&nbsp;<strong>Identity Provider Single Sign-on URL</strong>&nbsp;into the message.</em>.</p>
+<p><pre id="signOnUrl">Sign in to Okta Admin app to have this variable generated for you.</pre></p>
+</li>
+<li>
+<p>Copy the following&nbsp;<strong>Identity Provider Issuer</strong>&nbsp;into the message.</em>.</p>
+<p><pre id="issuer">Sign in to Okta Admin app to have this variable generated for you.</pre></p>
+</li>
+<li>
+<p>Copy the following&nbsp;<strong>IDP Metadata</strong>&nbsp;into a text file. Save it with the file name&nbsp;<em>metadata.xml</em> and attach that file to the message.&nbsp;</p>
+<p><pre id="idpMetadata">Sign in to Okta Admin app to have this variable generated for you.</pre></p>
+</li>
+
+</ul>
+</li>
+<li><p>Blissbook will process your request and will notify you when SAML is enabled. Once enabled, you can start assigning people to the app.</p></li>
+
+<li><p>Done!</p><p><b>Notes:</b></p>
+
+
+
+
+<p>IdP-initiated flows and SP-initiated flows are asupported. Just In Time (JIT) provisioning is not supported. </p>
+<p> For SP-initiated flows, do the following:
+	<ol>
+	<li>Open your base URL <strong><a style="text-decoration: none; color: black;" onclick="return false;">https://[yourSubDomain].blissbook.com/</a></strong>, where <em>[yourSubDomain]</em> is the name of your domain.</li>
+	<li> <p>Click the <strong>Sign In</strong> button, as shown below.</p>
+		 <p><img src="images/apps/Blissbook_1.png" alt=“Blissbook SP-initiated Sign In" /></p>
+	</li>
+    </ol>
+</p>
+
+</li>
+
+</div>
+</body>
+</html>
