@@ -1,0 +1,71 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body> 
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for SenderGen</h1>
+
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
+</div>
+
+
+
+<ol>
+<li><p>Contact the SenderGen support team and request that they enable SAML 2.0 for your account.</p></li>
+
+<li><p>Include the following:</p>
+<ul>
+<li><p><strong>SAML SSO URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p><strong>Identity Provider Issuer ID</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p><strong>x.509 Certificate</strong>: Copy and paste the following (PEM Text Format):</p>
+<pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre>
+</li>
+</ul>
+</li>
+
+<li><p>The Kanjoya support team will process your request. After receiving a confirmation email, you can start assigning people to the application. </p></li>
+
+
+<li><p>Done!</p>
+</ol>
+<br />
+
+<p><b>Notes:</b></p>
+<p>SP-initiated flows and IdP-initiated flows are supported. </p>
+<p>Just In Time (JIT) provisioning is not supported.</p>
+
+<hr>
+
+<H3>For SP-initiated Flows</H3>
+<ol>
+<li><p>Go to <a href="https://login.sendergen.com/auth/saml " target="_blank">https://login.sendergen.com/auth/saml</a>.</p></li>
+<li>Enter your email address.</li>
+<li>Click <strong>Sign in</strong>.</li>
+</ol>
+
+
+</div>
+</body>
+</html>
