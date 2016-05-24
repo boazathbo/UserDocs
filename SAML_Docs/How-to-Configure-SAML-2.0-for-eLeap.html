@@ -20,7 +20,7 @@ try{Typekit.load();}catch(e){}
         </div>
     </div>
 <div class="okta-instructions">
-<h1>How to Configure SAML 2.0 for eLeap</h1>
+<h1>How to Configure SAML 2.0 for eLeaP</h1>
 <div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
 <p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
 </div>
@@ -31,48 +31,51 @@ try{Typekit.load();}catch(e){}
 
 <ol>
 <li>
-<p>Send an email to to the eLeap Support team requesting that they enable SAML 2.0 for your account.</p></li>
+<p>Send an email to to the eLeaP Support team at <a href="mailto:support@eleapsoftware.com" target="_blank">support@eleapsoftware.com</a> including a request to approve/activate your Okta SSO instance.</p></li>
 
 
-<li><p>Copy and save the following as <strong>metadata.xml</strong>, and include it with your email.</p>
-<p><pre id="idpMetadata">Sign in to the Okta Admin app to have this variable generated for you.</pre></p>
+<li><p>Copy the following metadata URL and include it with your email:</p>
+<p>
+<kbd id="metadataUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd>
+
+</p>
 </li>
 
-<li>
-<p>Ask eLeap to provide you with the <strong>Default Relay State</strong>.</p>
-</li>
 
 
 <li>
-<p>In Okta, select the <strong>Sign On</strong> tab for the eLeap app, then click <strong>Edit</strong>.</p>
+<p>In Okta, select the <strong>Sign On</strong> tab for the eLeaP app, then click <strong>Edit</strong>.</p>
 <ul>
 <li>
-<p>Enter the value eLeap provided into the <strong>Default Relay State</strong> field.</p>
+<p>Enter the following value into the <strong>Default Relay State</strong> field: <strong>https://2leap.com/sso/index.php?saml_sso=[yoursubdomain]</strong></p>
+<p>For example, if you log into <strong>https://acme.2leap.com</strong>, yoursubdomain is: <strong>acme</strong>.</p>
+<p>If you are unsure of what your <strong>Default Relay State</strong> value is, contact eLeaP at <a href="mailto:support@eleapsoftware.com" target="_blank">support@eleapsoftware.com</a>.</p>
 </li>
-<p>Click <strong>Save</strong>.</p>
+<li><p>Click <strong>Save</strong>.</p>
 </li>
+<p><img style="border: 0; padding: 0;" src="images/apps/eleapnew1.png" alt=“eleapnew1.png" /></p>
 </ul>
-<p><img style="border: 0; padding: 0;" src="images/apps/eleap1.png" alt=“eleap1.png" /></p>
+
 </li>
 
 
 
 <li>
-<p>Still in Okta, select the <strong>General</strong> tab for the eLeap app, then click <strong>Edit</strong>.</p>
+<p>Still in Okta, select the <strong>General</strong> tab for the eLeaP app, then click <strong>Edit</strong>.</p>
 <ul>
 <li>
-<p>Enter your <strong>subDomain</strong>.</p>
+<p>Make sure your <strong>Subdomain</strong> and <strong>Company Name</strong> values are entered correctly.</p>
 </li>
-<p>Click <strong>Save</strong>.</p>
+<li><p>Click <strong>Save</strong>.</p>
 </li>
+<p><img style="border: 0; padding: 0;" src="images/apps/eleapnew2.png" alt=“ileapnew2.png" /></p>
 </ul>
-<p><img style="border: 0; padding: 0;" src="images/apps/ileap2.png" alt=“ileap2.png" /></p>
 
 </li>
 
 
 <li>
-<p>eLeap will notify you when SAML has been enabled.</strong>.</p>
+<p>eLeaP will notify you when SAML has been enabled.</strong>.</p>
 </li>
 
 
