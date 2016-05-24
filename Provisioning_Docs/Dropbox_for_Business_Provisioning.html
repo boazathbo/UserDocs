@@ -24,7 +24,13 @@ try{Typekit.load();}catch(e){}
 
 <div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
 <p>To reconfigure any of the <strong>General Settings</strong> or <strong>Sign-On Options</strong>, uncheck the <strong>Enable provisioning features</strong> box, and use the <strong>Previous</strong> and <strong>Next</strong> buttons to navigate through the configuration screens.</p>
+<p>&nbsp;</p>
+<p><strong>Important:</strong> Clicking the pencil icon to edit an application User Name in the Dropbox app (Applications > People or Directories >  myuser  > Applications) deletes the user account in Dropbox and creates a new record for the user. 
+To avoid this, do not directly change the application User Name when you want to update the user's email address in Dropbox. Instead, apply the change to the attribute in the Okta user profile which is mapped to the Dropbox App username.<p>
 </div>
+
+
+
 
 
 <h1>Configuring Provisioning for Dropbox for Business</h1>
