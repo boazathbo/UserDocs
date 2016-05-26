@@ -1,0 +1,54 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Feedly</h1>
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
+</div>
+<div class="instructions clearfix">
+<div class="instructions-text"><ol class="bullets">
+<li>
+<p>Send an email to Feedly and request that they enable SAML 2.0 for your account.</p>
+</li>
+<li>
+<p>Copy the following <strong>Metadata</strong> into the email message.</p>
+<p><kbd id="idpMetadata">Sign into the Okta Admin dashboard to generate this value. </kbd></p>
+</li>
+<li><p>Done!</p>
+<p><strong>Note: </strong> Feedly supports SP-iniated flows,  IdP-initiated flows, and Just In Time (JIT) provisioning.</p>
+<p>To test an SP-initiated flow, use the following procedure.</p>
+<ol>
+<li>Navigate to <a href="https://feedly.com" target="_blank">https://feedly.com</a>.</li>
+<li>Click the <strong>Login</strong> button on the upper right of the screen.</li>
+<li>Click the <strong>Enterprise Login</strong> button on the buttom right of the screen.</li>
+<li><p>Enter an email adress and click <strong>Continue</strong>, as shown below.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/Feedly_1.png" alt="SP-initiated Log In" /></p>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</body>
+</html>
