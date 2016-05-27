@@ -1,0 +1,106 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){} 
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript">
+  function generateCitrixSsoUrl() {
+    var m = window.dataSAML["signOnUrl"];
+    var n = m.replace("/sso/saml","/slo/saml");
+    $('#citrixSsoUrl').text(n);    
+
+   }
+   
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', generateCitrixSsoUrl);
+  });
+</script>
+
+
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for ADP</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+<li><p>Contact the ADP Support team and request that they enable SAML 2.0 for your account.</p></li>
+<li><p>Include the following:</p>
+<ul>
+<li><p><strong>IDP Issuer</strong>: Copy and paste the following:</p>
+<kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd>
+</li>
+<li><p><strong>x.509 Certificate</strong>: Download, then upload the following in <em>.cert</em> format:</p>
+<kbd id="downloadCertificate">Sign into the Okta Admin Dashboard to generate this variable.</kbd>
+</li>
+</ul>
+</li>
+
+<li><p>The ADP Support team will process your request. After receiving a confirmation email, you can start assigning people to the application.</p></li>
+
+<li><p>Once you have assigned the desired users the ADP application, you need to do the following:</p>
+
+<ol>
+<li><p>In Okta, from the Admin dashboard, navigate to <strong>Directory > Profile Editor</strong>:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/adp1.png" alt=“adp1.png" /></p>
+
+</li>
+
+<li><p>Search for your ADP application, then click the <strong>Profile</strong> edit button:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/adp2.png" alt=“adp2.png" /></p>
+
+</li>
+
+<li><p>Click <strong>Add Attribute</strong>:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/adp3.png" alt=“adp3.png" /></p>
+</li>
+
+<li><p>Set the <strong>Display name</strong> and <strong>Variable name</strong> to <strong>personId</strong>. (This is the person Id required for ADP to process the SAML response). Click <strong>Add attribute</strong>:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/adp4.png" alt=“adp4.png" /></p>
+</li>
+
+<li><p>Once you have added the attribute, click <strong>Map Attributes</strong>:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/adp5.png" alt=“adp5.png" /></p>
+</li>
+
+<li><p>In the <strong>Okta to ADP</strong> section, save the mapping that is specific to your tenant with ADP:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/adp6.png" alt=“adp6.png" /></p>
+
+</li>
+
+
+
+
+</ol>
+</li>
+
+
+
+
+<li><p>Done!</p>
+</ol>
+<br />
+<p><b>Notes:</b></p>
+<p>IdP-initiated flows are supported.</p>
+<p>SP-initiated flows and Just In Time (JIT) provisioning are not supported.</p>
+
+</div>
+</body>
+</html>
