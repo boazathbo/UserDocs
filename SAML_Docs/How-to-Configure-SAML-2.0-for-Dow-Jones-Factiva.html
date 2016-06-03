@@ -1,0 +1,84 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){} 
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript">
+  function generateCitrixSsoUrl() {
+    var m = window.dataSAML["signOnUrl"];
+    var n = m.replace("/sso/saml","/slo/saml");
+    $('#citrixSsoUrl').text(n);    
+
+   }
+   
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', generateCitrixSsoUrl);
+  });
+</script>
+
+
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Dow Jones Factiva</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+<li><p>Contact your Dow Jones Factiva relationship manager and request that they enable SAML 2.0 for your account. If you do not have contact details for a relationship manager, contact <a href="mailto:service@dowjones.com" target="_blank">service@dowjones.com</a>.</p></li>
+
+
+<li><p>Save the following as <strong>metadata.xml</strong>, and include it with your request.</p>
+<pre id="idpMetadata">Sign in to Okta Admin app to have this variable generated for you.</pre>
+</li>
+
+<li><p>Dow Jones Factiva will notify you when SAML is enabled and will provide you with an <strong>Account ID</strong>.</p>
+</li>
+
+
+
+<li><p>In Okta, select the <strong>General</strong> tab for the Dow Jones Factiva app, then click <strong>Edit</strong>:</p>
+<ul>
+
+
+
+<li><p>Enter the <strong>Account ID</strong> provided by Dow Jones Factiva.</p></li>
+
+<li><p>Click <strong>Save</strong>.</p></li>
+
+</ul>
+
+</li>
+
+
+</ul>
+</li>
+
+<li><p>Done!</p>
+</ol>
+<br />
+<p><b>Notes:</b></p>
+<ul>
+<li><p>SP-initiated flows, IDP-initiated flows, and Just In Time (JIT) provisioning are all supported.</p></li>
+<li><p>To test SP-initiated flows, use <strong>https://sso.dowjones.com/sp/startSSO.ping?PartnerIdpId=http://www.okta.com/[org.externalKey]</strong>.</p></li>
+
+
+</div>
+</body>
+</html>
