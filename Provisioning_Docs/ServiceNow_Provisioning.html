@@ -36,7 +36,21 @@ try{Typekit.load();}catch(e){}
 <p>This guide is for ServiceNow - Eureka and later releases.</p>
 </div>
 
-<h2>Features</h2>
+
+<p>This guide provides the steps required to configure Provisioning for ServiceNow and includes the following sections:</p>
+
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#requirements">Requirements</a></li>
+
+<li><a href="#configuration">Configuration Steps</a></li>
+<li><a href="#tips">Troubleshooting Tips</a></li>
+<li><a href="#ad">Active Directory Mapping Notes</a></li>
+
+</ul>
+<hr>
+
+<a name="features"></a><h2>Features</h2>
 <p>The following provisioning features are supported:</p>
 
 <ul>
@@ -82,7 +96,7 @@ try{Typekit.load();}catch(e){}
 
 <hr>
 
-<h2>Prerequisites</h2>
+<a name="requirements"></a><h2>Requirements</h2>
 
 <p>Before you configure provisioning for ServiceNow, make sure you have configured your complete <strong>Login URL</strong> name under the <strong>General Settings</strong> tab:</p>
 <p><img style="border: 0; padding: 0;" src="images/apps/servicenow1.png" alt=“servicenow1.png” /></p>
@@ -90,7 +104,7 @@ try{Typekit.load();}catch(e){}
 <p>Configure your <strong>Sign-On Options</strong> on the next tab, then click <strong>Next</strong> to take you back to the <strong>Provisioning</strong> tab</p>
 <hr>
 
-<h2>Configuration Steps</h2>
+<a name="configuration"></a><h2>Configuration Steps</h2>
 
 
 <p>Configure your <strong>Provisioning</strong> settings for ServiceNow as follows:</p>
@@ -135,6 +149,56 @@ try{Typekit.load();}catch(e){}
 
 <H3><p>How do I disable mapping for specific fields?</h3>
 <p>You can turn off synchronization for the specific field by leaving corresponding Service Now column name value as empty.</p>
+
+<hr>
+<a name="ad"></a><h2>Active Directory Mapping Notes</h2>
+
+<p>There is predefined AD mapping for certain fields that is not modifiable and used only in case AD is configured as the source.</p>
+
+<ul>
+<li><p><strong>AD.managerDn > ServiceNow.manager</strong></p></li>
+<li><p><strong>AD.deliveryOffice > ServiceNow.location</strong></p></li>
+<li><p><strong>AD.department > ServiceNow.department</strong></p></li>
+<li><p><strong>AD.telephoneNumber > ServiceNow.businessPhone</strong></p></li>
+<li><p><strong>AD.departmentNumber > ServiceNow.costCenter</strong></p></li>
+<li><p><strong>AD.title > ServiceNow.title</strong></p></li>
+</ul>
+<p>Also note that fields with predefined list of values (such as <strong>Location</strong>, <strong>Department</strong>, etc.) should be synchronized between AD and ServiceNow.</p>
+
+<p>For example:</p>
+
+<table class="gridtable">
+
+<tr>
+
+<th>AD Department</th>
+<th>ServiceNow Department</th>
+<th>Comment</th>
+</tr>
+
+<tr>
+<td align="left">Development</td>
+<td align="left"> Development </td>
+<td align="left">OK</td>
+</tr>
+<tr>
+<td align="left">HR</td>
+<td align="left">HR</td>
+<td align="left">OK</td>
+
+</tr>
+
+<tr>
+<td align="left">Finance</td>
+<td align="left"></td>
+<td align="left"><em><strong>Finance</strong></em> should be added into <em><strong>Department</strong></em> list in ServiceNow.</td>
+
+</tr>
+
+</table>
+
+<p>In case <em><strong>Finance</strong></em> department is not listed in ServiceNow and it was set in AD for a certain user, the <em><strong>Department</strong></em> field value for this user will have old value (that is, not <em><strong>Finance</strong></em>) in ServiceNow.</p>
+
 
 </div>
 </body>
