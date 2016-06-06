@@ -1,0 +1,94 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){} 
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript">
+  function generateCitrixSsoUrl() {
+    var m = window.dataSAML["signOnUrl"];
+    var n = m.replace("/sso/saml","/slo/saml");
+    $('#citrixSsoUrl').text(n);    
+
+   }
+   
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', generateCitrixSsoUrl);
+  });
+</script>
+
+
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for XaitPorter</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+<li><p>Notify XaitPorter that you would like to start using Single Sign-On functionality. XaitPorter will notify you when can start your setup and testing. Once notified, follow the instructions below:</p></li>
+
+
+<li><p>Login to XaitPorter as an administrator.</p></li>
+
+<li><p>Navigate to <strong>Admin > System Setup > Manage Single Sign-On</strong>.</p></li>
+
+<li><p>On the <strong>Manage Single Sign-On</strong> page:</p>
+<ul>
+<li><p>Check the <strong>Enable Single Sign-On Authentication</strong> box.</p></li>
+<li><p><strong>Metadata URL</strong>: Copy and paste the following:</p>
+<p><kbd id="metadataUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd></p>
+</li>
+
+<li><p>Click <strong>Fetch</strong>.</p></li>
+<li><p>Optional: Under <strong>Autocreation Settings</strong> check the <strong>Enable Autocreation of Users</strong> box and set the <strong>License Pool for Autocreated Users</strong>.</p></li>
+<li><p>Click <strong>Save</strong>.</p>
+
+</ul>
+<p><img border="1" src="images/apps/xaitporter1.png" alt=“xaitporter1.png" /></p>
+
+</li>
+
+
+
+<li><p>Done!</p>
+</ol>
+<br />
+<p><b>Notes:</b></p>
+<p>SP-initiated flows and Just In Time (JIT) provisioning are supported.</p>
+<p>IDP-initiated flows are not supported.</p>
+<br />
+<H3>For SP-initiated flows</H3>
+<br />
+<p><strong>FLOW A</strong></p>
+<ul>
+<li><p>Open your XaitPorter Base url: <strong>https://[yourSubdomain].xaitporter.com/</strong>.</p></li>
+</ul>
+
+
+<p><strong>FLOW B</strong></p>
+<br />
+<ol>
+<li><p>Open the Login URL for the local accounts: <strong>https://[yourSubdomain].xaitporter.com/session/login</strong>.</p></li>
+<li><p>Click the <strong>Access XaitPorter via Single Sign-On</strong> link.</p></li>
+<p><img border="1" src="images/apps/xaitporter2.png" alt=“xaitporter2.png" /></p>
+</ol>
+
+</div>
+</body>
+</html>
