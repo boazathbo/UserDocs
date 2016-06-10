@@ -48,7 +48,7 @@ try{Typekit.load();}catch(e){}
 <pre id="idpMetadata">Sign in to Okta Admin app to have this variable generated for you.</pre>
 </li>
 
-<li><p>Dow Jones Factiva will notify you when SAML is enabled and will provide you with an <strong>Account ID</strong>.</p>
+<li><p>Dow Jones Factiva will notify you when SAML is enabled and will provide you with an <strong>Account ID</strong>, <strong>Company name</strong>, and <strong>Product ID</strong>.</p>
 </li>
 
 
@@ -58,7 +58,7 @@ try{Typekit.load();}catch(e){}
 
 
 
-<li><p>Enter the <strong>Account ID</strong> provided by Dow Jones Factiva.</p></li>
+<li><p>Enter the <strong>Account ID</strong>, <strong>Company name</strong>, and <strong>Product ID</strong> provided by Dow Jones Factiva.</p></li>
 
 <li><p>Click <strong>Save</strong>.</p></li>
 
@@ -76,7 +76,11 @@ try{Typekit.load();}catch(e){}
 <p><b>Notes:</b></p>
 <ul>
 <li><p>SP-initiated flows, IDP-initiated flows, and Just In Time (JIT) provisioning are all supported.</p></li>
-<li><p>To test SP-initiated flows, use <strong>https://sso.dowjones.com/sp/startSSO.ping?PartnerIdpId=http://www.okta.com/[org.externalKey]</strong>.</p></li>
+<li><p>For SP-initiated flows, use <strong>https://sso.dowjones.com/sp/startSSO.ping?PartnerIdpId=<font color="Blue">http://www.okta.com/[org.externalKey]</font></strong>.</p>
+<p>In the above URL, replace <font color="Blue">http://www.okta.com/[org.externalKey]</font> with this value:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+
+</li>
 
 
 </div>

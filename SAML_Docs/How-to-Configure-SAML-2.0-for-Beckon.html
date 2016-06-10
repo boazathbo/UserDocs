@@ -1,0 +1,72 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){} 
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript">
+  function generateCitrixSsoUrl() {
+    var m = window.dataSAML["signOnUrl"];
+    var n = m.replace("/sso/saml","/slo/saml");
+    $('#citrixSsoUrl').text(n);    
+
+   }
+    
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', generateCitrixSsoUrl);
+  });
+</script>
+
+
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Beckon</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+
+<li><p>Contact the Beckon Support team and request that they enable SAML 2.0 for your account.</p></li>
+
+
+<li><p>Include the following <strong>Metadata URL</strong>:</p>
+<p><kbd id="metadataUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd>
+</p>
+</li>
+
+
+<li><p>The Beckon Support team will process your request. After receiving a confirmation email, you can start assigning people to the application.</p></li>
+
+<li><p>Done!</p> 
+</ol>
+
+
+<br />
+<p><b>Notes:</b></p>
+<p>SP-initiated flows and IDP-initiated flows are supported.</p>
+<p>Just In Time (JIT) provisioning is not supported.</p>
+<br />
+<H3>For SP-initiated flows</H3>
+
+
+<p>Open the following URL: <strong>https://app.beckon.com/login/saml/[yourCustomerId]</strong>.</p>
+
+</div>
+</body>
+</html>
