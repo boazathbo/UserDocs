@@ -1,0 +1,292 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Birst</h1>
+
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
+</div>
+<h2>Before you begin</h2>
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+<h3><strong>Read this before you enable SAML</strong></h3>
+<p>The Birst application is pre-configured to pass the custom attributes as part of the SAML assertion. Make sure that the custom attributes are populated in the Okta User Base Profile, and also have the correct attribute mappings set with AD/LDAP (if needed). If this value is empty, Okta will pass null values to Birst.</p></li>
+
+<p>Follow these instructions to add a custom attribute:</p>
+
+<ol>
+<li><p>In Okta, navigate to <strong>Admin > Directory > Profile Editor</strong>.</p></li>
+<li><p>Select the <strong>Okta</strong> filter in the left side navigational pane.</p></li>
+<li><p>Click the edit <strong>Profile</strong> button.</p>
+
+
+<p><img src="images/apps/birst1.png" alt=“birst1.png" /></p>
+</li>
+
+<li><p>Click <strong>Add Attribute</strong>.</p>
+
+<p><img src="images/apps/birst2.png" alt=“birst2.png" /></p>
+</li>
+
+<li><p>Enter an attribute value for the <strong>Display name</strong> and <strong>Variable name</strong> fields.</p></li>
+
+<li><p>If needed, enter a <strong>Data Type</strong>.</p></li>
+
+<li><p>Click <strong>Add Attribute</strong>.</p>
+<p><img src="images/apps/birst3.png" alt=“birst3.png" /></p>
+</li>
+</ol>
+<br />
+
+<p>The following Birst attributes are supported:</p>
+
+
+<table class="gridtable">
+
+<tr>
+
+<th><strong>Birst Attribute Name</strong></th>
+<th><strong>Okta Attribute Variable Name</strong></th>
+</tr>
+
+<tr>
+<td align="left">birst.embedded</td>
+<td align="left"><p>birst_embedded</p>
+</td>
+</tr>
+
+<tr>
+<td align="left">birst.module</td>
+<td align="left"><p>birst_module</p>
+</td>
+</tr>
+
+<tr>
+<td align="left">birst.spaceId</td>
+<td align="left"><p>birst_spaceId</p>
+</td>
+</tr>
+
+<tr>
+<td align="left">birst.dashboard</td>
+<td align="left"><p>birst_dashboard</p>
+</td>
+</tr>
+<tr>
+<td align="left">birst.page</td>
+<td align="left"><p>birst_page</p>
+</td>
+</tr>
+<tr>
+<td align="left">birst.filters</td>
+<td align="left"><p>birst_filters</p>
+</td>
+</tr>
+<tr>
+<td align="left">birst.hideDashboardNavigation</td>
+<td align="left"><p>birst_hideDashboardNavigation</p>
+</td>
+</tr>
+
+<tr>
+<td align="left">birst.hideHeader</td>
+<td align="left"><p>birst_hideHeader</p>
+</td>
+</tr>
+
+<tr>
+<td align="left">birst.themeName</td>
+<td align="left"><p>birst_themeName</p>
+</td>
+</tr>
+
+<tr>
+<td align="left">birst.dashboardParams</td>
+<td align="left"><p>birst_dashboardParams</p>
+</td>
+</tr>
+
+<tr>
+<td align="left">birst.dashParamsSeparator</td>
+<td align="left"><p>birst_dashParamsSeparator</p>
+</td>
+</tr>
+
+<tr>
+<td align="left">birst.hideDashboardPrompts</td>
+<td align="left"><p>birst_hideDashboardPrompts</p>
+</td>
+</tr>
+
+<tr>
+<td align="left">birst.viewMode</td>
+<td align="left"><p>birst_viewMode</p>
+</td>
+</tr>
+
+<tr>
+<td align="left">birst.filterLayout</td>
+<td align="left"><p>birst_filterLayout</p>
+</td>
+</tr>
+
+
+<tr>
+<td align="left">birst.renderType</td>
+<td align="left"><p>birst_renderType</p>
+</td>
+</tr>
+
+
+<tr>
+<td align="left">birst.viewHTML5</td>
+<td align="left"><p>birst_viewHTML5</p>
+</td>
+</tr>
+
+
+<tr>
+<td align="left">birst.helpURL</td>
+<td align="left"><p>birst_helpURL</p>
+</td>
+</tr>
+
+<tr>
+<td align="left">embeddedView</td>
+<td align="left"><p>birst_embeddedView</p>
+</td>
+</tr>
+
+<tr>
+<td align="left">reportName</td>
+<td align="left"><p>birst_reportName</p>
+</td>
+</tr>
+
+<tr>
+<td align="left">birst.userLoginName</td>
+<td align="left"><p>birst_userLoginName</p>
+</td>
+</tr>
+
+<tr>
+<td align="left">birst.userEmailAddress</td>
+<td align="left"><p>birst_userEmailAddress</p>
+</td>
+</tr>
+
+<tr>
+<td align="left">birst.accountId</td>
+<td align="left"><p>birst_accountId</p>
+</td>
+</tr>
+
+<tr>
+<td align="left">birst.group</td>
+<td align="left"><p>birst_group</p>
+</td>
+</tr>
+
+<tr>
+<td align="left">birst.memberSpaces</td>
+<td align="left"><p>birst_memberSpaces</p>
+</td>
+</tr>
+
+<tr>
+<td align="left">birst.userProfile</td>
+<td align="left"><p>birst_userProfile</p>
+</td>
+</tr>
+
+
+<tr>
+<td align="left">birst.defaultSpace</td>
+<td align="left"><p>birst_defaultSpace</p>
+</td>
+</tr>
+
+
+<tr>
+<td align="left">birst.dashboardsView</td>
+<td align="left"><p>birst_dashboardsView</p>
+</td>
+</tr>
+
+
+<tr>
+<td align="left">birst.spaceCreation</td>
+<td align="left"><p>birst_spaceCreation</p>
+</td>
+</tr>
+
+
+<tr>
+<td align="left">birst.userProfile</td>
+<td align="left"><p>birst_userProfile</p>
+</td>
+</tr>
+
+
+
+</table>
+
+</div>
+
+
+
+
+
+
+<ol>
+<li><p>You need to use Birst Account Admin settings to configure SAML setup.</p></li>
+<li><p>The following data is required:</p>
+<ul>
+<li><p><strong>IDP Issuer/Entity ID</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p><strong>Login URL/SignOn URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p><strong>Certificate</strong>: Download then upload the following in <strong>.cert</strong> format:</p>
+<p><kbd id="downloadCertificate">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+</ul>
+</li>
+
+<li><p>Refer to Birst help documentation for more detailed information.</p></li>
+
+
+<li><p>Done!</p></li>
+</ol>
+<br />
+
+<p><b>Notes:</b></p>
+<p>IdP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported. </p>
+
+<p>For SP-initiated flows:</p>
+
+<p>Open the following URL: <strong>[yourBaseUrl]?birst.idpid=[yourIdpId]</strong></p>
+
+</div>
+</body>
+</html>
