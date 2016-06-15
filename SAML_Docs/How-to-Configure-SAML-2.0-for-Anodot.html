@@ -1,0 +1,110 @@
+<html>
+<head>
+<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){} 
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="resources/scripts/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript">
+  function generateCitrixSsoUrl() {
+    var m = window.dataSAML["signOnUrl"];
+    var n = m.replace("/sso/saml","/slo/saml");
+    $('#citrixSsoUrl').text(n);    
+
+   }
+    
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', generateCitrixSsoUrl);
+  });
+</script>
+
+
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Anodot</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+
+
+<li><p>Log in to your Anodot account as an Administrator.</p></li>
+
+<li><p>Navigate to <strong>Settings > Authentication</strong>.</p></li>
+
+
+<li><p>Enter the following (see screen shot at end of step for reference):</p>
+<ul>
+<li><p>Turn the <strong>SAML</strong> switch on.</p></li>
+<li><p><strong>Login URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p><strong>509 Certificate</strong>: Copy and paste the following (in PEM text format):</p>
+<pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre>
+</li>
+<li><p>Make a copy of the value for <strong>Entity ID (Issuer ID)</strong>.</p></li>
+<li><p>Make a copy of the value for <strong>Assertion Customer Service URL</strong>.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+</ul>
+<p><img border="1" src="images/apps/anodot1.png" alt=“anodot1.png" /></p>
+
+</li>
+
+
+
+
+<li><p>In Okta, select the <strong>General</strong> tab for the Anodot app, then click <strong>Edit</strong>.</p>
+<ul>
+<li><p>Enter the <strong>Entity ID (Issuer ID)</strong> you copied earlier into the <strong>Entity ID</strong> field.</p></li>
+<li><p>Enter the <strong>Assertion Consumer Service URL</strong> you copied earlier into the <strong>ACS URL</strong> field.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+
+</ul>
+<p><img border="1" src="images/apps/anodot2.png" alt=“anodot2.png" /></p>
+
+</li>
+
+<li><p>Done!</p> 
+</ol>
+
+
+<br />
+<p><b>Notes:</b></p>
+<p>SP-initiated flows and IDP-initiated flows are supported.</p>
+<p>Just In Time (JIT) provisioning is not supported.</p>
+<br />
+<H3>For SP-initiated flows</H3>
+<br />
+
+<p><strong>CASE 1:</strong></p>
+
+<ol>
+<li><p>Open this URL <strong>https://app.staging.anodot.com/#!/signin/[yourID]</strong>.</p></li></ol>
+<br />
+
+<p><strong>CASE 2:</strong></p>
+<ol>
+<li><p>Open this URL: <a href="https://app.anodot.com/">https://app.anodot.com/</a>.</p></li>
+<li><p>Enter your Email (password is ignored and can be left blank).</p></li>
+<li><p>Click <strong>Sign in</strong>.</p></li></ol>
+
+
+
+</div>
+</body>
+</html>
