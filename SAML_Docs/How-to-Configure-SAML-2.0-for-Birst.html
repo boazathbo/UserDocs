@@ -253,27 +253,58 @@ try{Typekit.load();}catch(e){}
 
 
 
-
+<h2>SAML Configuration Steps</h2>
 
 
 <ol>
-<li><p>You need to use Birst Account Admin settings to configure SAML setup.</p></li>
-<li><p>The following data is required:</p>
-<ul>
-<li><p><strong>IDP Issuer/Entity ID</strong>: Copy and paste the following:</p>
+<li><p>Log in to Birst as an administrator.</p></li>
+<li><p>From the Home page, click <strong>ACCOUNT SETTINGS</strong>:</p>
+<p><img border="1" src="images/apps/birstnew1.png" alt=“birstnew1.png" /></p>
+</li>
+<li><p>On the <strong>SAML Configurations</strong> tab, click <strong>Add</strong> (the + sign).</p></li>
+<li><p>Enter a name for your new configuration (here <strong>MySAMLConfiguration</strong>), then click <strong>Save</strong> (the check mark).</p>
+<p><img border="1" src="images/apps/birstnew2.png" alt=“birstnew2.png" /></p>
+<p>The SAML configuration screen appears:</p>
+<p><img border="1" src="images/apps/birstnew3.png" alt=“birstnew3.png" /></p>
+</li>
+
+
+
+
+<li><p>Enter the <strong>Identity Provider Issuer</strong>, also called the Entity ID: Copy and paste the following:</p>
 <p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
 </li>
-<li><p><strong>Login URL/SignOn URL</strong>: Copy and paste the following:</p>
+
+<li><p>Provide a <strong>Certificate</strong>: Copy and paste the following (in PEM text format):</p>
+<pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre></li>
+
+<li><p>Optionally, enter the URL for a custom error page to be redirected to if an error occurs.</p></li>
+
+<li><p>Optionally, enter the URL for a custom log out page to be redirected to on log out.</p></li>
+
+<li><p>Enter the idle duration in minutes after which a timeout occurs. The default is 20 minutes.</p></li>
+
+<li><p>If you want to allow service provider-initiated access:</p>
+<ol>
+<li><p>Check <strong>SP-Initiated</strong>.</p></li>
+<li><p><strong>Identity Provider Single Sign-On</strong>: Copy and paste the following:</p>
 <p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
 </li>
-<li><p><strong>Certificate</strong>: Download then upload the following in <strong>.cert</strong> format:</p>
-<p><kbd id="downloadCertificate">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</ol>
 </li>
 
-</ul>
-</li>
+<li><p>Click <strong>Save</strong>.</p></li>
 
-<li><p>Refer to Birst help documentation for more detailed information.</p></li>
+<li><p>For service provider-initiated access:</p>
+<ol>
+<li><p>After you click <strong>Save</strong>, Birst generates and displays a <strong>SAML Configuration ID</strong>.</p></li>
+<li><p>Use this <strong>SAML Configuration ID</strong> value in the <em>birst.idp</em> query parameter for logging into Birst. For example:<p><p><strong>https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idp=SAML_config_ID</strong></p></li>
+
+<li><p>When browsers connect to this URL, they are redirected to the <strong>Identity Provider Single Sign-On URL</strong> as specified in Step 10.</p></li>
+</ol>
+<p>Tip: Users can bookmark the redirect URL for easier access to Birst.</p>
+
+</li>
 
 
 <li><p>Done!</p></li>
