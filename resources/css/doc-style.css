@@ -198,6 +198,11 @@ body {
   max-width: 100%;
 }
 
+.okta-instructions hr {
+  border: 1px solid #eee;
+  margin-top: 2.6em;
+}
+
 .okta-callout {
   position: relative;
   min-height: 18px;
@@ -243,7 +248,7 @@ body {
   left: 11px;
   width: 24px;
   height: 24px;
-  background-image: url("doc-sprite.png");
+  background-image: url("../img/doc-sprite.png");
   background-repeat: no-repeat;
   background-size: 96px;
 }
@@ -302,7 +307,7 @@ body {
 @media only screen and (-webkit-min-device-pixel-ratio: 2),
 only screen and (min-device-pixel-ratio: 2) {
   .okta-callout > .icon-24 {
-    background-image: url("doc-sprite@2x.png");
+    background-image: url("../img/doc-sprite@2x.png");
   }
 }
 
@@ -333,26 +338,30 @@ code * {
 /* Tables */
 .gridtable {
   font-size: 13px;
-  color: #333333;
-  border-width: 1px;
-  border-color: #666666;
   border-collapse: collapse;
+  border: 1px solid #ddd;
 }
 
 .gridtable th {
-  border-width: 1px;
   padding: 8px;
-  border-style: solid;
-  border-color: #666666;
-  background-color: #dedede;
+  background: #f2f2f2;
+  border-bottom: 1px solid #dadada;
+  border-right: 1px solid #ddd;
+  text-align: left;
 }
 
 .gridtable td {
-  border-width: 1px;
   padding: 8px;
-  border-style: solid;
-  border-color: #666666;
-  background-color: #ffffff;
+  border-bottom: 1px solid #eee;
+  border-right: 1px solid #eee;
   text-align: left;
+}
+
+.gridtable td:last-child {
+  border-right: 0;
+}
+
+.gridtable tr:last-child td {
+  border-bottom: 0;
 }
 

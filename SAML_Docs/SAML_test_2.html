@@ -1,22 +1,19 @@
 <html>
 <head>
-    <link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
-    <script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+    <link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="../resources/js/jff5neq.js" type="text/javascript"></script>
     <script type="text/javascript">
         try{Typekit.load();}catch(e){}
     </script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
-
+    <script src="../resources/js/jquery.min.js"></script>
+    <script src="../resources/js/vkbeautify.js"></script>
+    <script src="../resources/js/getAppValues.js"></script>
     <title>Configuring SAML 2.0 Test Doc</title>
-
-    <script src="resources/scripts/getAppValues.js"></script>
-
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
 <div class="header clearfix">
     <div class="logo-container">
-        <img src="resources/css/okta-logo-white.png" alt="Okta" />
+        <img src="../resources/img/okta-logo-white.png" alt="Okta" />
     </div>
 </div>
 <div class="okta-instructions">
@@ -71,7 +68,7 @@
             <p>Modify the following text for the <strong>Logout URL</strong>, where &lt;company name&gt; is the name of your company.</p>
             <kbd><span>https://&lt;company name&gt;.bluejeans.com</span></kbd></li>
         <li>Fill in the <strong>User ID</strong> and<strong> Email</strong>&nbsp;fields with the correct information for your organization.<br /><br /><strong>Note:</strong> If the User ID field is not visible, <strong>uncheck</strong> <em>Pick User ID from &lt;saml2:NameID&gt; element</em>. This box is checked in the screenshot below.</li>
-        <li>Copy the information in the <strong>RelayState</strong> field in BlueJeans. In Okta, paste this information into the <strong>Default Relay State</strong> field, as shown below.<br /><img style="border: 0; padding: 0;" src="bluejeans3.jpg" alt="bluejeans3.jpg" /></li>
+        <li>Copy the information in the <strong>RelayState</strong> field in BlueJeans. In Okta, paste this information into the <strong>Default Relay State</strong> field, as shown below.</li>
         <li>
             <p>Click <strong>Save Changes</strong>.</p>
         </li>
