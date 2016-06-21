@@ -67,6 +67,17 @@ try{Typekit.load();}catch(e){}
 <p>Updates made to the user's profile through OKTA will be pushed to the third party application.
 </p>
 </li>
+
+<li><strong>Push User Deactivation</strong>
+<p>Deactivating the user or disabling the user's access to the application through OKTA will deactivate the user in the third party application.</p></li>
+<li><strong>Reactivate Users</strong>
+<p>Reactivating the user through Okta will reactivate the user in the 3rd party application.</p></li>
+
+
+
+
+
+
 </ul>
 
 <hr>
@@ -74,24 +85,25 @@ try{Typekit.load();}catch(e){}
 <ol>
 
 <li><p>Configure your <strong>Provisioning</strong> settings for Zendesk as follows:</p>
+
 <ul>
 <li><p>Check the <strong>Enable provisioning features</strong> box.</p></li>
 <li><p>Enter your Zendesk API credentials in the <strong>Username</strong> and <strong>Password</strong> fields.</p>
 <ul>
 <li><p>Only verified account credentials can be used (see <a href="https://support.zendesk.com/entries/23242272-Verifying-a-user-s-email-address" target="_blank">https://support.zendesk.com/entries/23242272-Verifying-a-user-s-email-address</a> for more information).</p></li>
-
 <li><p>Only accounts without two-factor authentication can be used.</p></li>
 </ul>
 </li>
-<li><p>Select what kind of <strong>User Roles to Import</strong>; either <strong>All Users</strong> or <strong>Only Admins and Agents</strong>.</p>
-<p><img src="images/apps/zendesk1.png" alt=“zendesk1.png" /></p>
+
+<li><p>Select what kind of <strong>User Roles to Import</strong>; either <strong>All Users</strong> or <strong>Only Admins and Agents</strong>.</p></li>
+
+<li><p>Check <strong>Don’t import suspended users</strong> if inactive users should be ignored during import.</p></li>
+<p><img src="images/apps/zendeskprovisioning1.png" alt=“zendeskprovisioning1.png" /></p>
 
 <li><p>Scroll down and select the <strong>Provisioning Features</strong> you want to enable.</p>
-<p><img src="images/apps/zendesk2.png" alt=“zendesk2.png" /></p>
+<p><img src="images/apps/zendeskprovisioning2.png" alt=“zendeskprovisioning2.png" /></p></li>
 
-</li>
-<li><p>Click <strong>Save</strong>.</p>
-</li>
+<li><p>Click <strong>Save</strong>.</p></li>
 </li>
 
 </ul>
