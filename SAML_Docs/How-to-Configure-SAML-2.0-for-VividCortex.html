@@ -3,7 +3,7 @@
 <link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
 <script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
 <script type="text/javascript">
-try{Typekit.load();}catch(e){}
+try{Typekit.load();}catch(e){} 
 </script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
 
@@ -12,6 +12,21 @@ try{Typekit.load();}catch(e){}
 <script src="resources/scripts/getAppValues.js"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript">
+  function generateCitrixSsoUrl() {
+    var m = window.dataSAML["signOnUrl"];
+    var n = m.replace("/sso/saml","/slo/saml");
+    $('#citrixSsoUrl').text(n);    
+
+   }
+    
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', generateCitrixSsoUrl);
+  });
+</script>
+
+
 </head>
 <body>
 <div class="header clearfix">
@@ -20,34 +35,31 @@ try{Typekit.load();}catch(e){}
         </div>
     </div>
 <div class="okta-instructions">
-<h1>How to Configure SAML 2.0 for LucidChart</h1>
+<h1>How to Configure SAML 2.0 for VividCortex</h1>
 <div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
 <p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
 </div>
-<div class="instructions clearfix">
-<div class="instructions-text"><ol class="bullets">
-
-
 <ol>
 
-<li><p>Log in to LucidChart as an administrator.</p></li>
-
-<li><p>Navigate to <strong>Team > App Integration > SAML</strong>.</p></li>
 
 
-<li><p>Select <strong>Activation</strong>.</p></li>
+<li><p>Log in to VividCortex as an Administrator.</p></li>
 
-<li><p>Check the <strong>Enable SAML Integration</strong> box.</p></li>
+<li><p>Navigate to <strong>ORGANIZATION > Authentication</strong>.</p></li>
 
-<li><p>Copy and paste the following into the <strong>Identity Provider Metadata</strong> field:</p>
-<pre id="idpMetadata">Sign into the Okta Admin dashboard to generate this value.</pre>
+<li><p>For <strong>Type</strong>, select <strong>SAML SSO with Okta</strong>.</p></li>
+
+<li><p>Copy and paste the following into the <strong>Federation metadata</strong> field:</p>
+ <pre id="idpMetadata">Sign in to Okta Admin app to have this variable generated for you.</pre>
+
 </li>
 
+<li><p>Click <strong>Save</strong>.</p></li>
 
-<li><p>Click <strong>Save changes</strong>.</p></li>
+<p><img border="1" src="images/apps/vividcortex1.png" alt=“vividcortex1.png" /></p>
 
 
-<p><img border="1" src="images/apps/lucidchartnew1.png" alt=“lucidchartnew1.png" /></p>
+
 
 
 <li><p>Done!</p> 
@@ -56,15 +68,9 @@ try{Typekit.load();}catch(e){}
 
 <br />
 <p><b>Notes:</b></p>
-<p>IDP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported.</p>
-<br />
+<p>IDP-initiated flows are supported.</p>
 
-<h3>For SP-initiated Flows:</H3>
-
-<ul>
-<li><p>Open Lucidchart Sign in URL: <strong>https://www.lucidchart.com/saml/sso/[yourDomain]</strong>.</p></li>
-</ul>
-
+<p>SP-initiated flows and Just In Time (JIT) provisioning are not supported.</p>
 
 
 
