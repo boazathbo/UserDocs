@@ -1,22 +1,22 @@
 <html>
 <head>
-<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
-<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="../resources/js/jff5neq.js" type="text/javascript"></script>
 <script type="text/javascript">
 try{Typekit.load();}catch(e){}
 </script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
-
+<script src="../resources/js/jquery.min.js"></script>
+<script src="../resources/js/vkbeautify.js"></script>
 <title>Setup SSO</title>
 
-<script src="resources/scripts/getAppValues.js"></script>
+<script src="../resources/js/getAppValues.js"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
 <div class="header clearfix">
         <div class="logo-container">
-            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+            <img src="../resources/img/okta-logo-white.png" alt="Okta" />
         </div>
     </div>
 <div class="okta-instructions">
@@ -115,8 +115,11 @@ try{Typekit.load();}catch(e){}
 <li>
 <p>Press <strong>Save</strong>.</p>
 </li>
-<li>Open a browser window.</li><li><p>Set your browser proxy to <strong>gateway.[ yourZScalerDomain]:80</strong>. </p> <p>For example if your ZScaler Domain is <strong>zscalerbeta.net</strong>; use <strong>gateway.zscalerbeta.net:80</strong> proxy.</p></li><li><p>Add your Okta URL host (<strong>[yourSubdomain].okta.com</strong>) to the proxy bypass list.</p> 
-<p>For example if you log into <strong>https://acme.okta.com/</strong>; enter <strong>acme.okta.com</strong>.</p><p>Here is an example, shown in a Firefox browser:</p>
+<li>Open a browser window.</li>
+<li><p>Set your browser proxy to <strong>gateway.[ yourZScalerDomain]:80</strong>. </p> <p>For example if your ZScaler Domain is <strong>zscalerbeta.net</strong>; use <strong>gateway.zscalerbeta.net:80</strong> proxy.</p></li>
+<li><p>Add your Okta URL host (<strong>[yourSubdomain].okta.com</strong>) to the proxy bypass list.</p> 
+<p>For example if you log into <strong>https://acme.okta.com/</strong>; enter <strong>acme.okta.com</strong>.</p>
+<p>Here is an example, shown in a Firefox browser:</p>
 <p><img src="images/apps/zscaler_new1.png" alt=“zscaler_new1.jpg" /></p>
 </li>
 
@@ -128,16 +131,20 @@ try{Typekit.load();}catch(e){}
 
 <hr>
 <strong>Notes</strong>
-<p>SP-initiated flows and Just In Time (JIT) provisioning are supported.</p><p>IDP-initiated flows are not supported.</p>
+<p>SP-initiated flows and Just In Time (JIT) provisioning are supported.</p>
+<p>IDP-initiated flows are not supported.</p>
 </ br>
 </ br>
 <h3>For SP-initiated flows:</h3>
 
 <ol>
-<li>Open your site.</li><li>You will be redirected to <strong>https://gateway.[yourZScalerDomain]</strong> and prompted for a <strong>User Name</strong>.</li><li><p>Enter your <strong>User Name</strong>, then click the <strong>Sign In</strong> button:</p>
+<li>Open your site.</li>
+<li>You will be redirected to <strong>https://gateway.[yourZScalerDomain]</strong> and prompted for a <strong>User Name</strong>.</li>
+<li><p>Enter your <strong>User Name</strong>, then click the <strong>Sign In</strong> button:</p>
 <p><img src="images/apps/zscaler_new2.png" alt=“zscaler_new2.jpg" /></p></li>
 
-</ol>
+
+</ol>
 
 
 </div>

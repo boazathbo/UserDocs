@@ -1,22 +1,22 @@
 <html>
 <head>
-<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
-<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="../resources/js/jff5neq.js" type="text/javascript"></script>
 <script type="text/javascript">
 try{Typekit.load();}catch(e){}
 </script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
-
+<script src="../resources/js/jquery.min.js"></script>
+<script src="../resources/js/vkbeautify.js"></script>
 <title>Setup SSO</title>
 
-<script src="resources/scripts/getAppValues.js"></script>
+<script src="../resources/js/getAppValues.js"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
 <div class="header clearfix">
         <div class="logo-container">
-            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+            <img src="../resources/img/okta-logo-white.png" alt="Okta" />
         </div>
     </div>
 <div class="okta-instructions">
@@ -28,7 +28,33 @@ try{Typekit.load();}catch(e){}
 <li>
 <p>Save the following certificate to file as <strong>lifesize.crt</strong>: </p>
 
-<pre>-----BEGIN CERTIFICATE-----MIIEHzCCAwegAwIBAgIJAOeNkbnxVVV/MA0GCSqGSIb3DQEBBQUAMIGlMQswCQYDVQQGEwJJTjELMAkGA1UECAwCS0ExEjAQBgNVBAcMCUJhbmdhbG9yZTERMA8GA1UECgwITGlmZXNpemUxFzAVBgNVBAsMDkNvbW11bmljYXRpb25zMRowGAYDVQQDDBFsaWZlc2l6ZWNsb3VkLmNvbTEtMCsGCSqGSIb3DQEJARYecHJvZHVjdG1hbmFnZW1lbnRAbGlmZXNpemUuY29tMB4XDTE1MDcwNjEwMTIxNloXDTI1MDcwMzEwMTIxNlowgaUxCzAJBgNVBAYTAklOMQswCQYDVQQIDAJLQTESMBAGA1UEBwwJQmFuZ2Fsb3JlMREwDwYDVQQKDAhMaWZlc2l6ZTEXMBUGA1UECwwOQ29tbXVuaWNhdGlvbnMxGjAYBgNVBAMMEWxpZmVzaXplY2xvdWQuY29tMS0wKwYJKoZIhvcNAQkBFh5wcm9kdWN0bWFuYWdlbWVudEBsaWZlc2l6ZS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDN6r/qWOveMypCpRBksGEVkLAeDcC08lQ0yxB3s3hEmAU6I7ZCr6JUsS1ldHXRR7ZJhKk148LOa0p5/3kbyD5p4rpG03LEVPNi43P8SA6Uct7OEu3to/aVjQlkLyXw9f2bX5BhdqGV7ftr8n1O9GMZAUwjd7LfrEvGrOM8R/IH60/L1SMpCyx2yIJ4vQ80gSonPYXvc7AnmnFjGLkYSOzBfETpxzGkgr9jqotADRjF6oEerxBhKcjQVHIjQvW1Dt4jEQT1ndOzLt0Kw/MzrbxkokQ2JhGuGUWX1o/OPDrQ5nflYN9rhJgOSiTsB1e4T9loeZTUjDPi3y2dVWDZXM8tAgMBAAGjUDBOMB0GA1UdDgQWBBSe51Gqi8w/xJp/QMlTiHlY/hqwXzAfBgNVHSMEGDAWgBSe51Gqi8w/xJp/QMlTiHlY/hqwXzAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4IBAQB6O0X7VS9dFaDQI30NMgabvc3RRkn0QiIC42uX3NB9Lt75k/KWK5keOlTci339qZHatEii6ZkGp9eLrW/97sCitBrM7RXRpYf7IVGTRLb6NYrKitM5wAxpFwj18/2DZi4ugg3DaFCAUz7jMi1LUMeu/X59ilFn5sx7wz+J/VJAHF2W17vdpBY6qXXAdv9BwO5ii4g5W0gWAcVQKL8k7kz7ZEx+Fpn3HT3vB09ZWrtIZlFttc/+B7C9kAvR69H73Exg1wHAuFfXeIwC3zTssV7JXD2YJOCmC9Tp8mpXEAN9nEMFKBBmVVUCHQIn0tkt+LzJjFq0AkCNg542kTWgvWjt-----END CERTIFICATE-----</pre>
+<pre>-----BEGIN CERTIFICATE-----
+MIIEHzCCAwegAwIBAgIJAOeNkbnxVVV/MA0GCSqGSIb3DQEBBQUAMIGlMQswCQYD
+VQQGEwJJTjELMAkGA1UECAwCS0ExEjAQBgNVBAcMCUJhbmdhbG9yZTERMA8GA1UE
+CgwITGlmZXNpemUxFzAVBgNVBAsMDkNvbW11bmljYXRpb25zMRowGAYDVQQDDBFs
+aWZlc2l6ZWNsb3VkLmNvbTEtMCsGCSqGSIb3DQEJARYecHJvZHVjdG1hbmFnZW1l
+bnRAbGlmZXNpemUuY29tMB4XDTE1MDcwNjEwMTIxNloXDTI1MDcwMzEwMTIxNlow
+gaUxCzAJBgNVBAYTAklOMQswCQYDVQQIDAJLQTESMBAGA1UEBwwJQmFuZ2Fsb3Jl
+MREwDwYDVQQKDAhMaWZlc2l6ZTEXMBUGA1UECwwOQ29tbXVuaWNhdGlvbnMxGjAY
+BgNVBAMMEWxpZmVzaXplY2xvdWQuY29tMS0wKwYJKoZIhvcNAQkBFh5wcm9kdWN0
+bWFuYWdlbWVudEBsaWZlc2l6ZS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw
+ggEKAoIBAQDN6r/qWOveMypCpRBksGEVkLAeDcC08lQ0yxB3s3hEmAU6I7ZCr6JU
+sS1ldHXRR7ZJhKk148LOa0p5/3kbyD5p4rpG03LEVPNi43P8SA6Uct7OEu3to/aV
+jQlkLyXw9f2bX5BhdqGV7ftr8n1O9GMZAUwjd7LfrEvGrOM8R/IH60/L1SMpCyx2
+yIJ4vQ80gSonPYXvc7AnmnFjGLkYSOzBfETpxzGkgr9jqotADRjF6oEerxBhKcjQ
+VHIjQvW1Dt4jEQT1ndOzLt0Kw/MzrbxkokQ2JhGuGUWX1o/OPDrQ5nflYN9rhJgO
+SiTsB1e4T9loeZTUjDPi3y2dVWDZXM8tAgMBAAGjUDBOMB0GA1UdDgQWBBSe51Gq
+i8w/xJp/QMlTiHlY/hqwXzAfBgNVHSMEGDAWgBSe51Gqi8w/xJp/QMlTiHlY/hqw
+XzAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4IBAQB6O0X7VS9dFaDQI30N
+Mgabvc3RRkn0QiIC42uX3NB9Lt75k/KWK5keOlTci339qZHatEii6ZkGp9eLrW/9
+7sCitBrM7RXRpYf7IVGTRLb6NYrKitM5wAxpFwj18/2DZi4ugg3DaFCAUz7jMi1L
+UMeu/X59ilFn5sx7wz+J/VJAHF2W17vdpBY6qXXAdv9BwO5ii4g5W0gWAcVQKL8k
+7kz7ZEx+Fpn3HT3vB09ZWrtIZlFttc/+B7C9kAvR69H73Exg1wHAuFfXeIwC3zTs
+sV7JXD2YJOCmC9Tp8mpXEAN9nEMFKBBmVVUCHQIn0tkt+LzJjFq0AkCNg542kTWg
+vWjt
+-----END CERTIFICATE-----
+
+</pre>
 </li>
 <li><p>In Okta, select the <strong>Sign On</strong> tab for the Lifesize app.
 <ul>

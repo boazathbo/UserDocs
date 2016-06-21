@@ -1,22 +1,22 @@
 <html>
 <head>
-<link href="resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
-<script src="//use.typekit.net/jff5neq.js" type="text/javascript"></script>
+<link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="../resources/js/jff5neq.js" type="text/javascript"></script>
 <script type="text/javascript">
 try{Typekit.load();}catch(e){}
 </script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="resources/scripts/vkbeautify.js"></script>
-
+<script src="../resources/js/jquery.min.js"></script>
+<script src="../resources/js/vkbeautify.js"></script>
 <title>Setup SSO</title>
 
-<script src="resources/scripts/getAppValues.js"></script>
+<script src="../resources/js/getAppValues.js"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
 <div class="header clearfix">
         <div class="logo-container">
-            <img src="resources/css/okta-logo-white.png" alt="Okta" />
+            <img src="../resources/img/okta-logo-white.png" alt="Okta" />
         </div>
     </div>
 <div class="okta-instructions">
@@ -298,7 +298,8 @@ try{Typekit.load();}catch(e){}
 <li><p>For service provider-initiated access:</p>
 <ol>
 <li><p>After you click <strong>Save</strong>, Birst generates and displays a <strong>SAML Configuration ID</strong>.</p></li>
-<li><p>Use this <strong>SAML Configuration ID</strong> value in the <em>birst.idp</em> query parameter for logging into Birst. For example:<p><p><strong>https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idp=SAML_config_ID</strong></p></li>
+<li><p>Use this <strong>SAML Configuration ID</strong> value in the <em>birst.idp</em> query parameter for logging into Birst. For example:<p>
+<p><strong>https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idp=SAML_config_ID</strong></p></li>
 
 <li><p>When browsers connect to this URL, they are redirected to the <strong>Identity Provider Single Sign-On URL</strong> as specified in Step 10.</p></li>
 </ol>
