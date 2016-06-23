@@ -1,116 +1,76 @@
 <html>
 <head>
-<link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
-<script src="../resources/js/jff5neq.js" type="text/javascript"></script>
-<script type="text/javascript">
-try{Typekit.load();}catch(e){} 
-</script>
-<script src="../resources/js/jquery.min.js"></script>
-<script src="../resources/js/vkbeautify.js"></script>
-<title>Setup SSO</title>
+    <link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="../resources/js/jff5neq.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        try{Typekit.load();}catch(e){}
+    </script>
+    <script src="../resources/js/jquery.min.js"></script>
+    <script src="../resources/js/vkbeautify.js"></script>
 
-<script src="../resources/js/getAppValues.js"></script>
+    <title>Setup SSO</title>
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<script type="text/javascript">
-  function generateCitrixSsoUrl() {
-    var m = window.dataSAML["signOnUrl"];
-    var n = m.replace("/sso/saml","/slo/saml");
-    $('#citrixSsoUrl').text(n);    
-
-   }
-   
- $(document).ready(function($) {
-    $("body").on('dataSAMLUpdated', generateCitrixSsoUrl);
-  });
-</script>
-
-
+    <script src="../resources/js/getAppValues.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
 <div class="header clearfix">
-        <div class="logo-container">
-            <img src="../resources/img/okta-logo-white.png" alt="Okta" />
-        </div>
+    <div class="logo-container">
+        <img src="../resources/img/okta-logo-white.png" alt="Okta" />
     </div>
+</div>
 <div class="okta-instructions">
-<h1>How to Configure SAML 2.0 for SingleWire</h1>
+<h1>How to Configure SAML 2.0 for Singlewire InformaCast Mobile</h1>
 <div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
 <p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
 </div>
 <ol>
 
-<li><p>Contact the SingleWire Support team and request that they enable SAML 2.0 for your account.</p></li>
 
-<li><p>Include the following <strong>IDP Metadata URL</strong>:</p>
-<p><kbd id="metadataUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd></p>
+
+<li><p>Contact the Singlewire InformaCast Mobile support team (support@singlewire.com.) and request that they enable SAML 2.0 for your account.</p></li>
+
+<li><p>Include the following <strong>IDP Metadata</strong> with your request:</p>
+<pre id="idpMetadata">Sign in to the Okta Admin app to have this variable generated for you.</pre>
 </li>
 
-<li><p>Save the following certificate as <em>saml-cert.pem</em>:</p>
-<p><pre>-----BEGIN CERTIFICATE-----
-MIIDtzCCAp+gAwIBAgIJAL29op+NUgfkMA0GCSqGSIb3DQEBBQUAMHIxCzAJBgNV
-BAYTAlVTMRIwEAYDVQQIDAlXaXNjb25zaW4xEDAOBgNVBAcMB01hZGlzb24xFzAV
-BgNVBAoMDlNpbmdsZXdpcmUgTExDMSQwIgYDVQQDDBthcGkuaWNtb2JpbGUuc2lu
-Z2xld2lyZS5jb20wHhcNMTMxMjExMTU0NTI1WhcNNDEwNDI3MTU0NTI1WjByMQsw
-CQYDVQQGEwJVUzESMBAGA1UECAwJV2lzY29uc2luMRAwDgYDVQQHDAdNYWRpc29u
-MRcwFQYDVQQKDA5TaW5nbGV3aXJlIExMQzEkMCIGA1UEAwwbYXBpLmljbW9iaWxl
-LnNpbmdsZXdpcmUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA
-soOvikCV/aBp/6YYYrTZGgJp0abOWiqE4ig7BJgM4GySbjoqMFUiH9mlzS3zLj9X
-irsnndFwG1SiDHpVHKHKnEPD0UE5kIhP4jDtBED3SZvO7+5ui3V63MNcmwFxt5Go
-yx9kMObbycC/JOVXi/sbTP4+UxUuUpfYwab/dW7avqqQa0H8Jchfwk23FNzXox/v
-LXDwDLBMWCpeCCZH+fddacvS/T6A8uCiSgxYOOCx6JSb7TbF2e3Oh5xJeeXCeEuM
-qdogjG1oTTI4GihX1DKLSwndXgYFWjpaR1FpVrNL2hn0X4HdO+NcLj0udyUNAedM
-G+t8GGfdpeWLLBsgquR+JwIDAQABo1AwTjAdBgNVHQ4EFgQUdIMhqidl4CRn1ot/
-FQMU6zxfaaIwHwYDVR0jBBgwFoAUdIMhqidl4CRn1ot/FQMU6zxfaaIwDAYDVR0T
-BAUwAwEB/zANBgkqhkiG9w0BAQUFAAOCAQEAi7FdX9uMdFDTE2nsgOSRx6jp8qrB
-gTyvuwy3wx8qOFLfX936/t2nNVCc4rr6EZoGC3uskB5m4PzjXsrYjE4p8ekbHiPG
-5fsWXaKAfvpqKfa/RUwy2e9WW3QjdvOZB/R0jKaaGBQued2RSlu1qX6F5ppJ14sV
-ICKvkRiEpIGPs7u83D51LGjIBK/uy4GSOCKKh/ZFEZfF8vHgkhCeGgzQF7aUKNbG
-VerAKspwi8bFU7mKwDPlnqhwLH1qj2phQi0jWhoFJnZqeMomwBUsH+yISMVSCY9W
-3lLGrusKrChu/0ndpPU+Br4r3L4bTqTNT/rHZ1pzMQ0+GnnO2izjn19sfA==
------END CERTIFICATE——
 
-</pre></p>
+<li><p>The Singlewire InformaCast Mobile support team will process your request. After receiving a confirmation email, do the following:</p></li>
+
+<li><p>Save the following as <strong>saml-cert.pem</strong>:</p>
+<pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre>
 </li>
 
-<li><p>In Okta, select the <strong>Sign On</strong> tab for the SingleWire app, then click <strong>Edit</strong>:</p>
-<ul>
-
-<li><p>Enter the <strong>Default Relay State</strong> provided by SingleWire, as shown below.</p></li>
-
-<li><p>For <strong>Encryption Certificate</strong>, click <strong>Browse</strong> to locate the <em>same-cert.pem</em> certificate you saved earlier, then click <strong>Upload</strong> as shown below.</p></li>
-
-<li><p>Click <strong>Save</strong>.</p></li>
-
+<li>In Okta, select the <strong>Sign On</strong> tab for the Singlewire InformaCast Mobile app, then click <strong>Edit</strong>.</p>
+<ul><li><p>For <strong>Encryption Certificate</strong>, click <strong>Browse</strong> to locate the <strong>saml-cert.pem</strong> certificate you saved earlier, then click <strong>Upload</strong> as shown below:</p></li><li><p>Click <strong>Save</strong>.</p></li>
+</li>
+<p><img border="1" src="images/apps/singlewirenew1.png" alt=“singlewirenew1.png" /></p>
 </ul>
-<p><img border="1" src="images/apps/singlewire1.png" alt=“singlewire1.png" /></p>
-
-</li>
 
 
-<li><p>The SingleWire Support team will process your request. After receiving a confirmation email, you can start assigning people to the application.</p></li>
-
-
-</ul>
-</li>
-
-<li><p>Done!</p>
+<li><p>Done!</p> 
 </ol>
+
+
 <br />
 <p><b>Notes:</b></p>
 <p>SP-initiated flows are supported.</p>
-<p>IDP-initiated flows and Just In Time (JIT) provisioning are not supported.</p>
+</p>IDP-initiated flows and Just In Time (JIT) provisioning are not supported.</p>
 <br />
 <H3>For SP-initiated flows</H3>
+<br />
+
+
+
 <ol>
-<li><p>Go to <a href="https://admin.icmobile.singlewire.com">admin.icmobile.singlewire.com</a></p></li>
+<li><p>Go to: <a href="https://admin.icmobile.singlewire.com/icmobile/#/">https://admin.icmobile.singlewire.com/icmobile/#/</a>.</p></li>
 <li><p>Enter your email address.</p></li>
-<li><p>Click the arrow icon.</p></li>
-<p><img border="1" src="images/apps/singlewire2.png" alt=“singlewire2.png" /></p>
+<li><p>Click the arrow, as shown below:</p></li>
+<p><img border="1" src="images/apps/singlewire3.png" alt=“singlewire3.png" /></p>
+
+</ol>
 
 
-</ol>
 
 </div>
 </body>
