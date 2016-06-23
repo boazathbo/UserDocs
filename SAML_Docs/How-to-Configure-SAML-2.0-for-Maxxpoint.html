@@ -1,0 +1,87 @@
+<html>
+<head>
+    <link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="../resources/js/jff5neq.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        try{Typekit.load();}catch(e){}
+    </script>
+    <script src="../resources/js/jquery.min.js"></script>
+    <script src="../resources/js/vkbeautify.js"></script>
+
+    <title>Setup SSO</title>
+
+    <script src="../resources/js/getAppValues.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+    <div class="logo-container">
+        <img src="../resources/img/okta-logo-white.png" alt="Okta" />
+    </div>
+</div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Maxxpoint</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+
+
+<li><p>Contact the Maxxpoint Support team and request that they enable SAML 2.0 for your account.</p></li>
+
+<li><p>Include the following <strong>IDP Metadata URL</strong> with your request:</p>
+<p><kbd id="metadataUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd></p>
+
+</li>
+
+<li><p>The Maxxpoint Support team will process your request and provide you with their metadata URL in the following format:</p> <p>https://maxxpoint.westipc.com/saml/module.php/saml/sp/saml2-acs.php/<strong>[customerId]</strong>-okta</p></li>
+
+<li><p>In Okta, select the <strong>General</strong> tab for the Maxxpoint app, then click <strong>Edit</strong>.</p>
+<ul>
+<li><p>Enter the <strong>[customerId]</strong> provided to you by Maxxpoint into the <strong>Customer ID</strong> field:</p></li>
+<li><p>Click <strong>Save</strong>.</p>
+<p><img border="1" src="images/apps/maxxpoint1.png" alt=“maxxpoint1.png" /></p>
+</li>
+
+<li><p>Still in Okta, click the <strong>Sign On</strong> tab.</p></li>
+<li><p>Click <strong>Edit</strong>.</p></li>
+<li><p>Enter <strong>https://maxxpoint.westipc.com/default/sso/login/entity/[customerId]-okta</strong> into the <strong>Default Relay State</strong> field.</p></li>
+<li><p>Click <strong>Save</strong>:</p>
+<p><img border="1" src="images/apps/maxxpoint2.png" alt=“maxxpoint2.png" /></p>
+</li>
+
+
+</ul>
+</li>
+
+
+
+<li><p>Done!</p> 
+</ol>
+
+
+<br />
+<p><b>Notes:</b></p>
+<p>SP-initiated flows and IDP-initiated flows are supported.</p>
+<p>Just In Time (JIT) provisioning is not supported.</p>
+<br />
+<H3>For SP-initiated flows</H3>
+<br />
+
+
+
+<ol>
+<li><p>Go to: <a href="https://maxxpoint.westipc.com">https://maxxpoint.westipc.com</a>.</p></li>
+<li><p>Enter your email address in the <strong>Username</strong> field.</p></li>
+<li><p>Tab or click out of the <strong>Username</strong> field and the <strong>Login with Okta</strong> button will appear.</p></li>
+<li><p>Click <strong>Login with okta</strong>:</p></li>
+<p><img border="1" src="images/apps/maxxpoint3.png" alt=“maxxpoint3.png" /></p>
+
+</ol>
+
+
+
+</div>
+</body>
+</html>

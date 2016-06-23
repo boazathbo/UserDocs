@@ -28,7 +28,9 @@ try{Typekit.load();}catch(e){}
 <h2>Before you begin</h2>
 <div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
 <h3><strong>Read this before you enable SAML</strong></h3>
-<p>The Birst application is pre-configured to pass the custom attributes as part of the SAML assertion. Make sure that the custom attributes are populated in the Okta User Base Profile, and also have the correct attribute mappings set with AD/LDAP (if needed). If this value is empty, Okta will pass null values to Birst.</p></li>
+<p>The Birst application is pre-configured to pass the custom attributes as part of the SAML assertion. Make sure that the custom attributes are populated in the Okta User Base Profile, and also have the correct attribute mappings set with AD/LDAP (if needed). If this value is empty, Okta will pass null values to Birst.</p>
+<p>If you don’t need to send custom attributes, skip these steps.</p>
+</li>
 
 <p>Follow these instructions to add a custom attribute:</p>
 
@@ -199,11 +201,6 @@ try{Typekit.load();}catch(e){}
 </td>
 </tr>
 
-<tr>
-<td align="left">birst.group</td>
-<td align="left"><p>birst_group</p>
-</td>
-</tr>
 
 <tr>
 <td align="left">birst.memberSpaces</td>
@@ -299,11 +296,21 @@ try{Typekit.load();}catch(e){}
 <ol>
 <li><p>After you click <strong>Save</strong>, Birst generates and displays a <strong>SAML Configuration ID</strong>.</p></li>
 <li><p>Use this <strong>SAML Configuration ID</strong> value in the <em>birst.idp</em> query parameter for logging into Birst. For example:<p>
-<p><strong>https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idp=SAML_config_ID</strong></p></li>
+<p><strong>https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=SAML_config_ID</strong></p></li>
 
 <li><p>When browsers connect to this URL, they are redirected to the <strong>Identity Provider Single Sign-On URL</strong> as specified in Step 10.</p></li>
 </ol>
 <p>Tip: Users can bookmark the redirect URL for easier access to Birst.</p>
+
+</li>
+
+<li><p><strong>OPTIONAL</strong>: The Birst application is pre-configured to pass the groups as part of the SAML assertion. The following groups attributes are supported: <em>birst.globalGroups</em>, <em>birst.group</em>. In order to send user groups as part of the SAML assertion:</p>
+<ul>
+<li><p>In OKTA, select the <strong>Sign On</strong> tab for the Birst app, then click <strong>Edit</strong>.</p></li><li><p>Select your preferred group filter from the dropdown list (the Regex rule with the value ".*" in order to send *all* groups to the Birst instance we used in our example) for the required attribute.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+</ul>
+
+<p><img border="1" src="images/apps/birst_new1.png" alt=“birst_new1.png" /></p>
 
 </li>
 
