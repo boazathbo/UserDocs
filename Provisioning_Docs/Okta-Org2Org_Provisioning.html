@@ -27,7 +27,6 @@ try{Typekit.load();}catch(e){}
 </div>
 
 
-<H2>Content TBD</H2>
 
 <h1>Configuring Provisioning for Org2Org</h1>
 
@@ -35,7 +34,11 @@ try{Typekit.load();}catch(e){}
 
 <ul>
 <li><a href="#features">Features</a></li>
+<li><a href="#requirements">Requirements</a></li>
+
 <li><a href="#configuration">Configuration Steps</a></li>
+<li><a href="#user">User Assignment</a></li>
+
 <li><a href="#schema">Schema Discovery</a></li>
 <li><a href="#tips">Troubleshooting Tips</a></li>
 </ul>
@@ -46,8 +49,110 @@ try{Typekit.load();}catch(e){}
 
 <a name="features"</a><h2>Features</h2>
 
+<ul>
+<li><p><strong>Import New Users</strong></p>
+<p>New users created in the third party application will be downloaded and turned in to new AppUser objects, for matching against existing OKTA users.</p>
+</li>
+<li><p><strong>Import Profile Updates</strong></p>
+</li>
+
+<li><p><strong>Import User Schema</strong></p>
+</li>
+<li><p><strong>Push New Users</strong></p>
+<p>New users created through OKTA will also be created in the third party application.</p>
+</li>
+<li><p><strong>Push Profile Updates</strong></p>
+<p>Updates made to the user's profile through OKTA will be pushed to the third party application.</p>
+</li>
+<li><p><strong>Push Password Updates</strong></p>
+<p>Updates made to the user's password through OKTA will be pushed to the third party application.</p></li>
+
+<li><p><strong>Push User Deactivation</strong></p>
+<p>Deactivating the user or disabling the user's access to the application through OKTA will deactivate the user in the third party application.</p></li>
+
+<li><p><strong>Reactivate Users</strong></p>
+
+<li><p><strong>Profile Master</strong></p>
+
+</ul>
+
+
+
+<hr>
+<a name="requirements"></a><h2>Requirements</h2>
+
+<p>Before you start configuring provisioning for Okta Org2Org, you need to do the following:
+
+<ol>
+<li><p>Obtain your <strong>API Token</strong>:</p>
+<ul>
+<li><p>Log in to the Okta Hub Organisation as an administrator:</p></li>
+<li><p>Navigate to <strong>Security > API</strong>:</p>
+<img src="images/apps/org2org1.png" alt=“org2org1.png" /></p>
+</li>
+<li><p>Enter your token name, then <strong>Create Token</strong>:</p>
+<img src="images/apps/org2org2.png" alt=“org2org2.png" /></p>
+</li>
+<li><p>Make a copy of your newly generated token:</p>
+<img src="images/apps/org2org3.png" alt=“org2org3.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>Verify the <strong>Okta Org2Org</strong> app’s <strong>General Settings</strong> in Okta <strong>Spoke</strong> organization:</p>
+<ul>
+<li><p>Make sure that you have the correct base URL to your Hub Org in Okta (for example: <strong>https://my-org.okta.com</strong>).</p></li>
+</ul>
+</li>
+</ol>
+
+
 <hr>
 <a name="configuration"></a><h2>Configuration Steps</h2>
+
+<ol>
+<li><p>Configure your <strong>Provisioning</strong> settings for Okta Org2Org as follows:</p>
+<ul>
+<li><p>Check the <strong>Enable provisioning features</strong> box.</p></li>
+<li><p>In the API Authentication, paste your API Token you saved into the <strong>Security Token</strong> field.</p>
+<img src="images/apps/org2org4.png" alt=“org2org4.png" /></p>
+</li>
+</ul>
+</li>
+<li><p>Scroll down and select the <strong>Provisioning Features</strong> you want to enable.</p>
+<img src="images/apps/org2org5.png" alt=“org2org5.png" /></p>
+
+
+</li>
+
+<li><p>Click <strong>Next</strong>, then click <strong>Save</strong>.</p></li>
+
+<li><p>You can now assign people to the app, if needed (see below).</p></li>
+
+
+</ol>
+
+
+<hr>
+<a name="user"></a><h2>User Assignment</h2>
+
+<p>To assign users to the Okta Org2Org app:</p>
+
+<ol>
+<li><p>Select the <strong>People</strong> tab, then click <strong>Assign to People</strong>:</p>
+<img src="images/apps/org2org6.png" alt=“org2org6.png" /></p>
+</li>
+
+<li><p>In the <strong>Assign Okta Org2Org to People</strong> dialog, select a user, then click <strong>Assign button</strong>:</p>
+<img src="images/apps/org2org7.png" alt=“org2org7.png" /></p>
+</li>
+
+<li><p>You can set <strong>Security Question/Answer</strong> and select the <strong>Initial Status</strong> for provisioned user:</p>
+<img src="images/apps/org2org8.png" alt=“org2org8.png" /></p>
+</li>
+
+
+
+</ol>
 
 <hr>
 <a name="schema"></a><h2>Schema Discovery</h2>

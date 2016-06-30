@@ -27,16 +27,27 @@ try{Typekit.load();}catch(e){}
 </div>
 
 
-<H2>Content TBD</H2>
-
 <h1>Configuring Provisioning for BlueJeans</h1>
 
-<p>This guide provides the steps required to configure Provisioning for BlueJeans, and includes the following topics:</p>
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+
+<p><strong>Notes</strong></p>
 
 <ul>
+
+<li><p>The BlueJeans Username is read-only in Okta (BlueJeans generates it on provisioning).</p></li>
+<li><p>BlueJeans shares the same email database across all organizations. Therefore, you will not be able to provision a user with an email address that is already taken.</p></li>
+<li><p>Deactivation means that a user account will be removed from your organization, but not deleted completely. Note that once you deactivate a user, you will not be able to add it back without contacting BlueJeans Support.</p></li>
+
+</ul>
+</div>
+
+<h2>Contents</h2>
+<ul>
 <li><a href="#features">Features</a></li>
+<li><a href="#requirements">Requirements</a></li>
+
 <li><a href="#configuration">Configuration Steps</a></li>
-<li><a href="#schema">Schema Discovery</a></li>
 <li><a href="#tips">Troubleshooting Tips</a></li>
 </ul>
 <hr>
@@ -46,17 +57,95 @@ try{Typekit.load();}catch(e){}
 
 <a name="features"</a><h2>Features</h2>
 
+<ul>
+<li><p><strong>Import New Users</strong></p>
+<p>New users created in the third party application will be downloaded and turned in to new AppUser objects, for matching against existing OKTA users.</p>
+</li>
+<li><p><strong>Import Profile Updates</strong></p>
+</li>
+
+<li><p><strong>Import User Schema</strong></p>
+</li>
+<li><p><strong>Push New Users</strong></p>
+<p>New users created through OKTA will also be created in the third party application.</p>
+</li>
+<li><p><strong>Push Profile Updates</strong></p>
+<p>Updates made to the user's profile through OKTA will be pushed to the third party application.</p>
+</li>
+<li><p><strong>Push Password Updates</strong></p>
+<p>Updates made to the user's password through OKTA will be pushed to the third party application.</p></li>
+
+<li><p><strong>Push User Deactivation</strong></p>
+<p>Deactivating the user or disabling the user's access to the application through OKTA will deactivate the user in the third party application.</p></li>
+
+</ul>
+
+<hr>
+<a name="requirements"></a><h2>Requirements</h2>
+<p>Before you start configuring provisioning for BlueJeans, you need to obtain an <strong>OAuth Key</strong> and <strong>Secret</strong> from BlueJeans:</p>
+
+
+<ol>
+<li><p>Login to BlueJeans as an administrator:</p>
+<img src="images/apps/bluejeans1.png" alt=“bluejeans1.png" /></p>
+</li>
+
+
+<li><p>Navigate to <strong>Admin > Group Settings > OAuth Access</strong>:</p>
+<img src="images/apps/bluejeans2.png" alt=“bluejeans2.png" /></p>
+</li>
+
+<li><p>Either:</p>
+<ul>
+<li><p>Select an existing app and make note of the <strong>App Key</strong> and <strong>App Secret</strong>.</p></li>
+
+<li><p>Create a new app by clicking <strong>ADD NEW APP</strong> and entering values in the <strong>Name</strong>, <strong>Description</strong>, and <strong>App Key</strong> fields, then click <strong>Save</strong>. An <strong>App Secret</strong> will be generated for you.</p>
+</li>
+
+</ul>
+<img src="images/apps/bluejeans3.png" alt=“bluejeans3.png" /></p>
+</li>
+
+<li><p>Use the <strong>App Key</strong> and generated <strong>App Secret</strong> to configure Provisioning in Okta as described below:</p></li>
+
+</ol>
+
+
 <hr>
 <a name="configuration"></a><h2>Configuration Steps</h2>
 
+<ol>
+<li><p>Configure your Provisioning settings for Concur as follows:</p>
+<ul>
+
+<li><p>Check the <strong>Enable provisioning features</strong> box.</p></li>
+<li><p>In the <strong>API Authentication</strong>, enter the <strong>App Key</strong> and <strong>App Secret</strong> obtained from BlueJeans (see <a href="#requirements">Requirements</a>, above).</p></li>
+<li><p>Click <strong>Test API Credentials</strong>. If your credentials are valid, you will see a success message:</p></li>
+
+</ul>
+<img src="images/apps/bluejeans4.png" alt=“bluejeans4.png" /></p>
+
+</li>
+
+<li><p>Scroll down and enable the <strong>Provisioning Features</strong> you want to use for this app.</p></li>
+
+<li><p>Click <strong>Next</strong>, then click <strong>Save</strong>.</p></li>
+
+<li><p>You can now assign people to the app, if needed.</p></li>
+</ol>
+
 <hr>
-<a name="schema"></a><h2>Schema Discovery</h2>
-
-
-<hr>
-
 
 <a name="tips"</a><h2>Troubleshooting Tips</h2>
+
+<ul>
+<li>
+<p>Because BlueJeans shares the email database across all organizations, provisioning a User with an email address that is already registered in BlueJeans may fail.</p>
+<p>In this case, contact BlueJeans Support and request that this email be added to your Organization.</p>
+</li>
+<img src="images/apps/bluejeans5.png" alt=“bluejeans5.png" /></p>
+
+</ul>
 
 </div>
 </body>
