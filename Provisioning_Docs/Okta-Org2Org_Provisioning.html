@@ -34,13 +34,15 @@ try{Typekit.load();}catch(e){}
 
 <ul>
 <li><a href="#features">Features</a></li>
+<li><a href="#assumptions">Assumptions</a></li>
+
 <li><a href="#requirements">Requirements</a></li>
 
 <li><a href="#configuration">Configuration Steps</a></li>
 <li><a href="#user">User Assignment</a></li>
 
-<li><a href="#schema">Schema Discovery</a></li>
-<li><a href="#tips">Troubleshooting Tips</a></li>
+<li><a href="#push">Push Groups</a></li>
+<li><a href="#profile">Profile Mastering</a></li>
 </ul>
 <hr>
 
@@ -50,32 +52,23 @@ try{Typekit.load();}catch(e){}
 <a name="features"</a><h2>Features</h2>
 
 <ul>
-<li><p><strong>Import New Users</strong></p>
-<p>New users created in the third party application will be downloaded and turned in to new AppUser objects, for matching against existing OKTA users.</p>
-</li>
-<li><p><strong>Import Profile Updates</strong></p>
-</li>
-
-<li><p><strong>Import User Schema</strong></p>
-</li>
-<li><p><strong>Push New Users</strong></p>
-<p>New users created through OKTA will also be created in the third party application.</p>
-</li>
-<li><p><strong>Push Profile Updates</strong></p>
-<p>Updates made to the user's profile through OKTA will be pushed to the third party application.</p>
-</li>
-<li><p><strong>Push Password Updates</strong></p>
-<p>Updates made to the user's password through OKTA will be pushed to the third party application.</p></li>
-
-<li><p><strong>Push User Deactivation</strong></p>
-<p>Deactivating the user or disabling the user's access to the application through OKTA will deactivate the user in the third party application.</p></li>
-
-<li><p><strong>Reactivate Users</strong></p>
-
-<li><p><strong>Profile Master</strong></p>
+<li><p><strong>Import New Users</strong></p></li>
+<li><p><strong>Import Profile Updates</strong></p></li>
+<li><p><strong>Import User Schema</strong></p></li>
+<li><p><strong>Push New Users</strong></p></li>
+<li><p><strong>Push Password Updates</strong></p></li>
+<li><p><strong>Push Profile Updates</strong></p></li>
+<li><p><strong>Push User Deactivation</strong></p></li>
+<li><p><strong>Reactivate Users</strong></p></li>
+<li><p><strong>Push Groups</strong></p></li>
+<li><p><strong>Profile Master</strong></p></li>
 
 </ul>
 
+<hr>
+<a name="assumptions"></a><h2>Assumptions</h2>
+
+<p>This setup assumes that you are adding this Org2Org provisioning application to your <strong>Okta source (Spoke) organization</strong>.</p>
 
 
 <hr>
@@ -84,13 +77,13 @@ try{Typekit.load();}catch(e){}
 <p>Before you start configuring provisioning for Okta Org2Org, you need to do the following:
 
 <ol>
-<li><p>Obtain your <strong>API Token</strong>:</p>
+<li><p>Obtain your <strong>API Token (Hub Organization)</strong>:</p>
 <ul>
-<li><p>Log in to the Okta Hub Organisation as an administrator:</p></li>
+<li><p>Log in to the Okta <strong>Hub</strong> Organisation as an administrator:</p></li>
 <li><p>Navigate to <strong>Security > API</strong>:</p>
 <img src="images/apps/org2org1.png" alt=“org2org1.png" /></p>
 </li>
-<li><p>Enter your token name, then <strong>Create Token</strong>:</p>
+<li><p>Click the <strong>Create Token</strong> button, then enter your token name in the dialog, then click <strong>Create Token</strong>:</p>
 <img src="images/apps/org2org2.png" alt=“org2org2.png" /></p>
 </li>
 <li><p>Make a copy of your newly generated token:</p>
@@ -110,10 +103,10 @@ try{Typekit.load();}catch(e){}
 <a name="configuration"></a><h2>Configuration Steps</h2>
 
 <ol>
-<li><p>Configure your <strong>Provisioning</strong> settings for Okta Org2Org as follows:</p>
+<li><p>Configure your <strong>Provisioning</strong> settings for Okta Org2Org app in <strong>Spoke</strong> org as follows:</p>
 <ul>
 <li><p>Check the <strong>Enable provisioning features</strong> box.</p></li>
-<li><p>In the API Authentication, paste your API Token you saved into the <strong>Security Token</strong> field.</p>
+<li><p>In the API Authentication, paste your API Token you saved into the <strong>Security Token</strong> field:</p>
 <img src="images/apps/org2org4.png" alt=“org2org4.png" /></p>
 </li>
 </ul>
@@ -124,7 +117,7 @@ try{Typekit.load();}catch(e){}
 
 </li>
 
-<li><p>Click <strong>Next</strong>, then click <strong>Save</strong>.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
 
 <li><p>You can now assign people to the app, if needed (see below).</p></li>
 
@@ -138,7 +131,7 @@ try{Typekit.load();}catch(e){}
 <p>To assign users to the Okta Org2Org app:</p>
 
 <ol>
-<li><p>Select the <strong>People</strong> tab, then click <strong>Assign to People</strong>:</p>
+<li><p>Open the Okta Org2Org app, then select the <strong>People</strong> tab, then click <strong>Assign to People</strong>:</p>
 <img src="images/apps/org2org6.png" alt=“org2org6.png" /></p>
 </li>
 
@@ -146,22 +139,74 @@ try{Typekit.load();}catch(e){}
 <img src="images/apps/org2org7.png" alt=“org2org7.png" /></p>
 </li>
 
-<li><p>You can set <strong>Security Question/Answer</strong> and select the <strong>Initial Status</strong> for provisioned user:</p>
+<li><p>You can set <strong>Security Question/Answer</strong> and select the <strong>Initial Status</strong> for the provisioned user:</p>
 <img src="images/apps/org2org8.png" alt=“org2org8.png" /></p>
 </li>
 
-
-
+<li><p>After clicking <strong>Save</strong>, this user will be provisioned to <strong>Hub</strong> organization with the selected initial status and security question/answer.</p></li>
 </ol>
 
+<br />
+
+ <div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+
+        <p><strong>What is the "Initial status" user attribute?</strong></p>
+
+        <ul>
+
+            <li><p>Setting the <strong>Initial status</strong> user attribute is required when assigning an Okta user to the Org2Org app. This attribute determines the status of the user in the target org when they are created, linked, or reactivated.</p></li>
+
+<li><p>If the initial status is set to <strong>Active with password</strong> or <strong>Pending with password</strong>, Okta will generate a temporary password for the user. If <strong>Okta Password Sync</strong> is enabled, this temporary password will be overwritten when the user signs in.</p></li>
+
+        </ul>
+    </div>
+
 <hr>
-<a name="schema"></a><h2>Schema Discovery</h2>
+<a name="push"></a><h2>Push Groups</h2>
 
+<p>Groups that exist in Okta can be configured to push to the target Okta org. Users that are part of the pushed group will show up in the target group if they also exist in the target. Best practice is to push new groups to target Okta organization and not to try to push the existing groups.</p>
+<p>To push new groups to the <strong>Hub</strong> org, follow these steps:</strong></p>
 
+<ol>
+<li><p>Select the <strong>Push Groups</strong> tab, then and select the green <strong>Push Groups</strong> dropdown:</p>
+
+<p><img src="images/apps/org2org9.png" alt=“org2org9.png" /></p>
+
+</li>
+
+<li><p>Type your group name in the search field, then click on your group. Then click the <strong>Add Group</strong> button:</p>
+<p><img src="images/apps/org2org10.png" alt=“org2org10.png" /></p>
+
+</li>
+
+<li><p>If everything is successful, you'll see your group with an <strong>Active</strong> status, and it will also be pushed to your <strong>Hub</strong> org:</p>
+<p><img src="images/apps/org2org11.png" alt=“org2org11.png" /></p>
+
+</li>
+
+</ol>
 <hr>
 
 
-<a name="tips"</a><h2>Troubleshooting Tips</h2>
+<a name="profile"</a><h2>Profile Mastering</h2>
+
+
+<p>In addition to the traditional usage, the Okta Org2Org application can be used as a Profile Master.</p>
+
+<p>This means that your <strong>Hub</strong> org becomes a master of your users. By importing those (Hub) users into your <strong>Spoke</strong> org, you will be able to update Spoke users’ properties, and those changes will be applied to other apps, to whom those users are assigned (for example, Google Apps, O365 etc.). </p>
+
+
+<p>To enable Profile Mastering, perform the following steps:</p>
+
+<ol>
+<li><p>Navigate to the <strong>Provisioning</strong> tab, then click <strong>Edit</strong>.</p></li>
+<li><p>Deselect all Provisioning Features that are enabled, then enable <strong>Profile Mastering</strong>:</p>
+<p><img src="images/apps/org2org12.png" alt=“org2org12.png" /></p>
+</li>
+
+<li><p>Click <strong>Save</strong>.</p></li>
+
+
 
 </div>
 </body>
