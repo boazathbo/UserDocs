@@ -25,18 +25,36 @@ try{Typekit.load();}catch(e){}
 <p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
 </div>
 <ol>
-<li>Copy and save the following IdP Metadata show below with the filename <strong>metadata.xml</strong>.&nbsp;<br />
-    <pre id="idpMetadata">Sign into the Okta Admin dashboard to generate this value.</pre></li>
-<li>Download following <strong>x.509 certificate</strong>:<br /><br /> <kbd id="downloadCertificate">Sign in to the Okta Admin app to generate this link.</kbd></li>
-<li>
-<p>Send an email message to Clari and request that they enable SAML for your organization.</p>
+
+<li><p>Contact the Clari Support team and request that they enable SAML 2.0 for your account.</p></li>
+
+<li><p>Include the following <strong>Metadata URL</strong> with your request:</p>
+<p><kbd id="metadataUrl">Sign in to the Okta Admin app to have this variable generated for you</kbd></p>
 </li>
-<li>Attach the <strong>metadata.xml</strong> file you created in step 1 and the <strong>x.509 certificate</strong> you downloaded in step 2.</li>
-<li>Clari will enable SAML and provide you with an <strong>Organization ID</strong>.</li>
-<li>After you receive the confirmation from Clari, in Okta, navigate to the General tab for the Clari app and enter the <strong>Organization ID</strong> that Clari provided.</li>
-<li>Done!<br /><br /><strong>Note:</strong> This application only works on a mobile device through a native SSO environment.</li>
+
+<li><p>The Clari Support team will process your request. After receiving a confirmation email, you can start assigning people to the application.</p></li>
+
+<li><p>Done!</p> 
 </ol>
-<h2>&nbsp;</h2>
+
+
+<br />
+<p><b>Notes:</b></p>
+<p>SP-initiated flows, IDP-initiated flows, and Just In Time (JIT) provisioning are all supported.</p>
+<p> is not supported.</p>
+<br />
+<H3>For SP-initiated flows</H3>
+<br />
+
+
+
+<ol>
+<li><p>Go to: <a href="https://app.clari.com/signin">https://app.clari.com/signin</a>.</p></li>
+<li><p>Enter your email address.</p></li>
+<li><p>Click <strong>Let’s Go!</strong>.</p></li>
+<p><img border="1" src="images/apps/clarinew1.png" alt=“clarinew1.png" /></p>
+
+</ol>
 </div>
 </body>
 </html>
