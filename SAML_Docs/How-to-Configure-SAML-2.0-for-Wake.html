@@ -1,0 +1,84 @@
+<html>
+<head>
+    <link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="../resources/js/jff5neq.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        try{Typekit.load();}catch(e){}
+    </script>
+    <script src="../resources/js/jquery.min.js"></script>
+    <script src="../resources/js/vkbeautify.js"></script>
+
+    <title>Setup SSO</title>
+
+    <script src="../resources/js/getAppValues.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+    <div class="logo-container">
+        <img src="../resources/img/okta-logo-white.png" alt="Okta" />
+    </div>
+</div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Wake</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+
+
+<li><p>Contact the Wake Support team and request that they enable SAML 2.0 for your account.</p></li>
+
+<li><p>Navigate to <strong>Settings > Authentication</strong>.</p></li>
+
+<li><p>Select the <strong>Okta</strong> radio button.</p></li>
+
+<li><p>Click <strong>Configure</strong>.</p>
+<p><img border="1" src="images/apps/wave1.png" alt=“wave1.png" /></p>
+</li>
+
+
+<li><p>On the <strong>Configure Okta Authentication</strong> page, enter the following:</p>
+<ul>
+<li><p><strong>SSO 2.0 ENDPOINT</strong>: Copy and paste the following:</p>
+<kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd>
+</li>
+
+<li><p><strong>PUBLIC CERTIFICATE</strong>: Copy and paste the following:</p>
+<kbd id="x509CertText">Sign into the Okta Admin Dashboard to generate this variable.</kbd>
+</li>
+<li><p>Click <strong>Save Configuration</strong>.</p></li>
+
+</ul>
+<p><img border="1" src="images/apps/wave2.png" alt=“wave2.png" /></p>
+
+</li>
+
+
+
+<li><p>Done!</p></li>
+</ol>
+
+
+<br />
+<p><b>Notes:</b></p>
+<p>SP-initiated flows, IDP-initiated flows, and Just In Time (JIT) provisioning are all supported.</p>
+<br />
+<H3>For SP-initiated flows</H3>
+<br />
+
+
+
+<ol>
+<li><p>Open the following URL: <strong>https://[yourSubDomain].wake.io/</strong>.</p></li>
+<li><p>Click <strong>Sign in with Okta</strong>:</p></li>
+<p><img border="1" src="images/apps/wave3.png" alt=“wave3.png" /></p>
+
+</ol>
+
+
+
+</div>
+</body>
+</html>
