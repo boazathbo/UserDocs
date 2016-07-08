@@ -1,0 +1,79 @@
+<html>
+<head>
+    <link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="../resources/js/jff5neq.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        try{Typekit.load();}catch(e){}
+    </script>
+    <script src="../resources/js/jquery.min.js"></script>
+    <script src="../resources/js/vkbeautify.js"></script>
+
+    <title>Setup SSO</title>
+
+    <script src="../resources/js/getAppValues.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+    <div class="logo-container">
+        <img src="../resources/img/okta-logo-white.png" alt="Okta" />
+    </div>
+</div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Zscaler Private Access</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+
+
+<li><p>Go to <a href="https://admin.zscalerconnect.net/ " target="_blank">https://admin.zscalerconnect.net/ </a> and login as an Administrator</p></li>
+
+<li><p>Navigate to <strong>Administration > IDP Configuration</strong>.</p></li>
+
+<li><p>Click <strong>Add New IDP Configuration</strong>.</p></li>
+
+<li><p>Copy and save the following <strong>IDP Metadata</strong>:</p>
+<textarea id="idpMetadata" style="margin: 0px; width: 817px; height: 190px;">Sign into the Okta Admin Dashboard to generate this variable.</textarea>
+</li>
+
+<li><p>Click <strong>Select File</strong> and select the metadata file you just saved:</p>
+<p><img border="1" src="images/apps/zscalerpa1.png" alt=“zscalerpa1.png" /></p>
+
+</li>
+
+<li><p>Click <strong>Save</strong>.</p></li>
+
+
+
+
+<li><p>Done!</p></li>
+</ol>
+
+
+<br />
+<p><b>Notes:</b></p>
+<p>SP-initiated flows are supported.</p>
+
+<p>IDP-initiated flows and Just In Time (JIT) provisioning are not supported.</p>
+<br />
+<H3>For SP-initiated flows</H3>
+<br />
+
+
+
+<ol>
+<li><p>Run the Zscaler client.</p></li>
+<li><p>Enter your email address.</p></li>
+<li><p>Click <strong>Login</strong>:</p></li>
+
+<p><img border="1" src="images/apps/zscalerpa2.png" alt=“zscalerpa2.png" /></p>
+
+</ol>
+
+
+
+</div>
+</body>
+</html>
