@@ -29,12 +29,25 @@ try{Typekit.load();}catch(e){}
 
 <h1>Configuring Provisioning for GitHub Enterprise</h1>
 
-<p>This guide provides the steps required to configure Provisioning for GitHub Enterprise.</p>
+<p>This guide provides the steps required to configure Provisioning for GitHub Enterprise and includes the following topics:</p>
 
 
 
 
-<h2>Features</h2>
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#requirements">Requirements</a></li>
+
+
+<li><a href="#configuration">Configuration Steps</a></li>
+
+<li><a href="#tips">Troubleshooting Tips</a></li>
+</ul>
+<hr />
+
+
+
+<a name="features"></a><h2>Features</h2>
 <p>The following provisioning features are supported:</p>
 
 <ul>
@@ -59,8 +72,8 @@ try{Typekit.load();}catch(e){}
 </ul>
 <hr>
 
-<h2>Requirements</h2>
-<p>GitHub Enterprise does not support creation of new users through its API. You cannot assign GitHub through Okta to a user who does not already exist on the GitHub side. When assigning a user to the GitHub app, ensure that the user already has a GitHub account. Okta will only add the existing GitHub user to the selected Organization and Teams managed by Okta.</p>
+<a name="requirements"></a><h2>Requirements</h2>
+<p>The Okta integration cannot assign users that have not already been created on GitHub Enterprise. When assigning a user to the GitHub app, ensure that the user already has a GitHub account. Okta will only add the existing GitHub user to the selected Organization and Teams managed by Okta.</p>
 <p>GitHub Enterprise does not support changes to a user's profile other than team memberships. Changing the username of a user can cause problems such as org/team unassignment. </p> 
 <p>When assigning a user to GitHub through Okta who is part of GitHub but not a member of the organization, the user will receive an invitation to join the org. Until the user accepts the invitation, they will be in pending status. Pending users will not show up during user imports nor can their profiles be updated. </p>
 </ br>
@@ -83,7 +96,7 @@ try{Typekit.load();}catch(e){}
 
 
 <hr>
-<h2>Configuration Steps</h2>
+<a name="configuration"></a><h2>Configuration Steps</h2>
 <p>Configure your <strong>Provisioning</strong> settings for GitHub Enterprise as follows:</p>
 <ol>
 <li><p>Check the <strong>Enable provisioning features</strong> box.</p></li>
@@ -139,7 +152,7 @@ try{Typekit.load();}catch(e){}
 </li>
 </ol>
 <hr>
-<h2>Troubleshooting Tips</h2>
+<a name="tips"></a><h2>Troubleshooting Tips</h2>
 
 <ul>
 <li><p>Setting the application username format to the default of email address causes problems when pushing profile updates. Make sure it is set to a custom format to match the username imported from GitHub or to <strong>None</strong>.</p></li>
