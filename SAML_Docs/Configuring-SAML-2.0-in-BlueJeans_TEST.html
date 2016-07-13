@@ -56,8 +56,9 @@ try{Typekit.load();}catch(e){}
  <script type="text/javascript">
     function SharePointRealm() {
     var a = (window.dataSAML["issuer"]);
+    var b = a.lastIndexOf("\/");
     
-    $('#SharePointRealmVal').text(a);    
+    $('#SharePointRealmVal').text(b);    
 
    }
    
@@ -212,7 +213,7 @@ try{Typekit.load();}catch(e){}
 </li>
 
 </li>
-<p>Copy the following <strong>Sharepoint Realm 8</strong> field.</p>
+<p>Copy the following <strong>Sharepoint Realm 9</strong> field.</p>
 <kbd id="SharePointRealmVal"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
 
