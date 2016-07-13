@@ -12,6 +12,14 @@
 
     <script src="../resources/js/getAppValues.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+
+
+
+
+
+
 </head>
 <body>
 <div class="header clearfix">
@@ -29,16 +37,30 @@
 <li><a href="#stsconfig">SharePoint STS Configuration</a></li>
 <li><a href="#new-auth-provider">Setting Up a New Authentication Provider</a>
 <ul>
-<li><a href="#encoding">Encoding Characters</a></li>
+<li><a href="#powershell">Creating the Okta Trusted Token Issuer using Powershell Script</a></li>
+<li><a href="#trusted-issuer-manual">Creating the Okta Trusted Token Issuer - Step by Step</a>
+<ul>
 <li><a href="#new-sharepoint-trusted-root">Creating a New SharePoint Trusted Root Authority</a></li>
+<li><a href="#claims-mappings-email">Creating the Claims Mappings in SharePoint - Email</a></li>
 <li><a href="#username-claims">Creating the UserName Claims Encoding in SharePoint</a></li>
-<li><a href="#claims-mappings-email">Creating the Claims Mappings in SharePoint - <strong>Email</strong></a></li>
-<li><a href="#claims-mappings-username">Creating the Claims Mappings in SharePoint - <strong>UserName</strong></a></li>
+<li><a href="#claims-mappings-username">Creating the Claims Mappings in SharePoint - UserName</a></li>
 <li><a href="#new-auth-provider-using-powershell">Creating a New Authentication Provider Using Windows PowerShell</a></li>
+
 
 
 </ul>
 </li>
+</ul>
+
+</li>
+
+
+
+<ul>
+</ul>
+
+
+
 
 
 <li><a href="#existing-auth-provider">Adding a Web App to an Existing Authentication Provider</a></li>
@@ -69,11 +91,13 @@
 
 <a name="new-auth-provider"></a><h2>Setting Up a New Authentication Provider</h2>
 
+<p>You can either create the Okta trusted token issuer by running the provided Powershell script (see next), or manually (see <a href="#trusted-issuer-manual">Creating the Okta Trusted Token Issuer - Step by Step</a>).</p>
 
-<p><strong>Use the provided PowerShell script to create the OKTA trusted token issuer:</strong></p>
-<p>We highly recommend using PowerShell script to set up a new authentication provider. If you subsequently need to add an additional web app, follow the "Add another web app to an existing authentication provider" instructions.</p><p><strong>Note</strong>: Currently the script is not signed, so you need to change the PowerShell execution policy to <em>Unrestricted</em> before running the script. For more information, see <a href="https://technet.microsoft.com/en-us/library/ee176961.aspx" target="_blank">Using the Set-ExecutionPolicy Cmdlet</a>.</p>
+<a name="powershell"></a><h3>Creating the Okta Trusted Token Issuer using Powershell Script</h3>
 
-<p>To show help:</p><blockquote>Get-Help CreateSPTrustedTokenIssuer.ps1</blockquote><p>To run the command:</p>
+<p>We highly recommend using this PowerShell script to set up a new authentication provider. If you subsequently need to add an additional web app, follow the "Add another web app to an existing authentication provider" instructions.</p><p><strong>Note</strong>: Currently the script is not signed, so you need to change the PowerShell execution policy to <em>Unrestricted</em> before running the script. For more information, see <a href="https://technet.microsoft.com/en-us/library/ee176961.aspx" target="_blank">Using the Set-ExecutionPolicy Cmdlet</a>.</p>
+
+<p>To show help:</p><blockquote>Get-Help CreateSPTrustedTokenIssuer.ps1</blockquote><p>To run the command:</p> 
 
 
 <blockquote>CreateSPTrustedTokenIssuer.ps1 -identifierClaimType $identifierClaimType -certPath $cert -realm $realm -signInURL $signInURL</blockquote>
@@ -92,14 +116,19 @@
 
 <blockquote>.\CreateSPTrustedTokenIssuer.ps1 -identifierClaimType "UserName" -certPath "C:\Okta.cert" -realm "urn:okta:sharepoint:exk5rz1t5f50J447m0h7" -signInURL "https://sp.okta.com/app/sharepoint_onpremise/sso/wsfed/passive" -skipCreatingTrustedRootAuthority</blockquote>
 
-<a name="encoding"></a><h3>Encoding Characters</h3>
-
-<p>By default the script above uses <strong>527</strong> as the encoding character. If you want to use a different encoding character, then pass <strong>–encodingCharacterCode</strong> with the character code to the script above. In case you choose a different encoding character, then make sure that your character is not used in another encoding for a different claim. Also it should be above 500 (0x01F5) and not an uppercase or whitespace character.</p>
-
-<p><strong>Note</strong>: Not all characters above 500 works. Here are few examples for you to use: 509, 517, 519 and 525.</p>
 
 
-<a name="new-sharepoint-trusted-root"></a><h3>Creating a New SharePoint Trusted Root Authority</h3>
+
+
+<a name="trusted-issuer-manual"></a><h3>Creating an Okta Trusted Token Issuer - Step by Step</h3>
+
+<p>If you choose not to use the provided Powershell script to create an Okta Trusted Token Issuer (see <a href="#powershell">Creating the Okta Trusted Token Issuer using Powershell Script</a>), follow the step by step instructions below:</p>
+
+
+
+<a name="new-sharepoint-trusted-root"></a><h4>Creating a New SharePoint Trusted Root Authority</h4>
+
+<p>If you 
 
 <p>Okta signs the tokens that it issues with a token signing certificate. You must import an Okta Identity Provider certificate into SharePoint that SharePoint can use to validate the token from Okta.</p><ul><li><p>Download your Okta Identity Provider Certificate from the setup instruction page of your app.</p></li><li><p>You can use the following PowerShell command to import a certificate from the downloaded <em>.cer</em> file:</p>
 
@@ -108,7 +137,16 @@
 </li>
 </ul>
 
-<a name="username-claims"></a><h3>Creating the UserName Claims Encoding in SharePoint</h3>
+
+<a name="claims-mappings-email"></a><h4>Creating the Claims Mappings in SharePoint - Email</h4> <p><strong>Note</strong>: Follow this step if you are using <strong>Email</strong> as the identifier claim.</p>
+
+<p>To map the incoming claims from Okta to claims that SharePoint uses, you must create some mapping rules.</p><p>The following PowerShell commands show how to create rules to pass through the incoming upn, role and email claims.</p><blockquote>$upnClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" -IncomingClaimTypeDisplayName "UPN" -SameAsIncoming</blockquote><blockquote>$roleClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" -IncomingClaimTypeDisplayName "Role" -SameAsIncoming</blockquote><blockquote>$emailClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" -IncomingClaimTypeDisplayName "EmailAddress" –SameAsIncoming</blockquote>
+
+
+
+
+
+<a name="username-claims"></a><h4>Creating the UserName Claims Encoding in SharePoint</h4>
 
 <p><strong>Note</strong>: Skip this step if you are using <strong>Email</strong> as the identifier claim.</p>
 
@@ -119,14 +157,22 @@
 <blockquote>New-SPClaimTypeEncoding -EncodingCharacter ([Convert]::ToChar(527)) -ClaimType "http://schemas.okta.com/claims/username" –Force</blockquote>
 
 
-<a name="claims-mappings-email"></a><h3>Creating the Claims Mappings in SharePoint - Email</h3> <p><strong>Note</strong>: Follow this step if you are using <strong>Email</strong> as the identifier claim.xxx</p>
 
-<p>To map the incoming claims from Okta to claims that SharePoint uses, you must create some mapping rules.>/p><p>The following PowerShell commands show how to create rules to pass through the incoming upn, role and email claims.</p><blockquote>$upnClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" -IncomingClaimTypeDisplayName "UPN" -SameAsIncoming</blockquote><blockquote>$roleClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" -IncomingClaimTypeDisplayName "Role" -SameAsIncoming</blockquote><blockquote>$emailClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" -IncomingClaimTypeDisplayName "EmailAddress" –SameAsIncoming</blockquote>
-<a name="claims-mappings-username"></a><h3>Creating the Claims Mappings in SharePoint - UserName</h3> <p><strong>Note</strong>: Follow this step if you are using <strong>UserName</strong> as the identifier claim.xxx</p><p>To map the incoming claims from Okta to claims that SharePoint uses, you must create some mapping rules.</p><p>The following PowerShell commands show how to create rules to pass through the incoming username, upn, role and email claims.</p><blockquote>$usernameClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.okta.com/claims/username" -IncomingClaimTypeDisplayName "UserName" –SameAsIncoming</blockquote><blockquote>$upnClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" -IncomingClaimTypeDisplayName "UPN" -SameAsIncoming</blockquote><blockquote>$roleClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" -IncomingClaimTypeDisplayName "Role" -SameAsIncoming</blockquote><blockquote>$emailClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" -IncomingClaimTypeDisplayName "EmailAddress" –SameAsIncoming</blockquote>
+<a name="encoding"></a><h5>Encoding Characters</h5>
+
+<p>By default the script above uses <strong>527</strong> as the encoding character. If you want to use a different encoding character, then pass <strong>–encodingCharacterCode</strong> with the character code to the script above. In case you choose a different encoding character, then make sure that your character is not used in another encoding for a different claim. Also it should be above 500 (0x01F5) and not an uppercase or whitespace character.</p>
+
+<p><strong>Note</strong>: Not all characters above 500 works. Here are few examples for you to use: 509, 517, 519 and 525.</p>
 
 
 
-<a name="new-auth-provider-using-powershell"></a><h3>Creating a New Authentication Provider Using Windows PowerShell</h3>
+
+
+<a name="claims-mappings-username"></a><h4>Creating the Claims Mappings in SharePoint - UserName</h4> <p><strong>Note</strong>: Follow this step if you are using <strong>UserName</strong> as the identifier claim.</p><p>To map the incoming claims from Okta to claims that SharePoint uses, you must create some mapping rules.</p><p>The following PowerShell commands show how to create rules to pass through the incoming username, upn, role and email claims.</p><blockquote>$usernameClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.okta.com/claims/username" -IncomingClaimTypeDisplayName "UserName" –SameAsIncoming</blockquote><blockquote>$upnClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" -IncomingClaimTypeDisplayName "UPN" -SameAsIncoming</blockquote><blockquote>$roleClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" -IncomingClaimTypeDisplayName "Role" -SameAsIncoming</blockquote><blockquote>$emailClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" -IncomingClaimTypeDisplayName "EmailAddress" –SameAsIncoming</blockquote>
+
+
+
+<a name="new-auth-provider-using-powershell"></a><h4>Creating a New Authentication Provider Using Windows PowerShell</h4>
 
 
 <p>From the Windows PowerShell command prompt, create a new authentication provider, as shown in the syntax below.</p><p>Next we create a realm, this is the same as the <strong>SharePoint Trusted Identity Provider Realm</strong> application settings in Okta:</p>
