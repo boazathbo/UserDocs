@@ -60,7 +60,10 @@ try{Typekit.load();}catch(e){}
     var c = a.substr(b);
     var d = '$realm = "urn:okta:sharepoint:' + c + '"' ;
     var e = 'ap.ProviderRealms.Add($uri, "urn:okta:sharepoint:$' + c + '"';
-    
+    var v = window.dataSAML["signOnUrl"];
+    var w = m.replace("/sso/saml","/sso/wsfed/passive");
+
+    $('#SharePointSignOnUrl').text(w);    
     $('#SharePointRealmVal').text(d);    
     $('#SharePointRealmsAdd').text(e);
 
@@ -229,6 +232,11 @@ try{Typekit.load();}catch(e){}
 </li>
 <p>Copy the following <strong>Sharepoint Site URL</strong> field, where <i>[Your Site URL]</i> is the stuff you entered in...</p>
 <kbd>$uri = new-object System.Uri("[Your Site URL]")</kbd>
+</li>
+
+</li>
+<p>Copy the following <strong>Sharepoint Sign On URL</strong> field, </p>
+<kbd id="SharePointSignOnUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
 
 <ol>
