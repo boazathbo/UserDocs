@@ -24,7 +24,7 @@ try{Typekit.load();}catch(e){}
 
 <script type="text/javascript">
   function SharePointRealm() {
-    var m = "\$realm\=\"urn:okta:sharepoint:" + window.dataSAML["issuer"] + "\""
+    var m = "\$realm\=urn:okta:sharepoint:" + window.dataSAML["issuer"] 
 
     $(‘#SharePointRealmVal’).text(m);    
 
