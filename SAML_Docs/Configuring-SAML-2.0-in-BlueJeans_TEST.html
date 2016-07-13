@@ -54,7 +54,7 @@ try{Typekit.load();}catch(e){}
      var k = a.lastIndexOf("\/")+1;
 
     c = a.substr(k);  
-    var m = '\$realm\=urn:okta:sharepoint:' + c;
+    var m = '\$realm\=urn:okta:sharepoint:' + text(c);
 
     $('#SharePointRealmVal').text(m);    
 
