@@ -60,6 +60,23 @@ try{Typekit.load();}catch(e){}
     $('#externalKey').text(a);    
 
    }
+
+   <script type="text/javascript">
+  function SharePointRealm() {
+     var a = (window.dataSAML["issuer"]);
+     var k = (a.length - a.lastIndexOf("\/")-1)*-1;
+
+    a = a.substr(k);  
+    var m = '\$realm\=urn:okta:sharepoint:' + a;
+
+    $('#SharePointRealmVal').text(m);    
+
+   }
+   
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', SharePointRealm);
+  });
+</script>
    
  $(document).ready(function($) {
     $("body").on('dataSAMLUpdated', separateIssuer);
@@ -210,7 +227,7 @@ try{Typekit.load();}catch(e){}
 </li>
 
 </li>
-<p>Copy the following <strong>Sharepoint Realm</strong> field.</p>
+<p>Copy the following <strong>Sharepoint Realm 1</strong> field.</p>
 <kbd id="SharePointRealmVal"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
 
