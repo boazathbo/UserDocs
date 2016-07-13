@@ -47,21 +47,17 @@ try{Typekit.load();}catch(e){}
     $('#externalKey').text(a);    
 
    }
-   
+
  $(document).ready(function($) {
     $("body").on('dataSAMLUpdated', separateIssuer);
   });
 </script>
 
-   <script type="text/javascript">
-     function SharePointRealm() {
-     var a = (window.dataSAML["issuer"]);
-     var k = a.lastIndexOf('\/');
-
-    c = a.substr(k);  
-    var m = '\$realm\=urn:okta:sharepoint:' + text(k);
-
-    $('#SharePointRealmVal').text(m);    
+ <script type="text/javascript">
+    function SharePointRealm() {
+    var a = (window.dataSAML["issuer"]);
+    
+    $('#SharePointRealmVal').text(a);    
 
    }
    
