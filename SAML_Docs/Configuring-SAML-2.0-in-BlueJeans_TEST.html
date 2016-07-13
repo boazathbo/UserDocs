@@ -51,12 +51,12 @@ try{Typekit.load();}catch(e){}
    <script type="text/javascript">
   function SharePointRealm() {
      var a = (window.dataSAML["issuer"]);
-     var k = a.lastIndexOf("\/");
+     var k = a.lastIndexOf('\/');
 
     c = a.substr(k);  
     var m = '\$realm\=urn:okta:sharepoint:' + text(c);
 
-    $('#SharePointRealmVal').text(a);    
+    $('#SharePointRealmVal').text(m);    
 
    }
    
