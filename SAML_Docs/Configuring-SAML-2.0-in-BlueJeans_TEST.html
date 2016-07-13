@@ -23,6 +23,21 @@ try{Typekit.load();}catch(e){}
 
 
 <script type="text/javascript">
+  function SharePointRealm() {
+    var m = "\$realm\=\"urn:okta:sharepoint:" + window.dataSAML["issuer"] + "\""
+
+    $(‘#SharePointRealmVal’).text(m);    
+
+   }
+   
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', SharePointRealm);
+  });
+</script>
+
+
+
+<script type="text/javascript">
   function googleAppsChangePasswordUrl() {
     var m = window.dataSAML["signOutUrl"] + "/enduser/settings"
 
@@ -141,6 +156,7 @@ try{Typekit.load();}catch(e){}
 <kbd id="certFingerPrint"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
 
+
 </li>
 <p>Copy the following <strong>Formatted Certificate Fingerprint</strong> field.</p>
 <kbd id="formattedFingerprint"> Sign into the Okta Admin dashboard to generate this value.</kbd>
@@ -191,6 +207,11 @@ try{Typekit.load();}catch(e){}
 
  <li><p>Copy and paste the following IDP Metadata for Cisco Spark, then save it as an <em>xml</em> file.</p>
 <pre id="newMetadata"> Sign into the Okta Admin dashboard to generate this value.</pre>
+</li>
+
+</li>
+<p>Copy the following <strong>Sharepoint Realm</strong> field.</p>
+<kbd id="SharePointRealmVal"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
 
 
