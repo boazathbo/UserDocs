@@ -41,7 +41,7 @@ try{Typekit.load();}catch(e){}
 <script type="text/javascript">
   function separateIssuer() {
     var a = (window.dataSAML["issuer"]);
-    var m = (a.length - a.lastIndexOf("\/")-1)*-1;
+    var m = (a.lastIndexOf("\/"))+1;
 
     a = a.substr(m);  
     $('#externalKey').text(a);    
@@ -59,8 +59,10 @@ try{Typekit.load();}catch(e){}
     var b = (a.lastIndexOf("\/"))+1;
     var c = a.substr(b);
     var d = '$realm = "urn:okta:sharepoint:' + c + '"' ;
+    var e = 'ap.ProviderRealms.Add($uri, "urn:okta:sharepoint:$' + c + '"';
     
     $('#SharePointRealmVal').text(d);    
+    $('#SharePointRealmsAdd').text(e);
 
    }
    
@@ -215,11 +217,14 @@ try{Typekit.load();}catch(e){}
 </li>
 
 </li>
-<p>Copy the following <strong>Sharepoint Realm 11</strong> field.</p>
+<p>Copy the following <strong>Sharepoint Realm 14</strong> field.</p>
 <kbd id="SharePointRealmVal"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
 
-
+</li>
+<p>Copy the following <strong>Sharepoint Add Realms</strong> field.</p>
+<kbd id="SharePointRealmsAdd"> Sign into the Okta Admin dashboard to generate this value.</kbd>
+</li>
 
 <ol>
 
