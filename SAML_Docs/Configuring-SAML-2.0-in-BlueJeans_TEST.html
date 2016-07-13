@@ -217,7 +217,7 @@ try{Typekit.load();}catch(e){}
 </li>
 
 </li>
-<p>Copy the following <strong>Sharepoint Realm 14</strong> field.</p>
+<p>Copy the following <strong>Sharepoint Realm</strong> field.</p>
 <kbd id="SharePointRealmVal"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
 
@@ -226,8 +226,13 @@ try{Typekit.load();}catch(e){}
 <kbd id="SharePointRealmsAdd"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 </li>
 
-<ol>
+</li>
+<p>Copy the following <strong>Sharepoint Site URL</strong> field, where <i>[Your Site URL]</i> is the stuff you enter in...</p>
+<kbd>$uri = new-object System.Uri("[Your Site URL]")</kbd>
+</li>
 
+<ol>
+$uri = new-object System.Uri("${model.instance.siteURL}")
 
 </body>
 </html>
