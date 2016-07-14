@@ -1,0 +1,128 @@
+<html>
+<head>
+<link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="../resources/js/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="../resources/js/jquery.min.js"></script>
+<script src="../resources/js/vkbeautify.js"></script>
+<title>Setup SSO</title>
+
+<script src="../resources/js/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="../resources/img/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Ingeniux CMS</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+
+<h3>Not On-Premise</h3>
+<p>If you are not an on—premise customer, follow the steps below. If you are an on-premise customer, scroll down to those instructions later in this article.</p>
+<ol>
+
+
+<li><p>Contact the Ingeniux Support team and request that they enable SAML 2.0 for your Ingeniux On Demand CMS site.</p></li>
+
+<li><p>Include the following with your request:</p>
+
+<ul>
+<li><p><strong>IDP Metadata URL</strong>: Copy and paste the following URL:</p>
+<p><kbd id="metadataUrl">Sign in to the Okta Admin app to have this variable generated for you</kbd></p>
+</li>
+<li><p><strong>Certificate</strong>: Copy and paste the following:</p>
+
+</li>
+
+</ul>
+</li>
+
+<li><p>The Ingeniux Support team will process your request and will provide you with their URL in the following format:</p>
+<pre>https://your-cms-url</pre>
+</li>
+
+
+<li><p>In Okta, select the <strong>General</strong> tab for the Ingeniux app, then click <strong>Edit</strong>.</p>
+
+<ul>
+<li><p>Enter <strong>https://your-cms-url</strong> (the URL provided to you by Ingeniux) into the <strong>Base URL</strong> field.</p></li>
+
+<li><p>Click <strong>Save</strong>.</p></li>
+
+<p><img style="border: 0; padding: 0;" src="images/apps/ingeniux1.png" alt=“ingeniux1.png" /></p>
+</ul>
+
+<li><p>Save the following x.509 Certificate</p>
+xxxxx
+</li>
+
+<li><p>Still in Okta, select the <strong>Sign On</strong> tab for the Ingeniux app, then click <strong>Edit</strong>.</p>
+
+<ul>
+<li><p>Check the <strong>Enable Single Logout</strong> box.</p></li>
+
+<li><p>Click <strong>Browse</strong> and locate and upload the x.509 certificate you saved.</p></li>
+
+<li><p>Click <strong>Save</strong>.</p></li>
+
+<p><img style="border: 0; padding: 0;" src="images/apps/ingeniux2.png" alt=“ingeniux2.png" /></p>
+</ul>
+
+
+</li>
+
+<li><p>Done!</p></li>
+</ol>
+
+
+<h3>On-Premise</h3>
+<p>The following instructions are for on-premise customers</p>
+
+<ol>
+<li><p>Login to the CMS server and open the <strong>\site\saml.config</strong> file in a text editor.</p></li> <li><p>Configure the values displayed in bold with your sites values. Note that they are case sensitive.</p></li>
+
+
+<blockquote><SAMLConfiguration xmlns="urn:componentspace:SAML:2.0:configuration"><ServiceProvider Name= https://your-cms-urlDescription="Ingeniux CMS"AssertionConsumerServiceUrl="~/SAML/AssertionConsumerService"LocalCertificateFile="filename-for-ssl-cert.pfx"LocalCertificatePassword="YourSecurePassword" /><PartnerIdentityProviders><PartnerIdentityProviderName="http://www.okta.com/exk17xt6x1tFwlxFy1d8"Description="Okta"SignAuthnRequest="true"SignLogoutRequest="true"WantSAMLResponseSigned="true"WantAssertionSigned="false"WantAssertionEncrypted="false"DisableAudienceRestrictionCheck="true"DigestMethod="http://www.w3.org/2001/04/xmlenc#sha256"SignatureMethod="http://www.w3.org/2000/09/xmldsig#rsa-sha1"SingleLogoutServiceBinding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"SingleSignOnServiceUrl=" https://okta-coe-test.okta.com/app/ingeniuxcms/exk17xt6x1tFwlxFy1d8/sso/samlSingleLogoutServiceUrl=" https://okta-coe-test.okta.comPartnerCertificateFile="https://okta-coe-test-admin.okta.com/admin/org/security/0oa17xt6x1uyQUEzS1d8/cert" /></PartnerIdentityProviders></SAMLConfiguration></blockquote>
+
+<li><p>Edit <strong>\site\local-membership.config</strong> and add in a new record for:</p>
+
+<pre><add name="Okta" type="Ingeniux.CMS.Models.SAMLProvider" idpPartner="http://www.okta.com/exk17xt6x1tFwlxFy1d8" /></pre>
+</li><li><p>Save your changes, recycle CMS application pool, then attempt to login.</p></li>
+
+
+</ol>
+
+
+<li>Done!
+<p>&nbsp;</p>
+<p><strong>Notes</strong>:</p>
+
+<p>SP-initiated flows, IDP-initiated flows, and Just In Time (JIT) Provisioning are all supported.</p>
+
+<p>JIT is not the default setting – you need to enable it in your product.</p>
+
+<H3>For SP-initiate flows:</H3>
+
+<ol>
+
+<li><p>Go to <strong>https://your-cms-url</strong></p></li>
+<li><p>Click <strong>Login</strong>.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/ingeniux3.png" alt=“ingeniux3.png" /></p>
+
+
+</li>
+
+
+</div>
+</body>
+</html>

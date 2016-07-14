@@ -1,0 +1,83 @@
+<html>
+<head>
+    <link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="../resources/js/jff5neq.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        try{Typekit.load();}catch(e){}
+    </script>
+    <script src="../resources/js/jquery.min.js"></script>
+    <script src="../resources/js/vkbeautify.js"></script>
+
+    <title>Setup SSO</title>
+
+    <script src="../resources/js/getAppValues.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+    <div class="logo-container">
+        <img src="../resources/img/okta-logo-white.png" alt="Okta" />
+    </div>
+</div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Promapp</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+
+
+<li><p>Log in to Promapp as an Administrator.</p></li>
+
+<li><p>Navigate to <strong>Admin > Configure</strong>.</p></li>
+
+<li><p>In the Configure section, expand the <strong>Security</strong> admin panel.</p></li>
+
+<li><p>Change the <strong>Single Sign On Mode</strong> to <strong>Optional</strong> (you can change this option to <strong>Required</strong> after successful SAML configuration).</p></li>
+
+
+<li><p>Copy and paste the following into the <strong>SSO - Login Url</strong> field:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+
+</li>
+
+<li><p>Optional: Change <strong>SSO - Sync user details with SSO provider (Default: Off) Dsf</strong> if you need to enable Just In Time (JIT) provisioning.</p></li>
+
+<li><p>Copy and paste the following certificate into the <strong>SSO - x.509 Certificate</strong> field:</p>
+<pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre>
+</li>
+
+<p><img border="1" src="images/apps/promapp1.png" alt=“promapp1.png" /></p>
+
+
+
+<li><p>Done!</p> 
+</ol>
+
+
+<br />
+<p><b>Notes:</b></p>
+<p>SP-initiated flows, IDP-initiated flows, and Just In Time (JIT) provisioning are all supported.</p>
+<br />
+<H3>For SP-initiated flows</H3>
+<br />
+
+
+<p>CASE 1: The <strong>Single Sign On Mode</strong> is <strong>Optional</strong></p>
+<ol>
+<li><p>Open <strong>https://[yourSubdomai].promapp.com/[yourCompanyId]/Login.aspx</strong> page.</p></li>
+<li><p>Enter your <strong>Username</strong>.</p></li>
+<li><p>Click <strong>Login</strong>.</p></li>
+<p><img border="1" src="images/apps/promapp2.png" alt=“promapp2.png" /></p>
+</ol>
+
+<br />
+<p>CASE 2: The <strong>Single Sign On Mode</strong> is <strong>Required</strong></p>
+
+<ol>
+<li><p>Open <strong>https://[yourSubdomai].promapp.com/[yourCompanyId]</strong> page.</p></li>
+</ol>
+</div>
+</body>
+</html>

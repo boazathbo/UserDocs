@@ -1,0 +1,130 @@
+<html>
+<head>
+    <link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="../resources/js/jff5neq.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        try{Typekit.load();}catch(e){}
+    </script>
+    <script src="../resources/js/jquery.min.js"></script>
+    <script src="../resources/js/vkbeautify.js"></script>
+
+    <title>Setup SSO</title>
+
+    <script src="../resources/js/getAppValues.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+    <div class="logo-container">
+        <img src="../resources/img/okta-logo-white.png" alt="Okta" />
+    </div>
+</div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Sage Live</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+
+
+<li><p>Log in to Sage Live with your administrator username and password token.</p></li>
+
+<li><p>Navigate to <strong>Setup > Security Controls > Single Sign-On Settings</strong>.</p></li>
+
+<li><p>Select <strong>Edit</strong>.</p>
+<p><img border="1" src="images/apps/sagelive1.png" alt=“sagelive1.png" /></p>
+</li>
+
+<li><p>Check the <strong>SAML Enabled</strong> box, then click <strong>Save</strong>.</p>
+<p><img border="1" src="images/apps/sagelive2.png" alt=“sagelive2.png" /></p>
+</li>
+
+
+<li><p>Select <strong>New</strong>.</p>
+<p><img border="1" src="images/apps/sagelive3.png" alt=“sagelive3.png" /></p>
+</li>
+
+
+<li><p>Enter the following values in the corresponding fields (see screen shot at end of this step for reference):</p>
+<ul>
+<li><p><strong>Issuer</strong>: Copy and paste the following:</p>
+<kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd>
+</li>
+<li><p><strong>Identity Provider Certificate</strong>: First download this certificate:</p>
+<kbd id="downloadCertificate">Sign into the Okta Admin Dashboard to generate this variable.</kbd>
+<p>Then select <strong>Choose File</strong>, and select the file you just downloaded.</p>
+</li>
+<li><p><strong>Request Signing Certificate</strong>: Select <strong>Default Certificate</strong>.</p></li>
+<li><p><strong>Request Signature Method</strong>: Select <strong>RSA-SHA256</strong>.</p></li>
+<li><p><strong>Assertion Decryption Certificate</strong>: Select <strong>Assertion not encrypted</strong>.</p></li>
+<li><p><strong>SAML Identity Type</strong>: Select <strong>Assertion contains User's salesforce.com username</strong>.</p></li>
+<li><p><strong>SAML Identity Location</strong>: Select <strong>Identity is in the NameIdentifier element of the Subject statement</strong>.</p></li>
+<li><p><strong>Service Provider Initiated Request Binding</strong>: Select <strong>HTTP POST</strong>.</p></li>
+<li><p><strong>Identity Provider Login URL</strong>: Copy and paste the following.</p>
+<kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd>
+</li>
+<li><p><strong>Identity Provider Logout URL</strong>: Copy and paste the following.</p>
+<kbd id="signOutUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd>
+</li>
+<li><p><strong>Entity ID</strong>:</p>
+<p>If you are using your custom domain for your Entity ID in Salesforce, enter your Entity ID, otherwise enter as default <strong>https://saml.salesforce.com</strong>.</p>
+</li>
+<li><p>Click <strong>Save</strong>:</p></li>
+
+
+
+
+</ul>
+<p><img border="1" src="images/apps/sagelive4.png" alt=“sagelive4.png" /></p>
+</li>
+
+
+<li><p>Make a copy of the <strong>Salesforce Login URL</strong> from the SAML Single Sign-On Setting Detail:</p>
+<p><img border="1" src="images/apps/sagelive5.png" alt=“sagelive5.png" /></p>
+</li>
+
+<li><p>In Okta, select the <strong>General</strong> tab for the Sage Live app, then click <strong>Edit</strong> and enter the following:</p>
+<ul>
+<li><p>Paste the <strong>Salesforce Login URL</strong> value you just copied int the <strong>ACS URL</strong> field.</p></li>
+<li><p>If you are using your custom domain for your Entity ID in Salesforce, enter your Entity ID, otherwise enter as default <strong>https://saml.salesforce.com</strong> into the <strong>Entity ID</strong> field.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+</ul>
+<p><img border="1" src="images/apps/sagelive6.png" alt=“sagelive6.png" /></p>
+</li>
+
+<li><p>In Salesforce, navigate to <strong>Setup > Domain Management > Domains</strong>, then select your domains:</p>
+<p><img border="1" src="images/apps/sagelive7.png" alt=“sagelive7.png" /></p>
+</li>
+
+<li><p>On the <strong>Login Page Settings</strong> section, select <strong>Edit</strong>.</p>
+<p><img border="1" src="images/apps/sagelive8.png" alt=“sagelive8.png" /></p>
+</li>
+
+<li><p>Select the <strong>Okta</strong> checkbox, then click <strong>Save</strong>.</p>
+<p><img border="1" src="images/apps/sagelive9.png" alt=“sagelive9.png" /></p>
+</li>
+
+
+
+
+<li><p>Done!</p> 
+</ol>
+
+
+<br />
+<p><b>Notes:</b></p>
+<p>SP-initiated flows and IDP-initiated flows are supported.</p>
+<p>Just In Time (JIT) provisioning is not supported.</p>
+<br />
+<H3>For SP-initiated flows</H3>
+
+<ol>
+<li><p>Open your Salesforce login page.</p></li>
+<li><p>Click <strong>Okta</strong>.</p></li>
+<p><img border="1" src="images/apps/sagelive10.png" alt=“sagelive10.png" /></p>
+</ol>
+
+</div>
+</body>
+</html>

@@ -13,8 +13,26 @@
     <script src="../resources/js/getAppValues.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+<script type="text/javascript">
+    function SharePointRealm() {
+    var a = (window.dataSAML["issuer"]);
+    var b = (a.lastIndexOf("\/"))+1;
+    var c = a.substr(b);
+    var d = '$realm = "urn:okta:sharepoint:' + c + '"' ;
+    var e = 'ap.ProviderRealms.Add($uri, "urn:okta:sharepoint:$' + c + '"';
+    var v = (window.dataSAML["signOnUrl"]);
+    var w = v.replace("/sso/saml","/sso/wsfed/passive");
 
+    $('#SharePointSignOnUrl').text(w);    
+    $('#SharePointRealmVal').text(d);    
+    $('#SharePointRealmsAdd').text(e);
 
+   }
+   
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', SharePointRealm);
+  });
+</script>
 
 
 
@@ -80,11 +98,20 @@
 
 
 
-<a name="stsconfig"></a><h2>SharePoint STS Configuration</h2><p>You must configure the SharePoint STS to trust the Okta issuer, and map the incoming claims from Okta to claims that your SharePoint applications will use. The following sections describe the steps you must perform to complete this configuration.</p><p>Remember to install the SharePoint PowerShell snap-in before attempting to run any SharePoint PowerShell scripts. You can do this with the following PowerShell command:</p>
+<a name="stsconfig"></a><h2>SharePoint STS Configuration</h2>
 
-<blockquote>Add-PSSnapin Microsoft.Sharepoint.Powershell</blockquote>
+<p>You must configure the SharePoint STS to trust the Okta issuer, and map the incoming claims from Okta to claims that your SharePoint applications will use. The following sections describe the steps you must perform to complete this configuration.</p>
 
-<p>Select one of the links below to get the instructions for the type of SharePoint STS configuration you intend to perform:</p> <ul><li><p><a href="#new-auth-provider">Setting Up a New Authentication Provider</a></p></li><li><p><a href="#existing-auth-provider">Adding a Web App to an Existing Authentication Provider</a></p></li>
+<p>Remember to install the SharePoint PowerShell snap-in before attempting to run any SharePoint PowerShell scripts. You can do this with the following PowerShell command:</p>
+
+<blockquote>Add-PSSnapin Microsoft.Sharepoint.Powershell</blockquote>
+
+
+<p>Select one of the links below to get the instructions for the type of SharePoint STS configuration you intend to perform:</p> 
+<ul>
+<li><p><a href="#new-auth-provider">Setting Up a New Authentication Provider</a></p></li>
+
+<li><p><a href="#existing-auth-provider">Adding a Web App to an Existing Authentication Provider</a></p></li>
 </ul>
 
 
@@ -95,19 +122,27 @@
 
 <a name="powershell"></a><h3>Creating the Okta Trusted Token Issuer using Powershell Script</h3>
 
-<p>We highly recommend using this PowerShell script to set up a new authentication provider. If you subsequently need to add an additional web app, follow the "Add another web app to an existing authentication provider" instructions.</p><p><strong>Note</strong>: Currently the script is not signed, so you need to change the PowerShell execution policy to <em>Unrestricted</em> before running the script. For more information, see <a href="https://technet.microsoft.com/en-us/library/ee176961.aspx" target="_blank">Using the Set-ExecutionPolicy Cmdlet</a>.</p>
+<p>We highly recommend using this PowerShell script to set up a new authentication provider. If you subsequently need to add an additional web app, follow the "Add another web app to an existing authentication provider" instructions.</p>
 
-<p>To show help:</p><blockquote>Get-Help CreateSPTrustedTokenIssuer.ps1</blockquote><p>To run the command:</p> 
+<p><strong>Note</strong>: Currently the script is not signed, so you need to change the PowerShell execution policy to <em>Unrestricted</em> before running the script. For more information, see <a href="https://technet.microsoft.com/en-us/library/ee176961.aspx" target="_blank">Using the Set-ExecutionPolicy Cmdlet</a>.</p>
+
+<p>To show help:</p>
+<blockquote>Get-Help CreateSPTrustedTokenIssuer.ps1</blockquote>
+
+<p>To run the command:</p> 
 
 
 <blockquote>CreateSPTrustedTokenIssuer.ps1 -identifierClaimType $identifierClaimType -certPath $cert -realm $realm -signInURL $signInURL</blockquote>
 
 <p>Where:</p>
-<ul><li><p><strong>$identifierClaimType</strong> = <strong>UserName</strong>, if you are using UserName as the Identifier claim.</p></li><li><p><strong>$identifierClaimType</strong> = <strong>Email</strong>, if you are using Email as the Identifier claim.</p></li><li><p>For values of <strong>$cert</strong>, <strong>$realm</strong> and <strong>$signInURL</strong>, refer to <a href="#new-sharepoint-trusted-root">Creating a New SharePoint Trusted Root Authority</a> and <a href="#new-auth-provider-using-powershell">Creating a New Authentication Provider Using Windows PowerShell</a>.</p></li>
+<ul>
+<li><p><strong>$identifierClaimType</strong> = <strong>UserName</strong>, if you are using UserName as the Identifier claim.</p></li>
+<li><p><strong>$identifierClaimType</strong> = <strong>Email</strong>, if you are using Email as the Identifier claim.</p></li>
+<li><p>For values of <strong>$cert</strong>, <strong>$realm</strong> and <strong>$signInURL</strong>, refer to <a href="#new-sharepoint-trusted-root">Creating a New SharePoint Trusted Root Authority</a> and <a href="#new-auth-provider-using-powershell">Creating a New Authentication Provider Using Windows PowerShell</a>.</p></li>
 
 
 
-<li><p>You can use the <strong>-skipCreatingTrustedRootAuthority</strong> option to skip creating trusted root authority if it already exists. This defaults to <strong>$false</strong>.</p></li>
+<li><p>You can use the <strong>-skipCreatingTrustedRootAuthority</strong> option to skip creating trusted root authority if it already exists. This defaults to <strong>$false</strong>.</p></li>
 
 </ul>
 
@@ -128,19 +163,37 @@
 
 <a name="new-sharepoint-trusted-root"></a><h4>Creating a New SharePoint Trusted Root Authority</h4>
 
-<p>If you 
+<p>If you 
 
-<p>Okta signs the tokens that it issues with a token signing certificate. You must import an Okta Identity Provider certificate into SharePoint that SharePoint can use to validate the token from Okta.</p><ul><li><p>Download your Okta Identity Provider Certificate from the setup instruction page of your app.</p></li><li><p>You can use the following PowerShell command to import a certificate from the downloaded <em>.cer</em> file:</p>
 
-<blockquote>$cert = New-Object  System.Security.Cryptography.X509Certificates.X509Certificate2("C:\okta.cert ")New-SPTrustedRootAuthority -Name "Token Signing Cert" -Certificate $cert</blockquote>
+<p>Okta signs the tokens that it issues with a token signing certificate. You must import an Okta Identity Provider certificate into SharePoint that SharePoint can use to validate the token from Okta.</p>
+
+<ul>
+<li><p>Download your Okta Identity Provider Certificate from the setup instruction page of your app.</p></li>
+
+<li><p>You can use the following PowerShell command to import a certificate from the downloaded <em>.cer</em> file:</p>
+
+<blockquote>$cert = New-Object  System.Security.Cryptography.X509Certificates.X509Certificate2("C:\okta.cert ")
+New-SPTrustedRootAuthority -Name "Token Signing Cert" -Certificate $cert</blockquote>
 
 </li>
 </ul>
 
 
-<a name="claims-mappings-email"></a><h4>Creating the Claims Mappings in SharePoint - Email</h4> <p><strong>Note</strong>: Follow this step if you are using <strong>Email</strong> as the identifier claim.</p>
 
-<p>To map the incoming claims from Okta to claims that SharePoint uses, you must create some mapping rules.</p><p>The following PowerShell commands show how to create rules to pass through the incoming upn, role and email claims.</p><blockquote>$upnClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" -IncomingClaimTypeDisplayName "UPN" -SameAsIncoming</blockquote><blockquote>$roleClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" -IncomingClaimTypeDisplayName "Role" -SameAsIncoming</blockquote><blockquote>$emailClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" -IncomingClaimTypeDisplayName "EmailAddress" –SameAsIncoming</blockquote>
+<a name="claims-mappings-email"></a><h4>Creating the Claims Mappings in SharePoint - Email</h4> 
+
+<p><strong>Note</strong>: Follow this step if you are using <strong>Email</strong> as the identifier claim.</p>
+
+<p>To map the incoming claims from Okta to claims that SharePoint uses, you must create some mapping rules.</p>
+
+<p>The following PowerShell commands show how to create rules to pass through the incoming upn, role and email claims.</p>
+
+<blockquote>$upnClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" -IncomingClaimTypeDisplayName "UPN" -SameAsIncoming</blockquote>
+
+<blockquote>$roleClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" -IncomingClaimTypeDisplayName "Role" -SameAsIncoming</blockquote>
+
+<blockquote>$emailClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" -IncomingClaimTypeDisplayName "EmailAddress" –SameAsIncoming</blockquote>
 
 
 
@@ -152,7 +205,8 @@
 
 <p>First, make sure you use a specific encoding character for <strong>UserName</strong> claim. Each SharePoint farm has a unique encoding character for every claim. We recommend you use the default encoding of <strong>527</strong> unless it is already being used for a different claim.</p>
 <p>See <a href=“#encoding”>Encoding Characters</a> for guidelines.</p>
-<p>Run the following command:</p>
+
+<p>Run the following command:</p>
 
 <blockquote>New-SPClaimTypeEncoding -EncodingCharacter ([Convert]::ToChar(527)) -ClaimType "http://schemas.okta.com/claims/username" –Force</blockquote>
 
@@ -168,36 +222,110 @@
 
 
 
-<a name="claims-mappings-username"></a><h4>Creating the Claims Mappings in SharePoint - UserName</h4> <p><strong>Note</strong>: Follow this step if you are using <strong>UserName</strong> as the identifier claim.</p><p>To map the incoming claims from Okta to claims that SharePoint uses, you must create some mapping rules.</p><p>The following PowerShell commands show how to create rules to pass through the incoming username, upn, role and email claims.</p><blockquote>$usernameClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.okta.com/claims/username" -IncomingClaimTypeDisplayName "UserName" –SameAsIncoming</blockquote><blockquote>$upnClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" -IncomingClaimTypeDisplayName "UPN" -SameAsIncoming</blockquote><blockquote>$roleClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" -IncomingClaimTypeDisplayName "Role" -SameAsIncoming</blockquote><blockquote>$emailClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" -IncomingClaimTypeDisplayName "EmailAddress" –SameAsIncoming</blockquote>
+<a name="claims-mappings-username"></a><h4>Creating the Claims Mappings in SharePoint - UserName</h4> 
+
+<p><strong>Note</strong>: Follow this step if you are using <strong>UserName</strong> as the identifier claim.</p>
+
+
+<p>To map the incoming claims from Okta to claims that SharePoint uses, you must create some mapping rules.</p>
+
+<p>The following PowerShell commands show how to create rules to pass through the incoming username, upn, role and email claims.</p>
+
+<blockquote>$usernameClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.okta.com/claims/username" -IncomingClaimTypeDisplayName "UserName" –SameAsIncoming</blockquote>
+
+<blockquote>$upnClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" -IncomingClaimTypeDisplayName "UPN" -SameAsIncoming</blockquote>
+
+<blockquote>$roleClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" -IncomingClaimTypeDisplayName "Role" -SameAsIncoming</blockquote>
+
+<blockquote>$emailClaimMap = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" -IncomingClaimTypeDisplayName "EmailAddress" –SameAsIncoming</blockquote>
 
 
 
 <a name="new-auth-provider-using-powershell"></a><h4>Creating a New Authentication Provider Using Windows PowerShell</h4>
 
 
-<p>From the Windows PowerShell command prompt, create a new authentication provider, as shown in the syntax below.</p><p>Next we create a realm, this is the same as the <strong>SharePoint Trusted Identity Provider Realm</strong> application settings in Okta:</p>
+<p>From the Windows PowerShell command prompt, create a new authentication provider, as shown in the syntax below.</p>
 
-<blockquote>$realm = "urn:okta:sharepoint:exkjn6UOqBCzZkpMx0g3”</blockquote>
+<p>Next we create a realm, this is the same as the <strong>SharePoint Trusted Identity Provider Realm</strong> application settings in Okta:</p>
+
+<p>Copy the following <strong>Sharepoint Realm</strong> field.</p>
+<kbd id="SharePointRealmVal"> Sign into the Okta Admin dashboard to generate this value.</kbd>
+
+
+<p><strong>$signInURL</strong>: This is the URL that users should be redirected to in order to authenticate with Okta. </p>
 
 
 
-<p><strong>$signInURL</strong>: This is the URL that users should be redirected to in order to authenticate with Okta. Get $realm value from setup instruction page of your app.</p></li><blockquote>$signInURL = "http://rain.okta1.com:1802/app/sharepoint_onpremise/sso/wsfed/passive”</blockquote><p>Run the following PowerShell cmdlet to create the new authentication provider. Get $signInURL value from setup instruction page of your app.</p><p>The <strong>Name</strong> attribute is what you will see in your web application when you configure what authentication provider it should use.</p><p>The <strong>ImportTrustCertificate</strong> attribute is where we pass the token signing certificate that we imported in earlier. </p><p>The <strong>ClaimsMappings</strong> attribute is where we tell it what the claims are that we want this trusted identity token issuer to use.</p><p>The <strong>IdentifierClaim</strong> attribute tells SharePoint which of the claims is going to be the claim that is used to identify users. In this case we’re saying email address is how you identify a person.</p>
+<p>Copy the following <strong>Sharepoint Sign On URL</strong> field, </p>
+<kbd id="SharePointSignOnUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd>
+
+
+
+
+<p>Copy the following <strong>Sharepoint Sign On URL</strong> field, </p>
+<kbd id="SharePointSignOnUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd>
+
+
+<p>Run the following PowerShell cmdlet to create the new authentication provider. Get $signInURL value from setup instruction page of your app.</p>
+
+<p>The <strong>Name</strong> attribute is what you will see in your web application when you configure what authentication provider it should use.</p>
+
+<p>The <strong>ImportTrustCertificate</strong> attribute is where we pass the token signing certificate that we imported in earlier. </p>
+
+<p>The <strong>ClaimsMappings</strong> attribute is where we tell it what the claims are that we want this trusted identity token issuer to use.</p>
+
+<p>The <strong>IdentifierClaim</strong> attribute tells SharePoint which of the claims is going to be the claim that is used to identify users. In this case we’re saying email address is how you identify a person.</p>
 
 <p>If you are using <strong>Email</strong> as the identifier claim:</p>
 
-<blockquote>$ap = New-SPTrustedIdentityTokenIssuer -Name "Okta" -Description "Okta Trusted Identity Provider" -realm $realm -ImportTrustCertificate $cert -ClaimsMappings $emailClaimMap, $upnClaimMap, $roleClaimMap -SignInUrl $signInURL -IdentifierClaim $emailClaimmap.InputClaimType</blockquote><p>If you are using <strong>UserName</strong> as the identifier claim:</p>
-
-<blockquote>$ap = New-SPTrustedIdentityTokenIssuer -Name "Okta" -Description "Okta Trusted Identity Provider" -realm $realm -ImportTrustCertificate $cert -ClaimsMappings $emailClaimMap, $upnClaimMap, $roleClaimMap -SignInUrl $signInURL -IdentifierClaim $usernameClaimmap.InputClaimType</blockquote><p>Once that last PowerShell command has executed, we have an <strong>SPTrustedIdentityTokenIssuer</strong> that can be used with our SharePoint web application.</p>
+<blockquote>$ap = New-SPTrustedIdentityTokenIssuer -Name "Okta" -Description "Okta Trusted Identity Provider" -realm $realm -ImportTrustCertificate $cert -ClaimsMappings $emailClaimMap, $upnClaimMap, $roleClaimMap -SignInUrl $signInURL -IdentifierClaim $emailClaimmap.InputClaimType</blockquote>
 
 
-<a name="existing-auth-provider"></a><h2>Adding a Web App to an Existing Authentication Provider</H2><p>These instructions describe how to add another web application to an existing authentication provider that was created using the instructions provided in <a href="#new-auth-provider">Setting Up a New Authentication Provider</a>.</p><p>In the following example, we assume that you used <strong>Okta</strong> as the value for the <strong>-Name</strong> parameter when you invoked <strong>New-SPTrustedIdentityTokenIssuer</strong>. If you chose a different name for your authentication provider, you must pass that instead. All other Powershell commands must be invoked as described below.</p><blockquote>$ap = Get-SPTrustedIdentityTokenIssuer "Okta" </blockquote><blockquote>$uri = new-object System.Uri("http://app1/") </blockquote><blockquote>$ap.ProviderRealms.Add($uri, "urn:okta:sharepoint:exkjn6UOqBCzZkpMx0g3") </blockquote><blockquote>$ap.Update()</blockquote>
+<p>If you are using <strong>UserName</strong> as the identifier claim:</p>
+
+<blockquote>$ap = New-SPTrustedIdentityTokenIssuer -Name "Okta" -Description "Okta Trusted Identity Provider" -realm $realm -ImportTrustCertificate $cert -ClaimsMappings $emailClaimMap, $upnClaimMap, $roleClaimMap -SignInUrl $signInURL -IdentifierClaim $usernameClaimmap.InputClaimType</blockquote>
+
+<p>Once that last PowerShell command has executed, we have an <strong>SPTrustedIdentityTokenIssuer</strong> that can be used with our SharePoint web application.</p>
+
+
+<a name="existing-auth-provider"></a><h2>Adding a Web App to an Existing Authentication Provider</H2>
+
+
+<p>These instructions describe how to add another web application to an existing authentication provider that was created using the instructions provided in <a href="#new-auth-provider">Setting Up a New Authentication Provider</a>.</p>
+
+<p>In the following example, we assume that you used <strong>Okta</strong> as the value for the <strong>-Name</strong> parameter when you invoked <strong>New-SPTrustedIdentityTokenIssuer</strong>. If you chose a different name for your authentication provider, you must pass that instead. All other Powershell commands must be invoked as described below.</p>
+
+<kbd>$ap = Get-SPTrustedIdentityTokenIssuer "Okta" </kbd>
+
+
+<p>Copy the following <strong>Sharepoint Site URL</strong> field, then append <i>[Your Site URL] where indicated.</i></p>
+<kbd>$uri = new-object System.Uri("[Your Site URL]")</kbd>
+
+<p>Copy the following <strong>Sharepoint Add Realms</strong> field.</p>
+<kbd id="SharePointRealmsAdd"> Sign into the Okta Admin dashboard to generate this value.</kbd>
+
+<kbd>$ap.Update()</kbd>
 
 
 <h3>Configuring an Existing SharePoint Web Application to use Okta as an Identity Provider</H3>
 
 <ol>
 
-<li><p>Verify that the user account that is performing this procedure is a member of the Farm Administrators SharePoint group.</p></li><li><p>Open the SharePoint Central Administration page from the <strong>Start</strong> menu, then click <strong>Application Management</strong>.</p></li><li><p>In the Web Applications section of the the Application Management page, click <strong>Manage web applications</strong>.</p></li><li><p>Click the web application for which you want Okta as your Identity provider.</p></li><li><p>From the ribbon, click <strong>Authentication Providers</strong>.</p></li><li><p>Under <strong>Zone</strong>, click the name of the zone. For example, <strong>Default</strong>.</p></li><li><p>On the Edit Authentication page, scroll down to the <strong>Claims Authentication Types</strong> section, select the <strong>Trusted Identity provider</strong> checkbox, then click the name of your SAML provider (this is the same as you passed for the <strong>Name</strong> from the <strong>New-SPTrustedIdentityTokenIssuer</strong> command). See <a href="#troubleshooting">Troubleshooting</a> below if you encounter any issues in this process.</p></li><li><p>Scroll to the end of the page and click <strong>Save</strong>.</p></li>
+<li><p>Verify that the user account that is performing this procedure is a member of the Farm Administrators SharePoint group.</p></li>
+
+<li><p>Open the SharePoint Central Administration page from the <strong>Start</strong> menu, then click <strong>Application Management</strong>.</p></li>
+
+<li><p>In the Web Applications section of the the Application Management page, click <strong>Manage web applications</strong>.</p></li>
+
+<li><p>Click the web application for which you want Okta as your Identity provider.</p></li>
+
+<li><p>From the ribbon, click <strong>Authentication Providers</strong>.</p></li>
+
+<li><p>Under <strong>Zone</strong>, click the name of the zone. For example, <strong>Default</strong>.</p></li>
+
+<li><p>On the Edit Authentication page, scroll down to the <strong>Claims Authentication Types</strong> section, select the <strong>Trusted Identity provider</strong> checkbox, then click the name of your SAML provider (this is the same as you passed for the <strong>Name</strong> from the <strong>New-SPTrustedIdentityTokenIssuer</strong> command). See <a href="#troubleshooting">Troubleshooting</a> below if you encounter any issues in this process.</p></li>
+
+<li><p>Scroll to the end of the page and click <strong>Save</strong>.</p></li>
 
 </ol>
 
@@ -210,7 +338,11 @@
 <li><p><strong>Solution</strong>: Make sure you have Claims Based Authentication selected as the preferred mode of authentication for this Share-point application. From the Windows PowerShell command prompt, type the following to set the specified user account as an administrator for the site:</p>
 
 
-<blockquote>$WebAppName = "http://" $wa = get-SPWebApplication $WebAppName $wa.UseClaimsAuthentication = $true $wa.Update()</blockquote>
+<blockquote>$WebAppName = "http://" 
+$wa = get-SPWebApplication $WebAppName 
+$wa.UseClaimsAuthentication = $true 
+$wa.Update()
+</blockquote>
 
 </li>
 
@@ -220,7 +352,10 @@
 <li><p><strong>Solution</strong>: Open the web.config file for this web application make sure you have custom errors turned off in the web.config file:</p>
 
 
-<blockquote><system.web>    ...    <customErrors mode="Off"/></blockquote>
+<blockquote><system.web>
+    ...
+    <customErrors mode="Off"/>
+</blockquote>
 xxxx
 </li>
 
@@ -229,7 +364,12 @@ xxxx
 <hr>
 
 <li><p><strong>Problem</strong>: When try to sync user profile, you get the following error in event viewer.</p>
-<blockquote>Process: App Pool: SecurityTokenServiceApplicationPoolArea: Okta Claims ProviderCategory: OktaClaimsProviderEvent Id: 110Message:Error in FillClaimsForEntity when synchronizing user profile. Exception Unable to update User Profile for john.doe@example.com. The site http://example.com/site1 could not be found in the Web application SPWebApplication Name=SharePoint - 80., Stack at OktaClaimsProvider.OktaClaimsProvider.SyncUserProfile(Uri context, SPClaim entity)  </blockquote>
+<blockquote>Process: App Pool: SecurityTokenServiceApplicationPool
+Area: Okta Claims Provider
+Category: OktaClaimsProvider
+Event Id: 110
+Message:
+Error in FillClaimsForEntity when synchronizing user profile. Exception Unable to update User Profile for john.doe@example.com. The site http://example.com/site1 could not be found in the Web application SPWebApplication Name=SharePoint - 80., Stack at OktaClaimsProvider.OktaClaimsProvider.SyncUserProfile(Uri context, SPClaim entity)  </blockquote>
 
 </li>
 <li><p><strong>Solution</strong>: Create a site collection at root level of web app.</p></li>
@@ -254,14 +394,22 @@ xxxx
 <li><p><strong>Problem</strong>: I provided APP as the search scope and make sure app instance Id was valid, but I still see results from OKTA level search even after it isreset.</p></li>
 <li><p><strong>Solution</strong>: Clear the browser cache to get rid of stale entities.</p></li>
 
-<hr></ul><a name="references"></a><h2>References</h2>
+<hr>
+</ul>
+
+
+
+<a name="references"></a><h2>References</h2>
 
 <p>For more information see:</p>
 <ul>
-<li><p><a href="https://msdn.microsoft.com/en-us/library/hh446525.aspx" target="_blank">Claims-Based Single Sign-On for Microsoft SharePoint 2010</a></p></li><li><p><a href="https://technet.microsoft.com/en-us/library/hh305235.aspx" target="_blank">Configure SAML-based claims authentication with AD FS in SharePoint 2013</a></p></li>
+<li><p><a href="https://msdn.microsoft.com/en-us/library/hh446525.aspx" target="_blank">Claims-Based Single Sign-On for Microsoft SharePoint 2010</a></p></li>
+
+<li><p><a href="https://technet.microsoft.com/en-us/library/hh305235.aspx" target="_blank">Configure SAML-based claims authentication with AD FS in SharePoint 2013</a></p></li>
 
 
-<li><p><a href="https://samlman.wordpress.com/2015/02/28/configuring-sharepoint-2010-and-adfs-v2-end-to-end/" target="_blank">Configuring SharePoint 2010 and ADFS v2 End to End</a></p></li>
+<li><p><a href="https://samlman.wordpress.com/2015/02/28/configuring-sharepoint-2010-and-adfs-v2-end-to-end/" target="_blank">Configuring SharePoint 2010 and ADFS v2 End to End</a></p></li>
+
 </ul>
 
 <a name="post-configuration"></a><h2>Post Configuration Steps</H2>
@@ -270,30 +418,50 @@ xxxx
 
 <h3>Configuring SharePoint to allow Native Okta Users and Groups to Login</h3>
 
-<p>Use these set of instructions if you want your native (present in Okta only) Okta users and groups to be able to login and have access to your SharePoint Web Application. These instructions assume that your web application is configured with Okta (as described in the instructions above) and you have an Okta user or a Okta group created in Okta and have the SharePoint On-premise application assigned to them (in-case of user).</p><ul><li><p>Open a web browser and navigate the your SharePoint web application URL.</p></li><li><p>Login with the Administrator credentials for that web application.</p></li><li><p>In <strong>SharePoint 2013</strong>, click on the <strong>Gear</strong> icon in the top right corner and select <strong>Site Settings</strong>.</p>
-<p><img border="1" src="images/apps/wsfed-sharepoint1.png" alt=“wsfed-sharepoint1.png" /></p>
+<p>Use these set of instructions if you want your native (present in Okta only) Okta users and groups to be able to login and have access to your SharePoint Web Application. These instructions assume that your web application is configured with Okta (as described in the instructions above) and you have an Okta user or a Okta group created in Okta and have the SharePoint On-premise application assigned to them (in-case of user).</p>
+
+<ul>
+<li><p>Open a web browser and navigate the your SharePoint web application URL.</p></li>
+
+<li><p>Login with the Administrator credentials for that web application.</p></li>
+
+<li><p>In <strong>SharePoint 2013</strong>, click on the <strong>Gear</strong> icon in the top right corner and select <strong>Site Settings</strong>.</p>
+<p><img border="1" src="images/apps/ws-sharepoint1.png" alt=“ws-sharepoint1.png" /></p>
+
 </li>
 
 
 <li><p>In <strong>SharePoint 2010</strong>, click on the <strong>Site Actions</strong> button on the top left corner and select <strong>Site Settings</strong>.</p>
-<p><img border="1" src="images/apps/wsfed-sharepoint2.png" alt=“wsfed-sharepoint2.png" /></p>
+<p><img border="1" src="images/apps/ws-sharepoint2.png" alt=“ws-sharepoint2.png" /></p>
 </li>
 
 
 <li><p>Under <strong>Users and Permission</strong>, select <strong>Site Permissions</strong>.</p>
-<p><img border="1" src="images/apps/wsfed-sharepoint3.png" alt=“wsfed-sharepoint3.png" /></p>
+<p><img border="1" src="images/apps/ws-sharepoint3.png" alt=“ws-sharepoint3.png" /></p>
 </li>
 
-<li><p>You can now see all the SharePoint groups.</p></li><li><p>Let's say you want your native Okta user or users of an Okta group to be able to login into SharePoint with the permissions of an existing Sharepoint Group:</p></li><li><p>Click on the group link on the <strong>Site Permissions</strong> page.</p></li><li><p>You will be able to now see all the members of this group.</p></li><li><p>Follow the instructions below to add a user or a group to this SharePoint group from this page.</p></li>
+<li><p>You can now see all the SharePoint groups.</p></li>
+
+<li><p>Let's say you want your native Okta user or users of an Okta group to be able to login into SharePoint with the permissions of an existing Sharepoint Group:</p></li>
+
+<li><p>Click on the group link on the <strong>Site Permissions</strong> page.</p></li>
+
+<li><p>You will be able to now see all the members of this group.</p></li>
+
+<li><p>Follow the instructions below to add a user or a group to this SharePoint group from this page.</p></li>
 
 </ul>
 
 <h4>Adding an user to the SharePoint group (by adding an Email claim)</H4>
 
 
-<p>Let's say you want your Okta user with email john.doe@example.com to be part of the SharePoint group:</p><ul>
-<li><p>Add a <strong>Claim</strong> for this user in the SharePoint group.</p></li><li><p>Click <strong>New</strong> in the top bar, then click <strong>Add Users</strong>. </p>
-<p><img border="1" src="images/apps/wsfed-sharepoint4.png" alt=“wsfed-sharepoint4.png" /></p></li>
+<p>Let's say you want your Okta user with email john.doe@example.com to be part of the SharePoint group:</p>
+
+<ul>
+<li><p>Add a <strong>Claim</strong> for this user in the SharePoint group.</p></li>
+
+<li><p>Click <strong>New</strong> in the top bar, then click <strong>Add Users</strong>. </p>
+<p><img border="1" src="images/apps/ws-sharepoint4.png" alt=“ws-sharepoint4.png" /></p>
 
 
 
@@ -301,11 +469,14 @@ xxxx
 
 <ul>
 <li><p>In the text field, type in the user's <strong>UserName</strong> – John.Doe. You will see Okta user entity returned as:</p>
-<p><strong>FirstName LastName (UserName)</p><p>Email</strong></p>
+<p><strong>FirstName LastName (UserName)</p>
+<p>Email</strong></p>
 <p><img border="1" src="images/apps/wsfed-sharepoint5.png" alt=“wsfed-sharepoint5.png" /></p></li>
-</li>
+</li>
+
 <li><p>Or, in the text field, type in user's Email – john.doe@example.com. You will see Okta user entity returned as:</p>
-<p><strong>FirstName LastName (Email)</p><p>UserName</strong></p>
+<p><strong>FirstName LastName (Email)</p>
+<p>UserName</strong></p>
 <p><img border="1" src="images/apps/wsfed-sharepoint6.png" alt=“wsfed-sharepoint6.png" /></p></li>
 </li>
 <li><p>Select the entity, then click <strong>Share</strong></p>.</li>
@@ -318,7 +489,7 @@ xxxx
 
 <ul>
 <li><p>Click on the notebook icon in the bottom right corner of the <strong>Grant Permissions</strong> window. This will launch a new <strong>Select People and Groups</strong> window:</p>
-<p><img border="1" src="images/apps/wsfed-sharepoint7.png" alt=“wsfed-sharepoint7.png" /></p></li>
+<p><img border="1" src="images/apps/ws-sharepoint6.png" alt=“ws-sharepoint6.png" /></p>
 
 <li><p>Enter the user's <strong>UserName</strong> – John.Doe in the <strong>Find</strong> textfield on the top and press enter. You will see Okta user entity returned as:</p>
 <p><strong>FirstName LastName (UserName)</p>
@@ -331,7 +502,8 @@ xxxx
 <p>UserName</strong></p>
 </li>
 
-<li><p>Select the user in the right pane and click the <strong>Add</strong> button in the bottom side of the pane.</p></li>
+<li><p>Select the user in the right pane and click the <strong>Add</strong> button in the bottom side of the pane.
+</p></li>
 
 <li><p>Click <strong>OK</strong>.</p></li>
 
@@ -343,17 +515,27 @@ xxxx
 </li>
 
 
-<p>When you navigate to your SharePoint web application, you will be asked to pick an authentication provider.</p><p>Select <strong>Okta</strong> (or whatever name you provided for your authentication provider):</p>
+<p>When you navigate to your SharePoint web application, you will be asked to pick an authentication provider.</p>
 
-<p><img border="1" src="images/apps/wsfed-sharepoint8.png" alt=“wsfed-sharepoint8.png" /></p>
-<p>You will be redirected to Okta for login where you enter john.doe@example.com username and password. Click <strong>Sign In</strong>. </p><p>Once authenticated with Okta, you will be redirected to the SharePoint website and logged in as john.doe@example.com.</p>
+<p>Select <strong>Okta</strong> (or whatever name you provided for your authentication provider):</p>
+
+<p><img border="1" src="images/apps/ws-sharepoint8.png" alt=“ws-sharepoint8.png" /></p>
+
+
+<p>You will be redirected to Okta for login where you enter john.doe@example.com username and password. Click <strong>Sign In</strong>. </p>
+
+<p>Once authenticated with Okta, you will be redirected to the SharePoint website and logged in as john.doe@example.com.</p>
 </ul>
 
 
 
 <h4>Adding an Okta group to the SharePoint group (by adding a Role claim)</h4>
 
-<p>If you want to allow all Okta users belonging to Okta group (called <strong>sharepoint_group</strong>) AND have the SharePoint On-premise application to be able to login to SharePoint via Okta.</p><p>In order to do this, you need to add a <strong>Claim</strong> for this user in the Home Visitor's SharePoint group.</p><p>Click <strong>New</strong> in the top bar, then click <strong>Add Users</strong>.</p>
+<p>If you want to allow all Okta users belonging to Okta group (called <strong>sharepoint_group</strong>) AND have the SharePoint On-premise application to be able to login to SharePoint via Okta.</p>
+
+<p>In order to do this, you need to add a <strong>Claim</strong> for this user in the Home Visitor's SharePoint group.</p>
+
+<p>Click <strong>New</strong> in the top bar, then click <strong>Add Users</strong>.</p>
 
 
 <p><strong>In SharePoint 2013</strong>:</p>
@@ -373,18 +555,45 @@ xxxx
 
 <ul>
 <li><p>Click on the notebook icon in the bottom right corner of the <strong>Grant Permissions</strong> window.</p>
-<p><img border="1" src="images/apps/wsfed-sharepoint10.png" alt=“wsfed-sharepoint10.png" /></p>
+<p><img border="1" src="images/apps/ws-sharepoint11.png" alt=“ws-sharepoint11.png" /></p>
 </li>
-<li><p>This will launch a new <strong>Select People and Groups</strong> window. Enter <strong>sharepoint_group</strong> in the <strong>Find</strong> textfield on the top, then press enter.</p></li><li><p>An entity will be listed as <strong>sharepoint_group</strong>.</p></li><li><p>Select the entity in the right pane, then click <strong>Add</strong>.</p></li><li><p>Click <strong>OK</strong>.</p></li>
+<li><p>This will launch a new <strong>Select People and Groups</strong> window. Enter <strong>sharepoint_group</strong> in the <strong>Find</strong> textfield on the top, then press enter.</p></li>
+
+<li><p>An entity will be listed as <strong>sharepoint_group</strong>.</p></li>
+
+<li><p>Select the entity in the right pane, then click <strong>Add</strong>.</p></li>
+
+<li><p>Click <strong>OK</strong>.</p></li>
 </ul>
 
 
-<p>This adds the role address claim for Okta group <strong>sharepoint_group</strong> under the SharePoint group.</p><p>When you navigate to your SharePoint web application, you will be asked to pick an authentication provider.</p><p>Select <strong>Okta</strong> (or whatever name you provided for your authentication provider).</p><p>You will be redirected to Okta for login where you enter the username and password of any user belonging to <strong>sharepoint_group</strong> (and has the configured share point on-premise application assigned to them). Click <strong>Sign In</strong>.</p><p>Once authenticated with Okta, you will be redirected to the share point website and logged with same site permissions (which has the <strong>sharepoint_group</strong> role claim).</p>
+<p>This adds the role address claim for Okta group <strong>sharepoint_group</strong> under the SharePoint group.</p>
+
+<p>When you navigate to your SharePoint web application, you will be asked to pick an authentication provider.</p>
+
+<p>Select <strong>Okta</strong> (or whatever name you provided for your authentication provider).</p>
+
+<p>You will be redirected to Okta for login where you enter the username and password of any user belonging to <strong>sharepoint_group</strong> (and has the configured share point on-premise application assigned to them). Click <strong>Sign In</strong>.</p>
+
+<p>Once authenticated with Okta, you will be redirected to the share point website and logged with same site permissions (which has the <strong>sharepoint_group</strong> role claim).</p>
 
 
-<h4>Application Attribute Grammar</h4><p>The attribute statement field can be configured to map user values to SAML attributes. The SAMLResponse will be sent to the configured SP (Service Provider) endpoint.<p>The format for the configuration is:</p><blockquote>AttributeName|Value|Namespace</blockquote><p>Each pair or triplet makes up an attribute configuration. The attribute values a delimited with "|". The system can be configured to have multiple attribute pairs ( triplets ) each one is delimited by a ",".</p><p>The AttributeValue is a dynamic value. Dynamic values follow the current format ${user.'fieldName'}</p><p>To access an imported application attribute, such as from Active Directory or LDAP, the following format is used:</p><blockquote>AttributeName|instanceId:${user.fieldName}|Namespace</blockquote>
 
+<h4>Application Attribute Grammar</h4>
 
+<p>The attribute statement field can be configured to map user values to SAML attributes. The SAMLResponse will be sent to the configured SP (Service Provider) endpoint.
+
+<p>The format for the configuration is:</p>
+
+<blockquote>AttributeName|Value|Namespace</blockquote>
+
+<p>Each pair or triplet makes up an attribute configuration. The attribute values a delimited with "|". The system can be configured to have multiple attribute pairs ( triplets ) each one is delimited by a ",".</p>
+
+<p>The AttributeValue is a dynamic value. Dynamic values follow the current format ${user.'fieldName'}</p>
+
+<p>To access an imported application attribute, such as from Active Directory or LDAP, the following format is used:</p>
+
+<blockquote>AttributeName|instanceId:${user.fieldName}|Namespace</blockquote>
 
 
 
