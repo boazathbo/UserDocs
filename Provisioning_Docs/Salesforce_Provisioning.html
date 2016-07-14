@@ -25,8 +25,19 @@ try{Typekit.load();}catch(e){}
 
 <h1>Configuring Provisioning for Salesforce</h1>
 
-<p>This guide provides the steps required to configure Provisioning for Salesforce.</p>
+<p>This guide provides the steps required to configure Provisioning for Salesforce and includes the following topics:</p>
 
+
+<ul>
+<li><a href="#configuration">Configuration Steps</a></li>        
+<li><a href="#schema">Schema Discovery</a></li>
+<li><a href="#notes">Notes</a></li>
+<li><a href="#addendum">Addendum: Salesforce Community and Portal</a></li>
+
+</ul>
+<hr>
+
+<a name="configuration"></a><h2>Configuration Steps</h2>
 <ol>
 <li><p>Create an administrator account in Salesforce. You will use this account’s username and password to configure the Salesforce app in Okta. When you create an administrator account, Salesforce will provide you with a <em>token</em>.</p>
 <p><strong>Note</strong>: Every time you reset this account’s password, Salesforce will provide you with a new token, and you need to edit the Salesforce app’s <strong>Provisioning</strong> settings in Okta using the new password/token as described below.  See TIPS below.</p></li>
@@ -65,7 +76,7 @@ try{Typekit.load();}catch(e){}
 
 
 <hr>
-<h2>Schema Discovery</h2>
+<a name="schema"></a><h2>Schema Discovery</h2>
 
 <p>If the existing Salesforce app instance that you have configured does not allow schema discovery, then it is an older version of the integration. You need to add a new Saleforce app instance to obtain the Schema Discovery feature.</p>
 <p>To add extra attributes to a User’s Profile, follow the instructions below:</p>
@@ -78,8 +89,8 @@ try{Typekit.load();}catch(e){}
 <li><p>Select the attributes you want to add, then click <strong>Save</strong>.</p></li>
 <li><p>You can now import and push these user attribute values to/from Salesforce.</p></li>
 </ol>
-<br />
-<h2>Notes</h2>
+<hr>
+<a name="notes"></a><h2>Notes</h2>
 <ul>
 <li><p>Schema discovery does not support all Salesforce custom attribute types. The following is a list of the custom attribute types along with whether they are supported or not.</p>
 
@@ -215,12 +226,89 @@ try{Typekit.load();}catch(e){}
 
 <li><p>This integration only supports the Salesforce <strong>User</strong> object. <strong>Contacts</strong>, <strong>Accounts</strong>, and <strong>Opportunity</strong> objects are not supported.</p></li>
 <li><p>It is not possible for Okta to auto-update all user attributes in Salesforce, while selectively excluding <strong>Profile</strong> or <strong>Role</strong> from being updated.</p></li>
+</ul>
+<hr>
+<a name="addendum"></a><h2>Addendum: Salesforce Community and Portal</h2>
 
-</p>
+<p><strong>This is an Early Access feature, contact Okta Support to enable it.</strong></p>
 
+<p>When enabled, the <strong>PROV_SALESFORCE_COMMUNITY_AND_PORTAL</strong> feature flag allows you to create instances of the Salesforce.com app that can integrate with either a Salesforce Customer Portal or a Salesforce Customer Community. Without this EA feature enabled, Okta supports a more limited form of this integration with the <strong>Salesforce Customer Portal</strong> application. Advantages of the new functionality are full Universal Directory (UD) support for Portal/Community users and SAML SSO for Communities.</p>
+
+<p>Following are the instructions to create the two types of Salesforce integration:</p>
+<ul>
+<li><p><a href="#community-integration">Creating a Community Integration</a></p></li>
+<li><p><a href="#portal-integration">Creating a Portal Integration</a></p></li>
 </ul>
 
- </p>
+<br />
+
+<a name="community-integration"><h3>Creating a Community Integration</h3>
+
+<ol>
+<li><p>In Okta, From the <strong>Add Application</strong> screen select <strong>Salesforce.com</strong>.</p></li>
+<li><p>On the <strong>General Settings</strong> tab for the Salesforce app, select <strong>Salesforce Community User</strong> from the <strong>User Profile & Type</strong> dropdown. Fill in the other settings as normal.</p>
+<p><img src="images/apps/sf-community-settings.png" alt=“sf-community-settings.png" /></p></li>
+
+
+</li>
+
+
+<li><p><strong>Configure SAML 2.0</strong>.</p> 
+<p>You can optionally configure SAML 2.0 settings to allow Community users to automatically login to Salesforce. Unlike the existing <strong>Salesforce Customer Portal</strong> app, a separate SAML configuration is used. Click <strong>View Setup Instructions</strong> and follow the SAML setup instructions. Set the <strong>Login URL</strong> to the <strong>Community Login URL</strong> for your community; you can find this on the Salesforce <strong>Single Sign-On Settings</strong> page under <strong>Endpoints</strong>.</p>
+<p><strong>Note</strong>: SWA login is not currently supported for Communities.</p></li>
+
+
+
+<li><p><strong>Configure Provisioning:</strong></p>
+<p>On the provisioning options screen there are additional configuration options: the type of Community users to import and the Salesforce Account ID for provisioned users.</p>
+<ul>
+
+<li><p>Types of Users:  Check <strong>Import "Customer" users</strong> and/or <strong>Import "Partner" users</strong>. </li>
+<li><p><strong>Salesforce Account ID</strong>: If you have enabled <strong>Create Users</strong>, specify the Salesforce Account ID with which the Community user's contact will be associated with in Salesforce.</p>
+
+</ul>
+<p><img src="images/apps/sf-community-provisioning.png" alt=“sf-community-provisioning.png" /></p></li>
+
+
+<li><p>Complete the application setup as normal.</p></li>
+
+
+
+
+</ol>
+<a name="portal-integration"></a><h3>Creating a Portal Integration</h3>
+
+<ol>
+
+<li><p>In Okta, from the <strong>Add Application</strong> screen select <strong>Salesforce.com</strong>.</p></li>
+
+
+<li><p>On the <strong>General Settings</strong> tab for the Salesforce app, select <strong>Salesforce Portal User</strong> from the <strong>User Profile & Type</strong> dropdown. Enter your Salesforce <strong>Organization ID</strong>, <strong>Portal ID</strong>, and optionally the <strong>Site URL</strong>. Fill in the other settings as normal.</p>
+
+<p><img src="images/apps/sf-portal-settings.png" alt=“sf-portal-settings.png" /></p></li>
+
+
+<li><p><strong>Configure SAML 2.0</strong>.</p> 
+<p>You can optionally configure SAML 2.0 settings to allow Portal users to automatically login to Salesforce. Unlike the existing <strong>Salesforce Customer Portal</strong> app, a separate SAML configuration is used. Click <strong>View Setup Instructions</strong> and follow the SAML setup instructions. Set the <strong>Login URL</strong> to the <strong>Salesforce Login URL</strong>; you can find this on the Salesforce <strong>Single Sign-On Settings</strong> page under <strong>Endpoints</strong>.</p></li>
+
+<li><p><strong>Configure Provisioning:</strong></p>
+<p>On the provisioning options screen there are additional configuration options: the type of Portal users to import and the Salesforce Account ID for provisioned users.</p>
+<ul>
+
+<li><p>Types of Portal Users:  Check the boxes next to the types of users you want to import.</li>
+<li><p><strong>Salesforce Account ID</strong>: If you have enabled <strong>Create Users</strong>, specify the Salesforce Account ID with which the Portal user's contact will be associated with in Salesforce.</p>
+
+</ul>
+<p><img src="images/apps/sf-portal-provisioning.png" alt=“sf-portal-provisioning.png" /></p></li>
+
+
+
+
+
+
+<li><p>Complete the application setup as normal.</p></li>
+
+</ol>
 
 
 
