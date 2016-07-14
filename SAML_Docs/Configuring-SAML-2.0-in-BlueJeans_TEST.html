@@ -60,8 +60,8 @@ try{Typekit.load();}catch(e){}
     var c = a.substr(b);
     var d = '$realm = "urn:okta:sharepoint:' + c + '"' ;
     var e = 'ap.ProviderRealms.Add($uri, "urn:okta:sharepoint:$' + c + '"';
-    var v = window.dataSAML["signOnUrl"];
-    var w = m.replace("/sso/saml","/sso/wsfed/passive");
+    var v = (window.dataSAML["signOnUrl"]);
+    var w = v.replace("/sso/saml","/sso/wsfed/passive");
 
     $('#SharePointSignOnUrl').text(w);    
     $('#SharePointRealmVal').text(d);    
