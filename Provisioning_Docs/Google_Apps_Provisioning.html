@@ -40,14 +40,15 @@ try{Typekit.load();}catch(e){}
 
 
 <h2>Overview</h2>
-<p>When a user is assigned to Google Apps or when editing user assignments, you can manage all licenses and deprovisioning actions, centrally and granularly, within Okta. When a user is given a Google Apps license in Okta (individually or within a group), an Okta user's Google account licenses will be updated. Any updates created in Okta are subsequently pushed to Google.</p>
+<p>When an Okta end user is assigned to Google Apps or when their assignments are updated, admins have the option to manage all Google licenses and deprovisioning actions, centrally and granularly, within Okta. Additionally, this Okta end user's licenses can be automatically updated within their 3rd-party Google account. This is true Individually or within a group. In essence, any updates created in Okta can be subsequently pushed to Google.</p>
 
 <h2>Requirements</h2> 
 <p>Before you use this option, you must do the following:</p>
 <ul>
 <li><p>Have Google Apps provisioning enabled in Okta.</p></li>
+<li><p>Set the <strong>Manage License on Create and Update</strong> drop-box in Okta to true. See <a href="#options">Options for License Management</a> below for details.</p></li>
 
-<li><p>Un-check the <strong>Auto-assign the following license to all currently unassigned users and users subsequently created</strong> button in your Google admin console account.</p>
+<li><p>Un-check the <strong>Auto-assign the following license to all currently unassigned users and users subsequently created</strong> button in your Google Admin console account, as shown here:</p>
 <p><img src="images/apps/googleapps2.png" alt=“googleapps2.png" /></p>
 
 </li>
@@ -56,26 +57,34 @@ try{Typekit.load();}catch(e){}
 
 <h2>Configuring Google License Management</h2>
 <ol>
-<li><p>In Okta, select the <strong>People</strong> tab for the <strong>Google Apps</strong> app.</p></li>
-<li><p>Click the right-side <strong>Edit</strong> button. The <strong>Edit User Assignment</strong> page appears.</p></li>
-<li><p>Select <strong>true</strong> from the <strong>Manage licenses on create update</strong> drop-down menu.</p></li>
+<li><p>In Okta, select the <strong>People</strong> or <strong>Groups</strong>tab for the <strong>Google Apps</strong> app.</p></li>
+<li><p>Chose a user or group, then click the right-side <strong>Edit</strong> button. The <strong>Edit User Assignment</strong> page appears.</p></li>
+<li><p>Select <strong>true</strong> from the <strong>Manage licenses on create update</strong> drop-down menu. See <a href="#options">Options for License Management</a> below for details.</p></li>
 <li><p>Click the appropriate check-boxes to assign the license(s).</p></li>
 </ol>
 
-<p><strong>Caution</strong>: Only certain groups of Google licenses can be individually selected, as some groups provide mutually exclusive options. For example: You can assign only one license selection at a time for Google Apps and Google Drive. Choosing more than one results in an error on the Tasks page, and only the first selection is honored.</p>
+<p><strong>Caution</strong>: Only certain groups of Google licenses can be individually selected, as some groups provide mutually exclusive options. For example: You can assign only one license selection at a time for <strong>Google Apps</strong> and <strong>Google Drive</strong>. Choosing more than one results in an error on the <strong>Tasks</strong> page, and only the first selection is honored.</p>
+
+<h2>Managing User Assignments</h3>
+<h3>Deactivating a Google Apps User</h2>
+<p>When you need to deprovision or deactivate an Okta user from Google Apps, you can do so without compromising the user's Google account. Control this element under <strong>Deactivation options</strong> on the <strong>Edit User Assignments</strong> screen.</p>
+<p>If both boxes are left unchecked, the user is suspended in Okta <em>and</em> in their corresponding Google account. See details about these options below.</p>
 
 
-<h2>Deactivating a Google Apps User</h2>
-<p>When you need to deprovision or deactivate an Okta user from Google Apps, you can do so without compromising the user's Google account. Control this element under <strong>Deactivation options</strong>.</p>
 <p><img src="images/apps/googleapps1.png" alt=“googleapps1.png" /></p>
 <p>Deactivation options are:<p>
 <ul>
-<li><p>If neither of the check boxes are checked, the user is suspended in Okta and in their corresponding Google account.</p></li>
 <li><p><strong>Do not suspend user</strong>: Checking this box prevents the user's account from being suspended in Google after deprovisioning in Okta. The user's Google account remains active.</p></li>
 
 <li><p><strong>Remove all Google Apps licenses</strong>: Checking this box insures that, when deprovisioned, Google licenses for this user no longer exist in Okta.</p></li>
 
 </ul>
+
+
+<a name="options"></a><h3>Options for License Management</h3>
+<p><strong>Manage licenses on create and update</strong></p>
+<p>When Okta end users are assigned, or changed in the Universal Directory <strong>Profile Editor</strong>, choosing <strong>true</strong> allows any changes in their Google license(s) to be automatically pushed to Google. Choosing <strong>false</strong> does not push any information.</p>
+
 
 <h2>Troubleshooting Tips</h2>
 <p>Chiclets for apps for which users do not have a license may appear on their Okta <strong>Home</strong> page. Clicking these chiclets results in an error message.</p>
