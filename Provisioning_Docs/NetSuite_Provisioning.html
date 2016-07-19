@@ -29,12 +29,38 @@ try{Typekit.load();}catch(e){}
 
 <h1>Configuring Provisioning for NetSuite</h1>
 
-<p>This guide provides the steps required to configure Provisioning for NetSuite.</p>
+
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
 
 
-<h2>Features</h2>
+<p>Netsuite as Profile Master, Token Based Authentication, and Universal Directory support (PROV_NETSUITE_ENABLE_UD flag) are all Early Access features. Contact Okta Support to enable them.</p>
+
+</div>
+
+<p>This guide provides the steps required to configure Provisioning for NetSuite and includes the following topics:</p>
+
+
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#requirements">Requirements</a></li>
+
+
+<li><a href="#configuration">Configuration Steps</a></li>
+<li><a href="#schema">Schema Discovery</a></li>
+
+<li><a href="#tips">Troubleshooting Tips</a></li>
+</ul>
+<hr />
+
+
+
+
+<a name="features"></a><h2>Features</h2>
+
 <p>The following provisioning features are supported:</p>
 <ul>
+<li>Profile Master</li>
+
 <li>Import New Users</li>
 <li>Import Profile Updates</li>
 <li>Push New Users</li>
@@ -45,7 +71,11 @@ try{Typekit.load();}catch(e){}
 </ul>
 <hr>
 
+
+<a name="requirements"></a>
 <h2>Requirements</h2>
+
+<p><strong>Note</strong>: If you already have setup NetSuite application with <strong>Admin Username</strong> and <strong>Admin password</strong> authentication, your existing settings will still work. However if you need to change any provisioning settings, you will have to switch to Token Based authentication.</strong>
 <p>Complete the following before you configure provisioning for NetSuite:</p>
 
 <h3>Configure NetSuite</h3>
@@ -64,33 +94,86 @@ try{Typekit.load();}catch(e){}
 </li>
 </ul>
 
+
+
+
 <li><p>Obtain your AccountID:</p>
 <ul>
 <li><p>Still logged into NetSuite as an administrator.</p></li>
 <li><p>Navigate to <strong>Setup > Integration > Web Services Preferences</strong>.</p></li>
 <li><p>Copy and save your <strong>Account ID</strong> as shown below:</p>
-<p><p><img src="images/apps/netsuite1.png" alt=“netsuite1.png" /></p></li>
+<p><img src="images/apps/netsuite1.png" alt=“netsuite1.png" /></p></li>
 </ul>
 </li>
+
+<li><p>Setup Token Based authentication (TBA):</p>
+<p><strong>Note</strong>: You require a NetSuite account to access the links referenced in this step.</p>
+
+<ul>
+
+
+<li><p>Follow the steps in this <a href="https://system.na1.netsuite.com/app/help/helpcenter.nl?fid=section_4247337262.html" target="_blank">Getting Started with Token-based Authentication</a> guide, and save your <strong>consumer key</strong> and <strong>consumer secret</strong>.</p></li>
+
+<ul>
+<li><p>Enabling the Token-based Authentication Feature</p></li>
+<li><p>Setting Up Token-based Authentication Roles</p></li>
+<li><p>Assigning Users to Token-based Authentication Roles</p></li>
+</ul>
+</li>
+
+</li>
+
+
+
+
+
+
+<li><p>Create a TBA Token by following the instructions in <strong>Access Token Management - Create and Assign a TBA Token</strong> instructions in the <a href="https://system.na1.netsuite.com/app/help/helpcenter.nl?fid=section_4254975694.html#bridgehead_4254081947" target="_blank">Managing TBA Tokens</a> guide and save your <strong>Token Id</strong> and <strong>Token secret</strong>.</p></li>
 </ol>
 <hr>
 
-<h2>Configuration Steps</h2>
+<a name="configuration"</a><h2>Configuration Steps</h2>
 <ol>
 
 <li><p>Configure your <strong>Provisioning</strong> settings for NetSuite as follows:</p>
 <ul>
 <li><p>Check the <strong>Enable provisioning features</strong> box.</p></li>
-<li><p>Enter your NetSuite <strong>API Credentials</strong>
+<li><p>Enter your NetSuite <strong>API Credentials as follows:</strong>
+
+<ul>
+<li><p>If <strong>PROV_NETSUITE_ENABLE_UD</strong> is <em>disabled</em>:</p>
 <ul>
 <li><p><strong>Admin Username</strong>.</p></li>
 <li><p><strong>Admin Password</strong>.</p></li>
 <li><p><strong>Admin Account ID</strong>.</p></li>
-<li><p>Check <strong>Do not import inactive users</strong> and/or <strong>Do not import users without access</strong> if you want to ignore those users when importing into Okta.</p></li>
+</ul>
+<p><p><img src="images/apps/netsuite_new_1.png" alt="netsuite_new_1.png" /></p></li>
+</li>
+
+</li>
+
+<li><p>If <strong>PROV_NETSUITE_ENABLE_UD</strong> is <em>enabled</em>:</p>
+<p>See <a href="#requirements">Requirements</a> for instructions on obtaining these fields.</p>
+<ul>
+<li><p><strong>Admin Account ID</strong>.</p></li>
+<li><p><strong>Consumer Key</strong>.</p></li>
+<li><p><strong>Consumer Secret</strong>.</p></li>
+<li><p><strong>Token ID</strong>.</p></li>
+<li><p><strong>Token Secret</strong>.</p></li>
 
 </ul>
-<p><p><img src="images/apps/netsuite2.png" alt=“netsuite2.png" /></p></li>
+<p><p><img src="images/apps/netsuite_new_2.png" alt=“netsuite_new_2.png" /></p></li>
 </li>
+</li>
+</ul>
+
+
+
+
+
+
+
+
 
 <li><p>Scroll down and select the <strong>Provisioning Features</strong> you want to enable.</p>
 
@@ -117,6 +200,8 @@ try{Typekit.load();}catch(e){}
 </ul>
 </li>
 
+<li><p>If you already have setup NetSuite application with <strong>Admin Username</strong> and <strong>Admin password</strong> authentication, your existing settings will still work. However if you need to change any provisioning settings, you will have to switch to Token Based authentication.</p></li>
+
 </ul>
 
 </div>
@@ -127,20 +212,52 @@ try{Typekit.load();}catch(e){}
 
 
 
-<h2>Schema Discovery</h2>
+<a name="schema"</a><h2>Schema Discovery</h2>
 
 <div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
 
 
 
-<p>In order to use schema discovery, make sure you have the UD feature flag <strong>PROV_NETSUITE_ENABLE_UD</strong> turned on before you create your app instance.</p>
+<p>In order to use schema discovery, make sure you have the UD feature flag <strong>PROV_NETSUITE_ENABLE_UD</strong> enabled and authorization tokens (<strong>Customer Key</strong>, <strong>Customer Secret</strong>, <strong>Token Id</strong>, <strong>Token Secret</strong>) are provided before you create your app instance.</p>
 
 </div>
 
 <p>NetSuite supports User's Schema Discovery, so you can add some extra attributes to User's Profile, to do that, follow the instructions below:</p>
 
+<h3>Supported Custom Entity Fields</h3>
+<p>Before you begin, note that the following Custom Entity fields are supported:</p>
+<ul>
 
+<li><p>Email Address</p></li>
+<li><p>Phone Number</p></li>
+<li><p>Text Area</p></li>
+<li><p>Long Text</p></li>
+<li><p>Rich Text</p></li>
+<li><p>Free-Form Text</p></li>
+<li><p>Hyperlink</p></li>
+<li><p>Integer Number</p></li>
+<li><p>Date</p></li>
+<li><p>Date/Time</p></li>
+<li><p>Percent</p></li>
+<li><p>Currency</p></li>
+<li><p>Decimal Number</p></li>
+<li><p>Check Box</p></li>
+</ui>
+
+
+
+<p>To add extra attributes to a User’s Profile:</p>
 <ol>
+
+<li><p>Ensure you have selected <strong>EMPLOYEE</strong> in the </strong>Applies To</strong> section in NetSuite side for the Custom Entity field you want to use.</p>
+
+<p><img src="images/apps/netsuite_new_3.png" alt=“netsuite_new_3.png" /></p>
+
+
+</li>
+
+
+
 <li><p>In Okta, from the Admin dashboard, select <strong>Directory > Profile Editor</strong>.</p></li>
 
 <li><p>Select the <strong>APPS</strong> section in the left navigation bar, then find your app in the list.</p></li>
@@ -156,10 +273,17 @@ try{Typekit.load();}catch(e){}
 </ol>
 <br />
 
-
-<h2>Troubleshooting Tips</h2>
+<hr>
+<a name="tips"/a><h2>Troubleshooting Tips</h2>
 
 <ul>
+
+<li><p>Password Push Policy:</p>
+<p>OKTA and NetSuite share the same password policy and NetSuite will not accept any password that are simple such as ABCD1234. If you do push a password as such you will run into the issue above.</p>
+
+<p><img src="images/apps/netsuite_new_4.png" alt=“netsuite_new_4.png" /></p>
+
+</li>
 
 <li><p>If you are in the process of creating a NetSuite app instance with <strong>PROV_NETSUITE_ENABLE_UD</strong> provisioning feature turned on, you will encounter an error similar to the following during the app assignment flow.</p>
 <p><img src="images/apps/netsuite4.png" alt=“netsuite4.png" /></p>
@@ -179,6 +303,9 @@ try{Typekit.load();}catch(e){}
 </li>
 
 <li><p>For applications with disabled <strong>PROV_NETSUITE_ENABLE_UD</strong> feature flag only. When you are changing <strong>Subsidiary</strong> property for user on OKTA side the <strong>Department</strong> field will be reset on NetSuite side.</p></li>
+
+
+<li><p>In case of problems with Pushing Profile Updates to NetSuite after enabling the <strong>PROV_NETSUITE_ENABLE_UD</strong> flag (for example, you do not have permissions to set value for element subsidiary), then this flag should be disabled.</p></li>
 
 
 </li>
