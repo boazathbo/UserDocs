@@ -201,7 +201,7 @@ New-SPTrustedRootAuthority -Name "Token Signing Cert" -Certificate $cert</blockq
 
 <a name="username-claims"></a><h4>Creating the UserName Claims Encoding in SharePoint</h4>
 
-<p><strong>Note</strong>: Skip this step if you are using <strong>Email</strong> as the identifier claim.</p>
+<p><strong>Note</strong>: Skip this step if you are using <strong>UserName</strong> as the identifier claim.</p>
 
 <p>First, make sure you use a specific encoding character for <strong>UserName</strong> claim. Each SharePoint farm has a unique encoding character for every claim. We recommend you use the default encoding of <strong>527</strong> unless it is already being used for a different claim.</p>
 <p>See <a href=“#encoding”>Encoding Characters</a> for guidelines.</p>
@@ -246,27 +246,23 @@ New-SPTrustedRootAuthority -Name "Token Signing Cert" -Certificate $cert</blockq
 
 <p>From the Windows PowerShell command prompt, create a new authentication provider, as shown in the syntax below.</p>
 
+
+<p><strong>Where:</strong></p>
+
+
 <p>Next we create a realm, this is the same as the <strong>SharePoint Trusted Identity Provider Realm</strong> application settings in Okta:</p>
 
 <p>Copy the following <strong>Sharepoint Realm</strong> field.</p>
 <kbd id="SharePointRealmVal"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 
-
 <p><strong>$signInURL</strong>: This is the URL that users should be redirected to in order to authenticate with Okta. </p>
 
 
-
 <p>Copy the following <strong>Sharepoint Sign On URL</strong> field, </p>
 <kbd id="SharePointSignOnUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd>
 
 
-
-
-<p>Copy the following <strong>Sharepoint Sign On URL</strong> field, </p>
-<kbd id="SharePointSignOnUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd>
-
-
-<p>Run the following PowerShell cmdlet to create the new authentication provider. Get $signInURL value from setup instruction page of your app.</p>
+<p>Run the following PowerShell cmdlet to create the new authentication provider.</p>
 
 <p>The <strong>Name</strong> attribute is what you will see in your web application when you configure what authentication provider it should use.</p>
 
@@ -285,6 +281,7 @@ New-SPTrustedRootAuthority -Name "Token Signing Cert" -Certificate $cert</blockq
 
 <blockquote>$ap = New-SPTrustedIdentityTokenIssuer -Name "Okta" -Description "Okta Trusted Identity Provider" -realm $realm -ImportTrustCertificate $cert -ClaimsMappings $emailClaimMap, $upnClaimMap, $roleClaimMap -SignInUrl $signInURL -IdentifierClaim $usernameClaimmap.InputClaimType</blockquote>
 
+
 <p>Once that last PowerShell command has executed, we have an <strong>SPTrustedIdentityTokenIssuer</strong> that can be used with our SharePoint web application.</p>
 
 
@@ -298,8 +295,10 @@ New-SPTrustedRootAuthority -Name "Token Signing Cert" -Certificate $cert</blockq
 <kbd>$ap = Get-SPTrustedIdentityTokenIssuer "Okta" </kbd>
 
 
-<p>Copy the following <strong>Sharepoint Site URL</strong> field, then append <i>[Your Site URL] where indicated.</i></p>
+<p>Copy the following <strong>Sharepoint Site URL</strong> field, then append <i>[Your Site URL]</i> where indicated. (For example: <strong>$uri = new-object System.Url("http://app1/")</strong>.)</p>
 <kbd>$uri = new-object System.Uri("[Your Site URL]")</kbd>
+
+
 
 <p>Copy the following <strong>Sharepoint Add Realms</strong> field.</p>
 <kbd id="SharePointRealmsAdd"> Sign into the Okta Admin dashboard to generate this value.</kbd>
@@ -332,23 +331,22 @@ New-SPTrustedRootAuthority -Name "Token Signing Cert" -Certificate $cert</blockq
 
 <a name="troubleshooting"></a><h2>Troubleshooting</h2>
 
-<ul>
 
-<li><p><strong>Problem</strong>: The <strong>Trusted Identity Provider</strong> section is grayed out on the Edit Authentication page.</p></li>
-<li><p><strong>Solution</strong>: Make sure you have Claims Based Authentication selected as the preferred mode of authentication for this Share-point application. From the Windows PowerShell command prompt, type the following to set the specified user account as an administrator for the site:</p>
+<p><strong>Problem</strong>: The <strong>Trusted Identity Provider</strong> section is grayed out on the Edit Authentication page.</p>
+<p><strong>Solution</strong>: Make sure you have Claims Based Authentication selected as the preferred mode of authentication for this Share-point application. From the Windows PowerShell command prompt, type the following to set the specified user account as an administrator for the site:</p>
 
 
-<blockquote>$WebAppName = "http://" 
-$wa = get-SPWebApplication $WebAppName 
-$wa.UseClaimsAuthentication = $true 
-$wa.Update()
+<blockquote>$WebAppName = "http://" <br>
+$wa = get-SPWebApplication $WebAppName <br>
+$wa.UseClaimsAuthentication = $true <br>
+$wa.Update()<br>
 </blockquote>
 
-</li>
+<br />
 
 <hr>
 
-<li><p><strong>Problem</strong>: Authentication fails showing a webpage with the error "An application error occurred on the server. The current custom error settings for this application prevent the details of the application error from being viewed."</p></li>
+<p><strong>Problem</strong>: Authentication fails showing a webpage with the error "An application error occurred on the server. The current custom error settings for this application prevent the details of the application error from being viewed."</p>
 <li><p><strong>Solution</strong>: Open the web.config file for this web application make sure you have custom errors turned off in the web.config file:</p>
 
 
@@ -361,43 +359,41 @@ $wa.Update()
 
 </li>
 
-
+<br />
 
 <hr>
 
-<li><p><strong>Problem</strong>: When try to sync user profile, you get the following error in event viewer.</p>
-<blockquote>Process: App Pool: SecurityTokenServiceApplicationPool
-Area: Okta Claims Provider
-Category: OktaClaimsProvider
-Event Id: 110
-Message:
+<p><strong>Problem</strong>: When try to sync user profile, you get the following error in event viewer.</p>
+<blockquote>Process: App Pool: SecurityTokenServiceApplicationPool<br>
+Area: Okta Claims Provider<br>
+Category: OktaClaimsProvider<br>
+Event Id: 110<br>
+Message:<br>
 Error in FillClaimsForEntity when synchronizing user profile. Exception Unable to update User Profile for john.doe@example.com. The site http://example.com/site1 could not be found in the Web application SPWebApplication Name=SharePoint - 80., Stack at OktaClaimsProvider.OktaClaimsProvider.SyncUserProfile(Uri context, SPClaim entity)  </blockquote>
 
-</li>
-<li><p><strong>Solution</strong>: Create a site collection at root level of web app.</p></li>
-
+<p><strong>Solution</strong>: Create a site collection at root level of web app.</p>
+<br />
 <hr>
 
 
-<li><p><strong>Problem</strong>: I changed farm/webapplication setting but still see the same search scope/identifier claim type.</p></li>
-<li><p><strong>Solution</strong>: You need to run iisreset every time after changing farm or webapplication settings.</p></li>
-
+<p><strong>Problem</strong>: I changed farm/webapplication setting but still see the same search scope/identifier claim type.</p>
+<p><strong>Solution</strong>: You need to run iisreset every time after changing farm or webapplication settings.</p>
+<br />
 <hr>
 
 
 
 
-<li><p><strong>Problem</strong>: I set app instance Id but don’t see search results limited for the specific app.</p></li>
-<li><p><strong>Solution</strong>: The app instance Id specified may be invalid which caused fallback to OKTA level search. You can check ULS log to see if app instance Id specified was invalid.</p></li>
-
+<p><strong>Problem</strong>: I set app instance Id but don’t see search results limited for the specific app.</p>
+<p><strong>Solution</strong>: The app instance Id specified may be invalid which caused fallback to OKTA level search. You can check ULS log to see if app instance Id specified was invalid.</p>
+<br />
 <hr>
 
-
-<li><p><strong>Problem</strong>: I provided APP as the search scope and make sure app instance Id was valid, but I still see results from OKTA level search even after it isreset.</p></li>
-<li><p><strong>Solution</strong>: Clear the browser cache to get rid of stale entities.</p></li>
-
+<p><strong>Problem</strong>: I provided APP as the search scope and make sure app instance Id was valid, but I still see results from OKTA level search even after it isreset.</p>
+<p><strong>Solution</strong>: Clear the browser cache to get rid of stale entities.</p>
+<br />
 <hr>
-</ul>
+
 
 
 
