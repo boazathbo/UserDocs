@@ -12,6 +12,14 @@ try{Typekit.load();}catch(e){}
 <script src="../resources/js/getAppValues.js"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<style>
+code {
+    font-family: monospace;
+}
+</style>
+
+
 </head>
 <body>
 <div class="header clearfix">
@@ -28,7 +36,7 @@ try{Typekit.load();}catch(e){}
 
 
 <h3>Not On-Premise</h3>
-<p>If you are not an on—premise customer, follow the steps below. If you are an on-premise customer, scroll down to those instructions later in this article.</p>
+<p>If you are <em>not</em> an on-premise customer, follow the steps below. If you are an on-premise customer, scroll down to those instructions later in this article.</p>
 <ol>
 
 
@@ -62,8 +70,8 @@ try{Typekit.load();}catch(e){}
 <p><img style="border: 0; padding: 0;" src="images/apps/ingeniux1.png" alt=“ingeniux1.png" /></p>
 </ul>
 
-<li><p>Save the following x.509 Certificate</p>
-xxxxx
+<li><p>Copy and save the following x.509 Certificate (PEM Text format):</p>
+<pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre>
 </li>
 
 <li><p>Still in Okta, select the <strong>Sign On</strong> tab for the Ingeniux app, then click <strong>Edit</strong>.</p>
@@ -89,21 +97,30 @@ xxxxx
 <p>The following instructions are for on-premise customers</p>
 
 <ol>
-<li><p>Login to the CMS server and open the <strong>\site\saml.config</strong> file in a text editor.</p></li> <li><p>Configure the values displayed in bold with your sites values. Note that they are case sensitive.</p></li>
+<li><p>Login to the CMS server and open the <strong>\site\saml.config</strong> file in a text editor.</p></li> <li><p>Configure the values displayed in blue font with your site's values. Note that they are case sensitive.</p></li>
 
 
-<blockquote><SAMLConfiguration xmlns="urn:componentspace:SAML:2.0:configuration"><ServiceProvider Name= https://your-cms-urlDescription="Ingeniux CMS"AssertionConsumerServiceUrl="~/SAML/AssertionConsumerService"LocalCertificateFile="filename-for-ssl-cert.pfx"LocalCertificatePassword="YourSecurePassword" /><PartnerIdentityProviders><PartnerIdentityProviderName="http://www.okta.com/exk17xt6x1tFwlxFy1d8"Description="Okta"SignAuthnRequest="true"SignLogoutRequest="true"WantSAMLResponseSigned="true"WantAssertionSigned="false"WantAssertionEncrypted="false"DisableAudienceRestrictionCheck="true"DigestMethod="http://www.w3.org/2001/04/xmlenc#sha256"SignatureMethod="http://www.w3.org/2000/09/xmldsig#rsa-sha1"SingleLogoutServiceBinding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"SingleSignOnServiceUrl=" https://okta-coe-test.okta.com/app/ingeniuxcms/exk17xt6x1tFwlxFy1d8/sso/samlSingleLogoutServiceUrl=" https://okta-coe-test.okta.comPartnerCertificateFile="https://okta-coe-test-admin.okta.com/admin/org/security/0oa17xt6x1uyQUEzS1d8/cert" /></PartnerIdentityProviders></SAMLConfiguration></blockquote>
+
+<pre>
+&lt;SAMLConfiguration xmlns="urn:componentspace:SAML:2.0:configuration"&gt;&lt;ServiceProvider Name= <font color="blue">https://your-cms-url</font>              Description="Ingeniux CMS"              AssertionConsumerServiceUrl="~/SAML/AssertionConsumerService"              LocalCertificateFile="<font color="blue">filename-for-ssl-cert.pfx</font>"              LocalCertificatePassword="<font color="blue">YourSecurePassword</font>" /&gt;  &lt;PartnerIdentityProviders&gt;    &lt;PartnerIdentityProvider        Name="<font color="blue">http://www.okta.com/exk17xt6x1tFwlxFy1d8</font>"        Description="Okta"        SignAuthnRequest="true"        SignLogoutRequest="true"        WantSAMLResponseSigned="true"        WantAssertionSigned="false"        WantAssertionEncrypted="false"        DisableAudienceRestrictionCheck="true"        DigestMethod="http://www.w3.org/2001/04/xmlenc#sha256"        SignatureMethod="http://www.w3.org/2000/09/xmldsig#rsa-sha1"        SingleLogoutServiceBinding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"        SingleSignOnServiceUrl="<font color="blue">https://okta-coe-test.okta.com/app/ingeniuxcms/exk17xt6x1tFwlxFy1d8/sso/saml</font>        SingleLogoutServiceUrl="<font color="blue">https://okta-coe-test.okta.com</font>        PartnerCertificateFile="<font color="blue">https://okta-coe-test-admin.okta.com/admin/org/security/0oa17xt6x1uyQUEzS1d8/cert" /&gt;</font>  &lt;/PartnerIdentityProviders&gt;&lt;/SAMLConfiguration&gt;</pre>
+
+
+
 
 <li><p>Edit <strong>\site\local-membership.config</strong> and add in a new record for:</p>
 
-<pre><add name="Okta" type="Ingeniux.CMS.Models.SAMLProvider" idpPartner="http://www.okta.com/exk17xt6x1tFwlxFy1d8" /></pre>
+<pre>
+&lt;add name="Okta" type="Ingeniux.CMS.Models.SAMLProvider" idpPartner="<font color="blue">http://www.okta.com/exk17xt6x1tFwlxFy1d8</font>" /&gt;
+
+</pre>
 </li><li><p>Save your changes, recycle CMS application pool, then attempt to login.</p></li>
 
 
+
+
+
+<li><p>Done!</p></li>
 </ol>
-
-
-<li>Done!
 <p>&nbsp;</p>
 <p><strong>Notes</strong>:</p>
 
@@ -111,7 +128,7 @@ xxxxx
 
 <p>JIT is not the default setting – you need to enable it in your product.</p>
 
-<H3>For SP-initiate flows:</H3>
+<H3>For SP-initiated flows:</H3>
 
 <ol>
 
