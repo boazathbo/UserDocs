@@ -33,7 +33,12 @@ try{Typekit.load();}catch(e){}
 
  <div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
 
-        <p><strong>Note</strong>: Slack provisioning requires you to be using the Slack <strong>Plus</strong> edition.</p>
+        <p><strong>Note</strong>:</p>
+<ul>
+<li><p>Slack provisioning requires you to be using the Slack <strong>Plus</strong> edition.</p></li>
+<li><p>Make sure that your Slack organization has a <strong>Pro Plan</strong> subscription. It is required for Slack to get you access to Slack SCIM API.</p></li>
+</ul>
+
             </div>
 
 <hr>
@@ -44,6 +49,7 @@ try{Typekit.load();}catch(e){}
 
                <li><a href="#requirements">Requirements</a></li>
         <li><a href="#configuration">Configuration Steps</a></li>
+        <li><a href="#tips">Troubleshooting Tips</a></li>
 </ul>
 
 <hr>
@@ -64,8 +70,21 @@ try{Typekit.load();}catch(e){}
 <li><p><strong>Import New Users</strong></p>
 <p>New users created in the third party application will be downloaded and turned in to new AppUser objects, for matching against existing OKTA users.</p>
 </li>
+
+
+
 <li><p><strong>Import Profile Updates</strong></p>
+<p>Updates made to a user's profile in the third party application will be downloaded and applies to the profile fields stored locally in OKTA.  If the app is the system of record for the user, changes made to core profile fields (email, first name, last name, etc) will be applied to the Okta user profile.  If the app is NOT the system of record for the user, only changes made to app-specific fields will be applied to the local user profile.</p>
 </li>
+
+<li><p><strong>Group Push</strong></p>
+<p>Groups and their members can be pushed to remote systems. More about using group push operations you can find here: <a href="https://support.okta.com/help/articles/Knowledge_Article/27086213-Using-Group-Push" target="_blank">Using Group Push</a>.</p>
+</li>
+
+<li><p><strong>Reactivate Users</strong></p>
+<p>Reactivating the user through Okta will reactivate the user in the 3rd party application.</p>
+</li>
+
 </ul>
 
 <hr>
@@ -101,9 +120,15 @@ try{Typekit.load();}catch(e){}
 </ol>
 
 
+<hr>
+<a name="tips"></a><h2>Troubleshooting Tips</h2>
+<p>If you see any provisioning errors, please make sure you verified the following list of tips:</p>
+<ul>
+<li><p>Make sure that you configured Slack app with correct token (<a href="https://api.slack.com/docs/oauth-test-tokens" target="_blank">https://api.slack.com/docs/oauth-test-tokens</a>)</p></li>
+<li><p>Make sure that your Slack organization has Pro Plan subscription. </p></li>
 
+</ul>
 </div>
 </body>
 </html>
-
 
