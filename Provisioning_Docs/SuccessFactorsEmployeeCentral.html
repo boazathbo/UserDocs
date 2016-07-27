@@ -1,0 +1,479 @@
+<html>
+<head>
+<link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="../resources/js/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="../resources/js/jquery.min.js"></script>
+    <script src="../resources/js/vkbeautify.js"></script>
+
+<title>SuccessFactors Provisioning</title>
+
+<script src="../resources/js/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="../resources/img/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>To reconfigure any of the <strong>General Settings</strong> or <strong>Sign-On Options</strong>, uncheck the <strong>Enable provisioning features</strong> box, and use the <strong>Previous</strong> and <strong>Next</strong> buttons to navigate through the configuration screens.</p>
+</div> 
+
+
+<h1>Configuring Provisioning for SuccessFactors Employee Central</h1>
+
+<p>This guide provides the steps required to configure Provisioning for SuccessFactors Employee Central as a Master</p>
+
+ <div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+
+        <p><strong>Note</strong>:</p>
+<p>This integration is not intended to provision users to SuccessFactors; roles and permissions cannot be set via Okta.</p>
+</div>
+
+<hr>
+<h2>Contents</h2>
+
+<ul>
+<li><a href="#overview">Overview</a></li>
+
+<li><a href="#features">Features</a></li>
+
+               <li><a href="#requirements">Requirements</a></li>
+        <li><a href="#configuration">Configuration Steps</a></li>
+        <li><a href="#tips">Notes</a></li>
+<li><a href="#attributes">Supported Entities and Attributes</a></li>
+</ul>
+
+
+<hr>
+
+<a name="overview"></a><h2>Overview</h2>
+
+<p>Okta integrates with SuccessFactors Employee Central, an integrated suite of human capital management web-based applications, to provide a comprehensive identity and access management solution. Okta automates provisioning in all leading cloud and web applications. With SuccessFactors-driven IT provisioning, Okta can drive the worker life cycle of new-hire, update, termination, and rehire to downstream applications from events that originate in SuccessFactors Employee Central.</p>
+
+<p>Okta can import users from SuccessFactors Employee Central through its EC Compound Employee API. Okta supports two typical scenarios:</p>
+<ul>
+<li><p>Import from SuccessFactors Employee Central.</p></li>
+<li><p>SuccessFactors (EC)-driven IT Provisioning.</p></li>
+</ul>
+<p>Both are described below:</p>
+
+<h3>Import from SuccessFactors Employee Central</H3>
+<p>In this scenario, Okta simply imports users and groups from SuccessFactors EC like any other application. Imported users are used to create Okta users. However, once the SuccessFactors EC users are imported into Okta, they are no longer managed by SuccessFactors EC. Any updates to the user made in SuccessFactors EC will not change the associated Okta user.</p>
+
+<h3>SuccessFactors (EC)-driven IT Provisioning</H3>
+<p>In this scenario, Okta integrates with SuccessFactors EC to drive IT provisioning. When the SuccessFactors EC user is imported into Okta, they continue to be managed by SuccessFactors EC. Updates and terminations made in SuccessFactors EC are reflected in Okta and downstream apps. This arrangement enables SuccessFactors EC to manage employee and contractor access to apps. SuccessFactors EC-driven IT provisioning is a superset of the functionality provided in Import from SuccessFactors EC, so the rest of this deployment guide focuses on configuring SuccessFactors EC-driven IT provisioning, but will be relevant to Import from SuccessFactors EC scenarios as well.</p>
+
+<p><strong>Note</strong>: SuccessFactors EC-Driven IT provisioning requires the Enterprise or Enterprise Plus versions of Okta to enable SuccessFactors EC as a Profile Master and for flexible attribute mappings.</p>
+
+
+<p>With Successfactors EC-driven IT provisioning, Okta supports the following worker lifecycle events:</p>
+<ul>
+
+<li><p><strong>New hire</strong></p>
+<ul>
+<li><p>A new employee is hired in SuccessFactors EC</p></li>
+<li><p>Okta imports the new employee and creates an Okta user profile</li></p>
+<li><p>Okta creates accounts in downstream apps (AD included)</li></p>
+</ul>
+</li>
+
+
+
+<li><p><strong>Updates</strong></p>
+<ul>
+<li><p>An employee’s attribute is changed in SuccessFactors EC</li></p>
+<li><p>Okta imports the attribute change</li></p>
+<li><p>Okta updates the attribute in downstream apps (AD included)</li></p>
+</ul>
+</li>
+
+
+
+<li><p><strong>Termination</strong></p>
+<ul>
+<li><p>An employee is terminated in SuccessFactors EC</li></p>
+<li><p>Okta imports the status change</li></p>
+<li><p>Okta deactivates the Okta user and accounts in downstream apps (AD included)</li></p>
+</ul>
+</li>
+
+<li><p><strong>Future Dated Hire</strong></p>
+<ul>
+<li><p>A new employee is added in SuccessFactors EC with a start date in future</li></p>
+<li><p>If the start date falls in the pre-start interval set under the provisioning tab, the future dated hire is imported into Okta with an active status</li></p>
+<li><p>Okta creates accounts in downstream apps (AD included)</li></p>
+</ul>
+</li>
+
+
+<li><p><strong>Post Termination</strong></p>
+<ul>
+<li><p>An employee is terminated in SuccessFactors EC</li></p>
+<li><p>The employee remains active in Okta for the number of days set in the post termination field under the provisioning tab</li></p>
+<li><p>Okta deactivates the Okta user and accounts to downstream apps (AD included) once the post termination days have passed </li></p>
+</ul>
+</li>
+
+
+</ul>
+
+
+
+<hr>
+
+<a name="features"></a><h2>Features</h2>
+<p>The following provisioning features are supported:</p>
+
+<ul>
+<li><p><strong>Import New Users</strong></p>
+</li>
+<li><p><strong>Import Profile Updates</strong></p>
+</li>
+<li><p><strong>Import User Schema</strong></p>
+</li>
+<li><p><strong>Push Profile Updates/Write-back functionality</strong></p>
+<p>Please note that only primary email and primary phone can be updated</p>
+</li>
+<li><p><strong>Profile Master</strong></p>
+</li>
+<li><p><strong>Pre-start Interval</strong></p>
+<p>This field permits early provisioning of SuccessFactors EC users. It allows on-boarding a user account into Okta before their official Worker/Employee Date (that is, the employee’s actual start date). The interval is the number of days (prior to a SuccessFactors EC user’s stated Worker/Employee Date) before Okta evaluates a SuccessFactors EC user for early import. If this feature is enabled, Okta evaluates the SuccessFactors EC Pre-Hire Date and, if it falls within the set interval, Okta imports the user with an active status in Okta.</p>
+<p><strong>Note</strong>: This is only used when Profile Mastering is enabled.</p>
+</li>
+
+<li><p><strong>Post-Termination Interval</strong></p>
+<p>This field permits late deactivation of SuccessFactors EC users. It allows users to keep their Okta account active after their end/termination date in SuccessFactors EC. The interval is the number of days (after a SuccessFactors EC user's stated end date) after Okta evaluates a SuccessFactors EC user for deactivation. If this feature is enabled, Okta evaluates the SuccessFactors EC Post Terminiation date, and keeps the users active in Okta for the defined number days, after their termination/end date.</p>
+</li>
+
+
+</ul>
+
+<hr>
+<a name="requirements"></a><h2>Requirements</h2>
+<ol>
+<li><p>Contact SuccssFactors or the implementation partner to get the SuccessFactors SF API enabled for your tenant. They will need to log in to the <strong>Provisioning Access Console > Select your company > Company Settings > Under Web Services</strong>, and check the following fields:</p>
+<ul>
+<li><p>SFAPI</p></li>
+<li><p>Employee Central SOAP API</p>
+<p>Other items are checked by default</p>
+</li>
+</ul>
+<p><img style="border: 0; padding: 0;" src="images/apps/sucessfactors-new1.png" alt=“sucessfactors-new1.png” /></p>
+</li>
+
+<li><p>Login to your Successfactors tenant as a System Administration, then navigate to <strong>Set User Permissions > Manage Permission Roles > System Admin</strong>, click the <strong>Permission...</strong>, button and enable the following:</p>
+<ul>
+<li><p><strong>Manage Integration tools > Select all</strong>, then <strong>Save</strong>.xxx should this be <strong>Done</strong></p>
+<p><img style="border: 0; padding: 0;" src="images/apps/sucessfactors-new2.png" alt=“sucessfactors-new2.png” /></p>
+</li>
+<li><p><strong>Employee Central API > Select all</strong>, then <strong>save</strong>.xxx should this be <strong>Done</strong></p>
+<p><img style="border: 0; padding: 0;" src="images/apps/sucessfactors-new3.png" alt=“sucessfactors-new3.png” /></p>
+</li>
+
+</ul>
+</li>
+
+
+<li><p>In Okta, add the SuccessFactors application, then select the <strong>General Settings</strong> tab, and be sure to set the <strong>Company ID</strong> parameter.</p>
+<p>The value for this can be obtained from your login URL: <strong>https://acme.successfactors.com/login?company=<font color="red">ACME123456789</font></strong>.</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/sucessfactors-new4.png" alt=“sucessfactors-new4.png” /></p>
+</li>
+
+
+
+
+<hr>
+
+<a name="configuration"></a><h2>Configuration Steps</h2>
+<p>Configure your Provisioning settings for <strong>SuccessFactors</strong> as follows:</p>
+<ol>
+<li><p>Check the <strong>Enable provisioning features</strong> box.</p></li>
+<li><p>Enter the following <strong>API CREDENTIALS</strong>:</p>
+
+<ul>
+<li><p><strong>Base URL for Web Service</strong>: This is your API base URL. Pay attention as it differs from your login URL. List of API URLs can be found here.</p></li>
+<li><p><strong>Admin Username</strong>: Enter a username for admin account.</p></li>
+<li><p><strong>Admin Password</strong>: Enter a password for the for admin username (above).</p></li>
+
+<li><p><strong>Pre-Start Interval</strong>: Enter the number of days before the start date an employee should be considered active.</p></li>
+<li><p><strong>Post-Termination Interval</strong>: Enter the number of days after user termination an employee should be considered active.</p></li>
+
+</ul>
+<p><img style="border: 0; padding: 0;" src="images/apps/sucessfactors-new5.png" alt=“sucessfactors-new5.png” /></p>
+
+</li>
+
+<li><p>Scroll down and select the <strong>Provisioning Features</strong> you want to enable, then click <strong>Save</strong>.</p>
+<p><strong>Note</strong>: In order to turn on Update User Attributes feature along with Profile Mastering, for write-back functionality, contact Okta support to get the following Feature Flags enabled for your Okta org:</p>
+<ul>
+<li><p>ALLOW_BOTH_PROFILE_MASTERING_AND_PUSH</p></li>
+<li><p>ATTRIBUTE_LEVEL_MASTERING</p></li>
+</ul>
+
+</li>
+<p><img style="border: 0; padding: 0;" src="images/apps/sucessfactors-new6.png" alt=“sucessfactors-new6.png” /></p>
+
+<li><p>Note that the default Okta username format is email-formatted, while SuccessFactors doesn't have any specific requirement for the username format. Therefore the default username mapping from SuccessFactors to Okta is the following:</p>
+<pre>appuser.person___logon_user_name + "@" + org.subdomain + ".com"</p></li>
+
+</ol>
+
+
+<hr>
+<a name="tips"></a><h2>Notes</h2>
+<h3>Multiple Job Assignments</H3>
+<p>In case you have multiple job assignment in your SuccessFactors account (either with Global Assignment or with Concurrent Assignment), Okta treats them the following way:</p>
+<ul>
+<li><p><strong>Global Assignments</strong> will be prefixed with:</p>
+<p>"person___employment_information_GA1___"</p>
+<p>For example: "person___employment_information_GA1___job_information___job_title"</p>
+</li>
+
+<li><p><strong>Standard Assignments</strong> will be prefixed with:</p>
+<p>"person___employment_information_ST1___job_information"</p>
+<p>For example: "person___employment_information_GA1___job_information___job_title"</p>
+<p>Where ST1/ST2 order defined by employment_information.employment_id value</p>
+<p>For example: "employment_information.employment_id=123" treats as "ST1" and "employment_information.employment_id=456" treats as ST2)</p>
+</li>
+
+</ul>
+
+<h3>User Statuses</H3>
+
+<p>In case any of user's <em>job_information.emplStatus</em> == "A" user treated as active in Okta.</p>
+<p>In case no <em>job_information.emplStatus</em> equals to "A", user will be treated as pre-hired (active) based on <em>job_information.start_date</em>: Okta selects the most early value among all <em>job_informations</em> and compare it like "now > startDate > now + preHireInterval". Once condition is true - user treated as active.</>
+<p>If user isn't active and didn't pass pre-hire verification he/she will be tested against post-termination verification. Okta select the most latest <em>job_information.end_date</em> and verifies "now - postTerminationInterval > endDate > now".</p>
+<p>If user didn't pass any of verifications above he/she treated as inactive and won't be imported into Okta.</p>
+
+<h3>Phone and Emails</H3>
+<p>Okta selects only ones which are marked as "isPrimary = true".</p>
+
+<hr>
+<a name="attributes"></a><h2>Supported Entities and Attributes</h2>
+<p>The following table contains a list of supported entities and attributes within those entities.</p>
+
+
+<p><strong>Note</strong>:Attributes marked <font color="red">RED</font> are blacklisted. Okta does not query or save any information related to these attributes.</p>
+
+<table class="gridtable">
+
+        <tr>
+
+            <th><strong>Person</strong></th>
+            <th><strong>Personal Information</strong></th>
+            <th><strong>Address Information</strong></th>
+
+            <th><strong>Email Information</strong></th>
+
+            <th><strong>Employment Information</strong></th>
+
+            <th><strong>Phone Information</strong></th>
+            <th><strong>Job Information</strong></th>
+
+
+        </tr>
+
+        <tr>
+            <td align="left">birth_name</br>
+country_of_birth</br>
+date_of_birth</br>
+date_of_death</br>
+logon_user_id</br>
+logon_user_is_active</br>
+logon_user_name</br>
+person_id</br>
+person_id_external</br>
+place_of_birth</br>
+region_of_birth</br>
+Custom_string1 - 20</br>
+Custom_date1 - 10</br>
+Custom_long1 - 20</br>
+Custom_double1 - 20</br></td>
+
+
+            <td align="left">birth_name</br>
+display_name</br>
+display_name_alt1</br>
+display_name_alt2</br>
+end_date</br>
+first_name</br>
+first_name_alt1</br>
+formal_name</br>
+formal_name_alt1</br>
+formal_name_alt2</br>
+gender</br>
+initials</br>
+last_name</br>
+last_name_alt1</br>
+marital_status</br>
+middle_name</br>
+name_format</br>
+name_prefix</br>
+nationality</br>
+native_preferred_lang</br>
+salutation</br>
+second_title</br>
+start_date</br>
+suffix</br>
+title</br>
+workflow_request_id</br>
+Custom_string1 - 20</br>
+Custom_date1 - 10</br>
+Custom_long1 - 20</br></td>
+
+            <td align="left">address_type</br>
+address1 – 10</br>
+address1_alt1</br>
+address1_alt2</br>
+address2_alt1</br>
+address2_alt2</br>
+address3_alt1</br>
+address3_alt2</br>
+city</br>
+country</br>
+county</br>
+end_date</br>
+province</br>
+start_date</br>
+state</br>
+zip_code</br>
+Custom_string1 - 20</br>
+Custom_date1 - 10</br>
+Custom_long1 - 20</br>
+Custom_double1 - 20</br></td>
+
+
+            <td align="left">email_address</br>
+Custom_string1 - 20</br>
+Custom_date1 - 10</br>
+Custom_long1 - 20</br>
+Custom_double1 - 20</br></td>
+
+
+            <td align="left">assignment_class</br>
+assignment_type</br>
+benefits_eligibility_start_date</br>
+benefitsEndDate</br>
+bonusPayExpirationDate</br>
+direct_reports</br>
+employment_id</br>
+end_date</br>
+firstDateWorked</br>
+globalAssignmentPlannedEndDate</br>
+is_host_assignment</br>
+isPrimary</br>
+jobNumber</br>
+last_modified_by</br>
+last_modified_on</br>
+lastDateWorked</br>
+originalStartDate</br>
+payrollEndDate</br>
+professionalServiceDate</br>
+salary_end_date</br>
+seniorityDate</br>
+serviceDate</br>
+start_date</br>
+StockEndDate</br>
+user_id</br>
+Custom_string1 - 100</br>
+Custom_date1 - 30</br>
+Custom_long1 - 20</br>
+Custom_double1 - 20</br></td>
+
+            <td align="left">area_code</br>
+country_code</br>
+extension</br>
+phone_number</br>
+phone_type</br>
+Custom_string1 - 20</br>
+Custom_date1 - 10</br>
+Custom_long1 - 20</br>
+Custom_double1 - 20</br></td>
+
+            <td align="left">acquired_from_ company</br>
+business_unit</br>
+company</br>
+company_territory_code</br>
+cost_center</br>
+created_by</br>
+created_on_timestamp</br>
+department</br>
+division</br>
+eeo_class</br>
+eeo_job_group</br>
+eeo1_job_category</br>
+eeo4_job_category</br>
+eeo5_job_category</br>
+eeo6_job_category</br>
+employee_class</br>
+employee_type</br>
+employment_type</br>
+emplStatus</br>
+end_date</br>
+event</br>
+event_reason</br>
+flsa_status</br>
+fte</br>
+holiday_calendar_code</br>
+is_cross_border_worker</br>
+is_eligible_for_benefit</br>
+is_eligible_for_car</br>
+is_fulltime_employee</br>
+is_home_worker</br>
+is_primary</br>
+is_shift_employee</br>
+job_code</br>
+job_title</br>
+local_job_title</br>
+location</br>
+manager_category</br>
+manager_employment_id</br>
+manager_id</br>
+manager_person_id</br>
+<font color="red">notes</font></br>
+<font color="red">pay_grade</font></br>
+<font color="red">pay_group</font></br>
+<font color="red">payroll_event</font></br>
+<font color="red">payScaleArea</font></br>
+<font color="red">payScaleType</font></br>
+position</br>
+regular_temp</br>
+seq_number</br>
+shift_code</br>
+shift_factor</br>
+<font color="red">shift_rate</font></br>
+standard_hours</br>
+start_date</br>
+supervisor_level</br>
+time_type_profile_code</br>
+timezone</br>
+work_period</br>
+workflow_request_id</br>
+workingDaysPerWeek</br>
+workschedule_code</br>
+Custom_string1 - 100</br>
+Custom_date1 - 30</br>
+Custom_long1 - 20</br>
+Custom_double1 - 20</br></td>
+
+        </tr>
+
+       
+
+
+    </table>
+
+
+
+</div>
+</body>
+</html>
+
