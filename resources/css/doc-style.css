@@ -354,7 +354,7 @@ pre * {
 }
 
 .gridtable td {
-  padding: 8px;
+  padding: 3px; 
   border-bottom: 1px solid #eee;
   border-right: 1px solid #eee;
   text-align: left;
