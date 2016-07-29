@@ -1,0 +1,96 @@
+<html>
+<head>
+    <link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="../resources/js/jff5neq.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        try{Typekit.load();}catch(e){}
+    </script>
+    <script src="../resources/js/jquery.min.js"></script>
+    <script src="../resources/js/vkbeautify.js"></script>
+
+    <title>Setup SSO</title>
+
+    <script src="../resources/js/getAppValues.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+    <div class="logo-container">
+        <img src="../resources/img/okta-logo-white.png" alt="Okta" />
+    </div>
+</div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for TrackWise by Sparta Systems</h1>
+
+
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
+</div>
+<p>&nbsp;</p>
+<ol>
+
+<li><p>Login to the TrackWise Web Admin.</p></li>
+<li><p>Navigate to <strong>User Management > Login Accounts > Authentication Source</strong>.</p></li>
+<li><p>Click <strong>New</strong>.</p>
+<p><img border="1" src="images/apps/trackwise1.png" alt=“trackwise1.png" /></p>
+</li>
+<li><p>Enter the following (see screen shot at end of step for reference):</p>
+<ul>
+<li><p><strong>Name</strong>: Enter <strong>Okta</strong>.</p></li>
+<li><p><strong>Type</strong>: Select <strong>SAML IdP</strong> from the dropdown.</p></li>
+<li><p>Check the <strong>Active</strong> checkbox.</p></li>
+<li><p><strong>Issuer</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p></li>
+<li><p><strong>SAML Assertion Identity Type</strong>: Select <strong>TrackWise Login Account</strong> from the dropdown.</p></li>
+<li><p><strong>SAML Identity Location Element</strong>: Select <strong>Name Identifier of the Subject Statement</strong> from the dropdown.</p></li>
+<li><p><strong>Identity Provider Login URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p><strong>Identity Provider Logout URL</strong>: Leave this field blank.</p></li>
+<li><p><strong>Custom Error URL</strong>: Leave this field blank.</p></li>
+<li><p>Check the <strong>Is Force Authentication Supported</strong> checkbox.</p></li>
+
+<li><p>Click <strong>Save</strong></p></li>
+</ul>
+<p><img border="1" src="images/apps/trackwise2.png" alt=“trackwise2.png" /></p>
+
+</li>
+
+
+<li><p>To assign <strong>Okta Authentication Source</strong> for your users:</p>
+<ol>
+<li><p>Navigate to <strong>User Management > Login Accounts</strong>.</p></li>
+<li><p>Select a user.</p></li>
+<li><p><strong>Authentication Source</strong>: Select <strong>Okta</strong>.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+</ol>
+<p><img border="1" src="images/apps/trackwise3.png" alt=“trackwise3.png" /></p>
+</li>
+
+
+ 
+
+<li>Done!</li>
+</ol>
+
+<p>&nbsp;</p>
+<p><strong>Notes:</strong></p>
+<p>IDP-initiated flows and SP-initiated flows are supported.</p> 
+<p>Just In Time (JIT) Provisioning is not supported.</p>
+
+
+<br />
+<h4>For SP-initiated Flows</H4>
+<ol>
+<li><p>Open your TrackWise Login URL: <strong>http://[yourHostName]/trackWiseApp/servlet/TeamAccess/Login</strong>.</p></li>
+<li><p>Enter your <strong>Username</strong>.</p></li>
+<li><p>Click <strong>Log In</strong>.</p></li>
+<p><img border="1" src="images/apps/trackwise4.png" alt=“trackwise4.png" /></p>
+
+
+</ol>
+</div>
+
+
+</body>
+</html>
