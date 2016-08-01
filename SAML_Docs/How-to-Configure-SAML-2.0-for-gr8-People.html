@@ -29,7 +29,7 @@
 
 <div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
 <h3><strong>Read this before you enable SAML</strong></h3>
-<p><strong>gr8 People</strong> is configured to use two configurations: <strong>Career center</strong> and <strong>Recruiter portal</strong>. We recommend you use labels within Okta to distinguish between the configurations:</p>
+<p><strong>gr8 People</strong> is configured to use three configurations: <strong>Career center</strong>, <strong>Recruiter portal</strong>, and <strong>Hiring Manager</strong>. We recommend you use labels within Okta to distinguish between the configurations:</p>
 <p><p><img border="1" src="images/apps/gr8people1.png" alt=“gr8people1.png" /></p>
 
 
@@ -49,7 +49,7 @@
 
 <li><p>Include the following data with your request:</p>
 <ul>
-<li><p>Specify the type of configuration, either <strong>Career center</strong> or <strong>Recruiter portal</strong>.</p></li>
+<li><p>Specify the type of configuration, either <strong>Career center</strong>, <strong>Recruiter portal</strong>, or <strong>Hiring Manager</strong>.</p></li>
 <li><p><strong>Issuer</strong>: Copy and paste the following:</p>
 <p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
 </li>
@@ -85,7 +85,8 @@
 
 <h2>For SP-initiated Flows:</h2>
 <ul>
-<li><p>For <strong>Career center</strong>: Open your Career Center login URL.</p></li><li><p>For <strong>Recruiter portal</strong>: The SP-initiated flow is supported on the recruitment portal when user receives an email to perform an action.</p></li>
+<li><p>For <strong>Career center</strong>: Open your Career Center login URL.</p></li><li><p>For <strong>Recruiter portal</strong>: The SP-initiated flow is supported on the recruitment portal when a user receives an email to perform an action.</p></li>
+<li><p>For <strong>Hiring Manager</strong>: The SP-initiated flow is supported on the Hiring Manager when a user receives an email to perform an action.</p></li>
 </ul>
 </div>
 </body>
