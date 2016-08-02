@@ -1,0 +1,86 @@
+<html>
+<head>
+    <link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="../resources/js/jff5neq.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        try{Typekit.load();}catch(e){}
+    </script>
+    <script src="../resources/js/jquery.min.js"></script>
+    <script src="../resources/js/vkbeautify.js"></script>
+
+    <title>Setup SSO</title>
+
+    <script src="../resources/js/getAppValues.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+    <div class="logo-container">
+        <img src="../resources/img/okta-logo-white.png" alt="Okta" />
+    </div>
+</div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Hosted Graphite</h1>
+
+
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
+</div>
+<p>&nbsp;</p>
+<ol>
+
+<li><p>Login to Hosted Graphite as an administrator.</p></li>
+
+<li><p>Navigate to <strong>Access > SAML Setup</strong> and do the following (see screen shot at end of step for reference):</p>
+<ul>
+<li><p>Make a note of the last part (<strong>User ID</strong>) of the <strong>Assertion Consumer Service URL</strong><p>
+<p>For example, if your ACS URL is <strong>https://www.hostedgraphite.com/complete/saml/12345678/</strong>, you need to make a note of <strong>12345678</strong>.</p></li>
+
+<li><p><strong>Entity of Issuer ID</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+<li><p><strong>SSO Login URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+<li><p>Select <strong>Default User Role</strong> for the new user.</p></li>
+
+<li><p><strong>X.509 Certificate</strong>: Copy and paste the following (PEM text format):</p>
+<pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre>
+</li>
+
+<li><p>Click <strong>Save</strong>.</p></li>
+</ul>
+<p><img border="1" src="images/apps/hostedgraphite1.png" alt=“hostedgraphite1.png" /></p>
+</li>
+
+
+<li><p>In Okta, select the <strong>General</strong> tab for the Hosted Graphite app, then click <strong>Edit</strong>.</p>
+
+<ul>
+<li><p>Enter the <strong>User ID</strong> you saved from the <strong>Assertion Consumer Service URL</strong> from Hosted Graphite (see above).</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+</ul>
+</li>
+
+ 
+
+<li>Done!</li>
+</ol>
+
+<p>&nbsp;</p>
+<p><strong>Notes:</strong></p>
+<p>IDP-initiated flows, SP-initiated flows, and Just In Time (JIT) Provisioning are all supported.</p> 
+
+
+<br />
+<h4>For SP-initiated Flows</H4>
+<p>Open <strong>https://www.hostedgraphite.com/login/saml/[yourSsoId]/</strong> page.</p>
+
+</ol>
+</div>
+
+
+</body>
+</html>
