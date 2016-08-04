@@ -31,12 +31,11 @@
 
 <li><p>Login to Hosted Graphite as an administrator.</p></li>
 
-<li><p>Navigate to <strong>Access > SAML Setup</strong> and do the following (see screen shot at end of step for reference):</p>
+<li><p>Navigate to <strong>Access > SAML Setup</strong> and enter the following (see screen shot at end of step for reference):</p>
 <ul>
-<li><p>Make a note of the last part (<strong>User ID</strong>) of the <strong>Assertion Consumer Service URL</strong><p>
-<p>For example, if your ACS URL is <strong>https://www.hostedgraphite.com/complete/saml/12345678/</strong>, you need to make a note of <strong>12345678</strong>.</p></li>
 
-<li><p><strong>Entity of Issuer ID</strong>: Copy and paste the following:</p>
+
+<li><p><strong>Entity or Issuer ID</strong>: Copy and paste the following:</p>
 <p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
 </li>
 
@@ -51,18 +50,10 @@
 </li>
 
 <li><p>Click <strong>Save</strong>.</p></li>
-</ul>
-<p><img border="1" src="images/apps/hostedgraphite1.png" alt=“hostedgraphite1.png" /></p>
+</ul><p><img border="1" src="images/apps/hostedgraphitenew1.png" alt=“hostedgraphitenew1.png" /></p>
 </li>
 
 
-<li><p>In Okta, select the <strong>General</strong> tab for the Hosted Graphite app, then click <strong>Edit</strong>.</p>
-
-<ul>
-<li><p>Enter the <strong>User ID</strong> you saved from the <strong>Assertion Consumer Service URL</strong> from Hosted Graphite (see above).</p></li>
-<li><p>Click <strong>Save</strong>.</p></li>
-</ul>
-</li>
 
  
 
@@ -76,7 +67,7 @@
 
 <br />
 <h4>For SP-initiated Flows</H4>
-<p>Open <strong>https://www.hostedgraphite.com/login/saml/[yourSsoId]/</strong> page.</p>
+<p>Open <strong>https://www.hostedgraphite.com/login/saml/[yourUserId]/</strong> page.</p>
 
 </ol>
 </div>
