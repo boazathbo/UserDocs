@@ -1,0 +1,151 @@
+<html>
+<head>
+<link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="../resources/js/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="../resources/js/jquery.min.js"></script>
+    <script src="../resources/js/vkbeautify.js"></script>
+
+<title>Facebook at Work Provisioning</title>
+
+<script src="../resources/js/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="../resources/img/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>To reconfigure any of the <strong>General Settings</strong> or <strong>Sign-On Options</strong>, uncheck the <strong>Enable provisioning features</strong> box, and use the <strong>Previous</strong> and <strong>Next</strong> buttons to navigate through the configuration screens.</p>
+</div> 
+
+
+<h1>Configuring Provisioning for Facebook at Work</h1>
+
+<p>This guide provides the steps required to configure Provisioning for Facebook at Work</p>
+
+ <div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+
+        <p><strong>Note</strong>: The <strong>Push Groups</strong> feature currently not functional, although it is displayed in UI. This feature will be available shortly.</p>
+
+    </div>
+
+
+<h2>Contents</H2>
+
+<ul>
+<li><a href="#features">Features</a></li>
+
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#configuration">Configuration Steps</a></li>
+<li><a href="#schema">Schema Discovery</a></li>
+<li><a href="#tips">Troubleshooting Tips</a></li>
+</ul>
+
+<hr>
+
+<a name="features"></a><h2>Features</h2>
+<p>The following provisioning features are supported:</p>
+
+<ul>
+<li><p><strong>Import New Users</strong></p></li>
+
+<li><p><strong>Import Profile Updates</strong></p></li>
+
+
+<li><p><strong>Import User Schema</strong></p></li>
+
+<li><p><strong>Push New Users</strong></p></li>
+
+<li><p><strong>Push Profile Updates</strong></p></li>
+
+<li><p><strong>Push Password Updates</strong></p></li>
+
+<li><p><strong>Push User Deactivation</strong></p></li>
+
+</ul>
+
+
+
+
+
+
+
+<hr>
+<a name="requirements"></a><h2>Requirements</h2>
+<p>To enable <strong>Provisioning Features</strong>, you need to first get an <strong>Organization ID</strong> and <strong>OAuth Access Token</strong> from Facebook, as described here:</p>
+
+
+<ol>
+<li><p>Login to your Facebook at Work organization under an Admin Account.</p></li>
+<li><p>Navigate to <strong>Company Dashboard</strong>:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/facebook1.png" alt=“facebook1.png” /></p>
+</li>
+
+<li><p>Locate the <strong>Settings</strong> tab and <strong>Membership</strong> section:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/facebook2.png" alt=“facebook2.png” /></p>
+</li>
+<li><p>Make note of the <strong>Organization ID</strong> and <strong>OAuth Access Token</strong> values, you need these to configure Provisioning.</p></li>
+
+
+
+<hr>
+
+<a name="configuration"></a><h2>Configuration Steps</h2>
+
+<p>Make sure you have entered your Facebook Subdomain and Organization ID under the <strong>General Settings</strong> tab:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/facebook3.png" alt=“facebook3.png” /></p>
+
+<p>Now you can configure your Provisioning settings for <strong>Facebook at Work</strong> as follows:</p>
+<ol>
+<li><p>Check the <strong>Enable provisioning</strong> features box.</p></li>
+
+<li><p>Enter the following <strong>API CREDENTIALS</strong>:</p>
+<ul>
+<li><p>Enter your <strong>OAuth Access Token</strong>.</p></li>
+<li><p><strong>Push AD Manager Field</strong>. Check this if you'd like to provision User's manager field from Active Directory (note that AD must be configured and the Manager User must exist in Facebook At Work).</p></li>
+<li><p><strong>Send Claim Email</strong>. Check this if you'd like Facebook to send an invitation email upon user creation. Note that SAML users may not want to enable this.</p></li>
+<li><p>Click <strong>Test API Credentials</strong> to validate your configuration.</p></li>
+</ul>
+<p><img style="border: 0; padding: 0;" src="images/apps/facebook4.png" alt=“facebook4.png” /></p>
+</li>
+<li><p>Scroll down and select the <strong>Provisioning Features</strong> you'd like to enable, select <strong>Next</strong>, then <strong>Done</strong> to finish the App configuration.</p></li>
+
+<li><p>You can now assign people to the app, if needed.</p>
+</li>
+
+</ol>
+
+
+<hr>
+<a name="schema"></a><h2>Schema Discovery</h2>
+
+<p>Facebook At Work supports User's Schema Discovery, so you can add extra attributes if available to User's Profile. To do that in Okta:</p>
+<ol>
+<li><p>Navigate to <strong>Directory > Profile Editor</strong>.</p></li>
+<li><p>Select the <strong>APPS</strong> section in the left pane, then find your app in the list.</p></li>
+<li><p>Check the list of the attributes and if you didn't found what you need, click the <strong>Add Attribute</strong> to display a list of extended attributes.</p></li>
+<li><p>Check the attributes you want to add, then click <strong>Save</strong>.</p></li>
+</ol>
+<p>You are now able to import and push these User's attributes values from/to Facebook.</p>
+
+
+
+<hr>
+<a name="tips"></a><h2>Troubleshooting Tips</h2>
+<p>The <strong>Group Push</strong> feature is not functional due to deprecation of groups management via Facebook SCIM API, so creating and updating Groups may fail with the following error:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/facebook5.png" alt=“facebook5.png” /></p>
+<p>This feature will be available shortly so this will no longer be an issue.</p>
+
+
+</div>
+</body>
+</html>
+
