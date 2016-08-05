@@ -36,7 +36,11 @@
 
         <ul>
 
-            <li>
+<li><p>In order to enable UD support for Concur, contact the Okta support team and request the following <strong>Early Access</strong> feature flag be enabled for your Okta org:</p>
+<p>PROV_CONCUR_CLOUD_DIRECTORY_ENABLE</p> 
+<p>You will have to create a new instance of the Concur application.</p></li>            
+
+<li>
                 <p>The provisioning capability for the Concur app has limitations; Okta supports the creation of a Base user record in Concur, but not all cases. Refer to the <a href="#limitations">Limitations</a> section below to determine whether the provisioning application will support your Concur tenant.</p>
 <p>Additionally, your tenant may have Expense features that require employee data this is not capable of being populated by the current Concur User API, and therefore is not supported by the Okta User Provisioning application. If this is the case, you will be required to populate the additional data using Concur specified import files.</p>
 <p>The fields that can be populated by the User Provisioning app are specified: <a href="https://developer.concur.com/api-reference/user/company-notification-subscription-resource/user.html#createUser">here</a>.</p>
@@ -61,15 +65,29 @@
     <hr>
 
     <a name="limitations"></a><h2>Limitations</h2>
-<p>User provisioning will not work in the following cases:</p>
 
+<p>A base user record will not be fully provisioned in the following cases:</p>
 <ul>
-<li><p>Your Concur tenant does not have <strong>Expense Groups</strong> enabled</p></li>
-<li><p>Your Concur tenant has more than one <strong>Reimbursement Method</strong> or <strong>Travel Policy</strong></p></li>
-<li><p>Your Concur tenant has Reimbursement Method field set to required for user creation</p></li>
-<li><p>Your Concur tenant has Travel Policy set to required for user creation</p></li>
-<li><p>Your Concur tenant is a standard-to-professional upgrade that continues to use the Reimbursement Method field</p></li>
-<li><p>Your Concur tenant has linked lists</p></li>
+<li><p>Your Concur tenant uses the <strong>Reimbursement Method</strong> field. See below for details:</p>
+
+<p><strong><font color="blue">Standard</font> Edition</strong> - customers who have more than one reimbursement method (<strong>Expense Pay</strong>, <strong>Payroll</strong>, <strong>Co. Check</strong>) can provision users but must import the reimbursement values via a file. Possible values are:</p>
+<ul>
+<li><p>If the customer uses <strong>ADP Payroll</strong>, then the ADP payroll fields must be populated manually or via an import file.</p></li>
+<li><p>If <strong>Expense Pay</strong> or <strong>AP Check</strong> is the single reimbursement method used by customer, then Okta does not need to populate this data (a blank value will populate the single, default method).</p></li>
+</ul>
+
+<p><strong><font color="blue">Standard</font>-to-<font color="green">Professional</font> Upgrade Edition</strong> - customers using the corresponding <strong>Payment Manager</strong> batches (that are populated by the values in this field) can provision users, but must import these values via a file. Consult with Concur for possible solutions. For example, if you choose to use one Accounting file, you would not need the individual batches that these field values populate.</p>
+<p><strong><font color="green">Professional</font> Edition</strong> – this field does not apply to Professional Edition at this time.
+</li>
+
+
+<li><p>If your Concur tenant uses <strong>Cash Advance</strong> fields, the <strong>Cash Advance Account Code</strong> and <strong>Cash Advance Approver</strong> need to be manually entered or imported via a file, as these fields are not supported in the Concur API.</p></li>
+
+
+<li><p>If your Concur tenant has more than one <strong>Travel Policy</strong>, then this field needs to be set manually or via a file import. Generally, for <strong>Standard</strong> travel there is only one travel policy. In this case, a blank value via Okta will populate the default value.</p></li>
+
+<li><p>If your Concur tenant uses <strong>Multiple Employee Forms</strong>, provisioning a base record via Okta is not possible.</p></li>
+
 </ul>
 
 
@@ -226,7 +244,8 @@
             <li><p>Select <strong>Add Attribute</strong>, then <strong>Refresh Attribute List</strong> to see the latest list of Concur attributes:</p>
                 <p><p><img src="images/apps/concur7.png" alt=“concur7.png" /></p></li>
 
-            <li><p>Make sure that all attributes with the <strong>Required attribute</strong> in the description is selected. Additionally, you can add more attributes of your choice.</p></li>
+            <li><p>Required Concur attributes are pre-selected for you on this page. Additionally, you can add more attributes of your choice.</p>
+<p><strong>Note</strong>: If you are using <strong>Standard Edition</strong> with Groups enabled, be sure to add the <strong>Expense Policy Group</strong> (orgUnit1) attribute.*</p></li>
             <li><p><strong>Save</strong> the profile.</p></li>
 
 
@@ -259,28 +278,31 @@
 
         <tr>
             <td align="left"><strong>Locale Name</strong></td>
-            <td align="left"><p>Select value from drop down menu.</p></li>
+            <td align="left"><p>Select value from drop down menu. Be sure to select a value that is applicable to your Concur tenant. If a locale value is not enabled in your Concur tenant, this field is left blank on the user's Concur profile, or you may experience errors.</p></li>
                 </p>
             </td>
         </tr>
 
         <tr>
             <td align="left"><strong>Country Code</strong></td>
-            <td align="left"><p>Select value from drop down menu.</p></td>
+            <td align="left"><p>Select value from drop down menu. Be sure to select a value that is applicable to your Concur tenant. If a locale value is not enabled in your Concur tenant, this field is left blank on the user's Concur profile, or you may experience errors.</p></td>
         </tr>
 
         <tr>
             <td align="left"><strong>Currency Key</strong></td>
-            <td align="left"><p>Select value from drop down menu.</p></td>
+            <td align="left"><p>Select value from drop down menu. Be sure to select a value that is applicable to your Concur tenant. If a locale value is not enabled in your Concur tenant, this field is left blank on the user's Concur profile, or you may experience errors.</p></td>
+        </tr>
+
+<tr>
+            <td align="left"><strong>Expense Group ID (Custom21)</strong></td>
+            <td align="left"><p><strong><font color ="blue">Concur Standard </font></strong> edition may or may not have Groups. This attribute is termed as <strong>Employee Administration Country</strong> in <strong>Concur Standard Edition</strong>. If you have Groups enabled, pass the <strong>Employee Administration Country Code</strong> value; to get a list of code values pertaining to the <strong>Employee Administration Country</strong> names, go to the <strong>Accounting Administration</strong> menu in Concur, then select </strong>Accounting Structure</strong>.</p> 
+<p><strong>Note</strong>: Expense Policy Group (orgUnit1) attribute goes hand in hand with this attribute. You will be required to add the Expense Policy Group attribute via Schema discovery.</p></td>
         </tr>
 
         <tr>
             <td align="left"><strong>Expense Group ID</strong></td>
             <td align="left">
-                <ul>
-                    <li><p><strong><font color ="blue">Concur Standard</font></strong> edition may or may not have groups. This attribute is termed as Expense Policy Group in Concur Standard Edition, and Custom21 will be used for the Expense Group value. You have to pass the Group Code value; to get a list of Group code values pertaining to the group names, go to the <strong>Accounting Administration</strong> menu in Concur, then click on <strong>Accounting Structure</strong>.</p></li>
-
-                    <li><p><strong><font color ="green">Concur Professional</font>/<font color="red">Premium</font></strong> edition has groups. Custom21 will be used for the Expense Group value. Custom 22 will be used for the Invoice Group value. You have to pass the Group Code value; to get a list of Group code values pertaining to the group names, go to <strong>Accounting Administration</strong> menu in Concur, then click on <strong>Accounting Structure</strong>.</p></li>
+                <p><strong><font color ="green">Concur Professional</font>/<font color="red">Premium</font> </strong> editions have Groups. Custom21 will be used for the <strong>Expense Group</strong> value. Custom 22 will be used for the <strong>Invoice Group</strong> value. You have to pass the <strong>Group Code</strong> value. To get a list of Group Code values pertaining to the group names, go to <strong>Accounting Administration</strong> menu in Concur, then select <strong>Accounting Structure</strong>.</p></li>
                 </ul></td>
         </tr>
 
@@ -307,9 +329,14 @@
     <p>This application supports Schema Discovery feature, which allows to extend the list of attributes to sync with Concur. Some attributes are restricted by Concur to allow values only from a predefined list. Due to API limitation we cannot get these values. Such attributes have the following note in their description: <em>The valid values for this field are restricted and configured in Concur</em>.</p>
     <p><img src="images/apps/concur8.png" alt=“concur8.png" /></p>
 
-    <p>To get a list of allowed values for these attributes, go to Concur web-site, navigate to the <strong>Add User</strong> form and check the values for the selected field.</p>
-    <p>Here's an example for <strong>Expense Group ID</strong> attribute:</p>
-    <p><img src="images/apps/concur9.png" alt=“concur9.png" /></p>
+    <p>You need to identify the required fields that are related to <strong>Employee Group</strong> and any custom fields that are defined as drop down lists (don’t worry about the <strong>Country of Residence</strong> or <strong>Reimbursement Currency</strong> fields). The <strong>Employee Group</strong> and custom fields in question are located towards the bottom of the <strong>User Profile</strong> page (under the <strong>Expense and Invoice Settings</strong> section) within the <strong>User Administration</strong> tool. Once you identify the custom fields that have lists attached to them, go to the <strong>List Management</strong> tool in Concur to obtain the <strong>List Item Code</strong> values for each field that is defined as a drop down list. It is important to use the List Item <em>CODE</em> value, not the List Item name value.</p>
+<p>For example, in the sample shown below, use code value <strong>A</strong> for the Company and use code value <strong>300</strong> for the Division in the respective fields within Okta:</p>
+
+<p><img src="images/apps/concur-new1.png" alt=“concur-new1.png" /></p>
+
+
+<p>If you have the <strong>Expense Audit Required</strong> attribute set as <strong>required</strong>, you are required to pass this value via Okta to create and update users. This attribute cannot be set in Concur via the API, which means your Concur admin will have to set this field per user by logging in to Concur. However, you will be required to pass a <em>valid</em> value when provisioning via Okta. The allowed values for this field are: REQ, ALW, and NVR.</p>
+ 
     <hr>
 
     <a name="tips"></a><h2>Troubleshooting Tips</h2>
