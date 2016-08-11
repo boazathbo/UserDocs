@@ -1,0 +1,67 @@
+<html>
+<head>
+    <link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="../resources/js/jff5neq.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        try{Typekit.load();}catch(e){}
+    </script>
+    <script src="../resources/js/jquery.min.js"></script>
+    <script src="../resources/js/vkbeautify.js"></script>
+
+    <title>Setup SSO</title>
+
+    <script src="../resources/js/getAppValues.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+    <div class="logo-container">
+        <img src="../resources/img/okta-logo-white.png" alt="Okta" />
+    </div>
+</div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for FloQast</h1>
+
+
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
+</div>
+<p>&nbsp;</p>
+<ol>
+
+<li><p>Contact the FloQast Support team and request that they enable SAML 2.0 for your account.</p></li>
+<li><p>Attach the following IDP Metadata URL:</p>
+<p><kbd id="metadataUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd></p></li>
+
+</li>
+
+<li><p>The FloQast Support team will process your request. After receiving a confirmation email, you can start assigning people to the application.</p></li>
+
+ 
+
+<li>Done!</li>
+</ol>
+
+<p>&nbsp;</p>
+<p><strong>Notes:</strong></p>
+<p>IDP-initiated flows and SP-initiated flows are supported.</p> 
+<p>Just In Time (JIT) Provisioning is not supported.</p>
+
+
+<br />
+<h4>For SP-initiated Flows</H4>
+<ol>
+<li><p>Go to <a href="https://go.floqast.com/login" target="_blank">https://go.floqast.com/login</a>.</p></li>
+<li><p>Click <strong>Login with SSO</strong>.</p>
+<p><img border="1" src="images/apps/floqast1.png" alt=“floqast1.png" /></p></li>
+
+<li><p>Click <strong>Login with OKTA</strong>.</p>
+<p><img border="1" src="images/apps/floqast2.png" alt=“floqast2.png" /></p></li>
+
+
+</ol>
+</div>
+
+
+</body>
+</html>
