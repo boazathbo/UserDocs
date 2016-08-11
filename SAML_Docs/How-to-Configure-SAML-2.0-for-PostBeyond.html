@@ -1,0 +1,67 @@
+<html>
+<head>
+    <link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="../resources/js/jff5neq.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        try{Typekit.load();}catch(e){}
+    </script>
+    <script src="../resources/js/jquery.min.js"></script>
+    <script src="../resources/js/vkbeautify.js"></script>
+
+    <title>Setup SSO</title>
+
+    <script src="../resources/js/getAppValues.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+    <div class="logo-container">
+        <img src="../resources/img/okta-logo-white.png" alt="Okta" />
+    </div>
+</div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for PostBeyond</h1>
+
+
+<div id="loginAdminApp" class="okta-callout okta-danger" style="display: none;">
+<p><strong>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</strong></p>
+</div>
+<p>&nbsp;</p>
+<ol>
+
+<li><p>Contact the PostBeyond Support team and request that they enable SAML 2.0 for your account.</p></li>
+<li><p>Attach the following IDP Metadata URL:</p>
+<p><kbd id="metadataUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd></p></li>
+
+</li>
+
+<li><p>The PostBeyond Support team will process your request and will provide you with their URL in the following format:</p>
+<p>https://[<font color="red">your-postbeyond-subdomain</font>].postbeyond.com</p>
+</li>
+
+
+<li>In Okta, select the <strong>General</strong> tab for the PostBeyond app, then click <strong>Edit</strong>.</p>
+<ul>
+<li><p>Enter the subdomain provided to you by PostBeyond ([<font color="red">your-postbeyond-subdomain</font>]) into the <strong>Subdomain</strong> field.</p></li>
+
+<li><p>Click <strong>Save</strong></p></li>
+</ul>
+<p><img border="1" src="images/apps/postbeyond1.png" alt=“postbeyond1.png" /></p></li>
+
+</li>
+
+ 
+
+<li>Done!</li>
+</ol>
+
+<p>&nbsp;</p>
+<p><strong>Notes:</strong></p>
+<p>IDP-initiated flows are supported.</p> 
+<p>SP-initiated flows and Just In Time (JIT) Provisioning are not supported.</p>
+
+</div>
+
+
+</body>
+</html>
