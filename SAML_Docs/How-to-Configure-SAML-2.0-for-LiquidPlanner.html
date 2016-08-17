@@ -43,8 +43,7 @@ try{Typekit.load();}catch(e){}
 
 <li><p>In the <strong>Single Sign-On Configuration</strong> section, enter the following (see screen shot at end of step for reference):</p>
 <ul>
-<li>Make a copy of the last part of the <strong>Custom Subdomain Link</strong>.</p>
-<p>For example if your <strong>Custom Subdomain Link</strong> is <strong>https://app.liquidplanner.com/sso_login/0000</strong>, you need to save the <strong>0000</strong> value).</p></li>
+
  
 <li><strong>SAML Identity Provider Certificate</strong>: Copy and paste the following:</p>
 <kbd id="certFingerPrint">Sign into the Okta Admin Dashboard to generate this variable.</kbd>
@@ -52,9 +51,14 @@ try{Typekit.load();}catch(e){}
 <li><strong>Remote Login URL</strong>: Copy and paste the following:</p>
 <kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd>
 </li>
+
+<li>Make a copy of the last part of the following <strong>Entity ID</strong> value.</p>
+
+<p>For example if your <strong>Entity ID</strong> is <strong>https://app.liquidplanner.com/<font color="red">0000</font></strong>, you need to save the <strong><font color="red">0000</font></strong> value).</p></li>
+
 <li>Click <strong>Save</strong>.</p></li>
 </ul>
-<p><img border="1" src="images/apps/liquidplanner1.png" alt=“liquidplanner1.png" /></p>
+<p><img border="1" src="images/apps/liquidplanner-new1.png" alt=“liquidplanner-new1.png" /></p>
 
 </li>
 
@@ -62,7 +66,7 @@ try{Typekit.load();}catch(e){}
 <li><p>In Okta, select the <strong>General</strong> tab for the LiquidPlanner SAML app.</p>
 <ul>
 <li><p>Click <strong>Edit</strong>.</p></li>
-<li><p>Enter your <strong>Custom Subdomain</strong> (see step 5 above) into the <strong>Company ID</strong> field.</p></li>
+<li><p>Enter the portion of the <strong>Entity ID</strong> you saved (see step 5 above) into the <strong>Company ID</strong> field.</p></li>
 <li><p>Click <strong>Save</strong>.</p></li>
 
 </ul>
