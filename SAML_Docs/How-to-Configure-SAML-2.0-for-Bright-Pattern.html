@@ -1,0 +1,96 @@
+<html>
+<head>
+<link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="../resources/js/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="../resources/js/jquery.min.js"></script>
+<script src="../resources/js/vkbeautify.js"></script>
+<title>Setup SSO</title>
+
+<script src="../resources/js/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="../resources/img/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions"> 
+<h1>How to Configure SAML 2.0 for Bright Pattern</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+<ol>
+
+
+
+
+
+
+<li><p>Login to the Bright Pattern Contact Center Admin interface.</p></li>
+
+
+<li><p>Navigate to <strong>Call Center Configuration > Integration Accounts</strong>.</p></li>
+
+<li><p>Click the <strong>+</strong> (plus) button.</p>
+<p><img border="1" src="images/apps/brightpattern1.png" alt=“brightpattern1.png" /></p>
+</li>
+
+<li><p>Create a new <strong>Single Sign-On</strong> account.</p></li>
+
+<li><p>Enter the following (see screen shot at end of step for reference):</p>
+
+<ul>
+<li><p>Check the <strong>Enable Single Sign On</strong> box.</p></li>
+<li><p><strong>Identity Provider Single Sign-On URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+<li><p><strong>Identity Provider Issuer</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p><strong>Identity Provider Certificate</strong>: Copy and paste the following:</p>
+<pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre>
+</li>
+
+<li><p>Click <strong>Apply</strong>.</p></li>
+
+
+</ul>
+<p><img border="1" src="images/apps/brightpattern2.png" alt=“brightpattern2.png" /></p>
+
+</li>
+
+
+<li><p>In Okta, select the <strong>General</strong> tab for the Bright Pattern app, then click <strong>Edit</strong>.</p>
+<ul>
+<li><p>Enter the <strong>Domain</strong> provided to you by Bright Pattern (https://[your-brightpattern-domain]) into the <strong>Domain</strong> field.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+
+</ul>
+<p><img border="1" src="images/apps/brightpattern3.png" alt=“brightpattern3.png" /></p>
+
+</li>
+
+
+<li><p>Done!</p>
+<p><strong>Notes:</strong></p>
+<p>IdP-initiated flows and SP-initiated flows are supported.</p>
+<p>Just In Time (JIT) Provisioning is not supported.</p>
+</ol>
+
+
+
+
+<H3>For SP-initiated flows</H3>
+<ul>
+<li><p>Go to <strong>https://[your-brightpattern-domain]</strong>.</p></li>
+</ul>
+</div>
+</body>
+</html>
