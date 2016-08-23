@@ -43,9 +43,8 @@ try{Typekit.load();}catch(e){}
 
 <div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
 
-        <p><strong>Known Issues</strong>:</p>
+        <p><strong>Known Issue</strong>:</p>
 <ul>
-<li><p><strong>Real Time Sync</strong>: Import auto-confirm does not currently work for users imported from Workday via Real Time Sync.</p></li>
 <li><p><strong>Pre-Start Interval</strong>: Setting a non-zero Pre-Start Interval will import future-dated Workday user updates ahead of time by the number of days specified. For example, a Workday provisioning group membership change that is scheduled with an effective date 2 days in the future will be reflected in Okta immediately on next import if the Pre-Start Interval value is set to 3.</p>
 <p>The Pre-Start Interval is ignored for termination date and attribute values imported via Custom Reports. If you need to set a Pre-Start Interval for new hires, but don't want other updates to happen ahead of time, then create and import attributes from Custom Reports into Okta, instead of using the base Workday profile attributes in Okta. You can also use Group Membership Rules based off of the Custom Report attribute(s) for group assignment in Okta.</p></li>
 </ul>
