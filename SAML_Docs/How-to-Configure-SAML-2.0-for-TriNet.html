@@ -42,9 +42,11 @@ try{Typekit.load();}catch(e){}
 <ol>
 
 <li><p>Contact the TriNet Support team and request that they enable SAML 2.0 for your account.</p></li>
+
 <li><p>Include the following <strong>IDP Metadata URL</strong>:</p>
-<p><kbd id="metadataUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd></p>
-</li>
+<p><kbd id="metadataUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd></p></li>
+
+<li><p>Ask the TriNet Support team for the <strong>Company ID</strong> value (if needed).</p></li>
 
 <li><p>Save the following certificate as <em>trinet.cert</em>:</p>
 <p><pre>-----BEGIN CERTIFICATE-----
@@ -87,11 +89,23 @@ FTaoA4C3B1eyRtWt
 </li>
 
 
-<li><p>The TriNet Support team will process your request. After receiving a confirmation email, you can start assigning people to the application.</p></li>
+<li><p>The TriNet Support team will process your request and provide you with the <strong>Company ID</strong> value. After receiving a confirmation email, you can start assigning people to the application.</p></li>
 
 
+
+
+<li><p>In Okta, select the <strong>General</strong> tab for the TriNet app, then click <strong>Edit</strong>:</p>
+<ul>
+
+<li><p>Enter the <strong>Company ID</strong> value provided by TriNet Support team into the corresponding field.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
 </ul>
+<p><img border="1" src="images/apps/trinet_new1.png" alt=“trinet_new1.png" /></p>
+
 </li>
+
+
+
 
 <li><p>Done!</p>
 </ol>
