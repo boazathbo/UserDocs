@@ -1,0 +1,95 @@
+<html>
+<head>
+<link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="../resources/js/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="../resources/js/jquery.min.js"></script>
+<script src="../resources/js/vkbeautify.js"></script>
+<title>Setup SSO</title>
+
+<script src="../resources/js/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="../resources/img/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions"> 
+<h1>How to Configure SAML 2.0 for MuleSoft</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+<ol>
+
+
+
+
+
+
+<li><p>Login to your MuleSoft - Anypoint Platform account as an administrator.</p></li>
+
+
+<li><p>Click the dropdown icon, then select <strong>Access Management</strong>.</p></li>
+
+<p><img border="1" src="images/apps/mulesoft1.png" alt=“mulesoft1.png" /></p>
+</li>
+
+
+
+<li><p>Click <strong>External Identity</strong>.</p></li>
+
+
+
+<li><p>Click the <strong>If you would like to configure single sign on with a SAML 2.0 provider you can get started here</strong> link, then enter the following (see screen shot at the end of step for reference):</p>
+
+<ul>
+
+<li><p><strong>Issuer</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+<li><p><strong>Public Key</strong>: Copy and paste the following:</p>
+<pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre></li>
+
+<li><p><strong>Audience</strong>:</p>
+<ul>
+<p><li>First, generate the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p></li>
+
+<p><li>Copy the last part of the above generated URL, for example, the text in red in the following example:</p>
+<pre>http://www.myCompany.com/<font color="red">exk18o312mrXCbUs21d8</font></pre></li>
+
+<p><li>Append <strong>.anypoint.mulesoft.com</strong>, as shown in the following example, and enter it into the <strong>Audience</strong> field.</p>
+<pre>exk18o312mrXCbUs21d8.anypoint.mulesoft.com</pre></li>
+
+</ul>
+
+<li><p><strong>Sign On URL</strong>: Copy and paste the following:</p> 
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p></li>
+
+
+<li><p>Click <strong>Save</strong>.</p></li>
+
+
+</ul>
+<p><img border="1" src="images/apps/mulesoft2.png" alt=“mulesoft2.png" /></p>
+
+</li>
+
+
+<li><p>Done!</p>
+<p><strong>Notes:</strong></p>
+<p>IdP-initiated flows and Just In Time (JIT) Provisioning are supported.</p>
+<p>SP-initiated flows are not supported.</p>
+</ol>
+
+
+</div>
+</body>
+</html>
