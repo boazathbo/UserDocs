@@ -24,7 +24,22 @@ try{Typekit.load();}catch(e){}
 <div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
 <p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
 </div>
-<p><strong>Note:</strong> Mimecast supports both SP- and IdP-initiated SAML and deep links.&nbsp;The username must be the email address that is used to sign into Mimecast. If this email address in not the same as the Okta username, please update the <em>Default username format</em> value in Okta accordingly.</p>
+<br />
+
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+<p><strong>Notes</strong>:
+<ul>
+<li><p>Mimecast supports both SP- and IdP-initiated SAML and deep links. The username must be the email address that is used to sign into Mimecast. If this email address in not the same as the Okta username, please update the Default username format value in Okta accordingly.</p></li>
+
+<li><p>See instructions for <a href="#admin-updates">Administration Console Updates</a>.</p></li>
+</ul>
+
+</div>
+
+
+
+
+
 <ol>
 <li><span style="font-size: 14px; background-color: initial;" data-mce-mark="1">Go to your <strong>Mimecast Administration Console</strong> and sign in with your credentials<strong>.&nbsp;</strong><br /></span></li>
 <li>
@@ -50,6 +65,36 @@ try{Typekit.load();}catch(e){}
 <li>
 <p><span>After saving your configuration in Mimecast, it can take up to 15 minutes before it is effective</span>.</p>
 </li>
-</ol></div>
+
+<li><p>Done!</p></li>
+</ol>
+
+<HR>
+
+<a name="admin-updates"></a><H2>Administration Console Updates</h2>
+<p>Administration Console version 3 support will stop on September 6, 2016. The Administration Console version 4 will be hosted behind new URLs. You need to perform the following actions in order to use Administration Console version 4.</p>
+
+<p><strong>Important</strong>: You do not need to make any changes in the SAML settings on the Mimecast Administration Console side.</p>
+
+
+<ol>
+<li><p>In Okta, select the <strong>General</strong> for the Mimecast - Admin app, then select <strong>Edit</strong>.</p>
+<ul>
+<li><p>Select your <strong>Region</strong> from the drop down menu.</p></li>
+
+<li><p>Enter your <strong>Account Code</strong> (this can be found on the <strong>Account > Settings</strong> page of the Administration Console).</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+
+
+</ul>
+<p><img style="border: 0; padding: 0;" src="images/apps/mimecast_new1.png" alt="mimecast_new1.png" /></p>
+
+</li>
+
+</ol>
+
+
+
+</div>
 </body>
 </html>
