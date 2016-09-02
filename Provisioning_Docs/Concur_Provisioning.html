@@ -180,21 +180,21 @@
 
         <li><p>You must have Concur <strong>Expense</strong> service enabled. That is, Concur <strong>Travel</strong> only is not supported.</p></li>
 
-<li><p>Before you begin setting up the application, go through the <a href="#attributes">Attributes in Base Profile</a> section as you will need to obtain codes from the Concur implementation team, which are associated with the attributes which are of list type in Concur, such as Expense Group ID. Remember that all values in the drop down fields in Concur have a code associated with them, which need to be set manually in Okta. The values in the drop down are not the codes, and will therefore not work.</li></p>
+<p>Before you begin setting up the application, go through the <a href="#attributes">Attributes in Base Profile</a> section as you will need to obtain allowed values from the Concur Implementation team, which are associated with special attributes in Concur, such as Ledger Key.</p>
 
 
-        <li><p>Before setting up provisioning, ensure that Web Services subscription is enabled for your Concur tenant. Contact Concur to get the Web Services Administrator Profile set up; this is a one-time required set up. Once the subscription is enabled, you will be able to use the provisioning application in your <strong>Concur Production</strong> tenant. The Okta application is listed globally in Concur Production environment, and no further steps need to be taken to enable the Okta application in you Concur Web Services App center.</p>
-<p>If you are in the <strong>Concur Sandbox</strong> environment, follow the steps below to enable the Okta application in Concur:</p>
+<li><p>Before setting up provisioning, ensure that Web Services subscription is enabled for your Concur tenant. Contact Concur to get the Web Services Administrator Profile set up; this is a one-time required set up. Once the subscription is enabled, you will be able to use the provisioning application in your <strong>Concur Production</strong> tenant. The Okta application is listed globally in Concur Production environment, and no further steps need to be taken to enable the Okta application in you Concur Web Services App center.</p>
+<p>Enable the Okta Connect app in the <strong>Concur App</strong> center by following these steps:</p>
 
 
             <ol>
                 <li><p>Login to Concur (commonly, <a href="https://www.concursolutions.com" target="_blank">https://www.concursolutions.com</a>) with your Concur Admin account.</p></li>
                 <li><p>Navigate to <strong>Administration > Company > Web Services</strong>.</p>
                     <p><p><img src="images/apps/concur1.png" alt=“concur1.png" /></p></li>
-                <li><p>Navigate to <strong>Enable Partner Application</strong>, then find <strong>Okta</strong> in the list and make sure it is <strong>Enabled</strong>.</p>
+                <li><p>Navigate to <strong>Enable Partner Application</strong>, then find <strong>Okta Connect</strong> in the list and make sure it is <strong>Enabled</strong>.</p>
                     <p><strong>Note</strong>: Contact Concur to enable the Okta application for your Concur tenant if the application does not appear in the Web Services section.</p>
 
-                    <p><p><img src="images/apps/concur2.png" alt=“concur2.png" /></p></li>
+                    <p><p><img src="images/apps/concur_new1.png" alt=“concur_new1.png" /></p></li>
 
             </ol>
         </li>
@@ -241,7 +241,9 @@
                 <p><p><img src="images/apps/concur6.png" alt=“concur6.png" /></p></li>
 
             </li>
-            <li><p>Select <strong>Add Attribute</strong>, then <strong>Refresh Attribute List</strong> to see the latest list of Concur attributes:</p>
+            <li><p>Select <strong>Add Attribute</strong>, then <strong>Refresh Attribute List</strong> to see the latest list of Concur attributes.</p>
+
+<p>Remember to add all attributes associated to linked-lists in your Concur tenant. For example, if you are using Concur Standard Edition and have policy groups enabled, you will have to add <strong>Expense Policy Group</strong> attribute (<strong>OrgUnit1</strong>) though it will not show as a required attribute. This is because <strong>Expense Policy Group</strong> (<strong>OrgUnit1</strong>) attribute is part of a linked-list with <strong>Employee Administration Country</strong> (<strong>custom21</strong>).
                 <p><p><img src="images/apps/concur7.png" alt=“concur7.png" /></p></li>
 
             <li><p>Required Concur attributes are pre-selected for you on this page. Additionally, you can add more attributes of your choice.</p>
@@ -293,19 +295,9 @@
             <td align="left"><p>Select value from drop down menu. Be sure to select a value that is applicable to your Concur tenant. If a locale value is not enabled in your Concur tenant, this field is left blank on the user's Concur profile, or you may experience errors.</p></td>
         </tr>
 
-<tr>
-            <td align="left"><strong>Expense Group ID (Custom21)</strong></td>
-            <td align="left"><p><strong><font color ="blue">Concur Standard </font></strong> edition may or may not have Groups. This attribute is termed as <strong>Employee Administration Country</strong> in <strong>Concur Standard Edition</strong>. If you have Groups enabled, pass the <strong>Employee Administration Country Code</strong> value; to get a list of code values pertaining to the <strong>Employee Administration Country</strong> names, go to the <strong>Accounting Administration</strong> menu in Concur, then select </strong>Accounting Structure</strong>.</p> 
-<p><strong>Note</strong>: Expense Policy Group (orgUnit1) attribute goes hand in hand with this attribute. You will be required to add the Expense Policy Group attribute via Schema discovery.</p></td>
-        </tr>
 
-        <tr>
-            <td align="left"><strong>Expense Group ID</strong></td>
-            <td align="left">
-                <p><strong><font color ="green">Concur Professional</font>/<font color="red">Premium</font> </strong> editions have Groups. Custom21 will be used for the <strong>Expense Group</strong> value. Custom 22 will be used for the <strong>Invoice Group</strong> value. You have to pass the <strong>Group Code</strong> value. To get a list of Group Code values pertaining to the group names, go to <strong>Accounting Administration</strong> menu in Concur, then select <strong>Accounting Structure</strong>.</p></li>
-                </ul></td>
-        </tr>
 
+       
         <tr>
             <td align="left"><strong>Ledger Key</strong></td>
             <td align="left">
@@ -317,7 +309,7 @@
 
 
     </table>
-    <p>For these attributes Concur has a pre-defined list of allowed values per tenant, and you will experience errors if you use a wrong value. So make sure you know what to enter here. See the <strong>Schema Discovery </strong>section to see how to get allowed values.</p>
+    <p>For these attributes Concur has a pre-defined list of allowed values per tenant, and you will experience errors if you use a wrong value. So make sure you know what to enter here.</p>
 
     <br />
 
@@ -326,16 +318,17 @@
 
 
 
-    <p>This application supports Schema Discovery feature, which allows to extend the list of attributes to sync with Concur. Some attributes are restricted by Concur to allow values only from a predefined list. Due to API limitation we cannot get these values. Such attributes have the following note in their description: <em>The valid values for this field are restricted and configured in Concur</em>.</p>
+    <p>This application supports Schema Discovery feature, which allows to extend the list of attributes to sync with Concur.</em>.</p>
     <p><img src="images/apps/concur8.png" alt=“concur8.png" /></p>
 
-    <p>You need to identify the required fields that are related to <strong>Employee Group</strong> and any custom fields that are defined as drop down lists (don’t worry about the <strong>Country of Residence</strong> or <strong>Reimbursement Currency</strong> fields). The <strong>Employee Group</strong> and custom fields in question are located towards the bottom of the <strong>User Profile</strong> page (under the <strong>Expense and Invoice Settings</strong> section) within the <strong>User Administration</strong> tool. Once you identify the custom fields that have lists attached to them, go to the <strong>List Management</strong> tool in Concur to obtain the <strong>List Item Code</strong> values for each field that is defined as a drop down list. It is important to use the List Item <em>CODE</em> value, not the List Item name value.</p>
-<p>For example, in the sample shown below, use code value <strong>A</strong> for the Company and use code value <strong>300</strong> for the Division in the respective fields within Okta:</p>
+<p>Concur may have dependency between certain attributes, for example in <strong>Standard Edition</strong> with <strong>Groups</strong> support, <strong>Expense Policy Group</strong> values depend on </strong>Employee Administration Country</strong> value. </p>
 
-<p><img src="images/apps/concur-new1.png" alt=“concur-new1.png" /></p>
+    <p><img src="images/apps/concur_new2.png" alt=“concur_new2.png" /></p>
 
 
-<p>If you have the <strong>Expense Audit Required</strong> attribute set as <strong>required</strong>, you are required to pass this value via Okta to create and update users. This attribute cannot be set in Concur via the API, which means your Concur admin will have to set this field per user by logging in to Concur. However, you will be required to pass a <em>valid</em> value when provisioning via Okta. The allowed values for this field are: REQ, ALW, and NVR.</p>
+<p>These are identified as linked-lists in your Concur tenant. Another example of linked lists are <strong>Division</strong>, <strong>Department</strong>, and <strong>Cost Center</strong>.</p>
+<p>If you are adding one of dependent attributes, make sure you add all attributes it depends on. In other case you won't be able to set a value for it without providing values for it's parent attributes.</p>
+ 
  
     <hr>
 
@@ -345,7 +338,13 @@
 
     <p>Most common errors are:</p>
     <ul>
-        <li><p>Concur's required field was not added to the User profile or had an empty value:</p>
+        
+<li><p>If you see an error that states user e-mail is already taken, contact Concur support and ask to make it available for your tenant.</p>
+            <p><img src="images/apps/concur_new3.png" alt=“concur_new3.png" /></p>
+
+</li>
+
+<li><p>Concur's required field was not added to the User profile or had an empty value:</p>
             <p><img src="images/apps/concur10.png" alt=“concur10.png" /></p>
             <p>To fix this, make sure you added the required field to your Application User profile and provide it with a valid value.</p>
         </li>
