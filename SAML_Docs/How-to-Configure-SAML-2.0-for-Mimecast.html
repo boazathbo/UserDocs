@@ -31,7 +31,7 @@ try{Typekit.load();}catch(e){}
 <ul>
 <li><p>Mimecast supports both SP- and IdP-initiated SAML and deep links. The username must be the email address that is used to sign into Mimecast. If this email address in not the same as the Okta username, please update the Default username format value in Okta accordingly.</p></li>
 
-<li><p>See instructions for <a href="#admin-updates">Administration Console Updates</a>.</p></li>
+<li><p>Instructions for <a href="#admin-updates">Administration Console Updates</a> and <a href="#personal-updates">Personal Portal Updates</a> are provided at the end of this document.</p></li>
 </ul>
 
 </div>
@@ -43,7 +43,9 @@ try{Typekit.load();}catch(e){}
 <ol>
 <li><span style="font-size: 14px; background-color: initial;" data-mce-mark="1">Go to your <strong>Mimecast Administration Console</strong> and sign in with your credentials<strong>.&nbsp;</strong><br /></span></li>
 <li>
-<p>You can either enter information manually, or you can <span>use the Metadata URL import option</span>. To import, specify the <strong>Metadata URL</strong> on the Authentication Profile and select the <strong>Import</strong> option. Your metadata URL should have the following syntax: <strong><a style="text-decoration: none; color: black;" onclick="return false;">https://example.okta.com/app/&lt;identifier&gt;/sso/saml/metadata</a></strong> where the &lt;identifier&gt;&nbsp;is the portion of the Issuer URL shown in step 3a after the text <em><a style="text-decoration: none; color: black;" onclick="return false;">http://www.okta.com/</a></em>.</p>
+<p>You can either enter information manually, or you can use the <strong>Metadata URL import</strong> option. To import, specify the <strong>Metadata URL</strong> on the <strong>Authentication Profile</strong> and then select the <strong>Import</strong> option. Your metadata URL is:</p>
+<p><kbd id="metadataUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd>
+</p>
 </li>
 <li>To enter information manually, complete the following four steps. Skip this step if you imported the metadata in step 2.<ol>
 <li>
@@ -71,16 +73,16 @@ try{Typekit.load();}catch(e){}
 
 <HR>
 
-<a name="admin-updates"></a><H2>Administration Console Updates</h2>
+<a name="admin-updates"></a><H2>Mimecast Administration Console Updates</h2>
 <p>Administration Console version 3 support will stop on September 6, 2016. The Administration Console version 4 will be hosted behind new URLs. You need to perform the following actions in order to use Administration Console version 4.</p>
 
 <p><strong>Important</strong>: You do not need to make any changes in the SAML settings on the Mimecast Administration Console side.</p>
 
 
 <ol>
-<li><p>In Okta, select the <strong>General</strong> for the Mimecast - Admin app, then select <strong>Edit</strong>.</p>
+<li><p>In Okta, select the <strong>General</strong> tab for the Mimecast - Admin app, then select <strong>Edit</strong>.</p>
 <ul>
-<li><p>Select your <strong>Region</strong> from the drop down menu.</p></li>
+<li><p>Select your Mimecast <strong>Region</strong> from the drop down menu.</p></li>
 
 <li><p>Enter your <strong>Account Code</strong> (this can be found on the <strong>Account > Settings</strong> page of the Administration Console).</p></li>
 <li><p>Click <strong>Save</strong>.</p></li>
@@ -92,6 +94,33 @@ try{Typekit.load();}catch(e){}
 </li>
 
 </ol>
+
+
+
+<HR>
+
+<a name="personal-updates"></a><H2>Mimecast Personal Portal Updates</h2>
+<p>Mimecast Personal Portal version 3 is already available for customers. In order to use Mimecast Personal Portal version 3, first add <strong>Mimecast Personal Portal v3</strong> application in Okta, then:</p>
+
+
+
+<ol>
+<li><p>Select the <strong>General</strong> tab for the Mimecast - Personal Portal v3 app, then select <strong>Edit</strong>.</p>
+<ul>
+<li><p>Select your Mimecast <strong>Region</strong> from the drop down menu.</p></li>
+
+<li><p>Enter your <strong>Account Code</strong> (this can be found on the <strong>Account > Settings</strong> page of the Administration Console).</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+
+
+</ul>
+<p><img style="border: 0; padding: 0;" src="images/apps/mimecast_new2.png" alt="mimecast_new2.png" /></p>
+
+</li>
+
+</ol>
+
+
 
 
 
