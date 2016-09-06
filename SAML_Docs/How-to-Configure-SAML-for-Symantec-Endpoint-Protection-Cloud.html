@@ -1,0 +1,100 @@
+<html>
+<head>
+<link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="../resources/js/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="../resources/js/jquery.min.js"></script>
+<script src="../resources/js/vkbeautify.js"></script>
+<title>Setup SSO</title>
+
+<script src="../resources/js/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="../resources/img/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Symantec Endpoint Protection Cloud</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+
+<li><p>Log in to Symantec Endpoint Protection Cloud as an administrator.</p></li>
+
+<li><p>Navigate to <strong>Settings > Identity Provider</strong>, then enter the following:</p>
+
+<ul>
+<li><p><strong>Identity Provider</strong>: Select <strong>Okta</strong> from the <strong>Choose Provider</strong> drop down menu.</p></li>
+
+<li><p><strong>Signature Certificate</strong>: Click <strong>Download</strong>, then save the certificate.</p></li>
+</ul>
+
+<p><img style="border: 0; padding: 0;" src="images/apps/symantec1.png" alt="symantec1.png" /></p></li>
+
+
+
+
+
+<li>In Okta, select the <strong>Sign On</strong> for the Symantec app, click <strong>Edit</strong>, then enter the following:</p>
+<ul>
+<li><p><strong>Default Relay State</strong>: Enter the following:</p>
+<pre><a href="https://securitycloud.symantec.com/sso/login" target="_blank">https://securitycloud.symantec.com/sso/login</a></pre>
+</li>
+<li><p>Check the <strong>Enable Single Logout</strong> box.</p></li>
+<li><p><strong>Signature Certificate</strong>: Click <strong>Browse</strong> to locate the certificate you saved earlier, then click <strong>Upload</strong>.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+
+
+</ul>
+
+<img style="border: 0; padding: 0;" src="images/apps/symantec2.png" alt="symantec2.png" />
+</li>
+
+<li>Go back to the Symantec Endpoint Protection Cloud, <strong>Identity Provider</strong> settings:</p>
+
+
+
+<ul>
+<li><p>Copy and paste the following metadata into the <strong>Import metadata (optional)</strong> field, then click <strong>Upload</strong>.</p>
+<p><kbd id="metadataUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd></p>
+</li>
+<li><p>Wait for the <strong>Sign In URL</strong>, <strong>Sign Out URL</strong>,  <strong>IdP Entity ID</strong>, and <strong>Validation Certificate</strong> fields to be populated.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+</ul>
+<img style="border: 0; padding: 0;" src="images/apps/symantec3.png" alt="symantec3.png" /></li>
+
+</li>
+<li>Done!</li>
+</ol>
+
+
+<br />
+<p><strong>Notes</strong>:</p>
+<p>IDP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported.</p>
+
+
+
+<h3>For SP-initiated Flows</h3>
+<ol>
+<li><p>Go to <a href="https://securitycloud.symantec.com/cc/#/landing" target="_blank">https://securitycloud.symantec.com/cc/#/landing</a>.</p></li>
+<li><p>Click <strong>Sign In</strong>:</p></li>
+<li><p>Enter your <strong>Email Address</strong>.</p></li>
+<li><p>Click <strong>Sign In</strong>:</p></li>
+
+
+<img style="border: 0; padding: 0;" src="images/apps/symantec4.png" alt="symantec4.png" /></li>
+
+
+</ol>
+</div>
+</body>
+</html>
