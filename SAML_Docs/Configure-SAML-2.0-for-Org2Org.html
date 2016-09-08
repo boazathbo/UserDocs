@@ -28,9 +28,10 @@
     
     <h2>Overview</h2>
     <p>The Org2Org connector application is used to push/match users from one Okta organization to another. By configuring SAML for this application, users will be authenticated via SAML from one Okta organization to another. This application is used to master in the target (Hub) Okta organization, from the source (Spoke) Okta organization. The Org2Org application was specifically designed for a Hub/Spoke configuration. </p>
+<hr>
     <h2>Assumptions</h2>
     This setup assumes that you are adding this Org2Org SAML Application to your <strong>Okta source (Spoke) organization.</strong>
-    
+    <hr>
 <h2> Configuring the Hub/Target Org (Inbound SAML)</h2>
     <ol>
         <li>
@@ -100,13 +101,15 @@
 
         <li>Done!</li>
         </ol>
-        <br></br>
+<hr>
+
         <h2>Configuring Application for Hub/Spoke</h2>
         <p>The following instructions enable users in the Spoke org(s) to login to an application that's managed and provisioned by a single Hub org.</p>
         <ol><li>Follow standard Okta configuration methods for setting the application up in Hub.</li>
         <li>Once configured, locate the App Embedded link under the General Tab of the application. This will become the Default Relay State of the Spoke bookmark application. </li>
         </ol>
 
+<h3>Example</h3>
         <p>The following example will walk you through the exact steps to perform, using Google Apps as an example.</p>
         
 
@@ -125,8 +128,9 @@
         <li>
             <p>You will need 3 things to construct the URL, as follows:</p>
             <ol>
-                <li>
-                    <p>Copy and paste the <strong>IDP Login URL</strong> to the URL field, from Step 4 above, under 'Configuring the Hub/Target Org (Inbound SAML)'</p>
+                <li><p>Copy and paste the <strong>IdP Single Sign On URL</strong> to the <strong>URL</strong> field, from Step 6 above, in the <strong>Configuring the Hub/Target Org (Inbound SAML)</strong>.</p></li>
+
+
                 </li>
                 <li>
                     <p>Add <strong>?RelayState=</strong></p>
