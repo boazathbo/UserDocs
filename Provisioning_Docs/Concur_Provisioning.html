@@ -41,16 +41,16 @@
 <p>You will have to create a new instance of the Concur application.</p></li>            
 
 <li>
-                <p>The provisioning capability for the Concur app has limitations; Okta supports the creation of a Base user record in Concur, but not all cases. Refer to the <a href="#limitations">Limitations</a> section below to determine whether the provisioning application will support your Concur tenant.</p>
+                <p>The Provisioning capabilities for your Concur app depend upon factors such as your Concur tenant edition. Refer to the <a href="#limitations">Conditions</a> section below for more details.</p>
 <p>Additionally, your tenant may have Expense features that require employee data this is not capable of being populated by the current Concur User API, and therefore is not supported by the Okta User Provisioning application. If this is the case, you will be required to populate the additional data using Concur specified import files.</p>
-<p>The fields that can be populated by the User Provisioning app are specified: <a href="https://developer.concur.com/api-reference/user/">here</a>.</p>
+<p>The fields that can be populated by the User Provisioning app are specified: <a href="https://developer.concur.com/api-reference/user/#createUser">here</a>.</p>
         </ul>
     </div>
 
     <h2>Contents</h2>
 
     <ul>
-<li><a href="#limitations">Limitations</a></li>        
+<li><a href="#limitations">Conditions</a></li>        
 <li><a href="#features">Features</a></li>
 
         <li><a href="#before">Before You Begin</a></li>
@@ -64,7 +64,7 @@
     </ul>
     <hr>
 
-    <a name="limitations"></a><h2>Limitations</h2>
+    <a name="limitations"></a><h2>Conditions</h2>
 
 <p>A base user record will not be fully provisioned in the following cases:</p>
 <ul>
