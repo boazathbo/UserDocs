@@ -32,23 +32,31 @@ try{Typekit.load();}catch(e){}
 
 
 
-<li><p>Send an email to the AlertMedia Support team and request that they enable SAML 2.0 for your account.</p></li>
+<li><p>Login to AlertMedia as an administrator.</p></li>
 
-<li><p>Include the following with your email:</p>
+<li><p>Navigate to <strong>Company > Single Sign-On</strong>, then enter the following (see screen shot at end of step for reference):</p>
 
 <ul>
 
-<li><p><strong>Metadata URL</strong>: Copy and paste the following:</p>
-<p><kbd id="metadataUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd></p>
-<li><p><strong>Login URL</strong>: Copy and paste the following:</p>
+<li><p><strong>AUTHENTICATION METHOD</strong>: Select <strong>SAML Metadata</strong>.</p></li>
+<li><p><strong>SAML METADATA</strong>: Copy and paste the following:</p>
+<pre id="idpMetadata">Sign in to Okta Admin app to have this variable generated for you.</pre>
+
+</li>
+
+
+
+<li><p><strong>IDP LOGIN URL</strong>: Copy and paste the following:</p>
 <p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
-
 </li>
+<li><p>Click <strong>Save</strong>.</p>
+
+
 </ul>
+
+<p><img style="border: 0; padding: 0;" src="images/apps/alertmedia1.png" alt="alertmedia1.png" /></p>
+
 </li>
-
-<li><p>The AlertMedia Support team will process your request. After receiving a confirmation email, you can start assigning people to the application.</p></li>
-
 
 
 <li><p>Done!</p></li>
@@ -63,7 +71,7 @@ try{Typekit.load();}catch(e){}
 
 
 
-<p>Open the following URL: <strong>https://[yourSubDomain].alertmedia.com/#/login </strong></p>
+<p>Open the following URL: <strong>https://[yourSubDomain].alertmedia.com/#/login</strong></p>
 
 
 </div>
