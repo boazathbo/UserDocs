@@ -25,6 +25,61 @@ try{Typekit.load();}catch(e){}
 <div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
 <p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
 </div>
+
+<h2>Before you Begin</h2>
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+<h3><strong>Read this before you enable SAML</strong></h3>
+
+
+<p>The validity period for SAML certificates for the Symantec Endpoint Protection Cloud application is limited to 10 years. You need to be sure you are using a valid certificate for this application.</p><p>To check/update the certificate, follow the instructions below:</p>
+
+<ol>
+
+<li><p>Download the following certificate (your current certificate) and save it as <strong>okta.cert</strong>.</p>
+
+<p><kbd id="downloadCertificate">Sign in to the Okta Admin app to generate this variable.</kbd></p>
+</li>
+<li><p>Run the following OpenSSL command in a terminal:</p>
+<pre><p>openssl x509 -in okta.cert -text –noout</p></pre>
+<p>Where:<p>
+<p><strong>okta.cert</strong> is your certificate file from the previous step.</p>
+</li>
+
+<li><p>Check the validity period, as show in the example below:</p>
+
+<p><img style="border: 0; padding: 0;" src="images/apps/symantec_new1.png" alt="symantec_new1.png" /></p></li>
+
+</li>
+
+<li><p>If your certificate validity period = 10 years, continue with your application configuration, as described in <a href="#configuration">SAML 2.0 Configuration</a>, below.</p></li>
+
+<li><p>If your certificate validity period = 30 years, follow these steps:</p>
+<ul>
+
+<li><p>Contact Okta Customer Support and request that they enable the key rollover (<font face="courier">KEY_ROLLOVER</font>) feature.</p></li><li><p>Once the feature has been enabled, generate a new application key credential, using the following instructions: <a href="http://developer.okta.com/docs/api/resources/apps.html#generate-new-application-key-credential" target="_blank">http://developer.okta.com/docs/api/resources/apps.html#generate-new-application-key-credential</a>.</p>
+<p>You need to generate a certificate with a 2 to 10 years validity period.</p></li>
+
+
+
+
+
+<li><p>Update the key credential for the application using the following instructions: <a href="http://developer.okta.com/docs/api/resources/apps.html#update-key-credential-for-application" target="_blank">http://developer.okta.com/docs/api/resources/apps.html#update-key-credential-for-application</a>.</p></li>
+
+<li><p>Continue with the application configuration, as described in <a href="#configuration">SAML 2.0 Configuration</a>, below.</p></li>
+
+
+
+</ul>
+</li>
+
+
+
+
+</div>
+
+<a name="configuration"></a><h2>SAML 2.0 Configuration</H2>
+
+
 <ol>
 
 
