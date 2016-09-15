@@ -61,12 +61,12 @@ try{Typekit.load();}catch(e){}
 <p>Okta can import users from SuccessFactors Employee Central through its EC Compound Employee API. Okta supports two typical scenarios:</p>
 <ul>
 <li><p>Import from SuccessFactors Employee Central.</p></li>
-<li><p>SuccessFactors (EC)-driven IT Provisioning.</p></li>
+<li><p>Successfactors (EC)-driven IT provisioning; also known as Successfactors EC-as-Master.</p></li>
 </ul>
 <p>Both are described below:</p>
 
 <h3>Import from SuccessFactors Employee Central</H3>
-<p>In this scenario, Okta simply imports users and groups from SuccessFactors EC like any other application. Imported users are used to create Okta users. However, once the SuccessFactors EC users are imported into Okta, they are no longer managed by SuccessFactors EC. Any updates to the user made in SuccessFactors EC will not change the associated Okta user.</p>
+<p>In this scenario, Okta simply imports users from Successfactors EC like any other application. Imported users are used to create Okta users. However, once the SuccessFactors EC users are imported into Okta, they are no longer managed by SuccessFactors EC. Any updates to the user made in SuccessFactors EC will not change the associated Okta user.</p>
 
 <h3>SuccessFactors (EC)-driven IT Provisioning</H3>
 <p>In this scenario, Okta integrates with SuccessFactors EC to drive IT provisioning. When the SuccessFactors EC user is imported into Okta, they continue to be managed by SuccessFactors EC. Updates and terminations made in SuccessFactors EC are reflected in Okta and downstream apps. This arrangement enables SuccessFactors EC to manage employee and contractor access to apps. SuccessFactors EC-driven IT provisioning is a superset of the functionality provided in Import from SuccessFactors EC, so the rest of this deployment guide focuses on configuring SuccessFactors EC-driven IT provisioning, but will be relevant to Import from SuccessFactors EC scenarios as well.</p>
@@ -206,8 +206,10 @@ try{Typekit.load();}catch(e){}
 <li><p><strong>Pre-Start Interval</strong>: Enter the number of days before the start date an employee should be considered active.</p></li>
 <li><p><strong>Post-Termination Interval</strong>: Enter the number of days after user termination an employee should be considered active.</p></li>
 
+<li><p><strong>Import Contingent Workers</strong>: Check this if you want to import contingent workers along with full time employees.</p></li>
+
 </ul>
-<p><img style="border: 0; padding: 0;" src="images/apps/sucessfactors-new5.png" alt=“sucessfactors-new5.png” /></p>
+<p><img style="border: 0; padding: 0;" src="images/apps/sfec_new1.png" alt=“sfec_new1.png” /></p>
 
 </li>
 
