@@ -36,19 +36,31 @@ try{Typekit.load();}catch(e){}
 <p>Select&nbsp;<strong>OKTA&nbsp;</strong>under <strong>SAML Authentication Settings.&nbsp;<br /><br /><img style="border: 0; padding: 0;" src="images/apps/Screen+Shot+2014-10-22+at+12.57.57+PM.png" alt="Screen_Shot_2014-10-22_at_12.57.57_PM.png" /><br /></strong></p>
 </li>
 <li>
-<p>Copy and paste the following link into the <strong>SAML SSO URL</strong> field, as shown above.<br /><br /> <kbd id="signOnUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd></p>
+<p>Copy and paste the following link into the <strong>SAML SSO URL</strong> field, as shown above.</p> <p><kbd id="signOnUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd></p>
 </li>
 <li>
-<p>Copy and paste the following link to the <strong>Identity Provider Issuer</strong> field<span>, as shown above.</span></p>
-<kbd id="issuer">Sign into the Okta Admin dashboard to generate this value.</kbd></li>
+<p>Copy and paste the following link to the <strong>Identity Provider Issuer</strong> field, as shown above.</p>
+<p><kbd id="issuer">Sign into the Okta Admin dashboard to generate this value.</kbd></li></p>
 <li>
-<p class="p1">Copy and paste the following to the <strong>Public Certificate</strong> field<span>, as shown above.</span><br /><br /><kbd id="x509CertText" class="okta-crt">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+
+<p>Copy and paste the following to the <strong>Public Certificate</strong> field, as shown above (be sure to copy the entire value).</p>
+<p><kbd id="x509CertText" class="okta-crt">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
 </li>
 <li>Under <strong>Settings, </strong>select the desired option for SAML Authentication for users.</li>
 <li>Select&nbsp;<strong>Save Configuration</strong>.</li>
 <li>Done!</li>
 </ol>
-<p><strong>Note:</strong> Slack supports <strong>IDP-initiated flow</strong>, <strong>SP-initiated flow</strong>, and <strong>Just In Time (JIT) provisioning</strong>. For SP-initiated login, go to <strong><a style="text-decoration: none; color: black;" onclick="return false;">https://&lt;subdomain&gt;.slack.com</a></strong> where <em>&lt;subdomain&gt;</em> is your organization's Slack subdomain. Then, select <em>Sign in with Okta</em>, as shown below.<em><br /><br /><img style="border: 0; padding: 0;" src="images/apps/Screen+Shot+2014-10-22+at+1.14.13+PM.png" alt="Screen_Shot_2014-10-22_at_1.14.13_PM.png" /></em></p>
+<br />
+<p><strong>Notes:</strong> 
+<p>IDP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported.</p>
+<br />
+<h3>For SP-initiated flows</h3>
+<ol>
+<li><p>Go to <strong><a style="text-decoration: none; color: black;" onclick="return false;">https://&lt;subdomain&gt;.slack.com</a></strong></p>
+<p>Where <strong>&lt;subdomain&gt;</strong> is your organization's Slack subdomain.</p></li>
+<li><p>Select <strong>Sign in with Okta</strong>:</p>
+<p><img style="border: 2; padding: 0;" src="images/apps/Screen+Shot+2014-10-22+at+1.14.13+PM.png" alt="Screen_Shot_2014-10-22_at_1.14.13_PM.png" /></p>
+</li></ol>
 </div>
 </body>
 </html>
