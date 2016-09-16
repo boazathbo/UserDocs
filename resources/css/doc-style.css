@@ -304,6 +304,10 @@ body {
   background-color: #e34843;
 }
 
+.okta-crt {
+  overflow: scroll;
+}
+
 @media only screen and (-webkit-min-device-pixel-ratio: 2),
 only screen and (min-device-pixel-ratio: 2) {
   .okta-callout > .icon-24 {
