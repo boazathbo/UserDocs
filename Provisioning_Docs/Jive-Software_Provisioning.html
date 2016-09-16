@@ -1,0 +1,125 @@
+<html>
+<head>
+<link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="../resources/js/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="../resources/js/jquery.min.js"></script>
+    <script src="../resources/js/vkbeautify.js"></script>
+
+<title>Jive Software Provisioning</title>
+
+<script src="../resources/js/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="../resources/img/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>To reconfigure any of the <strong>General Settings</strong> or <strong>Sign-On Options</strong>, uncheck the <strong>Enable provisioning features</strong> box, and use the <strong>Previous</strong> and <strong>Next</strong> buttons to navigate through the configuration screens.</p>
+</div> 
+
+
+<h1>Configuring Provisioning for Jive Software</h1>
+
+<p>This guide provides the steps required to configure Provisioning for Jive Software.</p>
+
+ <div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+
+        <p><strong>Notes</strong>:</p>
+<p>Provisioning Features are supported for <strong>Jive 6.0</strong> and above.</p>
+
+            </div>
+
+<hr>
+<h2>Contents</h2>
+
+<ul>
+<li><a href="#features">Features</a></li>
+
+               <li><a href="#requirements">Requirements</a></li>
+        <li><a href="#configuration">Configuration Steps</a></li>
+        <li><a href="#schema">Schema Discovery</a></li>
+</ul>
+
+<hr>
+
+<a name="features"></a><h2>Features</h2>
+<p>The following provisioning features are supported:</p>
+
+<ul>
+<li><p><strong>Import New Users</strong></p>
+</li>
+<li><p><strong>Import Profile Updates</strong></p>
+</li>
+<li><p><strong>Push New Users</strong></p>
+</li>
+<li><p><strong>Push Profile Updates</strong></p>
+</li>
+
+<li><p><strong>Push Password Updates</strong></p>
+</li>
+<li><p><strong>Push User Deactivation</strong></p>
+</li>
+<li><p><strong>Reactivate Users</strong></p>
+</li>
+<li><p><strong>Push Groups</strong></p>
+</li>
+
+
+
+</ul>
+
+<hr>
+<a name="requirements"></a><h2>Requirements</h2>
+
+
+<p>To enable Provisioning Features, you'll need a <strong>Base URL</strong> to be set correctly on the <strong>General</strong> tab of the Jive app, and will also need valid Jive Admin credentials.</p>
+<ul>
+<p><img style="border: 0; padding: 0;" src="images/apps/jive1.png" alt="jive1.png" /></p>
+</li>
+</ul>
+
+<hr>
+
+<a name="configuration"></a><h2>Configuration Steps</h2>
+<p>Configure your Provisioning settings for <strong>Jive Software</strong> as follows:</p>
+<ol>
+<li><p>Check the <strong>Enable provisioning</strong> features box.</p></li>
+<li><p>Under <strong>API Credentials</strong> enter your Jive <strong>Admin User Name</strong> and <strong>Admin Password</strong>:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/jive2.png" alt="jive2.png" /></p>
+</li>
+
+
+<li><p>Click <strong>Test API Credentials</strong>. If your credentials are valid, you’ll see a success message:</p></li>
+
+<li><p>Scroll down and enable the <strong>Provisioning Features</strong> you want to use for this app:</p></li>
+<li><p>Click <strong>Next</strong>.</p>
+</li>
+<li><p>You can now assign people to the app, if needed.</p>
+</li>
+
+<li><p>Click <strong>Done</strong> to complete the Jive Software app configuration.</p>
+</li>
+
+</ol>
+
+<hr>
+<a name="schema"></a><h2>Schema Discovery</h2>
+
+<p>Schema discovery is not supported by this app.</p>
+
+
+
+</ul>
+</div>
+</body>
+</html>
+
