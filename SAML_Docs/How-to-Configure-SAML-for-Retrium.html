@@ -1,0 +1,73 @@
+<html>
+<head>
+<link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="../resources/js/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="../resources/js/jquery.min.js"></script>
+<script src="../resources/js/vkbeautify.js"></script>
+<title>Setup SSO</title>
+
+<script src="../resources/js/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="../resources/img/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Retrium</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+
+
+<li><p>Contact the Retrium Support team at <a href="mailto:support@retrium.com" target="_blank">support@retrium.com</a> and request that they enable SAML 2.0 for your account.</p></li>
+<li><p>Along with your request, provide the Retrium Support team with the domain for your enterprise email account.</p></li>
+<li><p>The Retrium Support team will provide you with a <strong>Connection Name</strong>.</p></li>
+<li><p>In Okta, select the <strong>General</strong> tab for the Retrium app, then click <strong>Edit</strong>.</p>
+<ul>
+<li><p>Enter the <strong>Connection Name</strong> provided to you by Retrium into the corresponding field.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+
+</ul>
+<p><img style="border: 0; padding: 0;" src="images/apps/retrium1.png" alt="retrium11.png" /></p></li>
+</li>
+
+ 
+
+<li><p>Reply to the email from Retrium and provide the following information:</p>
+<ul>
+<li><p><strong>Login URL/SignOn URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p><strong>x.509 Certificate</strong>: Download, then upload the following in <strong>.cert</strong> format:</p>
+<p><kbd id="downloadCertificate">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+</ul>
+</li>
+
+<li><p>The Retrium Support team will process your request. After receiving a confirmation email, you can start assigning people to the application.</p></li>
+
+
+
+
+
+<li>Done!</li>
+</ol>
+<br />
+
+<p><strong>Notes</strong>:</p>
+<p>IDP-initiated flows, SP-initiated flows, and Just In Time (JIT) provisioning are all supported.</p>
+
+</div>
+</body>
+</html>
