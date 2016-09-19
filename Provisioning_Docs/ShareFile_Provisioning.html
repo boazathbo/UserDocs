@@ -29,9 +29,70 @@ try{Typekit.load();}catch(e){}
 
 <h1>Configuring Provisioning for ShareFile</h1>
 
-<p>This guide provides the steps required to configure Provisioning for ShareFile.</p>
+<p>This guide provides the steps required to configure Provisioning for ShareFile, and includes the following topics:</p>
 
-<p>Contents TBD</p>
+
+
+<ul>
+<li><a href="#features">Features</a></li>
+
+               <li><a href="#requirements">Requirements</a></li>
+        <li><a href="#configuration">Configuration Steps</a></li>
+        <li><a href="#schema">Schema Discovery</a></li>
+</ul>
+
+<hr>
+
+<a name="features"></a><h2>Features</h2>
+
+<p>The following provisioning features are supported:</p>
+
+<ul>
+<li><p><strong>Import New Users</strong></p></li>
+<li><p><strong>Import Profile Updates</strong></p></li>
+
+<li><p><strong>Push New Users</strong></p></li>
+
+<li><p><strong>Push Profile Updates</strong></p></li>
+<li><p><strong>Push Password Updates</strong></p></li>
+<li><p><strong>Push Groups</strong></p></li>
+</ul>
+<hr>
+
+
+<a name="requirements"></a><h2>Requirements</h2>
+
+<p>Before you can enable <strong>Provisioning Features</strong> you will need valid ShareFile API credentials, and a <strong>Base URL</strong> needs to be set correctly on the <strong>General</strong> tab for the ShareFile App.</p>
+<p><img src="images/apps/sharefile1.png" alt="sharefile1.png" /></p></li>
+
+
+<hr>
+<a name="configuration"></a><h2>Configuration Steps</h2>
+
+
+<p>Configure your Provisioning settings for <strong>ShareFile</strong> as follows:</p>
+<ol>
+<li><p>Check the <strong>Enable provisioning</strong> features box.</p></li>
+<li><p>Under <strong>API Credentials</strong> enter a valid <strong>Admin Username</strong> and <strong>Admin Password</strong>:</p>
+
+<p><img style="border: 0; padding: 0;" src="images/apps/sharefile2.png" alt="sharefile2.png" /></p>
+</li>
+
+
+
+<li><p>Click <strong>Test API Credentials</strong>. If your credentials are valid, you’ll see a success message.</p></li>
+<li><p>Scroll down and select the <strong>Provisioning Features</strong> you'd like to enable, then click <strong>Next</strong> to proceed to the <strong>Assign to People</strong> tab.</p></li>
+<li><p>You can now assign people to the app, if needed.</p></li>
+
+<li><p>Click <strong>Done</strong> to finish the ShareFile App configuration.</p></li>
+</ol>
+
+
+<hr>
+<a name="schema"></a><h2>Schema Discovery</h2>
+<p>Schema discovery is not supported by this app.</p>
+
+
 
 </div>
 </body>
