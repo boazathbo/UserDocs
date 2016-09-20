@@ -8,6 +8,8 @@ function processData(data) {
   $('#x509CertText').html(data["x509CertText"]);
   $('#x509CertTextPem').html(data["x509CertTextPem"]);
   $('#x509CertTextPem').css("white-space", "pre");
+  $('#x509CertText').html(data["x509CertText"]);
+  $('#x509CertText').css("white-space", "pre");
   $('#certFingerPrint').html(data["certFingerPrint"]);
   $('#validFrom').html(data["validFrom"]);
   $('#validTo').html(data["validTo"]);
