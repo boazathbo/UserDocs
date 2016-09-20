@@ -329,6 +329,8 @@ pre {
   background: #f9f9f9;
   box-shadow: 0 1px 1px rgba(160, 160, 160, 0.1) inset;
   line-height: 20px;
+  white-space:pre-wrap !important;
+  word-wrap:break-word !important;
 }
 
 kbd,
