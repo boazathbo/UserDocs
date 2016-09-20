@@ -133,19 +133,7 @@ try{Typekit.load();}catch(e){}
   });
 </script>
 
-<script type="text/javascript">
-  function formatCertWrap() {
-    var a = (window.dataSAML["509CertText"]);
-    var d = vkbeautify.xml(a);
-    $('#wrappedCert').text(d); 
 
-  }
-
-  $(document).ready(function($) {
-    $("body").on('dataSAMLUpdated', formatCertWrap); 
-  
-  });
-</script>
 
 
 
