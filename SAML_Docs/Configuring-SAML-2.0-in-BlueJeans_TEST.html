@@ -136,12 +136,11 @@ try{Typekit.load();}catch(e){}
 <script type="text/javascript">
   function formatCertwrap() {
     var a = window.dataSAML["x509CertTextPEM"];
-    var d = vkbeautify.xml(a);
-    $('#wrappedCert').text(d); 
+    $('#wrappedCert').text(a); 
   }
 
   $(document).ready(function($) {
-    $("body").on('dataSAMLUpdated', formatCertWrap); 
+    $("body").on('dataSAMLUpdated', formatCertwrap); 
   });
 </script>
 
@@ -194,7 +193,7 @@ try{Typekit.load();}catch(e){}
 
 
 
-<li><p><strong>Test16 x509CertText</strong>: Copy and paste the following into this field (be sure to copy the entire value):</p> <pre id="wrappedCert">Sign in to the Okta Admin dashboard to generate this value.</pre></li>
+<li><p><strong>Test17 x509CertText</strong>: Copy and paste the following into this field (be sure to copy the entire value):</p> <pre id="wrappedCert">Sign in to the Okta Admin dashboard to generate this value.</pre></li>
 
 
 
