@@ -320,6 +320,7 @@ only screen and (min-device-pixel-ratio: 2) {
 kbd,
 blockquote,
 pre {
+  white-space: pre-wrap;
   display: block;
   margin-top: 0;
   margin-bottom: 20px;
