@@ -136,8 +136,11 @@ try{Typekit.load();}catch(e){}
 <script type="text/javascript">
   function formatCertwrap() {
     var a = window.dataSAML["idpMetadata"];
-    var b = vkbeautify.xml(a);
-    $('#wrappedCert').text(b); 
+    var b = (a.indexOf("<ds:X509Certificate>"))+20;
+    var c = a.(indexOf("</ds:x509Certificate>"))-1;
+    var d = str.a(b,c);
+    var e = vkbeautify.xml(d);
+    $('#wrappedCert').text(e); 
   }
 
   $(document).ready(function($) {
@@ -194,7 +197,7 @@ try{Typekit.load();}catch(e){}
 
 
 
-<li><p><strong>Test19 x509CertText</strong>: Copy and paste the following into this field (be sure to copy the entire value):</p> <pre id="wrappedCert">Sign in to the Okta Admin dashboard to generate this value.</pre></li>
+<li><p><strong>Test20 x509CertText</strong>: Copy and paste the following into this field (be sure to copy the entire value):</p> <pre id="wrappedCert">Sign in to the Okta Admin dashboard to generate this value.</pre></li>
 
 
 
