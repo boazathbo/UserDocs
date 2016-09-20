@@ -135,7 +135,7 @@ try{Typekit.load();}catch(e){}
 
 <script type="text/javascript">
   function formatCertwrap() {
-    var a = window.dataSAML["x509CertText"];
+    var a = window.dataSAML["x509CertTextPEM"];
     var d = vkbeautify.xml(a);
     $('#wrappedCert').text(d); 
   }
