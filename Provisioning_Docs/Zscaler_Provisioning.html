@@ -8,7 +8,7 @@ try{Typekit.load();}catch(e){}
 <script src="../resources/js/jquery.min.js"></script>
     <script src="../resources/js/vkbeautify.js"></script>
 
-<title>Zscaler Provisioning</title>
+<title>ZScaler Provisioning</title>
 
 <script src="../resources/js/getAppValues.js"></script>
 
@@ -27,11 +27,100 @@ try{Typekit.load();}catch(e){}
 </div> 
 
 
-<h1>Configuring Provisioning for Zscaler</h1>
+<h1>Configuring Provisioning for ZScaler</h1>
 
-<p>This guide provides the steps required to configure Provisioning for Zscaler.</p>
+<p>This guide provides the steps required to configure Provisioning for ZScaler.</p>
 
-<p>Contents TBD</p>
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+
+        <p><strong>Important</strong>:</p>
+<ul>
+<li><p>User Management integration is available only for ZScaler accounts with configured SAML integration.</p></li>
+
+<li><p>ZScaler provisioning is not a true provisioning integration since <em>create</em>/<em>update</em> user action is done via SAML login request and only <em>delete</em> user action is done via Okta provisioning module. If you want to make use of the <em>create</em>, and <em>update</em> user functionality, you are required to enable SAML for the ZScaler application.</p></li>
+</ul>
+
+            </div>
+
+<hr>
+<h2>Contents</h2>
+
+<ul>
+<li><a href="#features">Features</a></li>
+
+               <li><a href="#requirements">Requirements</a></li>
+        <li><a href="#configuration">Configuration Steps</a></li>
+        <li><a href="#schema">Schema Discovery</a></li>
+</ul>
+
+<hr>
+
+<a name="features"></a><h2>Features</h2>
+<p>The following provisioning features are supported:</p>
+
+<ul>
+<li><p><strong>Push New Users</strong></p>
+<p>New users created through OKTA will also be created in the third party application. Done via SAML login request.</p>
+</li>
+<li><p><strong>Push Profile Updates</strong></p>
+<p>Updates made to the user's profile through OKTA will be pushed to the third party application. Done via SAML request.</p>
+</li>
+<li><p><strong>Push User Deactivation</strong></p>
+<p>Deactivating the user or disabling the user's access to the application through OKTA will deactivate the user in the third party application. Done via provisioning module.</p>
+</li>
+</ul>
+<hr>
+
+<a name="requirements"></a><h2>Requirements</h2>
+<p>Before you configure provisioning for ZScaler you need to obtain an <strong>Organization ID</strong>, as follows:</p>
+
+<ol>
+<li><p>Login into your ZScaler account.</p></li>
+
+
+<li><p>Navigate to the <strong>Administration > Company Profile</strong> page:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/zscaler2.png" alt="zscaler2.png" /></p>
+
+</li>
+
+
+<li><p>Locate the <strong>Company ID</strong> field, and make a copy of the digital part of the value, as shown below, you will need to enter it into Okta:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/zscaler3.png" alt="zscaler3.png" /></p>
+
+</li>
+
+
+
+
+</ol>
+
+<hr>
+
+<a name="configuration"></a><h2>Configuration Steps</h2>
+<p>Configure your Provisioning settings for <strong>Zscaler</strong> as follows:</p>
+<ol>
+<li><p>Check the <strong>Enable provisioning</strong> features box.</p></li>
+<li><p>Under <strong>API Credentials</strong> enter the <strong>Company ID</strong> value you copied from ZScaler (see <a href="#requirements">Requirements</a>) into the <strong>Organization ID</strong> field:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/zscaler1.png" alt="zscaler1.png" /></p>
+</li>
+
+
+
+<li><p>Scroll down and enable the <strong>Provisioning Features</strong> you want to use for this app:</p>
+<p><img style="border: 0; padding: 0;" src="images/apps/zscaler4.png" alt="zscaler4.png" /></p>
+</li>
+<li><p>Click <strong>Next</strong> to proceed to the <strong>Import Users</strong> tab.</p>
+</li>
+<li><p>Assign people to the app, if needed, then click <strong>Finish</strong> to complete provisioning configuration.</p>
+</li>
+
+</ol>
+<hr>
+<a name="schema"></a><h2>Schema Discovery</h2>
+
+<p>ZScaler does not support User Schema Discovery.</p>
+
+
 
 </div>
 </body>
