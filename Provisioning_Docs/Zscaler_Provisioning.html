@@ -72,6 +72,8 @@ try{Typekit.load();}catch(e){}
 <hr>
 
 <a name="requirements"></a><h2>Requirements</h2>
+
+<h3>In ZScaler</H3>
 <p>Before you configure provisioning for ZScaler you need to obtain an <strong>Organization ID</strong>, as follows:</p>
 
 <ol>
@@ -88,10 +90,42 @@ try{Typekit.load();}catch(e){}
 <p><img style="border: 0; padding: 0;" src="images/apps/zscaler3.png" alt="zscaler3.png" /></p>
 
 </li>
+</ol>
 
 
+<h3>In Okta</H3>
+<p>Before you configure provisioning, make sure you have added the ZScaler app, and have configured the <strong>General Settings</strong> and <strong>Sign On</strong> options properly, as described below:</p>
+
+<ol>
+<li><p>Navigate to <strong>Admin > Add Application</strong>.</p></li>
+
+<li><p>Locate the ZScaler application and add it. If you cannot find the application, contact OKTA support to add it to your organization.</p></li>
+
+<li><p>Select the <strong>General Settings</strong> tab, then click <strong>Edit</strong> and enter the following:</p>
+
+<ul>
+
+<li><p><strong>Your ZScaler Domain</strong>: Provide your ZScaler domain.</p></li>
+
+<li><p><strong>User Display Name (optional)</strong>: Select the push option to have ZScaler <strong>Display Name</strong> set to Okta user's first and last name.</p></li>
+
+<li><p><strong>Department Name (optional)</strong>: Select the department attribute value from Okta to map to the SAML Response Attribute statement.</p></li>
 
 
+<li><p><strong>Group Name (optional)</strong>: When push is enabled, Okta will send the user's groups to ZScaler (up to 128 items). Use the <strong>Group Filter</strong> to only send groups that match the configured regular expression.</p></li>
+
+<li><p><strong>Group Filter (optional)</strong>: Create an expression that will be used to filter groups. If the Okta Group Name matches the expression, the group name will be included in the SAML Response Attribute statement,</p> 
+<p> For Example:</p>
+<p>zscaler.*</p>
+<p>Would include all groups prefixed with the string <strong>zscaler</strong>. Uses regular expression syntax.</p></li>
+</li>
+<p><img style="border: 0; padding: 0;" src="images/apps/zscalernew1.png" alt="zscalernew1.png" /></p>
+
+</ul>
+
+<li><p>Click <strong>Next</strong> to proceed to the <strong>Sign-On Options</strong> tab. Here no specific options are available.</p></li>
+
+<li><p>Click <strong>Next</strong> to proceed to the <strong>Provisioning</strong> tab. See below for Provisioning Configuration Steps.</p></li>
 </ol>
 
 <hr>
