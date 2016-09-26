@@ -25,9 +25,33 @@ try{Typekit.load();}catch(e){}
 <p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
 </div>
 <ol>
-<li>Email Paylocity support and request that they turn on SAML for your account. Attach the following<strong>&nbsp;IDP Metadata</strong> to the message:<br /><br /> <pre id="idpMetadata">Sign into the Okta Admin dashboard to generate this value.</pre></li>
-<li>Paylocity will provide your <strong>Company ID</strong> and <strong>SSO Entity ID</strong>. Enter these values in the General tab in Okta for the Paylocity app, as shown below.<br /><br /><img style="border: 0; padding: 0;" src="images/apps/paylocity_1.png" alt="paylocity_1.png" /></li>
+
+
+<li><p>Email Paylocity support and request that they turn on SAML for your account. Attach the following<strong>&nbsp;IDP Metadata</strong> to the message:</p>
+<pre id="idpMetadata">Sign into the Okta Admin dashboard to generate this value.</pre></li>
+
+<li><p>Paylocity will provide your <strong>Company ID</strong> and <strong>SSO Entity ID</strong>.</p></li>
+
+<li><p>In Okta, select the <strong>General</strong> tab for the Paylocity app, then click <strong>Edit</strong>:</p>
+
+<ul>
+<li><p>Enter the values provided to you for <strong>Company ID</strong> and <strong>SSO Entity ID</strong> into the corresponding fields.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+
+<img style="border: 1; padding: 0;" src="images/apps/paylocity_1.png" alt="paylocity_1.png" /></li>
+
+</li>
+</ul>
+
+
 <li>Done!</li>
-</ol></div>
+</ol>
+
+<p><strong>Notes</strong></p>
+<p>IdP-initiated flows are supported.</p>
+<p>SP-initiated flows and Just In Time (JIT) Provisioning are not supported.</p>
+
+
+</div>
 </body>
 </html>
