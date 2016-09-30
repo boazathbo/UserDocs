@@ -1,0 +1,89 @@
+<html>
+<head>
+<link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="../resources/js/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){} 
+</script>
+<script src="../resources/js/jquery.min.js"></script>
+<script src="../resources/js/vkbeautify.js"></script>
+<title>Setup SSO</title>
+
+<script src="../resources/js/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript">
+  function generateCitrixSsoUrl() {
+    var m = window.dataSAML["signOnUrl"];
+    var n = m.replace("/sso/saml","/slo/saml");
+    $('#citrixSsoUrl').text(n);    
+
+   }
+    
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', generateCitrixSsoUrl);
+  });
+</script>
+
+
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="../resources/img/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Aspera Faspex</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+<p>Follow the instructions below to configure SAML 2.0 for Aspera Faspex V4</p>
+<ol>
+
+<li><p>Contact Aspera Support at <a href="mailto:support@asperasoft.com" target="_blank">support@asperasoft.com</a> and request that they enable SAML 2.0 for your account.</p></li>
+
+
+<li><p>Include the following <strong>IdP Metadata</strong> with your request:</p>
+<pre id="idpMetadata">Sign in to Okta Admin app to have this variable generated for you.</pre>
+</li>
+
+<li><p>Aspera will send you a confirmation once SAML is set-up on their end. They may also send an <strong>IdP ID</strong> to be used by your org. If they don’t, leave it as the default value (see next step).</p></li>
+
+
+
+
+
+<li><p>In Okta, select the <strong>General</strong> tab for the Aspera app, then click <strong>Edit</strong>.</p>
+<ul>
+<li><p>Enter the <strong>LabelDomain</strong> or <strong>Base URL</strong> used by your org.</p></li>
+<li><p>Enter the <strong>IdP ID</strong> provided by Aspera, or leave the default if not provided.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+
+</ul>
+<p><img border="1" src="images/apps/aspera1.png" alt="aspera1.png" /></p>
+
+</li>
+
+
+<li><p>If necessary, you can add a filter for the group attributes. To do this, in Okta, select the <strong>Sign On</strong> tab for Aspera, then click on <strong>Edit</strong>.</p>
+<ul>
+<li><p>Add a filter for the <strong>member_of</strong> group attribute.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+</ul>
+<p><img border="1" src="images/apps/aspera2.png" alt="aspera2.png" /></p>
+
+</li>
+<li><p>Done!</p> 
+</ol>
+
+
+<br />
+<p><b>Notes:</b></p>
+<p>SP-initiated flows, IDP-initiated flows, and Just In Time (JIT) provisioning are all supported.</p>
+
+</div>
+</body>
+</html>
