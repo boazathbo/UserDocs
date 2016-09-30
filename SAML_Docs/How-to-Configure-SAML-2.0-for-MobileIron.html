@@ -1,0 +1,113 @@
+<html>
+<head>
+<link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="../resources/js/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){} 
+</script>
+<script src="../resources/js/jquery.min.js"></script>
+<script src="../resources/js/vkbeautify.js"></script>
+<title>Setup SSO</title>
+
+<script src="../resources/js/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript">
+  function generateCitrixSsoUrl() {
+    var m = window.dataSAML["signOnUrl"];
+    var n = m.replace("/sso/saml","/slo/saml");
+    $('#citrixSsoUrl').text(n);    
+
+   }
+    
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', generateCitrixSsoUrl);
+  });
+</script>
+
+
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="../resources/img/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for MobileIron</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+<ol>
+
+<li><p>Login to MobileIron as an administrator.</p></li>
+
+<li><p>Navigate to <strong>Admin > Identity</strong>.</p></li>
+
+<li><p>Click the <strong>Set Up An Identity Provider</strong> button:</p>
+<p><img border="1" src="images/apps/mobileiron1.png" alt="mobileiron1.png" /></p>
+
+</li>
+
+
+<li><p>Click the <strong>Generate Key</strong> button:</p>
+<p><img border="1" src="images/apps/mobileiron2.png" alt="mobileiron2.png" /></p>
+</li>
+
+<li><p>Save the <strong>Key</strong> and <strong>Host</strong> values.</p>
+</li>
+
+
+<li><p>Copy the following <strong>IDP Metadata</strong> and save it as <strong>metadata.xml</strong>.</p>
+<pre id="idpMetadata">Sign in to Okta Admin app to have this variable generated for you.</pre>
+</li>
+
+<li><p>Click <strong>Choose File</strong> and upload the <strong>metadata.xml</strong> file you just saved.</p>
+</li>
+
+<li><p>Click <strong>Done</strong>.</p>
+<p><img border="1" src="images/apps/mobileiron3.png" alt="mobileiron3.png" /></p>
+</li>
+
+
+
+
+
+<li><p>In Okta, select the <strong>General</strong> tab for the MobileIron app, then click <strong>Edit</strong>.</p>
+<ul>
+<li><p>Enter the <strong>Key</strong> and <strong>Host</strong> values you saved earlier into the corresponding fields.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+<li><p>Optional if you need to send the Groups as part of the SAML assertion: Select the <strong>Sign On</strong> tab, then click <strong>Edit</strong>.</p></li>
+<li><p>Select your preferred <strong>Group</strong> filter from the dropdown list (the <em>Regex</em> rule with the value ".*" in order to send *all* groups to the MobileIron instance we used in our example)..</p></li>
+<li><p>Click <strong>Save</strong>.</p>
+
+</ul>
+<p><img border="1" src="images/apps/mobileiron4.png" alt="mobileiron4.png" /></p>
+
+</li>
+
+<li><p>Done!</p> 
+</ol>
+
+
+<br />
+<p><b>Notes:</b></p>
+<p>SP-initiated flows and IDP-initiated flows are supported.</p>
+<p>Just In Time (JIT) provisioning is not supported.</p>
+<h3>For SP-inititated Flows:</h3>
+
+<ol>
+<li><p>Open the login URL.</p></li>
+<li><p>Enter your <strong>Username</strong>.</p></li>
+
+<li><p>Click <strong>Sign In</strong>.</p>
+<p><img border="1" src="images/apps/mobileiron5.png" alt="mobileiron5.png" /></p>
+
+</li>
+
+
+</div>
+</body>
+</html>
