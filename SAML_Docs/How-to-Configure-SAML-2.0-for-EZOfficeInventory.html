@@ -1,0 +1,107 @@
+<html>
+<head>
+<link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="../resources/js/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){} 
+</script>
+<script src="../resources/js/jquery.min.js"></script>
+<script src="../resources/js/vkbeautify.js"></script>
+<title>Setup SSO</title>
+
+<script src="../resources/js/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript">
+  function generateCitrixSsoUrl() {
+    var m = window.dataSAML["signOnUrl"];
+    var n = m.replace("/sso/saml","/slo/saml");
+    $('#citrixSsoUrl').text(n);    
+
+   }
+    
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', generateCitrixSsoUrl);
+  });
+</script>
+
+
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="../resources/img/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for EZOfficeInventory</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+<ol>
+
+<li><p>Login to EZOfficeInventory as an administrator.</p></li>
+
+<li><p>Navigate to <strong>Account > Settings > Add Ons</strong>.</p>
+<p><img border="1" src="images/apps/ezoffice1.png" alt="ezoffice1.png" /></p>
+</li>
+
+
+<li><p>Scroll down and locate the <strong>SAML Integration</strong> section, and enter the following (see screen shot at end of step for reference):</p>
+
+<ul>
+
+
+<li><p>Select the <strong>Enabled</strong> checkbox.</p></li>
+
+<li><p><strong>Identity Provider URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+
+<li><p><strong>Identity Provider Certificate</strong>: Copy and paste the following:</p>
+<p><pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre></p>
+</li>
+
+<li><p><strong>Login Button Text</strong>: Enter <strong>Login with Okta</strong>.</p></li>
+
+
+<li><p><strong>First Name</strong> attribute: Enter <strong>first_name</strong>.</p></li>
+
+<li><p><strong>Last Name</strong> attribute: Enter <strong>last_name</strong>.</p></li>
+
+<li><p><strong>Email</strong> attribute: Enter <strong>email</strong>.</p></li>
+
+<li><p><strong>EZOfficeInventory Role By default</strong>: Select either <strong>Staff User</strong> or <strong>Administrator</strong></p></li>
+
+<li><p>Click <strong>Update</strong>.</p></li>
+
+
+</ul>
+<p><img border="1" src="images/apps/ezoffice2.png" alt="ezoffice2.png" /></p>
+
+</li>
+
+<li><p>Done!</p> 
+</ol>
+
+
+<br />
+<p><b>Notes:</b></p>
+<p>SP-initiated flows, IDP-initiated flows, and Just In Time (JIT) provisioning are all supported.</p>
+
+<h3>For SP-inititated Flows:</h3>
+
+<ol>
+<li><p>Open the login URL: <strong>: https://[yourSubDomain].ezofficeinventory.com/users/sign_in</strong>.</p></li>
+
+<li><p>Click <strong>Login with Okta</strong>.</p>
+<p><img border="1" src="images/apps/ezoffice3.png" alt="ezoffice3.png" /></p>
+
+</li>
+
+
+</div>
+</body>
+</html>
