@@ -1,0 +1,111 @@
+<html>
+<head>
+<link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="../resources/js/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){} 
+</script>
+<script src="../resources/js/jquery.min.js"></script>
+<script src="../resources/js/vkbeautify.js"></script>
+<title>Setup SSO</title>
+
+<script src="../resources/js/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript">
+  function generateCitrixSsoUrl() {
+    var m = window.dataSAML["signOnUrl"];
+    var n = m.replace("/sso/saml","/slo/saml");
+    $('#citrixSsoUrl').text(n);    
+
+   }
+    
+ $(document).ready(function($) {
+    $("body").on('dataSAMLUpdated', generateCitrixSsoUrl);
+  });
+</script>
+
+
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="../resources/img/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Base CRM</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+
+<ol>
+
+<li><p>Login to Base CRM as an administrator.</p></li>
+
+<li><p>Navigate to <strong>Account > Settings > Single Sign On</strong>.</p></li>
+<li><p>Click <strong>Configure</strong>.</p>
+<p><img border="1" src="images/apps/basecrm1.png" alt="basecrm1.png" /></p>
+</li>
+
+
+<li><p>Do the following (see screen shot at end of step for reference):</p>
+
+<ul>
+
+
+<li><p>Make a copy of the <strong>UUID</strong> value.</p></li>
+<li><p>Select the <strong>Automatic Setup</strong> checkbox.</p></li>
+
+
+<li><p>Copy and paste the following <strong>Metadata URL</strong>:</p>
+<p><kbd id="metadataUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd></p>
+</li>
+
+<li><p>Click <strong>Save</strong>.</p></li>
+</ul>
+<p><img border="1" src="images/apps/basecrm2.png" alt="basecrm2.png" /></p>
+</li>
+
+
+<li><p>Click the <strong>Enable</strong> button:</p>
+<p><img border="1" src="images/apps/basecrm5.png" alt="basecrm5.png" /></p>
+</li>
+
+<li><p>In Okta, select the <strong>General</strong> tab for the Base CRM app, then click <strong>Edit</strong>.</p>
+<ul>
+<li><p>Enter the <strong>UUID</strong> value that you copied earlier into the corresponding field.</p></li>
+
+<li><p>Click <strong>Save</strong>.</p></li>
+
+</ul>
+<p><img border="1" src="images/apps/basecrm3.png" alt="basecrm3.png" /></p>
+
+</li>
+
+
+
+<li><p>Done!</p> 
+</ol>
+
+
+<br />
+<p><b>Notes:</b></p>
+<p>SP-initiated flows and IDP-initiated flows are supported.</p>
+<p>Just In Time (JIT) provisioning is not supported.</p>
+<h3>For SP-inititated Flows:</h3>
+
+<ol>
+<li><p>Open the login URL: <a href="https://core.futuresimple.com/users/login" target="_blank">https://core.futuresimple.com/users/login</a>.</p></li>
+<li><p>Enter your <strong>Email</strong>.</p>
+
+<li><p>Click <strong>Log in</strong>.</p>
+<p><img border="1" src="images/apps/basecrm4.png" alt="basecrm4.png" /></p>
+
+</li>
+
+
+</div>
+</body>
+</html>
