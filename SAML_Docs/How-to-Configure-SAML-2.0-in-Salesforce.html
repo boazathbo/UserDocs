@@ -28,67 +28,148 @@
     <p><a href="https://login.salesforce.com" target="_blank">CLICK HERE</a> to log in to Salesforce with the same administrator username and password-token used for User Management settings in Okta.</p>
     <ol>
         <li>
-            <p>Click on <strong>Setup</strong></p>
+            <p>Click <strong>Setup</strong>.</p>
         </li>
         <li>
-            <p>Click <strong>Security Controls</strong> to open the sub-menu</p>
+            <p>Click <strong>Security Controls</strong> to open the sub-menu.</p>
         </li>
         <li>
-            <p>Click <strong>Single Sign-On Settings</strong></p>
+            <p>Click <strong>Single Sign-On Settings.</strong></p>
         </li>
     </ol>
     <p><img src="images/apps/sf1.png" alt="sf1.png" /></p>
-    <h3>On the Single Sign-On Settings page</h3>
-    <p>Click the <strong>Edit</strong> button to display a form similar to the screenshot below.</p>
+  
+
+  <h3>On the Single Sign-On Settings page</h3>
+    <p>Click <strong>Edit</strong>, check the <strong>SAML Enabled</strong> box to enable the use of SAML Single-Sign On, then click <strong>Save</strong>.</p>
+
+    <p><img src="images/apps/salesforce_new1.png" alt="salesforce_new1.png" /></p>
+
+<p>Next, in the list at the bottom of your page, select <strong>New</strong> to add a new SAML Single-Sign On configuration. A <strong>SAML Single Sign-On Setting Detail</strong> page will open, enter the following information (an example of the page is shown here):</p>
+
+<p><img src="images/apps/bling.png" alt="bling.png" /></p>
+
+
     <ol>
-        <li>
-            <p>Check <strong>SAML Enabled</strong> and a form will display</p>
-        </li>
-        <li>
-            <p>Set the <strong>SAML Version</strong> to <strong>2.0</strong></p>
-        </li>
-        <li>
-            <p>If you have Multiple End-points enabled, the configuration page may ask you to setup a&nbsp;<strong>Name</strong>&nbsp;and&nbsp;<strong>API Name</strong>. Set these values according to your preference.</p>
-        </li>
-        <li>
-            <p>Download your Okta Identity Provider Certificate then upload it in the <strong>Identity Provider Certificate</strong> field</p>
-            <kbd id="downloadCertificate">Sign into the Okta Admin dashboard to generate this value</kbd></li>
-        <li>
-            <p>Copy and paste the following key into <strong>Issuer</strong>:</p>
-            <kbd id="issuer">Sign into the Okta Admin dashboard to generate this value</kbd></li>
-        <li>
-            <p><strong>(Optional)</strong> Copy and paste the following URL into <strong>Identity Provider Login URL</strong>:</p>
-            <kbd id="signOnUrl">Sign into the Okta Admin dashboard to generate this value</kbd>
-            <p>This URL will authenticate your users when they attempt to log in directly to Salesforce or click on a deep link in Salesforce and are not currently authenticated.</p>
-        </li>
-        <li>
-            <p><strong>(Optional)</strong> Copy and paste the following URL into <strong>Identity Provider Logout URL</strong>:</p>
-            <kbd id="signOutUrl">Sign into the Okta Admin dashboard to generate this value</kbd>
-            <p>This URL sends your users to their Okta home page when they log out of Salesforce.</p>
-        </li>
-        <li>
-            <p>Set the <strong>SAML User ID Type/SAML Identity Type</strong> to <strong>Assertion contains User's salesforce.com username</strong></p>
-        </li>
-        <li>
-            <p>Set the <strong>SAML User ID Location/SAML Identity Location</strong> to <strong>User ID/identity is in the NameIdentifier element of the Subject statement</strong></p>
-        </li>
-        <li>
-            <p>For<strong>&nbsp;Entity ID</strong>,&nbsp;</p>
-        </li>
-        <ul>
-            <li>If you have a custom domain setup, use<strong>&nbsp;https://&lt;customDomain&gt;.my.salesforce.com</strong>.</li>
-            <li>If you do not have a custom domain setup, use&nbsp;<strong><a style="text-decoration: none; color: black;" onclick="return false;">https://saml.salesforce.com</a></strong>.</li>
-        </ul>
-        <li>For <strong>Service Provider Initiated Request Binding</strong>, select <strong>HTTP POST&nbsp;</strong><em>(Depending on the Salesforce environment you are in, you may or may not be asked for this value)</em></li>
-        <li>
-            <p>Click <strong>Save</strong></p>
-        </li>
-        <li>Look for the&nbsp;<strong>Salesforce Login URL</strong>&nbsp;which will appear after clicking&nbsp;Save.<br /><br /><img src="images/apps/bling.png" alt="bling.png" /></li>
-        <li>In Okta, go to the Sign On tab of the app Configuration page shown below, and enter the <strong>Salesforce Login URL</strong> in the <strong>Login URL</strong> field.&nbsp;<br /><br /><img src="images/apps/Screen+Shot+2013-12-17+at+4.51.02+PM.png" alt="Screen_Shot_2013-12-17_at_4.51.02_PM.png" /></li>
-        <li>If you are using a custom domain, then enter that value in the <strong>Custom Domain</strong> field in Okta, otherwise leave it blank.</li>
-        <li>Click Save.&nbsp;</li>
-        <li>Done!</li>
+<li>
+            <p><strong>Name</strong>: Enter a name of your choice.</p>
+        </li>       
+
+<li>
+            <p><strong>API Name</strong>: Enter an API name of your choice.</p>
+        </li>    
+
+<li><p><strong>SAML Version</strong>: Make sure this is set to <strong>2.0</strong>. This should be enabled by default.</p> </li>     
+
+ <li><p><strong>Issuer</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin dashboard to generate this value</kbd></p>
+</li>
+
+<li><p><strong>Identity Provider Certificate</strong>: Download, then upload the following certificate into this field:</p>
+<p><kbd id="downloadCertificate">Sign into the Okta Admin dashboard to generate this value</kbd></p></li>
+<li>
+        
+<li><p>Set the <strong>SAML User ID Type</strong>/<strong>SAML Identity Type</strong> to <strong>Assertion contains User's salesforce.com username</strong>.</p></li>
+
+
+<li><p>Set the <strong>SAML User ID Location</strong>/<strong>SAML Identity Location</strong> to <strong>User ID/identity is in the NameIdentifier element of the Subject statement</strong>.</p></li>
+
+
+<li><p><strong>Service Provider Initiated Request Binding</strong>: Select <strong>HTTP POST</strong> (depending on the Salesforce environment you are in, you may or may not be asked for this value).</p></li>
+
+
+<li><p><strong>Identity Provider Login URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin dashboard to generate this value</kbd></p>
+<p>This URL will authenticate your users when they attempt to log in directly to Salesforce or click on a deep link in Salesforce and are not currently authenticated. This is required if you want to enable SP-Initated SAML authentication.</p></li>
+
+<li><p><strong>Identity Provider Logout URL</strong>: Optional. Copy and paste the following:</p>
+<p><kbd id="signOutUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p></li>
+
+
+<li><p><strong>Entity ID</strong>:</p>
+<ul>
+<li><p>If you have a custom domain setup, use <strong>https://[customDomain].my.salesforce.com</strong>.</p></li>
+<li><p>If you do not have a custom domain setup, use <strong>https://saml.salesforce.com</strong>.</p></li>
+
+</ul>
+</li>
+
+<li><p>Click <strong>Save</strong>.</p></li>
+
+<li><p>Make note of the <strong>Salesforce Login URL</strong> that will appear after you click <strong>Save</strong>.</p></li>
+
+
+
+<li><p>In Okta, select the <strong>Sign On</strong> tab for the Salesforce app, then click <strong>Edit</strong>.</p>
+<ul>
+<li><p>Enter the <strong>Salesforce Login URL</strong> into the <strong>Login URL</strong> field.</p></li>
+
+<li><p>If you are using a custom domain, then enter that value into the <strong>Custom Domain</strong> field, otherwise leave it blank.</p></li>
+
+<li><p>Click <strong>Save</strong>.</p></li>
+</ul>
+<img src="images/apps/Screen+Shot+2013-12-17+at+4.51.02+PM.png" alt="Screen_Shot_2013-12-17_at_4.51.02_PM.png" />
+</li>
+
+<li>Done!</li>
     </ol><br />
+
+
+
+
+
+<h2>How to Configure SP-Initiated SAML between Salesforce and Okta</h2><p>By completing the steps above, your users will be able to access SalesForce from a single click on the Okta User Dashboard. This process of logging into Salesforce or other cloud apps from Okta is known as IDP-Initiated SAML. However, if at any point your users navigate directly to Salesforce, or click any deep links that directs them to SalesForce first instead of Okta, they won’t be given the same single-sign on experience unless SP-Initiated SAML is also configured. This is an optional configuration. Use the steps below to set up SP-Initiated SAML.</p>
+
+
+
+<h3>Setting up My Domain in SalesForce</h3><p>Use of SP-Initiated SAML requires your SalesForce instance to be setup with a customized domain name specific to your company. In Salesforce, these are referred to as <strong>My Domains</strong>. To add a My Domain:</p>
+
+<ol>
+<li><p>In Salesforce, click <strong>Setup</strong>.</p></li><li><p>Click <strong>Domain Management</strong> to open the sub-menu.</p></li><li><p>Click <strong>My Domain</strong>.</p>
+<p><img src="images/apps/salesforce_new2.png" alt="salesforce_new2.png" /></p>
+</li>
+<li><p>Provide a name for your org, check availability, then choose <strong>Register Domain</strong>.</p></li>
+
+
+<li><p>At this point your new org name in SalesForce (<strong>https://[orgname].my.salesforce.com</strong>) will be published to the internet and should become widely available for use within 12-24 hours. You can test this by trying to navigate to your new org name in a browser window.</p></li>
+</ol>
+
+
+<h3>Reconfiguring Single Sign-On Settings</h3><p>While your new <strong>My Domain</strong> is being setup, you can make some configuration changes to your SalesForce and Okta single-sign on settings to use your new <strong>My Domain</strong> instead of the default values, as described here:</p>
+
+
+<ol>
+<li><p>In Salesforce, navigate back to <strong>Security Controls & Single Sign-On Settings</strong>.</p></li><li><p>Locate the configuration you set up previously from the list on the page, then click <strong>Edit</strong>.</p>
+<p><img src="images/apps/salesforce_new3.png" alt="salesforce_new3.png" /></p>
+</li>
+
+<li><p>From here change the <strong>Entity ID</strong> field:</p>
+<ul><li><p>From: <strong>https://saml.salesforce.com</strong>.</p></li><li><p>To: <strong>https://[customDomain].my.salesforce.com</strong>, using the domain URL you just created.</p></li>
+</ul>
+</li>
+
+<li><p>Navigate to the Okta Admin Console and locate your <strong>SalesForce</strong> configuration.</p></li>
+<li><p>Select the <strong>SSO</strong> tab.</p>
+<p><img src="images/apps/salesforce_new4.png" alt="salesforce_new4.png" /></p>
+
+</li>
+
+<li><p>Make sure that the <strong>Login URL</strong> matches the login URL provided in SalesForce on the <strong>Single-Sign On Settings</strong> tab.</p></li>
+
+<li><p>Make sure that the <strong>Custom Domain</strong> field matches the name of the custom domain you have created.</p>
+<p>If your domain is <strong>acme.my.salesforce.com</strong>, enter <strong>acme</strong>.</p>
+</li>
+<li><p>Click <strong>Save</strong>.</p></li>
+</ol>
+
+<h3>Choosing Okta as the Default Authentication Service</h3><p>Once your <strong>My Domain</strong> is live, you’ll be able to specify Okta as the default preferred Authentication Service each time users navigate to your specific domain.</p><ol><li><p>In Salesforce, navigate back to <strong>Domain Management > My Domains</strong>.</p></li><li><p>Under <strong>Authentication Configuration</strong>, click <strong>Edit</strong>.</p></li><li><p>In the <strong>Authentication Service</strong> drop down menu, check the box next to the Okta instance you’ve set up in single-sign on settings.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+</ol><h3>Verifying SP-Initiated SAML</h3><p>With configuration now complete, you can easily verify that SP-Initiated SAML has been properly configured.Simply navigate to your Salesforce Domain URL and you should be redirected to the Okta sign-on page for your org. Authenticating into Okta with a user assigned to Salesforce should then provide you access to SalesForce.</p>
+
+
+
+
+
     <h2>How to Configure Delegated Authentication in Salesforce (optional)</h2>
     <div class="okta-callout okta-info">
         <span class="icon-24 icon-info"></span>
