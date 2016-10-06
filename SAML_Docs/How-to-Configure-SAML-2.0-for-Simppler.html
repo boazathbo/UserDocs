@@ -35,35 +35,30 @@ try{Typekit.load();}catch(e){}
         </div>
     </div>
 <div class="okta-instructions">
-<h1>How to Configure SAML 2.0 for Aspera Faspex V3</h1>
+<h1>How to Configure SAML 2.0 for Simppler</h1>
 <div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
 <p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
 </div>
-<br />
-<p>Follow the instructions below to configure SAML 2.0 for Aspera Faspex V3</p>
+
 <ol>
 
-<li><p>Contact your Aspera Faspex administrators, or follow the <a href="http://downloads.asperasoft.com/en/downloads/6" target="_blank">Aspera Faspex Admin Guide</a> to enable SAML 2.0 integration.</p></li>
+<li><p>Contact the Simppler Support team at <a href="mailto:support@simppler.com" target="_blank">support@simppler.com</a> and request that they enable SAML 2.0 for your account.</p></li>
+<li><p>Include the following IDP Metadata with your request:</p>
+<p><kbd id="metadataUrl"> Sign into the Okta Admin dashboard to generate this value.</kbd></p>
 
-<li><p>Follow the instructions <a href="https://download.asperasoft.com/download/docs/faspex/4.0.1/admin_linux/webhelp/index.html#dita/saml_config.html" target="_blank">here</a> to configure SAML integration with Okta on Aspera's side.</p></li>
-
-
-<li><p>Use the following <strong>IdP Metadata</strong>:</p>
-<pre id="idpMetadata">Sign in to Okta Admin app to have this variable generated for you.</pre>
 </li>
 
+<li><p>The Simppler Support team will process your request and will provide you with their URL in the following format:</p>
+<p><strong>https://www.simppler.com/auth/saml/sso/[customer-uid]</strong></p></li>
 
 
 
-
-
-<li><p>In Okta, select the <strong>General</strong> tab for the Aspera app, then click <strong>Edit</strong>.</p>
+<li><p>In Okta, select the <strong>General</strong> tab for the Simppler app, then click <strong>Edit</strong>.</p>
 <ul>
-<li><p>Enter the <strong>LabelDomain</strong> or <strong>Base URL</strong> used by your org.</p></li>
+<li><p>Enter the <strong>customer-uid</strong> provided by Simppler into the <strong>UID</strong> field.</p></li>
 <li><p>Click <strong>Save</strong>.</p></li>
-
 </ul>
-<p><img border="1" src="images/apps/aspera-v3-1.png" alt="aspera-v3-1.png" /></p>
+<p><img border="1" src="images/apps/simppler1.png" alt="simppler1.png" /></p>
 
 </li>
 
@@ -74,6 +69,19 @@ try{Typekit.load();}catch(e){}
 <br />
 <p><b>Notes:</b></p>
 <p>SP-initiated flows, IDP-initiated flows, and Just In Time (JIT) provisioning are all supported.</p>
+
+<br />
+<h3>For SP-inititated Flows:</h3>
+
+<ol>
+<li><p>Go to <a href="https://www.simppler.com/home" target="_blank">https://www.simppler.com/home</a></p></li>
+<li><p>Enter your email address.</p></li>
+
+<li><p>Click <strong>Email me a link to sign in:</strong>.</p>
+<p><img border="1" src="images/apps/simppler2.png" alt="simppler2.png" /></p>
+
+</li>
+
 
 </div>
 </body>

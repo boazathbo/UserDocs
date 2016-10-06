@@ -35,37 +35,49 @@ try{Typekit.load();}catch(e){}
         </div>
     </div>
 <div class="okta-instructions">
-<h1>How to Configure SAML 2.0 for Aspera Faspex V3</h1>
+<h1>How to Configure SAML 2.0 for Anodot</h1>
 <div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
 <p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
 </div>
-<br />
-<p>Follow the instructions below to configure SAML 2.0 for Aspera Faspex V3</p>
 <ol>
 
-<li><p>Contact your Aspera Faspex administrators, or follow the <a href="http://downloads.asperasoft.com/en/downloads/6" target="_blank">Aspera Faspex Admin Guide</a> to enable SAML 2.0 integration.</p></li>
-
-<li><p>Follow the instructions <a href="https://download.asperasoft.com/download/docs/faspex/4.0.1/admin_linux/webhelp/index.html#dita/saml_config.html" target="_blank">here</a> to configure SAML integration with Okta on Aspera's side.</p></li>
 
 
-<li><p>Use the following <strong>IdP Metadata</strong>:</p>
-<pre id="idpMetadata">Sign in to Okta Admin app to have this variable generated for you.</pre>
+<li><p>Log in to your Favro account as an Administrator.</p></li>
+
+<li><p>Click <strong>App selection</strong>, then select <strong>Enterprise</strong>:</p>
+<p><img border="1" src="images/apps/favro1.png" alt="favro1.png" /></p>
+</li>
+
+<li><p>Click <strong>New configuration</strong>:</p>
+<p><img border="1" src="images/apps/favro2.png" alt="favro2.png" /></p>
 </li>
 
 
 
-
-
-
-<li><p>In Okta, select the <strong>General</strong> tab for the Aspera app, then click <strong>Edit</strong>.</p>
+<li><p>Enter the following (see screen shot at end of step for reference):</p>
 <ul>
-<li><p>Enter the <strong>LabelDomain</strong> or <strong>Base URL</strong> used by your org.</p></li>
-<li><p>Click <strong>Save</strong>.</p></li>
+<li><p><strong>DOMAIN NAME</strong>: Enter your domain name.</p></li>
+<li><p><strong>SAML LOGIN URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p><strong>SAML LOGOUT URL</strong>: Copy and paste the following:</p>
+<p><kbd id="signOutUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
 
+
+<li><p><strong>SAML IDENTITY PROVIDER CERTIFICATE</strong>: Copy and paste the following (in PEM text format):</p>
+<pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre>
+</li>
+
+<li><p>Click <strong>Save settings</strong>.</p></li>
 </ul>
-<p><img border="1" src="images/apps/aspera-v3-1.png" alt="aspera-v3-1.png" /></p>
+<p><img border="1" src="images/apps/favro3.png" alt=“favro3.png" /></p>
 
 </li>
+
+<li><p>Follow the DNS verification instructions provided.</p></li>
+
 
 <li><p>Done!</p> 
 </ol>
@@ -73,7 +85,10 @@ try{Typekit.load();}catch(e){}
 
 <br />
 <p><b>Notes:</b></p>
-<p>SP-initiated flows, IDP-initiated flows, and Just In Time (JIT) provisioning are all supported.</p>
+<p>SP-initiated flows and Just In Time (JIT) provisioning are supported.</p>
+<p>IDP-initiated flows are not supported.</p>
+
+
 
 </div>
 </body>
