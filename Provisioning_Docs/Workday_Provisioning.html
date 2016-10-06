@@ -60,7 +60,18 @@ try{Typekit.load();}catch(e){}
 <li><a href="#WDgroups">Workday Provisioning Groups</a></li>
 <li><a href="#attributes">Attribute Mappings and Active Directory</a></li>
 <li><a href="#realtime">Real Time Sync</a></li>
-<li><a href="#writeback">Writeback Feature</a></li>
+<li><a href="#writeback">Writeback Feature</a>
+<ul>
+<li><a href="#writeback_overview">Overview</a></li>
+<li><a href="#writeback_prerequisites">Prerequisites</a></li>
+<li><a href="#writeback_workday_setup">Workday Setup</a></li>
+<li><a href="#writeback_okta_setup">Okta Setup</a></li>
+
+
+
+</ul>
+
+</li>
 </ul>
 <hr>
 
@@ -123,7 +134,7 @@ try{Typekit.load();}catch(e){}
 <a name="Requirements"></a><h2>Requirements</h2>
 <p>Before configuring provisioning in Okta, you need to do the following:</p>
 
-<H3>Creating an Integrator System User in Workday</h3>
+<a name="integrator_system_user"></a><H3>Creating an Integrator System User in Workday</h3>
 <p>Okta accesses the Workday APIs with a special type of Workday user known as an <em>integration system user</em>. To create one, type <em>create integration system user</em> in the <strong>Search</strong> bar and select the resulting task. Follow the directions to create a username and password.</p>
 
 
@@ -495,7 +506,18 @@ profile and the AD user profile. This allows attributes to flow from Workday to 
 <hr>
 <a name="writeback"></a><h2>Writeback Feature</h2>
 
-<h3>Overview</h3>
+<p>This Writeback section contains the following topics:</p>
+<ul>
+<li><a href="#writeback_overview">Overview</a></li>
+<li><a href="#writeback_prerequisites">Prerequisites</a></li>
+<li><a href="#writeback_workday_setup">Workday Setup</a></li>
+<li><a href="#writeback_okta_setup">Okta Setup</a></li>
+
+
+
+</ul>
+
+<a name="writeback_overview"></a><h3>Overview</h3>
 <p>We have added the ability to write back email and phone number attributes to Workday.</p>
 <p>Previously, Okta could not update Workday Attributes. With this new <em>writeback</em> feature, we allow Okta, as well as Active Directory, or any other Profile Master to update <strong>Phone Number</strong> and <strong>Email</strong> Workday attributes. Note that no other Workday attributes are supported at this time.</p>
 
@@ -508,17 +530,53 @@ profile and the AD user profile. This allows attributes to flow from Workday to 
 
 <p>Contact Okta Support for assistance.</p>
 
-<h3>Prerequisites</h3>
+<a name="writeback_prerequisites"></a><h3>Prerequisites</h3>
 
 
 <p>Set up provisioning for Workday, as described earlier in this document, starting with  <a href="#Requirements">Configuring Provisioning for Workday - Requirements</a>.
-
-
-
 </p>
 
+<a name="writeback_workday_setup"></a><h3>Workday Setup </h3>
 
-<h3>Okta Setup </h3>
+<p>In order for the writeback feature to work successfully, you need to give additional required permissions to the integration system user/System Group listed below then activate those permissions, as described below:</p>
+
+<ol>
+<li><p><strong>Domain Security Policy Permissions</strong>.</p>
+
+<ul>
+
+<li>Follow steps a-e (part of step 6) of <a href="#integrator_system_user">Creating an Integrator System User in Workday</a> for the following domains:</p>
+<ul>
+<li><p><strong>"Worker Data: Personal Information" – Get and Put</strong></p>
+<li><p><strong>"Worker Data: Public Worker Reports" – Get and Put</strong></p>
+</ul>
+</li>
+
+</ul>
+</li>
+
+
+<li><p><strong>Business Process Security Policy Permissions</strong>.</p>
+<ul>
+<li><p>Search for <strong>bp:contact change</strong>, then edit the <strong>Business Process Policy</strong>:</p>
+<p><img src="images/apps/workday_writeback1.png" alt="workday_writeback1.png" /></p>
+</li>
+<li><p>Assign the Integrator System User’s security group created in step 2 of <a href="#integrator_system_user">Creating an Integrator System User in Workday</a> to <strong>Initiating Action: Maintain Contact Information (Web Service)</strong>:</p>
+<p><img src="images/apps/workday_writeback2.png" alt="workday_writeback2.png" /></p>
+</li>
+</ul>
+</li>
+
+<li><p>Follow step 7 in <a href="#integrator_system_user">Creating an Integrator System User in Workday</a> to activate the above security policies mentioned in Requirements under Creating an Integrator System User in Workday.</p></li>
+
+</ol>
+
+
+
+
+
+
+<a name="writeback_okta_setup"></a><h3>Okta Setup </h3>
 
 <ol>
 <li><p>In Okta, open the Workday app, and navigate to the <strong>Provisioning</strong> tab:</p>
