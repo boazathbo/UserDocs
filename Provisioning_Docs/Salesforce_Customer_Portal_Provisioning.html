@@ -128,7 +128,9 @@ try{Typekit.load();}catch(e){}
 
 <li><p>Click <strong>Test API Credentials</strong>; if successful, a verification message appears at the top of the screen, as shown above.</p></li>
 
-<li><p>Scroll down and specify the type of <strong>Provisioning Features</strong> you want to enable:</p>
+<li><p>Scroll down and specify the type of <strong>Provisioning Features</strong> you want to enable.</p>
+
+<p><strong>Note</strong>: As part of provisioning each new portal user, Okta creates a new contact in Salesforce associated with the account you specify in the <strong>AccountID</strong> field. This new contact contains the user's name and email address. This contact is necessary because Portal users in Salesforce must be associated with a contact.</p>
 
 <p><img src="images/apps/salesforce_customer_portal2.png" alt=“salesforce__customer_portal2” /></p>
 

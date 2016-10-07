@@ -260,6 +260,9 @@ try{Typekit.load();}catch(e){}
 
 
 <li><p><strong>Configure Provisioning:</strong></p>
+
+<p><strong>Note</strong>: As part of provisioning each new Community user, Okta creates a new contact in Salesforce associated with the account you specify in the <strong>AccountID</strong> field. This new contact contains the user's name and email address. This contact is necessary because Community users in Salesforce must be associated with a contact.</p>
+
 <p>On the provisioning options screen there are additional configuration options: the type of Community users to import and the Salesforce Account ID for provisioned users.</p>
 <ul>
 
@@ -292,6 +295,8 @@ try{Typekit.load();}catch(e){}
 <p>You can optionally configure SAML 2.0 settings to allow Portal users to automatically login to Salesforce. Unlike the existing <strong>Salesforce Customer Portal</strong> app, a separate SAML configuration is used. Click <strong>View Setup Instructions</strong> and follow the SAML setup instructions. Set the <strong>Login URL</strong> to the <strong>Salesforce Login URL</strong>; you can find this on the Salesforce <strong>Single Sign-On Settings</strong> page under <strong>Endpoints</strong>.</p></li>
 
 <li><p><strong>Configure Provisioning:</strong></p>
+
+<p><strong>Note</strong>: As part of provisioning each new Portal user, Okta creates a new contact in Salesforce associated with the account you specify in the <strong>AccountID</strong> field. This new contact contains the user's name and email address. This contact is necessary because Portal users in Salesforce must be associated with a contact.</p>
 <p>On the provisioning options screen there are additional configuration options: the type of Portal users to import and the Salesforce Account ID for provisioned users.</p>
 <ul>
 
