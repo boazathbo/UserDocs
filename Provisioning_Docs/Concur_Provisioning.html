@@ -22,9 +22,21 @@
 <div class="okta-instructions">
 
     <div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+    <p><b>Concur Provisioning Hold:</b> Due to recent customer issues, we are putting a temporary hold on customers setting up new Concur provisioning integrations. 
+    We are working with Concur to improve UD support for the Concur application integration and refine the migration path for existing customer implementations. 
+    This temporary hold applies to both the Early Access version, which supports Universal Directory/Rich Provisioning, and the Generally Available version.</p>
+
+    <p>If you have already requested Okta to enable the Early Access UD feature, please do not make the integration available to your end users. 
+    If you have a working integration in place, you can continue to use it as is, without making any modifications to the application.<p>
+
+   <p>We are actively working with Concur to resolve this situation. For questions and/or concerns about this delay, please contact Okta Support.<p>
+   </div>
+
+    <!-- Moved this to the Notes section, below until we remove the hold, above.
+    <div class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
         <p>To reconfigure any of the <strong>General Settings</strong> or <strong>Sign-On Options</strong>, uncheck the <strong>Enable provisioning features</strong> box, and use the <strong>Previous</strong> and <strong>Next</strong> buttons to navigate through the configuration screens.</p>
     </div>
-
+    -->
 
     <h1>Configuring Provisioning for Concur</h1>
 
@@ -40,6 +52,9 @@
 <p>PROV_CONCUR_CLOUD_DIRECTORY_ENABLE</p> 
 <p>You will have to create a new instance of the Concur application.</p></li>            
 
+<li>
+<p>To reconfigure any of the <strong>General Settings</strong> or <strong>Sign-On Options</strong>, uncheck the <strong>Enable provisioning features</strong> box, and use the <strong>Previous</strong> and <strong>Next</strong> buttons to navigate through the configuration screens.</p>
+</li>
 <li>
                 <p>The Provisioning capabilities for your Concur app depend upon factors such as your Concur tenant edition. Refer to the <a href="#limitations">Conditions</a> section below for more details.</p>
 <p>Additionally, your tenant may have Expense features that require employee data this is not capable of being populated by the current Concur User API, and therefore is not supported by the Okta User Provisioning application. If this is the case, you will be required to populate the additional data using Concur specified import files.</p>
