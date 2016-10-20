@@ -1,0 +1,55 @@
+<html>
+<head>
+<link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="../resources/js/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="../resources/js/jquery.min.js"></script>
+<script src="../resources/js/vkbeautify.js"></script>
+<title>Setup SSO</title>
+
+<script src="../resources/js/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="../resources/img/okta-logo-white.png" alt="Okta" />
+        </div>
+    </div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for OpsGenie</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+<li>Sign into OpsGenie as an <b>Admin</b>.</li>
+<li><p>In OpsGenie, go to the <b>Settings</b> tab, as shown below.</p>
+	<p><img src="images/apps/OpsGenie_1.png" alt="OpsGenie Settings Tab" /></p>
+</li>
+<li><p>Click <b>Single Sign-on</b> on the screen that opens, and then click <b>Okta</b>, as shown below.</p>
+	<p><img src="images/apps/OpsGenie_2.png" alt="OpsGenie Single Sign-on tab" /></p>
+</li>
+<li><p>In the screen that opens, copy and paste the following <b>SAML 2.0 Endpoint</b>, as shown in the following step.</p>
+	<p><kbd id="signOutUrl">Sign in to the Okta Admin app to generate this variable.</kbd></p>
+</li>
+<li><p>Copy and paste the following <b>x.509 Certificate</b>, as shown below.</p>
+	<p><kbd id=" x509CertText">Sign in to the Okta Admin app to generate this variable.</kbd></p>
+	<p><img src="images/apps/OpsGenie_3.png" alt="OpsGenie Enter SAML Endpoint and Certificate" /></p>
+</li>
+<li>Click <b>Save Changes</b>, as shown above. Copy the <b>Single sign on URL</b> that displays.</li>
+<li><p>In Okta, on the <b>General Tab</b> for the <em>OpsGenie</em> app in the <b>App Settings</b> section, 
+	paste the <b>Single sign on URL</b> that you copied in the previous step into the <b>Post Back URL</b> field, as shown below.</p>
+	 <p><img src="images/apps/OpsGenie_5.png" alt="OpsGenie App Settings Section in Okta" /></p>
+</li>
+<li>Click <b>Save Changes</b>.</li>
+<li><p>Done!</p>
+	<p><b>Notes:</b></p>
+	<p>IdP-initiated flows and Just in Time (JIT) provisioning are supported.</p>
+	<p>SP-inititated flows are not supported.</p>
+</li>
+</ol></div>
+</body>
+</html>
