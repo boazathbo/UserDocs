@@ -1,0 +1,112 @@
+<html>
+<head>
+    <link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="../resources/js/jff5neq.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        try{Typekit.load();}catch(e){}
+    </script>
+    <script src="../resources/js/jquery.min.js"></script>
+    <script src="../resources/js/vkbeautify.js"></script>
+
+    <title>Setup SSO</title>
+
+    <script src="../resources/js/getAppValues.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+    <div class="logo-container">
+        <img src="../resources/img/okta-logo-white.png" alt="Okta" />
+    </div>
+</div>
+<div class="okta-instructions">
+<h1>How to Configure SAML 2.0 for Cezanne</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+<li><p>In Okta, select the <strong>General</strong> tab for the Cezanne app, then click <strong>Edit</strong>.</p>
+<ul>
+<li><p>Enter the <strong>Company ID</strong> provided to you by Cezanne into the <strong>Company ID</strong> field.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+</ul>
+<p><img border="1" src="images/apps/cezanne1.png" alt="cezanne1.png" /></p>
+</li>
+
+
+<li><p>Login to your Cezanne account as an administrator.</p></li>
+
+<li><p>Navigate to <strong>System Setup > Security Settings > Single Sign-On Configuration</strong>:</p>
+<p><img border="1" src="images/apps/cezanne2.png" alt="cezanne2.png" /></p>
+</li>
+
+<li><p>Check the <strong>SAML 2.0</strong> box, then select <strong>Advanced Configuration</strong>:</p>
+<p><img border="1" src="images/apps/cezanne3.png" alt="cezanne3.png" /></p>
+</li>
+
+
+
+<li><p>Click <strong>Add New</strong>, then enter the following (see screen shot at the end of step for reference):</p>
+<ul>
+<li><p><strong>Display Name</strong>: Enter a display name, for example, <strong>Okta</strong>.</p></li>
+<li><p><strong>Entity Identifier</strong>: Copy and paste the following:</p>
+<p><kbd id="issuer">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p><strong>SAML Binding</strong>: Select <strong>POST</strong>.</p></li>
+<li><p><strong>Security Token Service Endpoint</strong>: Copy and paste the following:</p>
+<p><kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p><strong>Public Key Certificate</strong>: Download then upload the following certificate:</p>
+<p><kbd id="downloadCertificate">Sign into the Okta Admin Dashboard to generate this variable.</kbd></p>
+</li>
+<li><p>Click <strong>OK</strong> then <strong>Save</strong>.</p></li>
+
+
+</ul>
+<p><img border="1" src="images/apps/cezanne4.png" alt="cezanne4.png" /></p>
+</li>
+
+
+
+<li><p>You now need to associate Okta users with Cezanne users. Navigate to <strong>System Setup > Manage Users > User Settings</strong>:</p>
+<p><img border="1" src="images/apps/cezanne5.png" alt="cezanne5.png" /></p>
+</li>
+
+<li><p>Click <strong>Search</strong>.</p></li>
+
+<li><p>Select the user you want to update.</p></li>
+
+
+<li><p>Select the <strong>Single Sign-On</strong> tab then click <strong>Add New</strong> and enter the following (see screen shot at the end of step for reference):</p>
+<ul>
+<li><p><strong>Identity Provider</strong>: Select the identity provider’s name you setup in step 5 above.</p></li>
+<li><p><strong>User Identifier</strong>: Enter the user’s OKTA username.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+
+
+</ul>
+<p><img border="1" src="images/apps/cezanne6.png" alt="cezanne6.png" /></p>
+</li>
+
+
+
+
+
+
+<li><p>Done!</p></li>
+</ol>
+
+
+<br />
+<p><b>Notes:</b></p>
+<p>IDP-initiated flows are supported.</p>
+
+<p>SP-initiated flows and Just In Time (JIT) provisioning are not supported.</p>
+
+
+
+
+</div>
+</body>
+</html>
