@@ -20,32 +20,44 @@ try{Typekit.load();}catch(e){}
             <img src="../resources/img/okta-logo-white.png" alt="Okta" />
         </div>
     </div>
-<div class="okta-instructions">
-<h1>How to Configure SAML 2.0 for EventBoard</h1>
+<div class="okta-instructions">  
+<h1>How to Configure SAML 2.0 for Teem</h1>
 <div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
 <p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
 </div>
 <ol>
-<li>Send an email message to EventBoard support and request that they enable SAML for your organization.</li>
-<li>
-<p>Copy and paste the following <strong>Entity ID</strong> into the email message.</p>
+
+
+<li>Send an email message to the Teem support and request that they enable SAML for your organization.</li>
+
+<li><p>Copy and paste the following <strong>Entity ID</strong> into the email message:</p>
 <kbd id="issuer">Sign into the Okta Admin app to generate this variable.</kbd></li>
-<li><p>Copy and paste the following <strong>Sign-in URL</strong> into the email message.</p>
+
+<li><p>Copy and paste the following <strong>Sign-in URL</strong> into the email message:</p>
 <p><kbd id="signOnUrl">Sign into the Okta Admin app to generate this variable.</kbd></p></li>
+
 <li><p>Select the link below to download an <strong>x509 Certificate</strong>. Attach the downloaded certificate to the email message.</p>
-<p><kbd id="downloadCertificate">Sign in to the Okta Admin app to generate this link.</kbd></li></p>
+<p><kbd id="downloadCertificate">Sign in to the Okta Admin app to generate this link.</kbd></p></li>
 
 
-<li><span>EventBoard will process your request. When you receive a confirmation that SAML is enabled, you can start assigning users to the application.</li>
-<li><span><p>Done!</p><p><strong>Note:</strong> Only SP-initiated flows are supported. IdP-initiated flows and and Just In Time (JIT) provisioning are not supported.<p>
-<p>EventBoard only supports an SP-initiated flow. For the convenience of your end users, Okta recommends that you hide the EventBoard app and set up a <strong>Bookmark app</strong> with the EventBoard logo. For instructions on setting up a Bookmark app and hiding the original app, see <a href="http://saml-doc.okta.com/SAML_Docs/Simulating-an-IDP-initiated-Flow-with-the-Bookmark-App.html" target="_blank">Simulating an IDP-initiated Flow with the Bookmark App</a>.<p>
+<li><p>Teem will process your request. When you receive a confirmation that SAML is enabled, you can start assigning users to the application.</p></li>
+
+<li><p>Done!</p></li>
+
+</ol>
+
+<p><strong>Notes:</strong></p>
+
+<p>SP-initiated flows and Just In Time (JIT) provisioning are supported.</p> 
+<p>IdP-initiated flows are not supported.<p>
+
+
+<p>For the convenience of your end users, Okta recommends that you hide the Teem app and set up a <strong>Bookmark app</strong> with the Teem logo. For instructions on setting up a Bookmark app and hiding the original app, see <a href="http://saml-doc.okta.com/SAML_Docs/Simulating-an-IDP-initiated-Flow-with-the-Bookmark-App.html" target="_blank">Simulating an IDP-initiated Flow with the Bookmark App</a>.<p>
 
 <p>The link for an SP-initiated flow is: <strong>https://[yourSubDomain].eventboard.io/login/</strong>, where <em>[yourSubDomain]</em> is the domain you have already set up.
 </p>
 
 
-</li>
-</ol>
 </div>
 </body>
 </html>
