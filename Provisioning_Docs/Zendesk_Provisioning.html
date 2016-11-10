@@ -145,22 +145,37 @@ try{Typekit.load();}catch(e){}
 <hr>
 
 
-<a name="tips"</a><h2>Troubleshooting Tips</h2>
+<a name="tips"></a><h2>Troubleshooting Tips</h2>
 <ul>
+
 <li><p>In order to ensure that <strong>Sync Unique Password</strong> works for the Zendesk application, make sure you have enabled <strong>All admins to set passwords</strong>, as shown below (Zendesk Global section, Security > Settings):  </p>
 <p><img src="images/apps/zendesk_new1.png" alt=“zendesk_new1.png" /></p></li>
 
-</li>
+
 <li><p>If you are in the process of creating a Zendesk app instance with <strong>PROV_ZENDESK_ENABLE_UD</strong> provisioning feature turned on, you will encounter an error similar to the following during the app assignment flow.</p>
 <p><img src="images/apps/zendesk4.png" alt=“zendesk4.png" /></p>
 
 <p>The workaround for this is to first create the app instance without assigning it to any user/group. Once the app instance exists, you can then assign the app to the respective people by either:
+
 <ul>
 <li><p><strong>By User</strong>: From the Okta admin dashboard, navigate to <strong>Directory > People</strong> then assign apps to users.</p></li>
 <li><p><strong>By Application</strong>: From the Okta admin dashboard, navigate to <strong>Applications</strong> then assign apps to users.</p></li>
-
 </ul>
 </li>
+
+
+<li><p>If you get a phone validation error during creating/updating a user:</p>
+<p><img src="images/apps/zendesk_new_1.png" alt="zendesk_new_1.png" /></p>
+
+<p>You can only use <a href="https://support.zendesk.com/hc/en-us/articles/227730307-Phone-number-validation-is-a-new-option-on-accounts" target="_blank">E.164 phone format</a> for users or must disable phone validation in Zendesk side (<strong>Admin > Customers > Validate user phone numbers</strong>):</p>
+
+<p><img src="images/apps/zendesk_new_2.png" alt="zendesk_new_2.png" /></p>
+</li>
+
+
+
+
+</ul>
 
 </div>
 </body>
