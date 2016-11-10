@@ -24,6 +24,18 @@ try{Typekit.load();}catch(e){}
 <div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
 <p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
 </div>
+
+<div class="okta-callout okta-warning"><span class="icon-24 icon-warning"></span>
+<p><strong>Note</strong>:</p>
+<p>There are two OAN Jostle apps:</p>
+<ul>
+<li><p>Use the <strong>Jostle</strong> app if you do not have a custom Jostle subdomain and your login URL looks like this: <strong>https://[platform|us|ca|eu|ap].jostle.us/jostle-prod/</strong>.</p></li>
+<li><p>Use the <strong>Jostle with Subdomain</strong> app if you have a custom Jostle subdomain and your login URL looks like this: <strong>https://[yourSubDomain].jostle.us/jostle-prod/</strong>.</p></li>
+</ul>
+
+
+</div>
+<h2>Configuring SAML 2.0 for Jostle</h2>
 <ol>
 <li>
 <p dir="ltr">Copy the following <strong style="background-color: initial;">IDP Metadata</strong> into a text file. Save it with the file name <em style="background-color: initial;">metadata.xml</em>.</p>
