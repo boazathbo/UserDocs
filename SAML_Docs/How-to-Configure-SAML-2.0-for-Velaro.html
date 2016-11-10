@@ -1,0 +1,86 @@
+<html>
+<head>
+<link href="../resources/css/doc-style.css" media="all" rel="stylesheet" type="text/css" />
+<script src="../resources/js/jff5neq.js" type="text/javascript"></script>
+<script type="text/javascript">
+try{Typekit.load();}catch(e){}
+</script>
+<script src="../resources/js/jquery.min.js"></script>
+    <script src="../resources/js/vkbeautify.js"></script>
+
+<title>Setup SSO</title>
+
+<script src="../resources/js/getAppValues.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div class="header clearfix">
+        <div class="logo-container">
+            <img src="../resources/img/okta-logo-white.png" alt="Okta" />
+        </div> 
+    </div>
+<div class="okta-instructions">  
+<h1>How to Configure SAML 2.0 for Velaro</h1>
+<div id="loginAdminApp" class="okta-callout okta-error" style="display: none;"><span class="icon-24 icon-error"></span>
+<p>This setup might fail without parameter values that are customized for your organization. Please use the Okta Administrator Dashboard to add an application and view the values that are specific for your organization.</p>
+</div>
+<ol>
+
+
+<li><p>Log in to Velaro as an administrator.</p></li>
+<li><p>Navigate to <strong>Account Setup > Account > Integrations</strong>.</p></li>
+<li><p>Search for the <strong>Okta</strong> integration</p></li>
+<li><p>Click <strong>Install</strong>.</p></li>
+
+<p><img border="1" src="images/apps/velaro1.png" alt="velaro1.png" /></p>
+
+<li><p>Enter the following information:</p>
+
+<ul>
+
+
+
+
+
+
+<li><p><strong>Identity Provider SSO URL</strong>: Copy and paste the following:</p>
+<kbd id="signOnUrl">Sign into the Okta Admin Dashboard to generate this variable.</kbd>
+</li>
+
+<li><p><strong>X.509 Certificate</strong>: Copy and paste the following (in PEM text format):</p>
+<pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre>
+</li>
+
+<li><p>Click <strong>Enable SSO</strong></p></li>
+</ul>
+<p><img border="1" src="images/apps/velaro2.png" alt="velaro2.png" /></p>
+</li>
+
+
+<li><p>Done!</p></li>
+
+</ol>
+<br />
+
+<p><strong>Notes:</strong></p>
+
+<p>SP-initiated flows and IdP-initiated flows are supported.</p> 
+<p>Just In Time (JIT) provisioning is not supported.
+
+<H3>For SP-initiated Flows</h3>
+
+<ol>
+<li><p>Open the following URL: <a href="https://app.velaro.com/account/login" target="_blank">https://app.velaro.com/account/login</a></p></li>
+<li><p>Click <strong>SSO User?</strong>.</p></li>
+<li><p>Enter your <strong>Email Address</strong>.</p></li>
+<li><p>Click <strong>Continue</strong>.</p></li>
+
+<p><img border="1" src="images/apps/velaro3.png" alt="velaro3.png" /></p>
+
+
+</ol>
+
+</div>
+</body>
+</html>
