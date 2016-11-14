@@ -48,7 +48,7 @@ code {
 <li><p><strong>IDP Metadata URL</strong>: Copy and paste the following URL:</p>
 <p><kbd id="metadataUrl">Sign in to the Okta Admin app to have this variable generated for you</kbd></p>
 </li>
-<li><p><strong>Certificate</strong>: Copy and paste the following certificate. Also make a copy and save this file, you will need to enter it into Okta later.</p>
+<li><p><strong>Certificate</strong>: Copy and paste the following certificate:</p>
 <pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre>
 
 </li>
@@ -78,7 +78,46 @@ code {
 <ul>
 <li><p>Check the <strong>Enable Single Logout</strong> box.</p></li>
 
-<li><p>Click <strong>Browse</strong> and locate and upload the <strong>x.509 certificate</strong> you saved earlier (see step 2).</p></li>
+<li><p>Save the following <strong>x.509 Certificate</strong>, then click <strong>Browse</strong> to locate it and then upload it:</p>
+<pre>-----BEGIN CERTIFICATE-----
+MIIGezCCBWOgAwIBAgIQGGpdb2uGGBPi9/qC+0+yjTANBgkqhkiG9w0BAQsFADBC
+MQswCQYDVQQGEwJVUzEWMBQGA1UEChMNR2VvVHJ1c3QgSW5jLjEbMBkGA1UEAxMS
+UmFwaWRTU0wgU0hBMjU2IENBMB4XDTE2MTAyNTAwMDAwMFoXDTE5MTExOTIzNTk1
+OVowITEfMB0GA1UEAwwWKi5pbmdlbml1eG9uZGVtYW5kLmNvbTCCASIwDQYJKoZI
+hvcNAQEBBQADggEPADCCAQoCggEBAMXNiL3mYBkBdjAb+VGOX6nWSy/HyhH7hFll
+zMP+X077Z+0M2P2UkIFNbh4GigmqBUeENXuEMTm5zC9qkolB2kke6dVqw/J9EWV0
+AMvX0iYKQfDBRUIPs8cau0uVPTxhW+J5q7a/A5kxC8v93f5mPlsLikfRmCyj5aY3
+STbWzoNW53nuJMXEDflyTP6jtED1zpm/1sgwnHxI39um6ZEdWsDdy1MMsVDu5nuP
+bCmyAZat+MMvG9Ra1EQEPwpFeHgMFokPgHZKs/qT4qWKlLBEEnd50lTQLZAb5Lgq
+bwOpEIosRJdMOp6DlrQUYbpHZydA5kt5mNBTeCvjDSTJOpXgH3UCAwEAAaOCA4ww
+ggOIMDcGA1UdEQQwMC6CFiouaW5nZW5pdXhvbmRlbWFuZC5jb22CFGluZ2VuaXV4
+b25kZW1hbmQuY29tMAkGA1UdEwQCMAAwKwYDVR0fBCQwIjAgoB6gHIYaaHR0cDov
+L2dwLnN5bWNiLmNvbS9ncC5jcmwwbwYDVR0gBGgwZjBkBgZngQwBAgEwWjAqBggr
+BgEFBQcCARYeaHR0cHM6Ly93d3cucmFwaWRzc2wuY29tL2xlZ2FsMCwGCCsGAQUF
+BwICMCAMHmh0dHBzOi8vd3d3LnJhcGlkc3NsLmNvbS9sZWdhbDAfBgNVHSMEGDAW
+gBSXwidQnsLJ7AyIMsh8reKmAU/abzAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYw
+FAYIKwYBBQUHAwEGCCsGAQUFBwMCMFcGCCsGAQUFBwEBBEswSTAfBggrBgEFBQcw
+AYYTaHR0cDovL2dwLnN5bWNkLmNvbTAmBggrBgEFBQcwAoYaaHR0cDovL2dwLnN5
+bWNiLmNvbS9ncC5jcnQwggH5BgorBgEEAdZ5AgQCBIIB6QSCAeUB4wB3AN3rHSt6
+DU+mIIuBrYFocH4ujp0B1VyIjT0RxM227L7MAAABV/zEzIIAAAQDAEgwRgIhAK2E
+9Exc6zEheYVmdORtLhwG9AXBO7Veqok9B/DrWu6LAiEAwXq69E/buEacd4Iu1Le9
+WFQexINhHQTdQcjsuBpox1UAdwBo9pj4H2SCvjqM7rkoHUz8cVFdZ5PURNEKZ6y7
+T0/7xAAAAVf8xMylAAAEAwBIMEYCIQD+lNHtPBBCrjJIWTuIv08a/SXRbH7qgjLv
+RxKwYLcCFAIhAKJcMD93lL22t3FOHoF6F15RWGfyBwGq0r7b2EIxLOPXAHYA7ku9
+t3XOYLrhQmkfq+GeZqMPfl+wctiDAMR7iXqo/csAAAFX/MTM2AAABAMARzBFAiBx
+js99murFgPBxBaaMbW+IkbI31YBQR2WaauQCiCYQtAIhAN+Cm/bjRiidna11n0Sc
+jpJGvZv3+x+Yaksh5UK0mjAKAHcAvHjh38X2PGhGSTNNoQ+hXwl5aSAJwIG08/aR
+fz7ZuKUAAAFX/MTNawAABAMASDBGAiEApLJxWRR9uBsOoebMng5KkN+/9dHSbgt1
+u+pWMxCFYlgCIQDByopV8QWylGXWZxD0sthbdBl1NyQyR0yIJJd2xjOqjjANBgkq
+hkiG9w0BAQsFAAOCAQEAHw8/VBhvta4i77S8msVADL/Qu5Dcrs/O6emNmrEhszEu
+OCgPLBfm66ta2fIbCD+F5QUT5nGhZKxjhGfcndtGv3JNmBLNh1Nh+FbJp9pD+bB9
+sUxBYkjJu/JxIQZuFgiqH5frD10NcWMsd8wTUuYj0Whdu2AlWOMrLhKdVHQLDKxX
+ipQFY/qJEObPG6Pvs4r+HyNGxCFISCSW7PQIYWJfBRNmf2/JY5OSnIC9S76fna6M
+BsOWdtbKaFlutFabm4uWQPIAhEgE842JCO3PgKDGGlXT8pyTBsD3cFoFv0oBy08A
+Nvl2hOkf03AR0Khq/My9qd+x2rtURR+vFckbI12vMg==
+-----END CERTIFICATE-----
+</pre>
+</li>
 
 <li><p>Click <strong>Save</strong>.</p></li>
 
