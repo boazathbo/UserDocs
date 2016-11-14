@@ -48,7 +48,7 @@ code {
 <li><p><strong>IDP Metadata URL</strong>: Copy and paste the following URL:</p>
 <p><kbd id="metadataUrl">Sign in to the Okta Admin app to have this variable generated for you</kbd></p>
 </li>
-<li><p><strong>Certificate</strong>: Copy and paste the following:</p>
+<li><p><strong>Certificate</strong>: Copy and paste the following certificate. Also make a copy and save this file, you will need to enter it into Okta later.</p>
 <pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre>
 
 </li>
@@ -71,16 +71,14 @@ code {
 <p><img style="border: 0; padding: 0;" src="images/apps/ingeniux1.png" alt=“ingeniux1.png" /></p>
 </ul>
 
-<li><p>Copy and save the following x.509 Certificate (PEM Text format):</p>
-<pre id="x509CertTextPem">Sign into the Okta Admin Dashboard to generate this variable.</pre>
-</li>
+
 
 <li><p>Still in Okta, select the <strong>Sign On</strong> tab for the Ingeniux app, then click <strong>Edit</strong>.</p>
 
 <ul>
 <li><p>Check the <strong>Enable Single Logout</strong> box.</p></li>
 
-<li><p>Click <strong>Browse</strong> and locate and upload the x.509 certificate you saved.</p></li>
+<li><p>Click <strong>Browse</strong> and locate and upload the <strong>x.509 certificate</strong> you saved earlier (see step 2).</p></li>
 
 <li><p>Click <strong>Save</strong>.</p></li>
 
